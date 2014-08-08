@@ -1,5 +1,7 @@
 
 
+composer require gpupo/common-schema:dev-master
+
 ## Contributors
 
 * [@gpupo](https://github.com/gpupo)
