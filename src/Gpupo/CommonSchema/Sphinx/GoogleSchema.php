@@ -5,6 +5,10 @@ namespace Gpupo\CommonSchema\Sphinx;
 use Gpupo\CommonSchema\SchemaAbstract;
 use Gpupo\CommonSchema\SchemaInterface;
 
+
+/**
+ * Products Feed Specification https://support.google.com/merchants/answer/188494?hl=pt-BR
+ */
 class GoogleSchema extends SchemaAbstract implements SchemaInterface
 {
     public $field = array(
@@ -18,6 +22,7 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
         'size'                      => array('attr' => 'string'),
         'color'                     => array('attr' => 'string'),
         'gender'                    => array('attr' => 'string'),
+        'availability'              => array('attr' => 'string'),
     );
 
     public $attr = array(
@@ -29,7 +34,6 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
         'mpn'                       => array('type' => 'string'),
         'image_link'                => array('type' => 'string'),
         'condition'                 => array('type' => 'string'),
-        'availability'              => array('type' => 'string'),
         'age_group'                 => array('type' => 'string'),
         'shipping_weight'           => array('type' => 'string'),
         //'adwords_redirect'          => array('type' => 'string'),
@@ -48,7 +52,6 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
         'product_review_count'      => 'review_count',
         'product_review_average'    => 'review_average',
     );
-
 
     public function normalizeFieldName($name)
     {
