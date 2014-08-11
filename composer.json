@@ -1,6 +1,6 @@
 {
     "name": "gpupo/common-schema",
-    "description": "Common scheme used in components for my Sphinx Search",
+    "description": "Common scheme used in components with Sphinx Search",
     "keywords": ["sphinx", "schema"],
     "license": "MIT",
     "autoload": {

@@ -1,6 +1,11 @@
+#common-schema
+
+Common scheme used in components with Sphinx Search
 
 
-composer require gpupo/common-schema:dev-master
+## Install
+
+    composer require gpupo/common-schema:dev-master
 
 ## Contributors
 
@@ -13,4 +18,4 @@ MIT, see LICENSE.
 
 ## Links
 
-* [Composer Package](https://packagist.org/packages/gpupo/) on packagist.org
+* [Composer Package](https://packagist.org/packages/gpupo/common-schema/) on packagist.org
