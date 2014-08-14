@@ -8,13 +8,12 @@ namespace Gpupo\CommonSchema\Sphinx;
 class GoogleExtendedSchema extends GoogleSchema
 {
     public $extra_field = array(
-        //'availability'              => array('attr' => 'string'),
+        'document_slug'               => array('attr' => 'string'),
     );
 
     public $extra_attr = array(
         'sale_price_discount'         => array('type' => 'float'),
         'sale_price_percentage'       => array('type' => 'float'),
-
     );
 
     public function __construct()
