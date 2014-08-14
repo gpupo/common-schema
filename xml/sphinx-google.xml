@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Generate by Pipe2 on Thu, 14 Aug 2014 11:24:46 -0300 | See https://github.com/gpupo/pipe2-->
+<sphinx:docset>
+  <sphinx:schema>
+    <sphinx:field name="channel" attr="string"/>
+    <sphinx:field name="title" attr="string"/>
+    <sphinx:field name="description" attr="string"/>
+    <sphinx:field name="sku" attr="string"/>
+    <sphinx:field name="category" attr="string"/>
+    <sphinx:field name="type" attr="string"/>
+    <sphinx:field name="brand" attr="string"/>
+    <sphinx:field name="size" attr="string"/>
+    <sphinx:field name="color" attr="string"/>
+    <sphinx:field name="gender" attr="string"/>
+    <sphinx:field name="availability" attr="string"/>
+    <sphinx:attr name="link" type="string"/>
+    <sphinx:attr name="id" type="int" bits="20"/>
+    <sphinx:attr name="price" type="float"/>
+    <sphinx:attr name="sale_price" type="float"/>
+    <sphinx:attr name="sale_price_effective_date" type="string"/>
+    <sphinx:attr name="mpn" type="string"/>
+    <sphinx:attr name="image_link" type="string"/>
+    <sphinx:attr name="condition" type="string"/>
+    <sphinx:attr name="age_group" type="string"/>
+    <sphinx:attr name="shipping_weight" type="string"/>
+    <sphinx:attr name="online_only" type="string"/>
+    <sphinx:attr name="installment_months" type="int" bits="5"/>
+    <sphinx:attr name="installment_amount" type="float"/>
+    <sphinx:attr name="review_count" type="int" bits="5"/>
+    <sphinx:attr name="review_average" type="int" bits="5"/>
+  </sphinx:schema>
+</sphinx:docset>
+

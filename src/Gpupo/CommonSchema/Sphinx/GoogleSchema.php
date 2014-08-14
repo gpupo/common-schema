@@ -63,4 +63,16 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
 
         return $tag;
     }
+
+    public function getSluggables()
+    {
+        return  array (
+            'title',
+            'category',
+            'brand',
+            'size',
+            'color',
+            'availability',
+        );
+    }
 }

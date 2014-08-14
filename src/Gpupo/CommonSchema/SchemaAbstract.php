@@ -19,7 +19,6 @@ abstract class SchemaAbstract
      */
     protected $field;
 
-
     /**
      * Known attributes for item:
      * "name", specifies the element name that should be treated as an attribute in the subsequent documents.
@@ -47,6 +46,16 @@ abstract class SchemaAbstract
     public function getSchema()
     {
         return $this->schema;
+    }
+
+    public function getKeys()
+    {
+        return array_keys(array_merge($this->schema['field'],$this->schema['attr']));
+    }
+
+    public function getSluggables()
+    {
+        return array();
     }
 
     public function tagInSchema($tag)
