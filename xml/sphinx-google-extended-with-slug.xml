@@ -39,4 +39,3 @@
     <sphinx:field name="availability_slug" attr="string"/>
   </sphinx:schema>
 </sphinx:docset>
-
