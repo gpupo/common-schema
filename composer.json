@@ -1,14 +1,29 @@
 {
     "name": "gpupo/common-schema",
-    "description": "Common scheme used in components with Sphinx Search",
-    "keywords": ["sphinx", "schema"],
+    "description": "Common schema",
+    "homepage": "https://www.github.com/gpupo/common-schema",
+    "authors": [
+        {
+            "name": "Gilmar Pupo",
+            "email": "g@g1mr.com"
+        }
+    ],
+    "keywords": ["sphinx", "schema", "xml", "xmlpipe2"],
     "license": "MIT",
     "autoload": {
-        "psr-0": { "Gpupo": "src" }
+        "psr-4": { "Gpupo\\CommonSchema\\": "src" }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
+    "autoload-dev": {
+        "psr-4": {
+            "Gpupo\\Tests\\CommonSchema\\": "tests"
         }
-    }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "codeclimate/php-test-reporter": "dev-master"
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability" : "stable"
 }
