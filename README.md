@@ -1,11 +1,10 @@
 #common-schema
 
-Common scheme used in components with Sphinx Search
-
+Common schema
 
 ## Install
 
-    composer require gpupo/common-schema:dev-master
+    composer require gpupo/common-schema:~1.0
 
 ## Contributors
 
@@ -14,7 +13,6 @@ Common scheme used in components with Sphinx Search
 ## License
 
 MIT, see LICENSE.
-
 
 ## Links
 
