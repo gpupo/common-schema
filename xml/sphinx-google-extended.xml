@@ -32,4 +32,3 @@
     <sphinx:attr name="sale_price_percentage" type="float"/>
   </sphinx:schema>
 </sphinx:docset>
-

@@ -1,13 +1,21 @@
 <?php
 
+/*
+ * This file is part of gpupo/common-schema
+ *
+ * (c) Gilmar Pupo <g@g1mr.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gpupo\CommonSchema\Sphinx;
 
 use Gpupo\CommonSchema\SchemaAbstract;
 use Gpupo\CommonSchema\SchemaInterface;
 
-
 /**
- * Products Feed Specification https://support.google.com/merchants/answer/188494?hl=pt-BR
+ * Products Feed Specification https://support.google.com/merchants/answer/188494?hl=pt-BR.
  */
 class GoogleSchema extends SchemaAbstract implements SchemaInterface
 {
@@ -56,8 +64,8 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
     {
         $tag = str_replace(array_keys($this->key_conversion), $this->key_conversion, $name);
 
-        if (in_array($tag, array('months', 'amount'))) {
-            $tag = 'installment_' . $tag;
+        if (in_array($tag, array('months', 'amount'), true)) {
+            $tag = 'installment_'.$tag;
         }
 
         return $tag;
@@ -65,7 +73,7 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
 
     public function getSluggables()
     {
-        return  array (
+        return  array(
             'title',
             'category',
             'brand',

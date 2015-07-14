@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of gpupo/common-schema
+ *
+ * (c) Gilmar Pupo <g@g1mr.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gpupo\CommonSchema;
 
 abstract class SchemaAbstract
@@ -15,7 +24,7 @@ abstract class SchemaAbstract
      *
      * "attr", specifies whether to also index this field as a string. Possible value is "string".
      *
-     * @var array
+     * @type array
      */
     protected $field;
 
@@ -31,7 +40,7 @@ abstract class SchemaAbstract
      * "default", specifies the default value for this attribute that should be used if the attribute's element is not
      * present in the document.
      *
-     * @var array
+     * @type array
      */
     protected $attr;
 
@@ -50,7 +59,7 @@ abstract class SchemaAbstract
 
     public function getKeys()
     {
-        return array_keys(array_merge($this->schema['field'],$this->schema['attr']));
+        return array_keys(array_merge($this->schema['field'], $this->schema['attr']));
     }
 
     public function getSluggables()
@@ -60,9 +69,9 @@ abstract class SchemaAbstract
 
     public function tagInSchema($tag)
     {
-        $array = array_merge($this->schema['field'],$this->schema['attr']);
+        $array = array_merge($this->schema['field'], $this->schema['attr']);
 
-        if (in_array($tag, $array)) {
+        if (in_array($tag, $array, true)) {
             return true;
         }
 

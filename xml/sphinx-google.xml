@@ -30,4 +30,3 @@
     <sphinx:attr name="review_average" type="int" bits="5"/>
   </sphinx:schema>
 </sphinx:docset>
-
