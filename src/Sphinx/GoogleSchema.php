@@ -36,7 +36,6 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
         'condition'                 => array('type' => 'string'),
         'age_group'                 => array('type' => 'string'),
         'shipping_weight'           => array('type' => 'string'),
-        //'adwords_redirect'          => array('type' => 'string'),
         'online_only'               => array('type' => 'string'),
         'installment_months'        => array('type' => 'int', 'bits' => 5),
         'installment_amount'        => array('type' => 'float'),
