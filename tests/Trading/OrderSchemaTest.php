@@ -26,6 +26,17 @@ class OrderSchemaTest extends \PHPUnit_Framework_TestCase
         return [[new OrderSchema()]];
     }
 
+    protected function recursiveAssert($array)
+    {
+        foreach ($array as $k => $v) {
+            if (is_array($v)) {
+                $this->recursiveAssert($v);
+                continue;
+            }
+            $this->assertSame('string', $v, $k);
+        }
+    }
+
     /**
      * @testdox ``getSchema()``
      * @cover ::getSchema
@@ -35,5 +46,17 @@ class OrderSchemaTest extends \PHPUnit_Framework_TestCase
     public function getSchema(OrderSchema $orderSchema)
     {
         $this->assertInternalType('array', $orderSchema->getSchema());
+        $this->recursiveAssert($orderSchema->getSchema());
+    }
+
+    /**
+     * @testdox ``getTemplate()``
+     * @cover ::getTemplate
+     * @dataProvider dataProviderOrderSchema
+     * @test
+     */
+    public function getTemplate(OrderSchema $orderSchema)
+    {
+        $this->assertInternalType('string',$orderSchema->getTemplate());
     }
 }
