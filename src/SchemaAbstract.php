@@ -46,10 +46,10 @@ abstract class SchemaAbstract
 
     public function __construct()
     {
-        $this->schema = array(
+        $this->schema = [
             'field' => $this->field,
             'attr'  => $this->attr,
-        );
+        ];
     }
 
     public function getSchema()
@@ -64,7 +64,7 @@ abstract class SchemaAbstract
 
     public function getSluggables()
     {
-        return array();
+        return [];
     }
 
     public function tagInSchema($tag)

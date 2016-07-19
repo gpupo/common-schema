@@ -26,7 +26,7 @@ class GoogleSchemaTest extends \PHPUnit_Framework_TestCase
      */
     public function testNormalizeFieldName($name, $expected)
     {
-        $this->assertEquals($this->factory()->normalizeFieldName($name), $expected);
+        $this->assertSame($this->factory()->normalizeFieldName($name), $expected);
     }
 
     public function dataProviderFieldsToNormalize()
