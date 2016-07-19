@@ -11,15 +11,21 @@
 
 namespace Gpupo\CommonSchema\Trading;
 
-class OrderSchema
+use Gpupo\CommonSchema\AbstractSchema;
+
+class OrderSchema extends AbstractSchema
 {
+    public function getSchema()
+    {
+        return require __DIR__.'/order.schema.php';
+    }
     /**
      * @see https://developers.google.com/schemas/reference/order
      */
-    public function getSchema()
+    public function getRawSchema()
     {
         $content = file_get_contents(__DIR__.'/order.schema.json');
 
-        return json_decode($content, true);
+        return $this->load(json_decode($content, true));
     }
 }

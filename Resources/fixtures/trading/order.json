@@ -13,6 +13,26 @@
       "@type": "Offer",
       "itemOffered": {
         "@type": "Product",
+        "name": "Samsung Chromebook",
+        "sku": "B009LL9VDG",
+        "url": "http://www.amazon.com/Samsung-XE303C12-A01US-Chromebook-Wi-Fi-11-6-Inch/dp/B009LL9VDG/",
+        "image": "http://ecx.images-amazon.com/images/I/81H-DO3qX0L._SX522_.jpg"
+      },
+      "price": "249.99",
+      "priceCurrency": "USD",
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "value": "2"
+      },
+      "seller": {
+        "@type": "Organization",
+        "name": "Samsung Marketplace Store"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Product",
         "name": "Google Chromecast",
         "sku": "B00DR0PDNE",
         "url": "http://www.amazon.com/Google-Chromecast-Streaming-Media-Player/dp/B00DR0PDNE/",

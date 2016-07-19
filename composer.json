@@ -26,5 +26,8 @@
         "preferred-install": "dist"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require": {
+        "gpupo/common": "^1.7"
+    }
 }
