@@ -19,18 +19,18 @@ return [
     'acceptedOffer' => [
         [
             'itemOffered' => [
-            'name'  => 'string',
-            'sku'   => 'string',
-            'url'   => 'string',
-            'image' => 'string',
+                'name'  => 'string',
+                'sku'   => 'string',
+                'url'   => 'string',
+                'image' => 'string',
             ],
             'price'            => 'string',
             'priceCurrency'    => 'string',
             'eligibleQuantity' => [
-            'value' => 'string',
+                'value' => 'string',
             ],
             'seller' => [
-            'name' => 'string',
+                'name' => 'string',
             ],
         ],
     ],

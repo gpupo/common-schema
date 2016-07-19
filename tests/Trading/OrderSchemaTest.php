@@ -59,4 +59,27 @@ class OrderSchemaTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('string',$orderSchema->getTemplate());
     }
+
+    /**
+     * @testdox ``validate() Fail if not equal schema``
+     * @cover ::validate
+     * @expectedException Exception
+     * @dataProvider dataProviderOrderSchema
+     * @test
+     */
+    public function validateFail(OrderSchema $orderSchema)
+    {
+        $orderSchema->validate([]);
+    }
+
+    /**
+     * @testdox ``validate() Success if equal schema``
+     * @cover ::validate
+     * @dataProvider dataProviderOrderSchema
+     * @test
+     */
+    public function validateSuccess(OrderSchema $orderSchema)
+    {
+        $this->assertTrue($orderSchema->validate($orderSchema->getSchema()));
+    }
 }
