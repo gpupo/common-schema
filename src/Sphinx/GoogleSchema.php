@@ -19,52 +19,52 @@ use Gpupo\CommonSchema\SchemaInterface;
  */
 class GoogleSchema extends SchemaAbstract implements SchemaInterface
 {
-    public $field = array(
-        'channel'                   => array('attr' => 'string'),
-        'title'                     => array('attr' => 'string'),
-        'description'               => array('attr' => 'string'),
-        'sku'                       => array('attr' => 'string'),
-        'category'                  => array('attr' => 'string'),
-        'type'                      => array('attr' => 'string'),
-        'brand'                     => array('attr' => 'string'),
-        'size'                      => array('attr' => 'string'),
-        'color'                     => array('attr' => 'string'),
-        'gender'                    => array('attr' => 'string'),
-        'availability'              => array('attr' => 'string'),
-    );
+    public $field = [
+        'channel'      => ['attr' => 'string'],
+        'title'        => ['attr' => 'string'],
+        'description'  => ['attr' => 'string'],
+        'sku'          => ['attr' => 'string'],
+        'category'     => ['attr' => 'string'],
+        'type'         => ['attr' => 'string'],
+        'brand'        => ['attr' => 'string'],
+        'size'         => ['attr' => 'string'],
+        'color'        => ['attr' => 'string'],
+        'gender'       => ['attr' => 'string'],
+        'availability' => ['attr' => 'string'],
+    ];
 
-    public $attr = array(
-        'link'                      => array('type' => 'string'),
-        'id'                        => array('type' => 'int', 'bits' => 20),
-        'price'                     => array('type' => 'float'),
-        'sale_price'                => array('type' => 'float'),
-        'sale_price_effective_date' => array('type' => 'string'),
-        'mpn'                       => array('type' => 'string'),
-        'image_link'                => array('type' => 'string'),
-        'condition'                 => array('type' => 'string'),
-        'age_group'                 => array('type' => 'string'),
-        'shipping_weight'           => array('type' => 'string'),
-        'online_only'               => array('type' => 'string'),
-        'installment_months'        => array('type' => 'int', 'bits' => 5),
-        'installment_amount'        => array('type' => 'float'),
-        'review_count'              => array('type' => 'int', 'bits' => 5),
-        'review_average'            => array('type' => 'int', 'bits' => 5),
-    );
+    public $attr = [
+        'link'                      => ['type' => 'string'],
+        'id'                        => ['type' => 'int', 'bits' => 20],
+        'price'                     => ['type' => 'float'],
+        'sale_price'                => ['type' => 'float'],
+        'sale_price_effective_date' => ['type' => 'string'],
+        'mpn'                       => ['type' => 'string'],
+        'image_link'                => ['type' => 'string'],
+        'condition'                 => ['type' => 'string'],
+        'age_group'                 => ['type' => 'string'],
+        'shipping_weight'           => ['type' => 'string'],
+        'online_only'               => ['type' => 'string'],
+        'installment_months'        => ['type' => 'int', 'bits' => 5],
+        'installment_amount'        => ['type' => 'float'],
+        'review_count'              => ['type' => 'int', 'bits' => 5],
+        'review_average'            => ['type' => 'int', 'bits' => 5],
+    ];
 
-    public $key_conversion = array(
-        'g:'                        => '',
-        'gtin'                      => 'sku',
-        'product_type'              => 'type',
-        'google_product_category'   => 'category',
-        'product_review_count'      => 'review_count',
-        'product_review_average'    => 'review_average',
-    );
+    public $key_conversion = [
+        'g:'                      => '',
+        'gtin'                    => 'sku',
+        'product_type'            => 'type',
+        'google_product_category' => 'category',
+        'product_review_count'    => 'review_count',
+        'product_review_average'  => 'review_average',
+    ];
 
     public function normalizeFieldName($name)
     {
         $tag = str_replace(array_keys($this->key_conversion), $this->key_conversion, $name);
 
-        if (in_array($tag, array('months', 'amount'), true)) {
+        if (in_array($tag, ['months', 'amount'], true)) {
             $tag = 'installment_'.$tag;
         }
 
@@ -73,13 +73,13 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
 
     public function getSluggables()
     {
-        return  array(
+        return  [
             'title',
             'category',
             'brand',
             'size',
             'color',
             'availability',
-        );
+        ];
     }
 }

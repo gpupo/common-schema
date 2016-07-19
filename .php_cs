@@ -31,16 +31,22 @@ $finder = DefaultFinder::create()
 
 return Config::create()
     ->fixers(array(
-        '-yoda_conditions',
+        'yoda_conditions',
         'align_double_arrow',
         'header_comment',
         'multiline_spaces_before_semicolon',
-        'no_blank_lines_before_namespace',
         'ordered_use',
         'phpdoc_order',
         'phpdoc_var_to_type',
         'strict',
         'strict_param',
+        'short_array_syntax',
+        'php_unit_strict',
+        'php_unit_construct',
+        'newline_after_open_tag',
+        'ereg_to_preg',
+        'short_echo_tag',
+        'pre_increment',
     ))
     ->level(FixerInterface::SYMFONY_LEVEL)
     ->setUsingCache(false)

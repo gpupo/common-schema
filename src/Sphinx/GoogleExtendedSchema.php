@@ -12,18 +12,18 @@
 namespace Gpupo\CommonSchema\Sphinx;
 
 /**
- * @inheritDoc
+ * {@inheritdoc}
  */
 class GoogleExtendedSchema extends GoogleSchema
 {
-    public $extra_field = array(
-        'document_slug'               => array('attr' => 'string'),
-    );
+    public $extra_field = [
+        'document_slug' => ['attr' => 'string'],
+    ];
 
-    public $extra_attr = array(
-        'sale_price_discount'         => array('type' => 'float'),
-        'sale_price_percentage'       => array('type' => 'float'),
-    );
+    public $extra_attr = [
+        'sale_price_discount'   => ['type' => 'float'],
+        'sale_price_percentage' => ['type' => 'float'],
+    ];
 
     public function __construct()
     {
