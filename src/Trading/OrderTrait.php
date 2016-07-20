@@ -64,16 +64,13 @@ trait OrderTrait
 
     protected function getOrderNumber()
     {
-
     }
 
     protected function getOrderStatus()
     {
-
     }
 
     protected function getOrderDate()
     {
-
     }
 }
