@@ -43,7 +43,13 @@ return [
     'discount'         => 'string',
     'discountCurrency' => 'string',
     'customer'         => [
-        'name' => 'string',
+        'name'      => 'string',
+        'document'  => 'string',
+        'birthDate' => 'string',
+        'email'     => 'string',
+        'gender'    => 'string',
+        'telephone' => 'string',
+        'cellphone' => 'string',
     ],
     'billingAddress' => [
         'name'                => 'string',
