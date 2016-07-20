@@ -15,6 +15,7 @@ trait OrderTrait
 {
     protected function getMerchant()
     {
+        return ['name' => ''];
     }
 
     protected function getPriceCurrency()
@@ -51,5 +52,28 @@ trait OrderTrait
 
     protected function getBillingAddress()
     {
+    }
+
+    protected function getPrice()
+    {
+    }
+
+    protected function getDiscount()
+    {
+    }
+
+    protected function getOrderNumber()
+    {
+
+    }
+
+    protected function getOrderStatus()
+    {
+
+    }
+
+    protected function getOrderDate()
+    {
+
     }
 }
