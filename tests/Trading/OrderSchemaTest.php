@@ -57,7 +57,7 @@ class OrderSchemaTest extends \PHPUnit_Framework_TestCase
      */
     public function getTemplate(OrderSchema $orderSchema)
     {
-        $this->assertInternalType('string',$orderSchema->getTemplate());
+        $this->assertInternalType('string', $orderSchema->getTemplate());
     }
 
     /**
