@@ -34,7 +34,7 @@ class OrderSchema extends AbstractSchema
         $d = array_diff_key($this->getSchema(), $array);
 
         if (!empty($d)) {
-            throw new \Exception("Invalid " . implode(',', array_keys($d)));
+            throw new \Exception('Invalid '.implode(',', array_keys($d)));
         }
 
         return true;
