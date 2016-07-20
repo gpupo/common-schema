@@ -7,7 +7,7 @@
 
 ## Install
 
-    composer require gpupo/common-schema:~1.0
+    composer require gpupo/common-schema
 
 ## Contributors
 
@@ -20,3 +20,8 @@ MIT, see LICENSE.
 ## Links
 
 * [Composer Package](https://packagist.org/packages/gpupo/common-schema/) on packagist.org
+
+
+# Schemas
+
+* [Trading](https://github.com/gpupo/common-schema/tree/master/src/Trading)
