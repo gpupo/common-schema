@@ -1,0 +1,24 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+    "productId": "",
+    "department": "",
+    "category": "",
+    "productType": "",
+    "brand": "",
+    "skus": [
+        {
+            "skuId": "",
+            "gtin": "",
+            "name": "",
+            "description": "",
+            "color": "",
+            "size": "",
+            "gender": "",
+            "height": "",
+            "width": "",
+            "depth": "",
+            "weight": ""
+        }
+    ]
+}

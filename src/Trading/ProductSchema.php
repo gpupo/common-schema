@@ -13,18 +13,18 @@ namespace Gpupo\CommonSchema\Trading;
 
 use Gpupo\CommonSchema\AbstractSchema;
 
-class OrderSchema extends AbstractSchema
+class ProductSchema extends AbstractSchema
 {
     public function getSchema()
     {
-        return require __DIR__.'/order.schema.php';
+        return require __DIR__.'/product.schema.php';
     }
     /**
-     * @see https://developers.google.com/schemas/reference/order
+     * @see https://developers.google.com/schemas/reference/types/Product
      */
     public function getRawSchema()
     {
-        $content = file_get_contents(__DIR__.'/order.schema.json');
+        $content = file_get_contents(__DIR__.'/product.schema.json');
 
         return $this->load(json_decode($content, true));
     }

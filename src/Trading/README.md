@@ -35,3 +35,16 @@ Name | Type | Description
 .addressNumber |Text|
 .addressNeighborhood|Text|
 .addressReference|Text|
+
+
+## product
+
+brand	Text	The brand(s) associated with a product or service, or the brand(s) maintained by an organization
+productID	Text	The product identifier
+
+### sku
+ color	Text	The color of the product.
+ gtin	Text	The GTIN-13 code of the product
+ depth	Distance or QuantitativeValue	The depth of the item.
+ weight	QuantitativeValue	The weight of the product or person.
+ width	Distance or QuantitativeValue	The width of the item.
