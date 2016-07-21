@@ -12,7 +12,6 @@
 namespace Gpupo\CommonSchema;
 
 use Gpupo\Common\Entity\CollectionAbstract;
-use Gpupo\Common\Entity\Collection;
 
 abstract class AbstractTranslator extends CollectionAbstract
 {
@@ -28,7 +27,7 @@ abstract class AbstractTranslator extends CollectionAbstract
         return $this->get('native');
     }
 
-    public function setForeign(CollectionAbstract $collection)
+    public function setForeign(TranslatorDataCollection $collection)
     {
         $this->set('foreign', $collection);
 
@@ -42,7 +41,7 @@ abstract class AbstractTranslator extends CollectionAbstract
 
     protected function factoryOutputCollection(array $array)
     {
-        return new Collection($array);
+        return new TranslatorDataCollection($array);
     }
 
     abstract public function translateTo();
