@@ -22,11 +22,21 @@ abstract class AbstractTranslator extends CollectionAbstract
         return $this;
     }
 
+    public function getNative()
+    {
+        return $this->get('native');
+    }
+
     public function setForeign(CollectionAbstract $collection)
     {
         $this->set('foreign', $collection);
 
         return $this;
+    }
+
+    public function getForeign()
+    {
+        return $this->get('foreign');
     }
 
     abstract public function translateTo();
