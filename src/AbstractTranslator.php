@@ -12,6 +12,7 @@
 namespace Gpupo\CommonSchema;
 
 use Gpupo\Common\Entity\CollectionAbstract;
+use Gpupo\Common\Entity\Collection;
 
 abstract class AbstractTranslator extends CollectionAbstract
 {
@@ -37,6 +38,11 @@ abstract class AbstractTranslator extends CollectionAbstract
     public function getForeign()
     {
         return $this->get('foreign');
+    }
+
+    protected function factoryOutputCollection(array $array)
+    {
+        return new Collection($array);
     }
 
     abstract public function translateTo();
