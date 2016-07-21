@@ -78,4 +78,22 @@ abstract class AbstractSchema extends CollectionAbstract
 
         return $s;
     }
+
+    public function validate(array $array)
+    {
+        $d = array_diff_key($this->getSchema(), $array);
+
+        if (!empty($d)) {
+            throw new \Exception('Invalid '.implode(',', array_keys($d)));
+        }
+
+        return true;
+    }
+
+    public function saveJson($dest)
+    {
+        $json = json_encode($this->getSchema(), JSON_PRETTY_PRINT);
+
+        return file_put_contents($dest, $json);
+    }
 }

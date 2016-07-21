@@ -1,73 +1,56 @@
 {
-  "@context": "http://schema.org",
-  "@type": "Order",
-  "merchant": {
-    "@type": "Organization",
-    "name": "Amazon.com"
-  },
-  "orderNumber": "123-4567890-1234567",
-  "priceCurrency": "USD",
-  "price": "539.00",
-  "acceptedOffer": [
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Product",
-        "name": "Samsung Chromebook",
-        "sku": "B009LL9VDG",
-        "url": "http://www.amazon.com/Samsung-XE303C12-A01US-Chromebook-Wi-Fi-11-6-Inch/dp/B009LL9VDG/",
-        "image": "http://ecx.images-amazon.com/images/I/81H-DO3qX0L._SX522_.jpg"
-      },
-      "price": "249.99",
-      "priceCurrency": "USD",
-      "eligibleQuantity": {
-        "@type": "QuantitativeValue",
-        "value": "2"
-      },
-      "seller": {
-        "@type": "Organization",
-        "name": "Samsung Marketplace Store"
-      }
+    "merchant": {
+        "name": "string"
     },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Product",
-        "name": "Google Chromecast",
-        "sku": "B00DR0PDNE",
-        "url": "http://www.amazon.com/Google-Chromecast-Streaming-Media-Player/dp/B00DR0PDNE/",
-        "image": "http://ecx.images-amazon.com/images/I/811nvG%2BLgML._SY550_.jpg"
-      },
-      "price": "29.99",
-      "priceCurrency": "USD",
-      "eligibleQuantity": {
-        "@type": "QuantitativeValue",
-        "value": "1"
-      },
-      "seller": {
-        "@type": "Organization",
-        "name": "Google Store @ Amazon"
-      }
+    "orderNumber": "string",
+    "priceCurrency": "string",
+    "price": "string",
+    "acceptedOffer": [
+        {
+            "itemOffered": {
+                "name": "string",
+                "sku": "string",
+                "url": "string",
+                "image": "string"
+            },
+            "price": "string",
+            "priceCurrency": "string",
+            "eligibleQuantity": {
+                "value": "string"
+            },
+            "seller": {
+                "name": "string"
+            }
+        }
+    ],
+    "url": "string",
+    "orderStatus": "string",
+    "paymentMethod": "string",
+    "paymentMethodId": "string",
+    "orderDate": "string",
+    "isGift": "string",
+    "discount": "string",
+    "discountCurrency": "string",
+    "customer": {
+        "name": "string",
+        "document": "string",
+        "birthDate": "string",
+        "email": "string",
+        "gender": "string",
+        "telephone": "string",
+        "cellphone": "string"
+    },
+    "billingAddress": {
+        "name": "string",
+        "streetAddress": "string",
+        "addressLocality": "string",
+        "addressRegion": "string",
+        "addressCountry": "string",
+        "postalCode": "string",
+        "postOfficeBoxNumber": "string",
+        "addressComplement": "string",
+        "addressNumber": "string",
+        "addressNeighborhood": "string",
+        "addressReference": "string"
     }
-  ],
-  "url": "https://www.amazon.ca/gp/css/summary/edit.html/orderID=123-4567890-1234567",
-  "orderStatus": "http://schema.org/OrderStatus/OrderProcessing",
-  "paymentMethod": "http://schema.org/CreditCard",
-  "paymentMethodId": "**** **** **** 1234",
-  "orderDate": "2014-11-07T23:30:00-08:00",
-  "isGift": "false",
-  "discount": "0.97",
-  "discountCurrency": "USD",
-  "customer": {
-    "@type": "Person",
-    "name": "John Smith"
-  },
-  "billingAddress": {
-    "@type": "PostalAddress",
-    "name": "Google",
-    "streetAddress": "1600 Amphitheatre Pkwy",
-    "addressLocality": "Mountain View",
-    "addressRegion": "CA",
-    "addressCountry": "USA"
-  }
 }
