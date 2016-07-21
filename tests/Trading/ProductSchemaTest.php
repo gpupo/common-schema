@@ -33,7 +33,7 @@ class ProductSchemaTest extends \PHPUnit_Framework_TestCase
                 $this->recursiveAssert($v);
                 continue;
             }
-            $this->assertSame('string', $v, $k . json_encode($array));
+            $this->assertSame('string', $v, $k.json_encode($array));
         }
     }
 
@@ -57,7 +57,7 @@ class ProductSchemaTest extends \PHPUnit_Framework_TestCase
      */
     public function saveJson(ProductSchema $productSchema)
     {
-        $this->assertGreaterThan(100, $productSchema->saveJson(__DIR__. "/../../Resources/fixtures/trading/product.json"));
+        $this->assertGreaterThan(100, $productSchema->saveJson(__DIR__.'/../../Resources/fixtures/trading/product.json'));
     }
 
     /**
