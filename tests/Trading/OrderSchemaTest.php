@@ -57,7 +57,7 @@ class OrderSchemaTest extends \PHPUnit_Framework_TestCase
      */
     public function saveJson(OrderSchema $orderSchema)
     {
-        $this->assertGreaterThan(100, $orderSchema->saveJson(__DIR__. "/../../Resources/fixtures/trading/order.json"));
+        $this->assertGreaterThan(100, $orderSchema->saveJson(__DIR__.'/../../Resources/fixtures/trading/order.json'));
     }
 
     /**
