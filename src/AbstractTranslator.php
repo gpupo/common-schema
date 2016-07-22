@@ -36,7 +36,13 @@ abstract class AbstractTranslator extends CollectionAbstract
 
     public function getForeign()
     {
-        return $this->get('foreign');
+        $data = $this->get('foreign');
+
+        if (!$data instanceof TranslatorDataCollection) {
+            throw new TranslatorException("Foreign object missed!");
+        }
+
+        return $data;
     }
 
     protected function factoryOutputCollection(array $array)
