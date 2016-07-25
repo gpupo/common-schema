@@ -9,30 +9,34 @@
  * file that was distributed with this source code.
  */
 
-return [
+$sku = [
+     'itemOffered' => [
+         'name'  => 'string',
+         'sku'   => 'string',
+         'gtin'  => 'string',
+         'brand' => 'string',
+     ],
+     'price'            => 'string',
+     'priceCurrency'    => 'string',
+     'eligibleQuantity' => [
+         'value' => 'string',
+     ],
+     'seller' => [
+         'name' => 'string',
+     ],
+     'total' => 'string',
+ ];
+
+ return [
     'merchant' => [
         'name' => 'string',
     ],
     'orderNumber'   => 'string',
     'priceCurrency' => 'string',
     'price'         => 'string',
+    'quantity'      => 'string',
     'acceptedOffer' => [
-        [
-            'itemOffered' => [
-                'name'  => 'string',
-                'sku'   => 'string',
-                'url'   => 'string',
-                'image' => 'string',
-            ],
-            'price'            => 'string',
-            'priceCurrency'    => 'string',
-            'eligibleQuantity' => [
-                'value' => 'string',
-            ],
-            'seller' => [
-                'name' => 'string',
-            ],
-        ],
+        $sku,
     ],
     'url'              => 'string',
     'orderStatus'      => 'string',
@@ -64,4 +68,4 @@ return [
         'addressNeighborhood' => 'string',
         'addressReference'    => 'string',
     ],
-];
+ ];

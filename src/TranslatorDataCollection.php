@@ -15,5 +15,4 @@ use Gpupo\Common\Entity\CollectionAbstract;
 
 class TranslatorDataCollection extends CollectionAbstract
 {
-
 }

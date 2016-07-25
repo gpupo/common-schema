@@ -13,5 +13,4 @@ namespace Gpupo\CommonSchema;
 
 class TranslatorException extends \RuntimeException
 {
-
 }
