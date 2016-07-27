@@ -68,4 +68,22 @@ $sku = [
         'addressNeighborhood' => 'string',
         'addressReference'    => 'string',
     ],
+    'invoice' => [
+        'number'    => 'string',
+        'line'      => 'string',
+        'accessKey' => 'string',
+        'issueDate' => 'string',
+        'shipDate'  => 'string',
+        'url'       => 'string',
+    ],
+    'tracking' => [
+        'carrier'               => 'string',
+        'deliveryDate'          => 'string',
+        'estimatedDeliveryDate' => 'string',
+        'deliveryService'       => 'string',
+        'shipDate'              => 'string',
+        'trackingLink'          => 'string',
+        'trackingNumber'        => 'string',
+        'trackingShipDate'      => 'string',
+    ],
  ];
