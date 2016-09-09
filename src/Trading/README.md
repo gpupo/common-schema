@@ -37,14 +37,48 @@ Name | Type | Description
 .addressReference|Text|
 
 
-## product
+# product
 
 brand	Text	The brand(s) associated with a product or service, or the brand(s) maintained by an organization
 productID	Text	The product identifier
 
-### sku
+Name | Type | Description
+-----|---------|------------------------------------------------------
+.productId |Text|
+.productType |Text|
+.department |Text|
+.category |Text|
+.brand |Text|
+.skus |List|
+.media |List|
+.attributes |List|Collection of attributes
+
+
+## asset
+Name | Type | Description
+-----|---------|------------------------------------------------------
+.name |Text|	Name of the item
+.url |Text|	Full remote url
+
+
+## attribute
+Name | Type | Description
+-----|---------|------------------------------------------------------
+.name |Text| Name of the item
+.value |Text|
+
+
+## media
+Name | Type | Description
+-----|---------|------------------------------------------------------
+.images |List|	Collection of assets
+.videos |List|	Collection of assets
+
+
+## sku
  color	Text	The color of the product.
  gtin	Text	The GTIN-13 code of the product
  depth	Distance or QuantitativeValue	The depth of the item.
  weight	QuantitativeValue	The weight of the product or person.
  width	Distance or QuantitativeValue	The width of the item.
+ 
