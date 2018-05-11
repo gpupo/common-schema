@@ -1,17 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
  *
- * (c) Gilmar Pupo <g@g1mr.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 $asset = [
     'name' => 'string',
-    'url'  => 'string',
+    'url' => 'string',
 ];
 
 $media = [
@@ -25,38 +31,38 @@ $media = [
 
 $attributes = [
     [
-        'name'  => 'string',
+        'name' => 'string',
         'value' => 'string',
     ],
 ];
 
 $sku = [
-    'skuId'       => 'string',
-    'gtin'        => 'string',
-    'name'        => 'string',
+    'skuId' => 'string',
+    'gtin' => 'string',
+    'name' => 'string',
     'description' => 'string',
-    'color'       => 'string',
-    'size'        => 'string',
-    'gender'      => 'string',
-    'media'       => $media,
-    'height'      => 'string',
-    'width'       => 'string',
-    'depth'       => 'string',
-    'weight'      => 'string',
-    'listPrice'   => 'string',
-    'sellPrice'   => 'string',
-    'stock'       => 'string',
-    'status'      => 'string',
-    'attributes'  => $attributes,
+    'color' => 'string',
+    'size' => 'string',
+    'gender' => 'string',
+    'media' => $media,
+    'height' => 'string',
+    'width' => 'string',
+    'depth' => 'string',
+    'weight' => 'string',
+    'listPrice' => 'string',
+    'sellPrice' => 'string',
+    'stock' => 'string',
+    'status' => 'string',
+    'attributes' => $attributes,
 ];
 
  return [
-     'productId'   => 'string',
+     'productId' => 'string',
      'productType' => 'string',
-     'department'  => 'string',
-     'category'    => 'string',
-     'brand'       => 'string',
-     'skus'        => [$sku],
-     'media'       => $media,
-     'attributes'  => $attributes,
+     'department' => 'string',
+     'category' => 'string',
+     'brand' => 'string',
+     'skus' => [$sku],
+     'media' => $media,
+     'attributes' => $attributes,
  ];

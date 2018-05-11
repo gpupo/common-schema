@@ -1,12 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
  *
- * (c) Gilmar Pupo <g@g1mr.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 namespace Gpupo\CommonSchema\Sphinx;
@@ -20,44 +26,44 @@ use Gpupo\CommonSchema\SchemaInterface;
 class GoogleSchema extends SchemaAbstract implements SchemaInterface
 {
     public $field = [
-        'channel'      => ['attr' => 'string'],
-        'title'        => ['attr' => 'string'],
-        'description'  => ['attr' => 'string'],
-        'sku'          => ['attr' => 'string'],
-        'category'     => ['attr' => 'string'],
-        'type'         => ['attr' => 'string'],
-        'brand'        => ['attr' => 'string'],
-        'size'         => ['attr' => 'string'],
-        'color'        => ['attr' => 'string'],
-        'gender'       => ['attr' => 'string'],
+        'channel' => ['attr' => 'string'],
+        'title' => ['attr' => 'string'],
+        'description' => ['attr' => 'string'],
+        'sku' => ['attr' => 'string'],
+        'category' => ['attr' => 'string'],
+        'type' => ['attr' => 'string'],
+        'brand' => ['attr' => 'string'],
+        'size' => ['attr' => 'string'],
+        'color' => ['attr' => 'string'],
+        'gender' => ['attr' => 'string'],
         'availability' => ['attr' => 'string'],
     ];
 
     public $attr = [
-        'link'                      => ['type' => 'string'],
-        'id'                        => ['type' => 'int', 'bits' => 20],
-        'price'                     => ['type' => 'float'],
-        'sale_price'                => ['type' => 'float'],
+        'link' => ['type' => 'string'],
+        'id' => ['type' => 'int', 'bits' => 20],
+        'price' => ['type' => 'float'],
+        'sale_price' => ['type' => 'float'],
         'sale_price_effective_date' => ['type' => 'string'],
-        'mpn'                       => ['type' => 'string'],
-        'image_link'                => ['type' => 'string'],
-        'condition'                 => ['type' => 'string'],
-        'age_group'                 => ['type' => 'string'],
-        'shipping_weight'           => ['type' => 'string'],
-        'online_only'               => ['type' => 'string'],
-        'installment_months'        => ['type' => 'int', 'bits' => 5],
-        'installment_amount'        => ['type' => 'float'],
-        'review_count'              => ['type' => 'int', 'bits' => 5],
-        'review_average'            => ['type' => 'int', 'bits' => 5],
+        'mpn' => ['type' => 'string'],
+        'image_link' => ['type' => 'string'],
+        'condition' => ['type' => 'string'],
+        'age_group' => ['type' => 'string'],
+        'shipping_weight' => ['type' => 'string'],
+        'online_only' => ['type' => 'string'],
+        'installment_months' => ['type' => 'int', 'bits' => 5],
+        'installment_amount' => ['type' => 'float'],
+        'review_count' => ['type' => 'int', 'bits' => 5],
+        'review_average' => ['type' => 'int', 'bits' => 5],
     ];
 
     public $key_conversion = [
-        'g:'                      => '',
-        'gtin'                    => 'sku',
-        'product_type'            => 'type',
+        'g:' => '',
+        'gtin' => 'sku',
+        'product_type' => 'type',
         'google_product_category' => 'category',
-        'product_review_count'    => 'review_count',
-        'product_review_average'  => 'review_average',
+        'product_review_count' => 'review_count',
+        'product_review_average' => 'review_average',
     ];
 
     public function normalizeFieldName($name)

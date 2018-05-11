@@ -1,11 +1,11 @@
 {
     "name": "gpupo/common-schema",
     "description": "Common schema",
-    "homepage": "http://www.g1mr.com/common-schema/",
+    "homepage": "https://opensource.gpupo.com/common-schema/",
     "authors": [
         {
             "name": "Gilmar Pupo",
-            "email": "g@g1mr.com"
+            "email": "contact@gpupo.com"
         }
     ],
     "keywords": ["sphinx", "schema", "xml", "xmlpipe2", "order"],
@@ -19,7 +19,7 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.0",
+        "phpunit/phpunit": "^7.0",
         "codeclimate/php-test-reporter": "dev-master"
     },
     "config": {
@@ -28,6 +28,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "gpupo/common": "^1.7"
+        "gpupo/common": "^2.0"
     }
 }

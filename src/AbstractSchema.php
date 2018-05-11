@@ -1,12 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
  *
- * (c) Gilmar Pupo <g@g1mr.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 namespace Gpupo\CommonSchema;
@@ -17,55 +23,6 @@ abstract class AbstractSchema extends CollectionAbstract
 {
     protected $type;
     protected $properties = [];
-
-    protected function load(array $array)
-    {
-        $this->type = $array['@type'];
-
-        return $this->node($array, 'main');
-    }
-
-    protected function node(array $array, $main = false)
-    {
-        $list = [];
-
-        foreach ($array as $k => $v) {
-            if (false !== strpos($k, '@')) {
-                if (@empty($main)) {
-                    $this->properties[$k] = $v;
-                }
-                continue;
-            }
-
-            if (is_array($v)) {
-                $list[$k] = $this->node($v);
-                continue;
-            }
-
-            $list[$k] = 'string';
-        }
-
-        return $list;
-    }
-
-    protected function recursiveToTemplate($k, $v)
-    {
-        if (is_array($v)) {
-            $s = "\n";
-
-            if (!empty($k)) {
-                $s .= "'".$k."' => ";
-            }
-            $s .= '[';
-            foreach ($v as $y => $z) {
-                $s .=  '    '.$this->recursiveToTemplate($y, $z);
-            }
-
-            return  $s."\n],";
-        }
-
-        return "\n'".$k."' => '".$v."',";
-    }
 
     public function getTemplate()
     {
@@ -95,5 +52,56 @@ abstract class AbstractSchema extends CollectionAbstract
         $json = json_encode($this->getSchema(), JSON_PRETTY_PRINT);
 
         return file_put_contents($dest, $json);
+    }
+
+    protected function load(array $array)
+    {
+        $this->type = $array['@type'];
+
+        return $this->node($array, 'main');
+    }
+
+    protected function node(array $array, $main = false)
+    {
+        $list = [];
+
+        foreach ($array as $k => $v) {
+            if (false !== strpos((string) $k, '@')) {
+                if (@empty($main)) {
+                    $this->properties[$k] = $v;
+                }
+
+                continue;
+            }
+
+            if (is_array($v)) {
+                $list[$k] = $this->node($v);
+
+                continue;
+            }
+
+            $list[$k] = 'string';
+        }
+
+        return $list;
+    }
+
+    protected function recursiveToTemplate($k, $v)
+    {
+        if (is_array($v)) {
+            $s = "\n";
+
+            if (!empty($k)) {
+                $s .= "'".$k."' => ";
+            }
+            $s .= '[';
+            foreach ($v as $y => $z) {
+                $s .= '    '.$this->recursiveToTemplate($y, $z);
+            }
+
+            return  $s."\n],";
+        }
+
+        return "\n'".$k."' => '".$v."',";
     }
 }
