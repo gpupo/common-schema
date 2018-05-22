@@ -1,0 +1,67 @@
+# order gpupo/common-schema:
+merchant:
+    name: string
+    marketplace: string
+    originNumber: string
+orderNumber: string
+currency: string
+price: string
+quantity: string
+total: string
+freight: string
+acceptedOffer:
+    -
+        itemOffered:
+            name: string
+            sku: string
+            gtin: string
+            brand: string
+        price: string
+        discount: string
+        quantity: string
+        freight: string
+        total: string
+url: string
+orderStatus: string
+paymentMethod: string
+paymentMethodId: string
+orderDate: string
+isGift: string
+discount: string
+customer:
+    name: string
+    document: string
+    birthDate: string
+    email: string
+    gender: string
+    telephone: string
+    cellphone: string
+billingAddress:
+    name: string
+    streetAddress: string
+    addressLocality: string
+    addressRegion: string
+    addressCountry: string
+    postalCode: string
+    postOfficeBoxNumber: string
+    addressComplement: string
+    addressNumber: string
+    addressNeighborhood: string
+    addressReference: string
+invoice:
+    number: string
+    line: string
+    accessKey: string
+    issueDate: string
+    shipDate: string
+    url: string
+tracking:
+    carrier: string
+    deliveryDate: string
+    estimatedDeliveryDate: string
+    deliveryService: string
+    shipDate: string
+    trackingLink: string
+    trackingNumber: string
+    trackingShipDate: string
+customProperties: {  }

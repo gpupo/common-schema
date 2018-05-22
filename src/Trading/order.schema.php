@@ -92,4 +92,7 @@ $sku = [
         'trackingNumber' => 'string',
         'trackingShipDate' => 'string',
     ],
+    'customProperties' => [
+
+    ],
  ];
