@@ -15,11 +15,26 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading;
+namespace Gpupo\CommonSchema\Trading\Order;
 
-use Gpupo\Common\Entity\CollectionAbstract;
+use Gpupo\CommonSchema\AbstractSchema;
 
-class OrderCommon extends CollectionAbstract
+class OrderSchema extends AbstractSchema
 {
     use OrderTrait;
+
+    public function getSchema()
+    {
+        return require __DIR__.'/order.schema.php';
+    }
+
+    /**
+     * @see https://developers.google.com/schemas/reference/order
+     */
+    public function getRawSchema()
+    {
+        $content = file_get_contents(__DIR__.'/order.schema.json');
+
+        return $this->load(json_decode($content, true));
+    }
 }

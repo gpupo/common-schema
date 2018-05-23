@@ -15,24 +15,14 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading;
+namespace Gpupo\Tests\CommonSchema;
 
-use Gpupo\CommonSchema\AbstractSchema;
+use PHPUnit\Framework\TestCase;
 
-class ProductSchema extends AbstractSchema
+abstract class AbstractTestCase extends TestCase
 {
-    public function getSchema()
+    protected function getResourcesDirectory()
     {
-        return require __DIR__.'/product.schema.php';
-    }
-
-    /**
-     * @see https://developers.google.com/schemas/reference/types/Product
-     */
-    public function getRawSchema()
-    {
-        $content = file_get_contents(__DIR__.'/product.schema.json');
-
-        return $this->load(json_decode($content, true));
+        return __DIR__.'/../Resources';
     }
 }

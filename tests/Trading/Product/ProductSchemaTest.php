@@ -15,17 +15,18 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\Tests\CommonSchema\Trading;
+namespace Gpupo\Tests\CommonSchema\Trading\Product;
 
-use Gpupo\CommonSchema\Trading\ProductSchema;
+use Gpupo\CommonSchema\Trading\Product\ProductSchema;
+use Gpupo\Tests\CommonSchema\AbstractTestCase;
 
 /**
- * @coversDefaultClass \Gpupo\CommonSchema\Trading\ProductSchema
+ * @coversDefaultClass \Gpupo\CommonSchema\Trading\Product\ProductSchema
  */
-class ProductSchemaTest extends \PHPUnit\Framework\TestCase
+class ProductSchemaTest extends AbstractTestCase
 {
     /**
-     * @return \Gpupo\CommonSchema\Trading\ProductSchema
+     * @return \Gpupo\CommonSchema\Trading\Product\ProductSchema
      */
     public function dataProviderProductSchema()
     {
@@ -50,7 +51,7 @@ class ProductSchemaTest extends \PHPUnit\Framework\TestCase
      */
     public function testSaveJson(ProductSchema $productSchema)
     {
-        $this->assertGreaterThan(100, $productSchema->saveJson(__DIR__.'/../../Resources/fixtures/trading/product.json'));
+        $this->assertGreaterThan(100, $productSchema->saveJson($this->getResourcesDirectory().'/fixtures/trading/product.json'));
     }
 
     /**

@@ -15,14 +15,15 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\Tests\CommonSchema\Trading;
+namespace Gpupo\Tests\CommonSchema\Trading\Order;
 
-use Gpupo\CommonSchema\Trading\OrderSchema;
+use Gpupo\CommonSchema\Trading\Order\OrderSchema;
+use Gpupo\Tests\CommonSchema\AbstractTestCase;
 
 /**
  * @coversDefaultClass \Gpupo\CommonSchema\Trading\OrderSchema
  */
-class OrderSchemaTest extends \PHPUnit\Framework\TestCase
+class OrderSchemaTest extends AbstractTestCase
 {
     /**
      * @return \Gpupo\CommonSchema\Trading\OrderSchema
@@ -50,7 +51,7 @@ class OrderSchemaTest extends \PHPUnit\Framework\TestCase
      */
     public function testSaveJson(OrderSchema $orderSchema)
     {
-        $this->assertGreaterThan(100, $orderSchema->saveJson(__DIR__.'/../../Resources/fixtures/trading/order.json'));
+        $this->assertGreaterThan(100, $orderSchema->saveJson($this->getResourcesDirectory().'/fixtures/trading/order.json'));
     }
 
     /**

@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading;
+namespace Gpupo\CommonSchema\Trading\Order;
 
 trait OrderTrait
 {

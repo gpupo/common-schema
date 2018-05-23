@@ -15,17 +15,18 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\Tests\CommonSchema\Trading;
+namespace Gpupo\Tests\CommonSchema\Trading\Order;
 
-use Gpupo\CommonSchema\Trading\OrderCommon;
+use Gpupo\CommonSchema\Trading\Order\OrderCommon;
+use Gpupo\Tests\CommonSchema\AbstractTestCase;
 
 /**
- * @coversDefaultClass \Gpupo\CommonSchema\Trading\OrderCommon
+ * @coversDefaultClass \Gpupo\CommonSchema\Trading\Order\OrderCommon
  */
-class OrderCommonTest extends \PHPUnit\Framework\TestCase
+class OrderCommonTest extends AbstractTestCase
 {
     /**
-     * @return \Gpupo\CommonSchema\Trading\OrderCommon
+     * @return \Gpupo\CommonSchema\Trading\Order\OrderCommon
      */
     public function dataProviderOrderCommon()
     {

@@ -16,8 +16,8 @@ require 'vendor/autoload.php';
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-use Gpupo\CommonSchema\Trading\OrderSchema;
-use Gpupo\CommonSchema\Trading\ProductSchema;
+use Gpupo\CommonSchema\Trading\Order\OrderSchema;
+use Gpupo\CommonSchema\Trading\Product\ProductSchema;
 use Symfony\Component\Yaml\Yaml;
 
 $input = new ArgvInput();
