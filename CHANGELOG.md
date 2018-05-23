@@ -1,4 +1,13 @@
 
+VERSION 3  REFACTORY TRADING NAMESPACE
+======================================
+
+   Version 3.0 - Refactory Trading Namespace
+      23/05/2018 12:12  3.0.0  initial release
+         5d7c7d7 Refactory Trading Namespace
+         197facf Add Common Order
+         cdf6424 Add Yaml schemas
+
 VERSION 2  REQUIRE PHP 7
 ========================
 
