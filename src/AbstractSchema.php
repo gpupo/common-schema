@@ -21,8 +21,14 @@ use Gpupo\Common\Entity\CollectionAbstract;
 
 abstract class AbstractSchema extends CollectionAbstract
 {
+    const VERSION = '2.0';
     protected $type;
     protected $properties = [];
+
+    public function loadSchemaFromFile($file)
+    {
+        return array_merge(['version' => self::VERSION, 'expands' => []], require $file);
+    }
 
     public function getTemplate()
     {

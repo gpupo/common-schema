@@ -15,16 +15,24 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order;
+return [
+    'metadata' => [
+        'context' => 'http://schema.org/OrderItem',
+        'type' => 'OrderItem',
+        'description' => '',
+    ],
+    'expands' => [],
 
-use Gpupo\CommonSchema\AbstractSchema;
-
-class OrderSchema extends AbstractSchema
-{
-    use OrderTrait;
-
-    public function getSchema()
-    {
-        return $this->loadSchemaFromFile(__DIR__.'/map/order.schema.php');
-    }
-}
+      'itemOffered' => [
+          'name' => 'string',
+          'sku' => 'string',
+          'gtin' => 'string',
+          'brand' => 'string',
+      ],
+      'price' => 'string',
+      'price' => 'string',
+      'discount' => 'string',
+      'quantity' => 'string',
+      'freight' => 'string',
+      'total' => 'string',
+  ];

@@ -15,16 +15,22 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order;
+namespace Gpupo\CommonSchema\Trading\Order\Customer;
 
-use Gpupo\CommonSchema\AbstractSchema;
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\CommonSdk\Entity\EntityAbstract;
+use Gpupo\CommonSdk\Entity\EntityInterface;
 
-class OrderSchema extends AbstractSchema
+class BillingInfo extends EntityAbstract implements EntityInterface, CollectionInterface
 {
-    use OrderTrait;
-
+    /**
+     * @codeCoverageIgnore
+     */
     public function getSchema()
     {
-        return $this->loadSchemaFromFile(__DIR__.'/map/order.schema.php');
+        return [
+            'doc_type' => 'string',
+            'doc_number' => 'string',
+        ];
     }
 }

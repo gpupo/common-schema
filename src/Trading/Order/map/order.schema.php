@@ -15,16 +15,14 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order;
-
-use Gpupo\CommonSchema\AbstractSchema;
-
-class OrderSchema extends AbstractSchema
-{
-    use OrderTrait;
-
-    public function getSchema()
-    {
-        return $this->loadSchemaFromFile(__DIR__.'/map/order.schema.php');
-    }
-}
+ return [
+    'metadata' => [
+        'context' => 'http://schema.org/Order',
+        'type' => 'Order',
+        'description' => 'An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer',
+    ],
+    'expands' => [],
+    'shippings' => [
+        require(__DIR__.'/shipping.schema.php'),
+    ],
+ ];

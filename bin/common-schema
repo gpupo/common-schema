@@ -15,20 +15,26 @@ require 'vendor/autoload.php';
 
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
-
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
+use Gpupo\CommonSchema\Trading\Order\Order;
+use Gpupo\CommonSchema\Trading\Order\Customer\Customer;
 use Gpupo\CommonSchema\Trading\Order\OrderSchema;
 use Gpupo\CommonSchema\Trading\Product\ProductSchema;
 use Symfony\Component\Yaml\Yaml;
+use Gpupo\CommonSdk\Entity\Schema\Tools;
 
 $input = new ArgvInput();
 $output = new ConsoleOutput();
 
-
+$order = new Order();
 foreach ([
-    'order' => new OrderSchema(),
-    'product'   => new ProductSchema(),
+    'order' => $order,
+    'order-customer' => $order->getCustomer(),
 ] as $key => $value) {
-    $file = sprintf('Resources/schema/%s.yaml', $key);
-    file_put_contents($file, sprintf("# %s gpupo/common-schema:\n", $key).Yaml::dump($value->getSchema(), 8));
+    $data = Tools::getRecursiveSchema($value);
+    $file = sprintf('Resources/schema/v2/%s.yaml', $key);
+    $output->writeln(sprintf('Building <bg=black> %s </> ...', $file));
+    file_put_contents($file, sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s", $key, date('r')).Yaml::dump($data, 8));
     $output->writeln(sprintf('Generated <fg=green> %s </> file', $file));
 }

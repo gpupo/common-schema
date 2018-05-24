@@ -15,16 +15,16 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order;
+namespace Gpupo\CommonSchema\Trading\Order\Feedback;
 
-use Gpupo\CommonSchema\AbstractSchema;
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\CommonSdk\Entity\CollectionAbstract;
+use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
 
-class OrderSchema extends AbstractSchema
+final class Collection extends CollectionAbstract implements CollectionInterface, CollectionContainerInterface
 {
-    use OrderTrait;
-
-    public function getSchema()
+    public function factoryElement($data)
     {
-        return $this->loadSchemaFromFile(__DIR__.'/map/order.schema.php');
+        return new Item($data);
     }
 }

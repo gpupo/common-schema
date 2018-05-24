@@ -15,16 +15,10 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order;
+namespace Gpupo\CommonSchema\Trading\Order\Shippings;
 
-use Gpupo\CommonSchema\AbstractSchema;
+use Gpupo\CommonSchema\Organization\AbstractCompany;
 
-class OrderSchema extends AbstractSchema
+class Seller extends AbstractCompany
 {
-    use OrderTrait;
-
-    public function getSchema()
-    {
-        return $this->loadSchemaFromFile(__DIR__.'/map/order.schema.php');
-    }
 }

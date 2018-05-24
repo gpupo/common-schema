@@ -28,9 +28,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "gpupo/common": "^2.0",
+        "gpupo/common": "^2.7",
         "symfony/console": "^4.0",
         "symfony/var-dumper": "^4.0",
-        "symfony/yaml": "^4.0"
+        "symfony/yaml": "^4.0",
+        "gpupo/common-sdk": "^4.3"
     }
 }

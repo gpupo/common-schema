@@ -15,16 +15,14 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order;
-
-use Gpupo\CommonSchema\AbstractSchema;
-
-class OrderSchema extends AbstractSchema
-{
-    use OrderTrait;
-
-    public function getSchema()
-    {
-        return $this->loadSchemaFromFile(__DIR__.'/map/order.schema.php');
-    }
-}
+ return [
+     'metadata' => [
+         'context' => 'http://schema.org/Shipping',
+         'type' => 'Shipping',
+         'description' => '',
+     ],
+     'expands' => [],
+    'acceptedOffer' => [
+        require(__DIR__.'/item.schema.php'),
+    ],
+ ];

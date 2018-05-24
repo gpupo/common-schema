@@ -15,16 +15,17 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order;
+namespace Gpupo\CommonSchema\Trading\Order\Customer;
 
-use Gpupo\CommonSchema\AbstractSchema;
+use Gpupo\CommonSchema\People\AbstractPeople;
 
-class OrderSchema extends AbstractSchema
+class Customer extends AbstractPeople
 {
-    use OrderTrait;
-
+    /**
+     * @codeCoverageIgnore
+     */
     public function getSchema()
     {
-        return $this->loadSchemaFromFile(__DIR__.'/map/order.schema.php');
+        return array_merge(['billing_info' => 'object'], parent::getSchema());
     }
 }

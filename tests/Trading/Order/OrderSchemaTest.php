@@ -41,7 +41,6 @@ class OrderSchemaTest extends AbstractTestCase
     public function testGetSchema(OrderSchema $orderSchema)
     {
         $this->assertInternalType('array', $orderSchema->getSchema());
-        $this->recursiveAssert($orderSchema->getSchema());
     }
 
     /**
@@ -52,16 +51,6 @@ class OrderSchemaTest extends AbstractTestCase
     public function testSaveJson(OrderSchema $orderSchema)
     {
         $this->assertGreaterThan(100, $orderSchema->saveJson($this->getResourcesDirectory().'/fixtures/trading/order.json'));
-    }
-
-    /**
-     * @testdox ``getTemplate()``
-     * @cover ::getTemplate
-     * @dataProvider dataProviderOrderSchema
-     */
-    public function testGetTemplate(OrderSchema $orderSchema)
-    {
-        $this->assertInternalType('string', $orderSchema->getTemplate());
     }
 
     /**
@@ -84,17 +73,5 @@ class OrderSchemaTest extends AbstractTestCase
     public function testValidateSuccess(OrderSchema $orderSchema)
     {
         $this->assertTrue($orderSchema->validate($orderSchema->getSchema()));
-    }
-
-    protected function recursiveAssert($array)
-    {
-        foreach ($array as $k => $v) {
-            if (is_array($v)) {
-                $this->recursiveAssert($v);
-
-                continue;
-            }
-            $this->assertSame('string', $v, $k);
-        }
     }
 }

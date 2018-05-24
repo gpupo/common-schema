@@ -17,33 +17,33 @@ declare(strict_types=1);
 
 namespace Gpupo\Tests\CommonSchema\Trading\Order;
 
-use Gpupo\CommonSchema\Trading\Order\OrderCommon;
+use Gpupo\CommonSchema\Trading\Order\Order;
 use Gpupo\Tests\CommonSchema\AbstractTestCase;
 
 /**
- * @coversDefaultClass \Gpupo\CommonSchema\Trading\Order\OrderCommon
+ * @coversDefaultClass \Gpupo\CommonSchema\Trading\Order\Order
  */
-class OrderCommonTest extends AbstractTestCase
+class OrderTest extends AbstractTestCase
 {
     /**
-     * @return \Gpupo\CommonSchema\Trading\Order\OrderCommon
+     * @return \Gpupo\CommonSchema\Trading\Order\Order
      */
-    public function dataProviderOrderCommon()
+    public function dataProviderOrder()
     {
         $data = [
-            'orderNumber' => 1,
+            'order_number' => 1,
         ];
 
-        return [[new OrderCommon($data), $data]];
+        return [[new Order($data), $data]];
     }
 
     /**
-     * @dataProvider dataProviderOrderCommon
+     * @dataProvider dataProviderOrder
      *
      * @param mixed $expected
      */
-    public function testGetOrderNumber(OrderCommon $order, $expected)
+    public function testGetOrderNumber(Order $order, $expected)
     {
-        $this->assertSame($expected['orderNumber'], $order->getOrderNumber());
+        $this->assertSame($expected['order_number'], $order->getOrderNumber());
     }
 }

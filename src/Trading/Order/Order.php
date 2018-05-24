@@ -17,14 +17,6 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Order;
 
-use Gpupo\CommonSchema\AbstractSchema;
-
-class OrderSchema extends AbstractSchema
+final class Order extends AbstractOrder
 {
-    use OrderTrait;
-
-    public function getSchema()
-    {
-        return $this->loadSchemaFromFile(__DIR__.'/map/order.schema.php');
-    }
 }

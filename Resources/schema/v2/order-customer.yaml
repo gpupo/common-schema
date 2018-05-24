@@ -1,0 +1,27 @@
+# order-customer gpupo/common-schema
+# version: 2.0
+# generated at Thu, 24 May 2018 14:36:02 +0000billing_info:
+    doc_type: string
+    doc_number: string
+id: integer
+nickname: string
+email: string
+phone:
+    area_code: integer
+    extension: string
+    number: string
+    verified: bool
+    expands: array
+alternative_phone:
+    area_code: integer
+    extension: string
+    number: string
+    verified: bool
+    expands: array
+first_name: string
+last_name: string
+document:
+    doc_type: string
+    doc_number: string
+    expands: array
+expands: array

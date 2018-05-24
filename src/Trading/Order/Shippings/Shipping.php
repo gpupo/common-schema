@@ -15,11 +15,25 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order;
+namespace Gpupo\CommonSchema\Trading\Order\Shippings;
 
-use Gpupo\Common\Entity\CollectionAbstract;
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\CommonSdk\Entity\EntityAbstract;
+use Gpupo\CommonSdk\Entity\EntityInterface;
 
-class OrderCommon extends CollectionAbstract
+final class Shipping extends EntityAbstract implements EntityInterface, CollectionInterface
 {
-    use OrderTrait;
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getSchema()
+    {
+        return [
+            'shipping_number' => 'string',
+            'seller' => 'object',
+            'fulfilled' => 'boolean',
+            'tags' => 'array',
+            'expands' => 'array',
+        ];
+    }
 }

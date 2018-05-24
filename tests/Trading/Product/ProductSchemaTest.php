@@ -41,7 +41,6 @@ class ProductSchemaTest extends AbstractTestCase
     public function testGetSchema(ProductSchema $productSchema)
     {
         $this->assertInternalType('array', $productSchema->getSchema());
-        $this->recursiveAssert($productSchema->getSchema());
     }
 
     /**
@@ -52,16 +51,6 @@ class ProductSchemaTest extends AbstractTestCase
     public function testSaveJson(ProductSchema $productSchema)
     {
         $this->assertGreaterThan(100, $productSchema->saveJson($this->getResourcesDirectory().'/fixtures/trading/product.json'));
-    }
-
-    /**
-     * @testdox ``getTemplate()``
-     * @cover ::getTemplate
-     * @dataProvider dataProviderProductSchema
-     */
-    public function testGetTemplate(ProductSchema $productSchema)
-    {
-        $this->assertInternalType('string', $productSchema->getTemplate());
     }
 
     /**
@@ -84,17 +73,5 @@ class ProductSchemaTest extends AbstractTestCase
     public function testValidateSuccess(ProductSchema $productSchema)
     {
         $this->assertTrue($productSchema->validate($productSchema->getSchema()));
-    }
-
-    protected function recursiveAssert($array)
-    {
-        foreach ($array as $k => $v) {
-            if (is_array($v)) {
-                $this->recursiveAssert($v);
-
-                continue;
-            }
-            $this->assertSame('string', $v, $k.json_encode($array));
-        }
     }
 }
