@@ -15,22 +15,8 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Payments;
+namespace Gpupo\CommonSchema\Trading\Payment;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
-
-class AtmTransferReference extends EntityAbstract implements EntityInterface, CollectionInterface
+final class Transaction extends AbstractTransaction
 {
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
-    {
-        return [
-            'company_id' => 'integer',
-            'transaction_id' => 'integer',
-        ];
-    }
 }

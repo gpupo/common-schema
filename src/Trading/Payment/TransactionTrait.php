@@ -15,17 +15,47 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Payments;
+namespace Gpupo\CommonSchema\Trading\Payment;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\CollectionAbstract;
-use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
-use Gpupo\CommonSchema\Trading\Payment\Payment;
-
-final class Collection extends CollectionAbstract implements CollectionInterface, CollectionContainerInterface
+trait TransactionTrait
 {
-    public function factoryElement($data)
-    {
-        return new Payment($data);
-    }
+  protected function getTransactionNumber()
+  {
+  }
+
+  protected function getOrder()
+  {
+  }
+
+  protected function getPayment()
+  {
+  }
+
+  protected function getCustomer()
+  {
+  }
+
+  protected function getSeller()
+  {
+  }
+
+  protected function getMount()
+  {
+  }
+
+  protected function getDescription()
+  {
+  }
+
+  protected function getFinancialInstitution()
+  {
+  }
+
+  protected function getDateCreated()
+  {
+  }
+
+  protected function getDateLastModified()
+  {
+  }
 }

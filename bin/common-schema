@@ -20,6 +20,7 @@ use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
 use Gpupo\CommonSchema\Trading\Order\Order;
 use Gpupo\CommonSchema\Trading\Order\Customer\Customer;
 use Gpupo\CommonSchema\Trading\Order\OrderSchema;
+use Gpupo\CommonSchema\Trading\Payment\Transaction;
 use Gpupo\CommonSchema\Trading\Product\ProductSchema;
 use Symfony\Component\Yaml\Yaml;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
@@ -28,9 +29,11 @@ $input = new ArgvInput();
 $output = new ConsoleOutput();
 
 $order = new Order();
+$transaction = new Transaction();
 foreach ([
     'order' => $order,
     'order-customer' => $order->getCustomer(),
+    'transaction' => $transaction,
 ] as $key => $value) {
     $data = Tools::getRecursiveSchema($value);
     $file = sprintf('Resources/schema/v2/%s.yaml', $key);

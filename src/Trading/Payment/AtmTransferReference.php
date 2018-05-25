@@ -15,17 +15,22 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Payments;
+namespace Gpupo\CommonSchema\Trading\Payment;
 
 use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\CollectionAbstract;
-use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
-use Gpupo\CommonSchema\Trading\Payment\Payment;
+use Gpupo\CommonSdk\Entity\EntityAbstract;
+use Gpupo\CommonSdk\Entity\EntityInterface;
 
-final class Collection extends CollectionAbstract implements CollectionInterface, CollectionContainerInterface
+class AtmTransferReference extends EntityAbstract implements EntityInterface, CollectionInterface
 {
-    public function factoryElement($data)
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getSchema()
     {
-        return new Payment($data);
+        return [
+            'company_id' => 'integer',
+            'transaction_id' => 'integer',
+        ];
     }
 }
