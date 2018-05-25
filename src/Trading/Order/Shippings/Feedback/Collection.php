@@ -21,7 +21,6 @@ use Gpupo\CommonSchema\Thing\AbstractCollection;
 
 class Collection extends AbstractCollection
 {
-
     public function factoryElement($data)
     {
         return new Item($data);

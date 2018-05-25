@@ -15,15 +15,22 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Thing;
+namespace Gpupo\CommonSchema\Trading\Payment;
 
-use Gpupo\CommonSdk\Entity\CollectionAbstract;
-use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
+use Gpupo\CommonSchema\Thing\AbstractEntity;
 
-abstract class AbstractCollection extends CollectionAbstract implements CollectionInterface, CollectionContainerInterface
+class AtmTransferReference extends AbstractEntity
 {
-    public function factoryElement($data)
+    protected $tableName = 'trading_payment_atm_transfer';
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getSchema()
     {
-        throw new \InvalidArgumentException('factoryElement() must be implemented!');
+        return [
+            'company_id' => 'integer',
+            'transaction_id' => 'integer',
+        ];
     }
 }

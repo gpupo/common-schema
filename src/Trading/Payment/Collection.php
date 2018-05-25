@@ -15,15 +15,14 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Thing;
+namespace Gpupo\CommonSchema\Trading\Payment;
 
-use Gpupo\CommonSdk\Entity\CollectionAbstract;
-use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
+use Gpupo\CommonSchema\Thing\AbstractCollection;
 
-abstract class AbstractCollection extends CollectionAbstract implements CollectionInterface, CollectionContainerInterface
+class Collection extends AbstractCollection
 {
     public function factoryElement($data)
     {
-        throw new \InvalidArgumentException('factoryElement() must be implemented!');
+        return new Transaction($data);
     }
 }

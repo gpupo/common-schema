@@ -15,14 +15,13 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Payments;
+namespace Gpupo\CommonSchema\Trading\Payment;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\Thing\AbstractEntity;
 
-class Payment extends EntityAbstract implements EntityInterface, CollectionInterface
+class Payment extends AbstractEntity
 {
+    protected $tableName = 'trading_payment';
     protected $primaryKey = 'payment_number';
 
     /**
