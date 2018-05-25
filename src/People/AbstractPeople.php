@@ -17,11 +17,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\People;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\Thing\AbstractEntity;
 
-abstract class AbstractPeople extends EntityAbstract implements EntityInterface, CollectionInterface
+abstract class AbstractPeople extends AbstractEntity
 {
     /**
      * @codeCoverageIgnore

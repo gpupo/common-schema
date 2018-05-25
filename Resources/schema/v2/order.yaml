@@ -1,6 +1,6 @@
 # order gpupo/common-schema
 # version: 2.0
-# generated at Fri, 25 May 2018 12:38:31 +0000
+# generated at Fri, 25 May 2018 17:40:26 +0000
 order_number: string
 order_status: string
 order_status_detail:
@@ -71,9 +71,9 @@ shippings:
                 price: number
                 attributes:
                     -
+                        expands: array
                         key: string
                         value: string
-                        expands: array
                 variation_id: integer
                 variation_attributes: array
                 tags: array
@@ -100,14 +100,14 @@ shippings:
                 expands: array
         comments:
             -
+                expands: array
                 key: string
                 value: string
-                expands: array
         feedback:
             -
+                expands: array
                 key: string
                 value: string
-                expands: array
         tags: array
         expands: array
 customer:

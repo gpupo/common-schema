@@ -1,0 +1,34 @@
+# order_customer gpupo/common-schema
+# version: 2.0
+# generated at Fri, 25 May 2018 16:52:11 +0000
+type: entity
+table: trading_order_customer
+repositoryClass: BugRepository
+id:
+    id:
+        type: integer
+        generator:
+            strategy: AUTO
+fields:
+    id:
+        type: integer
+    nickname:
+        type: string
+    email:
+        type: string
+    phone:
+        type: object
+    alternative_phone:
+        type: object
+    first_name:
+        type: string
+    last_name:
+        type: string
+    document:
+        type: object
+    expands:
+        type: array
+    address_billing:
+        type: object
+    address_delivery:
+        type: object

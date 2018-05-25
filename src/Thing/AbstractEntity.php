@@ -15,16 +15,30 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order;
+namespace Gpupo\CommonSchema\Thing;
 
-use Gpupo\CommonSchema\AbstractSchema;
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\CommonSdk\Entity\EntityAbstract;
+use Gpupo\CommonSdk\Entity\EntityInterface;
 
-class OrderSchema extends AbstractSchema
+abstract class AbstractEntity extends EntityAbstract implements EntityInterface, CollectionInterface
 {
-    use OrderTrait;
+    protected $tablePrefix = 'cs_';
 
+    protected $tableName = 'thing';
+
+    public function getTableName()
+    {
+        return $this->tablePrefix.$this->tableName;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getSchema()
     {
-        return $this->loadSchemaFromFile(__DIR__.'/map/order.schema.php');
+        return [
+            'expands' => 'array',
+        ];
     }
 }

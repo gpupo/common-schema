@@ -17,11 +17,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Order;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\Thing\AbstractEntity;
 
-abstract class AbstractOrder extends EntityAbstract implements EntityInterface, CollectionInterface
+abstract class AbstractOrder extends AbstractEntity
 {
     protected $primaryKey = 'order_number';
 

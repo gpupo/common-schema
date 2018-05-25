@@ -1,0 +1,76 @@
+# order_payments gpupo/common-schema
+# version: 2.0
+# generated at Fri, 25 May 2018 16:52:11 +0000
+type: entity
+table: trading_order_payments
+repositoryClass: BugRepository
+id:
+    id:
+        type: integer
+        generator:
+            strategy: AUTO
+fields:
+    payment_number:
+        type: integer
+    collector:
+        type: object
+    currency_id:
+        type: string
+    status:
+        type: string
+    status_code:
+        type: string
+    status_detail:
+        type: string
+    transaction_amount:
+        type: number
+    shipping_cost:
+        type: number
+    overpaid_amount:
+        type: number
+    total_paid_amount:
+        type: number
+    marketplace_fee:
+        type: number
+    coupon_amount:
+        type: number
+    date_created:
+        type: datetime
+    date_last_modified:
+        type: datetime
+    card_id:
+        type: string
+    reason:
+        type: string
+    activation_uri:
+        type: string
+    payment_method_id:
+        type: string
+    installments:
+        type: integer
+    issuer_id:
+        type: integer
+    atm_transfer_reference:
+        type: object
+    coupon_id:
+        type: string
+    operation_type:
+        type: string
+    payment_type:
+        type: string
+    available_actions:
+        type: array
+    installment_amount:
+        type: number
+    deferred_period:
+        type: string
+    date_approved:
+        type: datetime
+    authorization_code:
+        type: string
+    transaction_order_id:
+        type: string
+    tags:
+        type: array
+    expands:
+        type: array
