@@ -56,90 +56,99 @@ class TransactionTest extends AbstractTestCase
      * @cover ::getSchema
      * @dataProvider dataProviderTransaction
      */
-    public function testGetSchema(Transaction $transaction)
+    public function testSetAndGetSchema(Transaction $transaction)
     {
         $this->assertInternalType('array', $transaction->getSchema());
     }
 
     /**
-     * @cover ::getTransactionNumber
+     * @testdox Cover methods ``setTransactionNumber`` and ``getTransactionNumber``
      * @dataProvider dataProviderTransaction
      */
-    public function testGetTransactionNumber(Transaction $transaction, $expected)
+    public function testSetAndGGetTransactionNumber(Transaction $transaction, array $expected)
     {
+        $transaction->setTransactionNumber($expected['transaction_number']);
         $this->assertSame($expected['transaction_number'], $transaction->getTransactionNumber());
     }
 
     /**
-    * @cover ::getDescription
+    * @testdox Cover methods ``setDescription`` and ``getDescription``
     * @dataProvider dataProviderTransaction
     */
-    public function testGetDescription(Transaction $transaction, $expected)
+    public function testSetAndGGetDescription(Transaction $transaction, array $expected)
     {
+      $transaction->setDescription($expected['description']);
       $this->assertSame($expected['description'], $transaction->getDescription());
     }
 
     /**
-    * @cover ::getAmount
+    * @testdox Cover methods ``setAmount`` and ``getAmount``
     * @dataProvider dataProviderTransaction
     */
-    public function testGetAmount(Transaction $transaction, $expected)
+    public function testSetAndGetAmount(Transaction $transaction, array $expected)
     {
+      $transaction->setAmount($expected['amount']);
       $this->assertSame($expected['amount'], $transaction->getAmount());
     }
 
     /**
-    * @cover ::getFinancialInstitution
+    * @testdox Cover methods ``setFinancialInstitution`` and ``getFinancialInstitution``
     * @dataProvider dataProviderTransaction
     */
-    public function testGetFinancialInstitution(Transaction $transaction, $expected)
+    public function testSetAndGetFinancialInstitution(Transaction $transaction, array $expected)
     {
+      $transaction->setFinancialInstitution($expected['financial_institution']);
       $this->assertSame($expected['financial_institution'], $transaction->getFinancialInstitution());
     }
 
     /**
-    * @cover ::getOrder
+    * @testdox Cover methods ``setOrder`` and ``getOrder``
     * @dataProvider dataProviderTransaction
     */
-    public function testGetOrder(Transaction $transaction)
+    public function testSetAndGetOrder(Transaction $transaction, array $expected)
     {
+      $transaction->setOrder($expected['order']);
       $this->assertInstanceOf(Order::class, $transaction->getOrder());
     }
 
     /**
-    * @cover ::getPayment
+    * @testdox Cover methods ``setPayment`` and ``getPayment``
     * @dataProvider dataProviderTransaction
     */
-    public function testGetPayment(Transaction $transaction)
+    public function testSetAndGetPayment(Transaction $transaction, array $expected)
     {
+      $transaction->setPayment($expected['payment']);
       $this->assertInstanceOf(Payment::class, $transaction->getPayment());
     }
 
     /**
-    * @cover ::getCustomer
+    * @testdox Cover methods ``setCustomer`` and ``getCustomer``
     * @dataProvider dataProviderTransaction
     */
-    public function testGetCustomer(Transaction $transaction)
+    public function testSetAndGetCustomer(Transaction $transaction, array $expected)
     {
+      $transaction->setCustomer($expected['customer']);
       $this->assertInstanceOf(Customer::class, $transaction->getCustomer());
     }
 
     /**
-    * @cover ::getSeller
+    * @testdox Cover methods ``setSeller`` and ``getSeller``
     * @dataProvider dataProviderTransaction
     */
-    public function testGetSeller(Transaction $transaction)
+    public function testSetAndGetSeller(Transaction $transaction, array $expected)
     {
+      $transaction->setSeller($expected['seller']);
       $this->assertInstanceOf(Seller::class, $transaction->getSeller());
     }
 
     /**
-    * @cover ::getDateCreated
+    * @testdox Cover methods ``setDateCreated`` and ``getDateCreated``
     * @dataProvider dataProviderTransaction
     */
-    public function testGetDateCreated(Transaction $transaction, $expected)
+    public function testSetAndGetDateCreated(Transaction $transaction, array $expected)
     {
-      //$this->assertInstanceOf(, $transaction->getDateCreated());
+      //$transaction->setDateCreated($expected['dateCreated']);
+      //$this->assertSame($expected['date_created'], $transaction->getDateCreated());
     }
 
 
