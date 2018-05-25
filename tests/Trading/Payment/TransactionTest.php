@@ -147,8 +147,8 @@ class TransactionTest extends AbstractTestCase
     */
     public function testSetAndGetDateCreated(Transaction $transaction, array $expected)
     {
-      //$transaction->setDateCreated($expected['dateCreated']);
-      //$this->assertSame($expected['date_created'], $transaction->getDateCreated());
+      $transaction->setDateCreated($expected['date_created']);
+      $this->assertSame($expected['date_created'], $transaction->getDateCreated());
     }
 
 
