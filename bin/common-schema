@@ -54,6 +54,7 @@ class CommonSchema
         $doctrine = [
             'type' =>  'entity',
             'table' => 'trading_'.$key,
+            'repositoryClass' => 'BugRepository',
             'id'    => [
                 'id' => ['type' => 'integer', 'generator' => ['strategy' => 'AUTO']],
             ]
