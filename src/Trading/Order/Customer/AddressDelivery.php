@@ -21,4 +21,5 @@ use Gpupo\CommonSchema\Thing\AbstractAddress;
 
 class AddressDelivery extends AbstractAddress
 {
+    protected $tableName = 'trading_order_customer_address_delivery';
 }

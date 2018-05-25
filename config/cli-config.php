@@ -7,7 +7,18 @@ use Doctrine\ORM\EntityManager;
 require 'vendor/autoload.php';
 
 $isDevMode = true;
-$config = Setup::createYAMLMetadataConfiguration(array(__DIR__."/yaml"), $isDevMode);
+
+$config = Setup::createYAMLMetadataConfiguration([__DIR__."/yaml"], $isDevMode);
+
+//
+// $namespaces = array(
+//     __DIR__."/yaml" => 'Gpupo\CommonSchema\Entity',
+// );
+// $driver = new \Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver($namespaces);
+// $driver->setGlobalBasename('global');
+// $config->setMetadataDriverImpl($driver);
+//
+
 
 $conn = array(
     'driver' => 'pdo_sqlite',

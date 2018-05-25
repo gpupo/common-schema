@@ -53,11 +53,11 @@ class CommonSchema
     public function saveDataToYamlEntity($object)
     {
         $class = get_class($object);
-        $toClass = str_replace('CommonSchema', 'CommonSchema\Entity', $class);
-
+        $toClass = str_replace('CommonSchema', 'CommonSchema\ORM', $class);
+        $table = $object->getTableName();
         $doctrine = [
             'type' =>  'entity',
-            'table' => $toClass,
+            'table' => $table,
             'repositoryClass' => $toClass .'Repository',
             'id'    => [
                 'id' => ['type' => 'integer', 'generator' => ['strategy' => 'AUTO']],
@@ -65,19 +65,26 @@ class CommonSchema
         ];
 
         foreach($object->getSchema() as $key => $value) {
-
-            $doctrine['fields'][$key] = ['type' =>  $value];
+            $doctrine['fields'][$key] = [
+                'type' =>  $value,
+                'lenght' =>  50,
+                'unique' => false,
+                'options'=> [
+                    'comment' => '',
+                ],
+            ];
         }
 
+        $doctrine['lifecycleCallbacks'] = [
+            'prePersist' => [],
+            'postPersist' => [],
+        ];
+
         $entity = [$toClass => $doctrine];
+        $file = sprintf('config/yaml/%s.dcm.yml', str_replace('\\', '.', $toClass));
+        $content = sprintf("# %s gpupo/common-schema metadata\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($entity, 8, 2);
 
-
-
-                $file = sprintf('config/yaml/%s.yaml', str_replace('\\', '', $toClass));
-                $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($entity, 8);
-                return $this->save($file, $content);
-
-
+        return $this->save($file, $content);
     }
 
     public function saveDataToDoctrineSchema($key, $value, array $data)
@@ -104,7 +111,7 @@ class CommonSchema
             $doctrine['fields'][$vkey] = ['type' =>  $vvalue];
         }
 
-        $file = sprintf('config/yaml/%s.yaml', $key);
+        $file = sprintf('config/yaml/%s.orm.yaml', $key);
         $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($doctrine, 8);
         return $this->save($file, $content);
     }
