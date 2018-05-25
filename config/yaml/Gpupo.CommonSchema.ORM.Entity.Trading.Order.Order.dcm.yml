@@ -1,10 +1,10 @@
 # expands gpupo/common-schema metadata
 # version: 2.0
-# generated at Fri, 25 May 2018 18:56:36 +0000
-Gpupo\CommonSchema\ORM\Trading\Order\Order:
+# generated at Fri, 25 May 2018 19:10:32 +0000
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
   type: entity
   table: cs_trading_order
-  repositoryClass: Gpupo\CommonSchema\ORM\Trading\Order\OrderRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderRepository
   id:
     id:
       type: integer

@@ -53,12 +53,13 @@ class CommonSchema
     public function saveDataToYamlEntity($object)
     {
         $class = get_class($object);
-        $toClass = str_replace('CommonSchema', 'CommonSchema\ORM', $class);
+        $toClass = str_replace('CommonSchema', 'CommonSchema\ORM\Entity', $class);
+        $repositoryClass = str_replace('CommonSchema', 'CommonSchema\ORM\Repository', $class) . 'Repository';
         $table = $object->getTableName();
         $doctrine = [
             'type' =>  'entity',
             'table' => $table,
-            'repositoryClass' => $toClass .'Repository',
+            'repositoryClass' => $repositoryClass,
             'id'    => [
                 'id' => ['type' => 'integer', 'generator' => ['strategy' => 'AUTO']],
             ]
