@@ -21,6 +21,8 @@ use Gpupo\CommonSchema\People\AbstractPeople;
 
 class Customer extends AbstractPeople
 {
+    protected $tableName = 'trading_order_customer';
+
     /**
      * @codeCoverageIgnore
      */

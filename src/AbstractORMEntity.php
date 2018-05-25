@@ -15,11 +15,8 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Customer;
+namespace Gpupo\CommonSchema;
 
-use Gpupo\CommonSchema\Thing\AbstractAddress;
-
-class AddressBilling extends AbstractAddress
+abstract class AbstractORMEntity
 {
-    protected $tableName = 'trading_order_customer_address_billing';
 }
