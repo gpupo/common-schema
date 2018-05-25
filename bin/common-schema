@@ -24,8 +24,61 @@ use Gpupo\CommonSchema\Trading\Product\ProductSchema;
 use Symfony\Component\Yaml\Yaml;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
 
-$input = new ArgvInput();
-$output = new ConsoleOutput();
+class CommonSchema
+{
+    protected $input;
+    protected $output;
+
+    public function __construct($input, $output)
+    {
+        $this->input = $input;
+        $this->output = $output;
+    }
+
+    protected function save($file, $content)
+    {
+        file_put_contents($file, $content);
+        $this->output->writeln(sprintf('Generated <fg=green> %s </> file', $file));
+    }
+
+    public function saveDataToSchema($key, $value, array $data)
+    {
+        $file = sprintf('Resources/schema/v2/%s.yaml', $key);
+        $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($data, 8);
+
+        return $this->save($file, $content);
+    }
+
+    public function saveDataToDoctrineSchema($key, $value, array $data)
+    {
+        $doctrine = [
+            'type' =>  'entity',
+            'table' => 'trading_'.$key,
+            'id'    => [
+                'id' => ['type' => 'integer', 'generator' => ['strategy' => 'AUTO']],
+            ]
+        ];
+
+        foreach($data as $vkey => $vvalue) {
+            if (is_array($vvalue) && 1 === count($vvalue) && is_array(current($vvalue))) {
+
+                $this->saveDataToDoctrineSchema($key.'_'.$vkey, null, current($vvalue));
+                continue;
+            } elseif (is_array($vvalue)) {
+                $this->saveDataToDoctrineSchema($key.'_'.$vkey, null, $vvalue);
+                $vvalue = 'object';
+            }
+
+            $doctrine['fields'][$vkey] = ['type' =>  $vvalue];
+        }
+
+        $file = sprintf('Resources/schema/doctrine/%s.yaml', $key);
+        $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($doctrine, 8);
+        return $this->save($file, $content);
+    }
+}
+
+$commonSchema = new CommonSchema(new ArgvInput(), new ConsoleOutput());
 
 $order = new Order();
 foreach ([
@@ -33,9 +86,9 @@ foreach ([
     'order-customer' => $order->getCustomer(),
 ] as $key => $value) {
     $data = Tools::getRecursiveSchema($value);
-    $file = sprintf('Resources/schema/v2/%s.yaml', $key);
-    $output->writeln(sprintf('Building <bg=black> %s </> ...', $file));
-    $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($data, 8);
-    file_put_contents($file, $content);
-    $output->writeln(sprintf('Generated <fg=green> %s </> file', $file));
+    $commonSchema->saveDataToSchema($key, $value, $data);
+    $commonSchema->saveDataToDoctrineSchema($key, $value, $data);
+
+
+
 }
