@@ -19,5 +19,5 @@ namespace Gpupo\CommonSchema\Trading\Order;
 
 final class Order extends AbstractOrder
 {
-    protected $tableName = 'thing';
+    protected $tableName = 'trading_order';
 }

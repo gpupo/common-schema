@@ -21,10 +21,7 @@ use Gpupo\CommonSchema\Thing\AbstractEntity;
 
 class OrderStatusDetail extends AbstractEntity
 {
-    public function getTableName()
-    {
-        return $this->tablePrefix.'trading_order_status_detail';
-    }
+    protected $tableName = 'trading_order_status_detail';
 
     /**
      * @codeCoverageIgnore
