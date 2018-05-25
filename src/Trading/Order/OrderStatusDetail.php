@@ -17,12 +17,15 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Order;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\Thing\AbstractEntity;
 
-class OrderStatusDetail extends EntityAbstract implements EntityInterface, CollectionInterface
+class OrderStatusDetail extends AbstractEntity
 {
+    public function getTableName()
+    {
+        return $this->tablePrefix.'trading_order_status_detail';
+    }
+
     /**
      * @codeCoverageIgnore
      */

@@ -17,21 +17,19 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Thing;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
-
-abstract class AbstractKeyValue extends EntityAbstract implements EntityInterface, CollectionInterface
+abstract class AbstractKeyValue extends AbstractEntity
 {
     /**
      * @codeCoverageIgnore
      */
     public function getSchema()
     {
-        return [
-            'key' => 'string',
-            'value' => 'string',
-            'expands' => 'array',
-        ];
+        return array_merge(
+            parent::getSchema(),
+            [
+                'key' => 'string',
+                'value' => 'string',
+            ]
+        );
     }
 }

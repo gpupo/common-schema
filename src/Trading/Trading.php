@@ -15,14 +15,27 @@ declare(strict_types=1);
  *
  */
 
- return [
-     'metadata' => [
-         'context' => 'http://schema.org/Shipping',
-         'type' => 'Shipping',
-         'description' => '',
-     ],
-     'expands' => [],
-    'acceptedOffer' => [
-        require(__DIR__.'/item.schema.php'),
-    ],
- ];
+namespace Gpupo\CommonSchema\Trading;
+
+use Gpupo\CommonSchema\Thing\AbstractEntity;
+
+class Trading extends AbstractEntity
+{
+    public function getTableName()
+    {
+        return $this->tablePrefix.'trading';
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getSchema()
+    {
+        return array_merge(
+            parent::getSchema(),
+            [
+                'order' => 'object',
+            ]
+        );
+    }
+}

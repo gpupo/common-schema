@@ -17,6 +17,7 @@ use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
+use Gpupo\CommonSchema\Trading\Trading;
 use Gpupo\CommonSchema\Trading\Order\Order;
 use Gpupo\CommonSchema\Trading\Order\Customer\Customer;
 use Gpupo\CommonSchema\Trading\Order\OrderSchema;
@@ -49,6 +50,36 @@ class CommonSchema
         return $this->save($file, $content);
     }
 
+    public function saveDataToYamlEntity($object)
+    {
+        $class = get_class($object);
+        $toClass = str_replace('CommonSchema', 'CommonSchema\Entity', $class);
+
+        $doctrine = [
+            'type' =>  'entity',
+            'table' => $toClass,
+            'repositoryClass' => $toClass .'Repository',
+            'id'    => [
+                'id' => ['type' => 'integer', 'generator' => ['strategy' => 'AUTO']],
+            ]
+        ];
+
+        foreach($object->getSchema() as $key => $value) {
+
+            $doctrine['fields'][$key] = ['type' =>  $value];
+        }
+
+        $entity = [$toClass => $doctrine];
+
+
+
+                $file = sprintf('config/yaml/%s.yaml', str_replace('\\', '', $toClass));
+                $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($entity, 8);
+                return $this->save($file, $content);
+
+
+    }
+
     public function saveDataToDoctrineSchema($key, $value, array $data)
     {
         $doctrine = [
@@ -73,7 +104,7 @@ class CommonSchema
             $doctrine['fields'][$vkey] = ['type' =>  $vvalue];
         }
 
-        $file = sprintf('Resources/schema/doctrine/%s.yaml', $key);
+        $file = sprintf('config/yaml/%s.yaml', $key);
         $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($doctrine, 8);
         return $this->save($file, $content);
     }
@@ -88,8 +119,18 @@ foreach ([
 ] as $key => $value) {
     $data = Tools::getRecursiveSchema($value);
     $commonSchema->saveDataToSchema($key, $value, $data);
-    $commonSchema->saveDataToDoctrineSchema($key, $value, $data);
-
-
-
 }
+
+
+$trading = new Trading();
+foreach($trading as $prop) {
+    if ($prop instanceof CollectionInterface) {
+        $commonSchema->saveDataToYamlEntity($prop);
+    }
+}
+//
+// foreach ([
+//     'order' => $order,
+// ] as $key => $value) {
+//     $commonSchema->saveDataToDoctrineSchema($key, $value, $data);
+// }
