@@ -19,10 +19,10 @@ namespace Gpupo\Tests\CommonSchema\Trading\Payment;
 
 use Gpupo\Tests\CommonSchema\AbstractTestCase;
 
-use Gpupo\CommonSchema\Trading\Order\Order;
+use Gpupo\CommonSchema\Trading\Payment\Order;
 use Gpupo\CommonSchema\Trading\Payment\Payment;
-use Gpupo\CommonSchema\Trading\Order\Customer\Customer;
-use Gpupo\CommonSchema\Trading\Order\Shippings\Seller;
+use Gpupo\CommonSchema\Trading\Payment\Customer;
+use Gpupo\CommonSchema\Trading\Payment\Seller;
 use Gpupo\CommonSchema\Trading\Payment\Transaction;
 
 /**
@@ -36,12 +36,12 @@ class TransactionTest extends AbstractTestCase
     public function dataProviderTransaction()
     {
         $data = [
-          'transaction_number' => 99,
+          'transaction_number' => 999999,
           'description'=> 'string',
           'amount' => 10.0,
           'financial_institution' => 'string',
           'order' => new Order(),
-          'payment'=> new Payment(),
+          'payment' => new Payment(),
           'customer' => new Customer(),
           'seller'=> new Seller(),
           'date_created' =>  new \Datetime,
@@ -52,12 +52,95 @@ class TransactionTest extends AbstractTestCase
     }
 
     /**
+     * @testdox ``getSchema()``
+     * @cover ::getSchema
      * @dataProvider dataProviderTransaction
-     *
-     * @param mixed $expected
+     */
+    public function testGetSchema(Transaction $transaction)
+    {
+        $this->assertInternalType('array', $transaction->getSchema());
+    }
+
+    /**
+     * @cover ::getTransactionNumber
+     * @dataProvider dataProviderTransaction
      */
     public function testGetTransactionNumber(Transaction $transaction, $expected)
     {
         $this->assertSame($expected['transaction_number'], $transaction->getTransactionNumber());
     }
+
+    /**
+    * @cover ::getDescription
+    * @dataProvider dataProviderTransaction
+    */
+    public function testGetDescription(Transaction $transaction, $expected)
+    {
+      $this->assertSame($expected['description'], $transaction->getDescription());
+    }
+
+    /**
+    * @cover ::getAmount
+    * @dataProvider dataProviderTransaction
+    */
+    public function testGetAmount(Transaction $transaction, $expected)
+    {
+      $this->assertSame($expected['amount'], $transaction->getAmount());
+    }
+
+    /**
+    * @cover ::getFinancialInstitution
+    * @dataProvider dataProviderTransaction
+    */
+    public function testGetFinancialInstitution(Transaction $transaction, $expected)
+    {
+      $this->assertSame($expected['financial_institution'], $transaction->getFinancialInstitution());
+    }
+
+    /**
+    * @cover ::getOrder
+    * @dataProvider dataProviderTransaction
+    */
+    public function testGetOrder(Transaction $transaction)
+    {
+      $this->assertInstanceOf(Order::class, $transaction->getOrder());
+    }
+
+    /**
+    * @cover ::getPayment
+    * @dataProvider dataProviderTransaction
+    */
+    public function testGetPayment(Transaction $transaction)
+    {
+      $this->assertInstanceOf(Payment::class, $transaction->getPayment());
+    }
+
+    /**
+    * @cover ::getCustomer
+    * @dataProvider dataProviderTransaction
+    */
+    public function testGetCustomer(Transaction $transaction)
+    {
+      $this->assertInstanceOf(Customer::class, $transaction->getCustomer());
+    }
+
+    /**
+    * @cover ::getSeller
+    * @dataProvider dataProviderTransaction
+    */
+    public function testGetSeller(Transaction $transaction)
+    {
+      $this->assertInstanceOf(Seller::class, $transaction->getSeller());
+    }
+
+    /**
+    * @cover ::getDateCreated
+    * @dataProvider dataProviderTransaction
+    */
+    public function testGetDateCreated(Transaction $transaction, $expected)
+    {
+      //$this->assertInstanceOf(, $transaction->getDateCreated());
+    }
+
+
 }

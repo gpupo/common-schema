@@ -17,19 +17,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Payment;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\Thing\AbstractEntity;
 
-class Collector extends EntityAbstract implements EntityInterface, CollectionInterface
+class Collector extends AbstractEntity
 {
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
-    {
-        return [
-            'id' => 'integer',
-        ];
-    }
+
 }

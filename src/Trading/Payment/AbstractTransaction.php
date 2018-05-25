@@ -17,19 +17,14 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Payment;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
-
+use Gpupo\CommonSchema\Thing\AbstractEntity;
 use Gpupo\CommonSchema\Trading\Order\Order;
 use Gpupo\CommonSchema\Trading\Payment\Payment;
 use Gpupo\CommonSchema\Trading\Order\Customer\Customer;
 use Gpupo\CommonSchema\Trading\Order\Shippings\Seller;
 
-
-class AbstractTransaction extends EntityAbstract implements EntityInterface, CollectionInterface
+class AbstractTransaction extends AbstractEntity
 {
-
     protected $primaryKey = 'transaction_number';
 
     /**
@@ -38,7 +33,7 @@ class AbstractTransaction extends EntityAbstract implements EntityInterface, Col
     public function getSchema()
     {
         return [
-            'transaction_number' => 'number',
+            'transaction_number' => 'integer',
             'description'=> 'string',
             'amount' => 'number',
             'financial_institution' => 'string',

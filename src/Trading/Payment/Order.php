@@ -17,7 +17,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Payment;
 
-final class Transaction extends AbstractTransaction
+use Gpupo\CommonSchema\Trading\Order\AbstractOrder;
+
+class Order extends AbstractOrder
 {
-  protected $tableName = 'trading_payment_transaction';
+
 }

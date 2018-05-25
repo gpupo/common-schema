@@ -17,12 +17,11 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Payment;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\Thing\AbstractEntity;
 
-class AtmTransferReference extends EntityAbstract implements EntityInterface, CollectionInterface
+class AtmTransferReference extends AbstractEntity
 {
+    protected $tableName = 'trading_payment_atm_transfer';
     /**
      * @codeCoverageIgnore
      */

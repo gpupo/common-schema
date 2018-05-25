@@ -17,45 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Payment;
 
-trait TransactionTrait
+use Gpupo\CommonSchema\Thing\AbstractPhone;
+
+final class Phone extends AbstractPhone
 {
-  protected function getTransactionNumber()
-  {
-  }
-
-  protected function getOrder()
-  {
-  }
-
-  protected function getPayment()
-  {
-  }
-
-  protected function getCustomer()
-  {
-  }
-
-  protected function getSeller()
-  {
-  }
-
-  protected function getMount()
-  {
-  }
-
-  protected function getDescription()
-  {
-  }
-
-  protected function getFinancialInstitution()
-  {
-  }
-
-  protected function getDateCreated()
-  {
-  }
-
-  protected function getDateLastModified()
-  {
-  }
 }
