@@ -19,5 +19,5 @@ namespace Gpupo\CommonSchema\Trading\Payment;
 
 final class Transaction extends AbstractTransaction
 {
-  protected $tableName = 'trading_payment_transaction';
+    protected $tableName = 'trading_payment_transaction';
 }

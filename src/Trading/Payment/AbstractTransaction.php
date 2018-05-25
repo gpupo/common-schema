@@ -18,9 +18,8 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\Trading\Payment;
 
 use Gpupo\CommonSchema\Thing\AbstractEntity;
-use Gpupo\CommonSchema\Trading\Order\Order;
-use Gpupo\CommonSchema\Trading\Payment\Payment;
 use Gpupo\CommonSchema\Trading\Order\Customer\Customer;
+use Gpupo\CommonSchema\Trading\Order\Order;
 use Gpupo\CommonSchema\Trading\Order\Shippings\Seller;
 
 class AbstractTransaction extends AbstractEntity
@@ -34,14 +33,14 @@ class AbstractTransaction extends AbstractEntity
     {
         return [
             'transaction_number' => 'integer',
-            'description'=> 'string',
+            'description' => 'string',
             'amount' => 'number',
             'financial_institution' => 'string',
             //objects
             'order' => 'object',
-            'payment'=> 'object',
+            'payment' => 'object',
             'customer' => 'object',
-            'seller'=> 'object',
+            'seller' => 'object',
             //dates
             'date_created' => 'datetime',
             'date_last_modified' => 'datetime',

@@ -22,6 +22,7 @@ use Gpupo\CommonSchema\Thing\AbstractEntity;
 class AtmTransferReference extends AbstractEntity
 {
     protected $tableName = 'trading_payment_atm_transfer';
+
     /**
      * @codeCoverageIgnore
      */

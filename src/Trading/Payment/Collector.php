@@ -21,5 +21,4 @@ use Gpupo\CommonSchema\Thing\AbstractEntity;
 
 class Collector extends AbstractEntity
 {
-
 }

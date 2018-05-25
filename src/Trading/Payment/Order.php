@@ -21,5 +21,4 @@ use Gpupo\CommonSchema\Trading\Order\AbstractOrder;
 
 class Order extends AbstractOrder
 {
-
 }

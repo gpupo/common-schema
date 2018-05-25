@@ -24,6 +24,6 @@ abstract class AbstractCollection extends CollectionAbstract implements Collecti
 {
     public function factoryElement($data)
     {
-        throw new \InvalidArgumentException("factoryElement() must be implemented!");
+        throw new \InvalidArgumentException('factoryElement() must be implemented!');
     }
 }
