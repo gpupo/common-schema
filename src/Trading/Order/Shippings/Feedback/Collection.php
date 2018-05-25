@@ -17,12 +17,11 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Order\Shippings\Feedback;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\CollectionAbstract;
-use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
+use Gpupo\CommonSchema\Thing\AbstractCollection;
 
-final class Collection extends CollectionAbstract implements CollectionInterface, CollectionContainerInterface
+class Collection extends AbstractCollection
 {
+
     public function factoryElement($data)
     {
         return new Item($data);

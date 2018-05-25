@@ -19,7 +19,6 @@ namespace Gpupo\CommonSchema\Thing;
 
 use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
 
 abstract class AbstractEntity extends EntityAbstract implements EntityInterface, CollectionInterface
 {
