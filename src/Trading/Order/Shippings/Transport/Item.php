@@ -15,23 +15,30 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Customer;
+namespace Gpupo\CommonSchema\Trading\Order\Shippings\Transport;
 
-use Gpupo\CommonSchema\People\AbstractPeople;
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\CommonSdk\Entity\EntityAbstract;
+use Gpupo\CommonSdk\Entity\EntityInterface;
 
-class Customer extends AbstractPeople
+class Item extends EntityAbstract implements EntityInterface, CollectionInterface
 {
+    protected $primaryKey = 'tracking_number';
+
     /**
      * @codeCoverageIgnore
      */
     public function getSchema()
     {
-        return array_merge(
-            parent::getSchema(),
-            [
-                'address_billing' => 'object',
-                'address_delivery' => 'object',
-            ]
-        );
+        return [
+            'tracking_number' => 'string',
+            'tracking_link' => 'string',
+            'date_ship' => 'datetime',
+            'date_tracking_ship' => 'datetime',
+            'delivery_service' => 'string',
+            'carrier' => 'string',
+            'tags' => 'array',
+            'expands' => 'array',
+        ];
     }
 }

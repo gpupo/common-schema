@@ -17,21 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Order\Customer;
 
-use Gpupo\CommonSchema\People\AbstractPeople;
+use Gpupo\CommonSchema\Thing\AbstractAddress;
 
-class Customer extends AbstractPeople
+class AddressBilling extends AbstractAddress
 {
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
-    {
-        return array_merge(
-            parent::getSchema(),
-            [
-                'address_billing' => 'object',
-                'address_delivery' => 'object',
-            ]
-        );
-    }
 }

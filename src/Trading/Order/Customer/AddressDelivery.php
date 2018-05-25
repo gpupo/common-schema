@@ -17,20 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Trading\Order\Customer;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\Thing\AbstractAddress;
 
-class BillingInfo extends EntityAbstract implements EntityInterface, CollectionInterface
+class AddressDelivery extends AbstractAddress
 {
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
-    {
-        return [
-            'doc_type' => 'string',
-            'doc_number' => 'string',
-        ];
-    }
 }

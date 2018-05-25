@@ -15,23 +15,29 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Customer;
+namespace Gpupo\CommonSchema\Thing;
 
-use Gpupo\CommonSchema\People\AbstractPeople;
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\CommonSdk\Entity\EntityAbstract;
+use Gpupo\CommonSdk\Entity\EntityInterface;
 
-class Customer extends AbstractPeople
+abstract class AbstractAddress extends EntityAbstract implements EntityInterface, CollectionInterface
 {
     /**
      * @codeCoverageIgnore
      */
     public function getSchema()
     {
-        return array_merge(
-            parent::getSchema(),
-            [
-                'address_billing' => 'object',
-                'address_delivery' => 'object',
-            ]
-        );
+        return [
+            'street' => 'string',
+            'number' => 'string',
+            'neighborhood' => 'string',
+            'reference' => 'string',
+            'comments' => 'string',
+            'city' => 'string',
+            'state' => 'string',
+            'postalCode' => 'string',
+            'expands' => 'array',
+        ];
     }
 }

@@ -15,11 +15,11 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Customer;
+namespace Gpupo\CommonSchema\Trading\Order\Shippings\Products;
 
-use Gpupo\CommonSchema\People\AbstractPeople;
+use Gpupo\CommonSchema\Trading\Product\AbstractProduct;
 
-class Customer extends AbstractPeople
+class Product extends AbstractProduct
 {
     /**
      * @codeCoverageIgnore
@@ -29,9 +29,14 @@ class Customer extends AbstractPeople
         return array_merge(
             parent::getSchema(),
             [
-                'address_billing' => 'object',
-                'address_delivery' => 'object',
+                'seller_product_id' => 'string',
+                'variation_attributes' => 'array',
             ]
         );
     }
 }
+
+//
+// "sale_fee": 1.05,
+// "quantity": 1,
+// "unit_price": 10

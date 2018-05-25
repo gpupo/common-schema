@@ -35,6 +35,7 @@ foreach ([
     $data = Tools::getRecursiveSchema($value);
     $file = sprintf('Resources/schema/v2/%s.yaml', $key);
     $output->writeln(sprintf('Building <bg=black> %s </> ...', $file));
-    file_put_contents($file, sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s", $key, date('r')).Yaml::dump($data, 8));
+    $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($data, 8);
+    file_put_contents($file, $content);
     $output->writeln(sprintf('Generated <fg=green> %s </> file', $file));
 }

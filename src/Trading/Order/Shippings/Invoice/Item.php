@@ -15,23 +15,29 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Customer;
+namespace Gpupo\CommonSchema\Trading\Order\Shippings\Invoice;
 
-use Gpupo\CommonSchema\People\AbstractPeople;
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\CommonSdk\Entity\EntityAbstract;
+use Gpupo\CommonSdk\Entity\EntityInterface;
 
-class Customer extends AbstractPeople
+class Item extends EntityAbstract implements EntityInterface, CollectionInterface
 {
+    protected $primaryKey = 'invoice_number';
+
     /**
      * @codeCoverageIgnore
      */
     public function getSchema()
     {
-        return array_merge(
-            parent::getSchema(),
-            [
-                'address_billing' => 'object',
-                'address_delivery' => 'object',
-            ]
-        );
+        return [
+            'invoice_number' => 'string',
+            'invoice_link' => 'string',
+            'invoice_date' => 'datetime',
+            'ship_date' => 'datetime',
+            'accessKey' => 'string',
+            'tags' => 'array',
+            'expands' => 'array',
+        ];
     }
 }

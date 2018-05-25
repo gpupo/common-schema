@@ -15,23 +15,16 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Customer;
+namespace Gpupo\CommonSchema\Trading\Product\Attributes;
 
-use Gpupo\CommonSchema\People\AbstractPeople;
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\CommonSdk\Entity\CollectionAbstract;
+use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
 
-class Customer extends AbstractPeople
+final class Collection extends CollectionAbstract implements CollectionInterface, CollectionContainerInterface
 {
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
+    public function factoryElement($data)
     {
-        return array_merge(
-            parent::getSchema(),
-            [
-                'address_billing' => 'object',
-                'address_delivery' => 'object',
-            ]
-        );
+        return new Attribute($data);
     }
 }

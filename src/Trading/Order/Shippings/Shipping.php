@@ -23,15 +23,37 @@ use Gpupo\CommonSdk\Entity\EntityInterface;
 
 final class Shipping extends EntityAbstract implements EntityInterface, CollectionInterface
 {
+    protected $primaryKey = 'shipping_number';
+
     /**
      * @codeCoverageIgnore
      */
     public function getSchema()
     {
         return [
-            'shipping_number' => 'string',
-            'seller' => 'object',
+            'shipping_number' => 'integer',
             'fulfilled' => 'boolean',
+            'hidden_for_seller' => 'boolean',
+            //date
+            'date_created' => 'datetime',
+            'date_last_expiration' => 'datetime',
+            'date_last_modified' => 'datetime',
+            //Totals
+            'currency_id' => 'string',
+            'total_commission' => 'number',
+            'total_discount' => 'number',
+            'total_freight' => 'number',
+            'total_gross' => 'number',
+            'total_net' => 'number',
+            'total_quantity' => 'number',
+            //object
+            'seller' => 'object',
+            'products' => 'object',
+            'transport' => 'object',
+            'invoice' => 'object',
+            'comments' => 'object',
+            'feedback' => 'object',
+            //extra
             'tags' => 'array',
             'expands' => 'array',
         ];

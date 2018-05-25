@@ -15,23 +15,10 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Customer;
+namespace Gpupo\CommonSchema\Trading\Product\Attributes;
 
-use Gpupo\CommonSchema\People\AbstractPeople;
+use Gpupo\CommonSchema\Thing\AbstractKeyValue;
 
-class Customer extends AbstractPeople
+class Attribute extends AbstractKeyValue
 {
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
-    {
-        return array_merge(
-            parent::getSchema(),
-            [
-                'address_billing' => 'object',
-                'address_delivery' => 'object',
-            ]
-        );
-    }
 }

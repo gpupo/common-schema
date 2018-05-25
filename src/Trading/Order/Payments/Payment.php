@@ -23,15 +23,15 @@ use Gpupo\CommonSdk\Entity\EntityInterface;
 
 class Payment extends EntityAbstract implements EntityInterface, CollectionInterface
 {
+    protected $primaryKey = 'payment_number';
+
     /**
      * @codeCoverageIgnore
      */
     public function getSchema()
     {
         return [
-            'id' => 'integer',
-            'order_id' => 'integer',
-            'payer_id' => 'integer',
+            'payment_number' => 'integer',
             'collector' => 'object',
             'currency_id' => 'string',
             'status' => 'string',

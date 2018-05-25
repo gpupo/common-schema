@@ -1,6 +1,7 @@
 # order gpupo/common-schema
 # version: 2.0
-# generated at Thu, 24 May 2018 14:36:02 +0000order_number: string
+# generated at Fri, 25 May 2018 12:38:31 +0000
+order_number: string
 order_status: string
 order_status_detail:
     code: string
@@ -22,7 +23,19 @@ total_net: number
 total_quantity: number
 shippings:
     -
-        shipping_number: string
+        shipping_number: integer
+        fulfilled: boolean
+        hidden_for_seller: boolean
+        date_created: datetime
+        date_last_expiration: datetime
+        date_last_modified: datetime
+        currency_id: string
+        total_commission: number
+        total_discount: number
+        total_freight: number
+        total_gross: number
+        total_net: number
+        total_quantity: number
         seller:
             id: integer
             nickname: string
@@ -46,13 +59,58 @@ shippings:
                 doc_number: string
                 expands: array
             expands: array
-        fulfilled: boolean
+        products:
+            -
+                id: integer
+                title: string
+                gtin: string
+                description: string
+                category_id: string
+                brand: string
+                condition: string
+                price: number
+                attributes:
+                    -
+                        key: string
+                        value: string
+                        expands: array
+                variation_id: integer
+                variation_attributes: array
+                tags: array
+                expands: array
+                seller_product_id: string
+        transport:
+            -
+                tracking_number: string
+                tracking_link: string
+                date_ship: datetime
+                date_tracking_ship: datetime
+                delivery_service: string
+                carrier: string
+                tags: array
+                expands: array
+        invoice:
+            -
+                invoice_number: string
+                invoice_link: string
+                invoice_date: datetime
+                ship_date: datetime
+                accessKey: string
+                tags: array
+                expands: array
+        comments:
+            -
+                key: string
+                value: string
+                expands: array
+        feedback:
+            -
+                key: string
+                value: string
+                expands: array
         tags: array
         expands: array
 customer:
-    billing_info:
-        doc_type: string
-        doc_number: string
     id: integer
     nickname: string
     email: string
@@ -75,11 +133,29 @@ customer:
         doc_number: string
         expands: array
     expands: array
+    address_billing:
+        street: string
+        number: string
+        neighborhood: string
+        reference: string
+        comments: string
+        city: string
+        state: string
+        postalCode: string
+        expands: array
+    address_delivery:
+        street: string
+        number: string
+        neighborhood: string
+        reference: string
+        comments: string
+        city: string
+        state: string
+        postalCode: string
+        expands: array
 payments:
     -
-        id: integer
-        order_id: integer
-        payer_id: integer
+        payment_number: integer
         collector:
             id: integer
         currency_id: string
