@@ -1,0 +1,46 @@
+# expands gpupo/common-schema metadata
+# version: 2.0
+# generated at Fri, 25 May 2018 20:06:09 +0000
+Gpupo\CommonSchema\ORM\Entity\People\Phone:
+  type: entity
+  table: cs_people_phone
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\PhoneRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    area_code:
+      type: integer
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    extension:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    number:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    verified:
+      type: bool
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    expands:
+      type: array
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

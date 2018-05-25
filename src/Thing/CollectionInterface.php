@@ -17,9 +17,7 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Thing;
 
-use Gpupo\Common\Entity\CollectionInterface as Core;
-
-interface CollectionInterface extends Core
+interface CollectionInterface extends \Gpupo\Common\Entity\CollectionInterface
 {
     public function factoryElement($data);
 }

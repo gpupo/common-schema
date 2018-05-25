@@ -1,0 +1,28 @@
+# description gpupo/common-schema metadata
+# version: 2.0
+# generated at Fri, 25 May 2018 20:06:09 +0000
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
+  type: entity
+  table: cs_trading_order_status_detail
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderStatusDetailRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    code:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    description:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

@@ -25,6 +25,7 @@ use Symfony\Component\Yaml\Yaml;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
 use Gpupo\CommonSchema\Thing\EntityInterface;
 use Gpupo\CommonSchema\Thing\CollectionInterface;
+use Gpupo\CommonSchema\Thing\AbstractCollection;
 
 class CommonSchema
 {
@@ -91,26 +92,24 @@ class CommonSchema
         return $this->save($file, $content);
     }
 
-
     public function recursiveSaveDataDoctrineMetadata($object)
     {
         if (!is_object($object)) {
             return;
         }
         if ($object instanceof CollectionInterface) {
-            dump($object);
-
             return $this->recursiveSaveDataDoctrineMetadata($object->first());
         }
 
         if (!$object instanceof EntityInterface) {
-            throw new \Exception(sprintf('Class %s must implement %s', get_class($object), EntityInterface::class));
-
+            die(sprintf('Class %s must implement %s', get_class($object), EntityInterface::class));
         }
 
+        $this->saveDataDoctrineMetadata($object);
+
         foreach($object as $prop) {
-            if ($prop instanceof EntityInterface) {
-                $this->saveDataDoctrineMetadata($prop);
+            if (is_object($prop)) {
+                $this->recursiveSaveDataDoctrineMetadata($prop);
             }
         }
     }
@@ -121,7 +120,6 @@ $commonSchema = new CommonSchema(new ArgvInput(), new ConsoleOutput());
 $order = new Order();
 foreach ([
     'order' => $order,
-    'order-customer' => $order->getCustomer(),
 ] as $key => $value) {
     $data = Tools::getRecursiveSchema($value);
     $commonSchema->saveDataToSchema($key, $value, $data);

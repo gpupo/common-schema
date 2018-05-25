@@ -24,10 +24,14 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface,
 {
     protected $tablePrefix = 'cs_';
 
-    protected $tableName = 'thing';
+    protected $tableName;
 
     public function getTableName()
     {
+        if (empty($this->tableName)) {
+            throw new \InvalidArgumentException(sprintf('Table name missing on %s', get_class($this)));
+        }
+
         return $this->tablePrefix.$this->tableName;
     }
 

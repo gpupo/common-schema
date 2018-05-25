@@ -21,4 +21,5 @@ use Gpupo\CommonSchema\Thing\AbstractPhone;
 
 final class Phone extends AbstractPhone
 {
+    protected $tableName = 'people_phone';
 }
