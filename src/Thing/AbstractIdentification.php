@@ -17,11 +17,7 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Thing;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
-
-abstract class AbstractIdentification extends EntityAbstract implements EntityInterface, CollectionInterface
+abstract class AbstractIdentification extends AbstractEntity
 {
     /**
      * @codeCoverageIgnore

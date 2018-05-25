@@ -60,7 +60,7 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var bool
      *
-     * @ORM\Column(name="verified", type="bool", unique=false)
+     * @ORM\Column(name="verified", type="boolean", unique=false)
      */
     private $verified;
 
@@ -156,11 +156,11 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set verified.
      *
-     * @param \bool $verified
+     * @param bool $verified
      *
      * @return Phone
      */
-    public function setVerified(\bool $verified)
+    public function setVerified($verified)
     {
         $this->verified = $verified;
 
@@ -170,7 +170,7 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get verified.
      *
-     * @return \bool
+     * @return bool
      */
     public function getVerified()
     {

@@ -1,0 +1,76 @@
+# address_delivery gpupo/common-schema metadata
+# version: 2.0
+# generated at Fri, 25 May 2018 20:35:48 +0000
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
+  type: entity
+  table: cs_trading_order_customer
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\CustomerRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    nickname:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    email:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    phone:
+      type: object
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    alternative_phone:
+      type: object
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    first_name:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    last_name:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    document:
+      type: object
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    expands:
+      type: array
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    address_billing:
+      type: object
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    address_delivery:
+      type: object
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

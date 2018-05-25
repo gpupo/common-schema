@@ -28,7 +28,7 @@ abstract class AbstractPhone extends AbstractEntity
             'area_code' => 'integer',
             'extension' => 'string',
             'number' => 'string',
-            'verified' => 'bool',
+            'verified' => 'boolean',
             'expands' => 'array',
         ];
     }

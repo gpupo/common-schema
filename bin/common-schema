@@ -68,6 +68,9 @@ class CommonSchema
         ];
 
         foreach($object->getSchema() as $key => $value) {
+            if ('id' === $key) {
+                continue;
+            }
             $doctrine['fields'][$key] = [
                 'type' =>  $value,
                 'lenght' =>  50,

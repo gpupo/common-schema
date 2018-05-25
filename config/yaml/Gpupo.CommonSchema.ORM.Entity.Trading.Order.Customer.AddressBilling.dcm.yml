@@ -1,0 +1,70 @@
+# expands gpupo/common-schema metadata
+# version: 2.0
+# generated at Fri, 25 May 2018 20:35:48 +0000
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
+  type: entity
+  table: cs_trading_order_customer_address_billing
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\AddressBillingRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    street:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    number:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    neighborhood:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    reference:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    comments:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    city:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    state:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    postalCode:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    expands:
+      type: array
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

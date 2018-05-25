@@ -1,6 +1,6 @@
 # expands gpupo/common-schema metadata
 # version: 2.0
-# generated at Fri, 25 May 2018 20:06:09 +0000
+# generated at Fri, 25 May 2018 20:35:48 +0000
 Gpupo\CommonSchema\ORM\Entity\People\Phone:
   type: entity
   table: cs_people_phone
@@ -30,7 +30,7 @@ Gpupo\CommonSchema\ORM\Entity\People\Phone:
       options:
         comment: ''
     verified:
-      type: bool
+      type: boolean
       lenght: 50
       unique: false
       options:

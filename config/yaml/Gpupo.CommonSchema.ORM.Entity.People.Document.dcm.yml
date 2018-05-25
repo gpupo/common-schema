@@ -1,36 +1,24 @@
 # expands gpupo/common-schema metadata
 # version: 2.0
 # generated at Fri, 25 May 2018 20:35:48 +0000
-Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone:
+Gpupo\CommonSchema\ORM\Entity\People\Document:
   type: entity
-  table: cs_people_alternative_phone
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\AlternativePhoneRepository
+  table: cs_people_document
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\DocumentRepository
   id:
     id:
       type: integer
       generator:
         strategy: AUTO
   fields:
-    area_code:
-      type: integer
-      lenght: 50
-      unique: false
-      options:
-        comment: ''
-    extension:
+    doc_type:
       type: string
       lenght: 50
       unique: false
       options:
         comment: ''
-    number:
+    doc_number:
       type: string
-      lenght: 50
-      unique: false
-      options:
-        comment: ''
-    verified:
-      type: boolean
       lenght: 50
       unique: false
       options:

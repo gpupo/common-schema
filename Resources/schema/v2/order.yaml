@@ -1,6 +1,6 @@
 # order gpupo/common-schema
 # version: 2.0
-# generated at Fri, 25 May 2018 20:06:09 +0000
+# generated at Fri, 25 May 2018 20:35:47 +0000
 order_number: string
 order_status: string
 order_status_detail:
@@ -44,13 +44,13 @@ shippings:
                 area_code: integer
                 extension: string
                 number: string
-                verified: bool
+                verified: boolean
                 expands: array
             alternative_phone:
                 area_code: integer
                 extension: string
                 number: string
-                verified: bool
+                verified: boolean
                 expands: array
             first_name: string
             last_name: string
@@ -118,13 +118,13 @@ customer:
         area_code: integer
         extension: string
         number: string
-        verified: bool
+        verified: boolean
         expands: array
     alternative_phone:
         area_code: integer
         extension: string
         number: string
-        verified: bool
+        verified: boolean
         expands: array
     first_name: string
     last_name: string

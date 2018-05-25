@@ -1,24 +1,24 @@
-# description gpupo/common-schema metadata
+# order gpupo/common-schema metadata
 # version: 2.0
 # generated at Fri, 25 May 2018 20:35:48 +0000
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
+Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
   type: entity
-  table: cs_trading_order_status_detail
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderStatusDetailRepository
+  table: cs_trading
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\TradingRepository
   id:
     id:
       type: integer
       generator:
         strategy: AUTO
   fields:
-    code:
-      type: string
+    expands:
+      type: array
       lenght: 50
       unique: false
       options:
         comment: ''
-    description:
-      type: string
+    order:
+      type: object
       lenght: 50
       unique: false
       options:

@@ -21,4 +21,5 @@ use Gpupo\CommonSchema\Thing\AbstractIdentification;
 
 final class Document extends AbstractIdentification
 {
+    protected $tableName = 'people_document';
 }
