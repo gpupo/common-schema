@@ -1,0 +1,45 @@
+# order-customer gpupo/common-schema
+# version: 2.0
+# generated at Fri, 25 May 2018 16:52:11 +0000
+id: integer
+nickname: string
+email: string
+phone:
+    area_code: integer
+    extension: string
+    number: string
+    verified: bool
+    expands: array
+alternative_phone:
+    area_code: integer
+    extension: string
+    number: string
+    verified: bool
+    expands: array
+first_name: string
+last_name: string
+document:
+    doc_type: string
+    doc_number: string
+    expands: array
+expands: array
+address_billing:
+    street: string
+    number: string
+    neighborhood: string
+    reference: string
+    comments: string
+    city: string
+    state: string
+    postalCode: string
+    expands: array
+address_delivery:
+    street: string
+    number: string
+    neighborhood: string
+    reference: string
+    comments: string
+    city: string
+    state: string
+    postalCode: string
+    expands: array

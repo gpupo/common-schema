@@ -1,0 +1,16 @@
+# order_order_status_detail gpupo/common-schema
+# version: 2.0
+# generated at Fri, 25 May 2018 16:52:11 +0000
+type: entity
+table: trading_order_order_status_detail
+repositoryClass: BugRepository
+id:
+    id:
+        type: integer
+        generator:
+            strategy: AUTO
+fields:
+    code:
+        type: string
+    description:
+        type: string

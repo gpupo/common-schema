@@ -1,0 +1,30 @@
+# order-customer_address_billing gpupo/common-schema
+# version: 2.0
+# generated at Fri, 25 May 2018 16:52:11 +0000
+type: entity
+table: trading_order-customer_address_billing
+repositoryClass: BugRepository
+id:
+    id:
+        type: integer
+        generator:
+            strategy: AUTO
+fields:
+    street:
+        type: string
+    number:
+        type: string
+    neighborhood:
+        type: string
+    reference:
+        type: string
+    comments:
+        type: string
+    city:
+        type: string
+    state:
+        type: string
+    postalCode:
+        type: string
+    expands:
+        type: array
