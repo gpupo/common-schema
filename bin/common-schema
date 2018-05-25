@@ -15,7 +15,6 @@ require 'vendor/autoload.php';
 
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
 use Gpupo\CommonSchema\Trading\Trading;
 use Gpupo\CommonSchema\Trading\Order\Order;
@@ -25,6 +24,8 @@ use Gpupo\CommonSchema\Trading\Payment\Transaction;
 use Gpupo\CommonSchema\Trading\Product\ProductSchema;
 use Symfony\Component\Yaml\Yaml;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
+use Gpupo\CommonSchema\Thing\EntityInterface;
+use Gpupo\CommonSchema\Thing\CollectionInterface;
 
 class CommonSchema
 {
@@ -51,7 +52,7 @@ class CommonSchema
         return $this->save($file, $content);
     }
 
-    public function saveDataToYamlEntity($object)
+    public function saveDataDoctrineMetadata($object)
     {
         $class = get_class($object);
         $toClass = str_replace('CommonSchema', 'CommonSchema\ORM\Entity', $class);
@@ -75,6 +76,8 @@ class CommonSchema
                     'comment' => '',
                 ],
             ];
+
+            $this->recursiveSaveDataDoctrineMetadata($object->get($key));
         }
 
         $doctrine['lifecycleCallbacks'] = [
@@ -89,33 +92,28 @@ class CommonSchema
         return $this->save($file, $content);
     }
 
-    public function saveDataToDoctrineSchema($key, $value, array $data)
+
+    public function recursiveSaveDataDoctrineMetadata($object)
     {
-        $doctrine = [
-            'type' =>  'entity',
-            'table' => 'trading_'.$key,
-            'repositoryClass' => 'BugRepository',
-            'id'    => [
-                'id' => ['type' => 'integer', 'generator' => ['strategy' => 'AUTO']],
-            ]
-        ];
+        if (!is_object($object)) {
+            return;
+        }
+        if ($object instanceof CollectionInterface) {
+            dump($object);
 
-        foreach($data as $vkey => $vvalue) {
-            if (is_array($vvalue) && 1 === count($vvalue) && is_array(current($vvalue))) {
-
-                $this->saveDataToDoctrineSchema($key.'_'.$vkey, null, current($vvalue));
-                continue;
-            } elseif (is_array($vvalue)) {
-                $this->saveDataToDoctrineSchema($key.'_'.$vkey, null, $vvalue);
-                $vvalue = 'object';
-            }
-
-            $doctrine['fields'][$vkey] = ['type' =>  $vvalue];
+            return $this->recursiveSaveDataDoctrineMetadata($object->first());
         }
 
-        $file = sprintf('config/yaml/%s.orm.yaml', $key);
-        $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($doctrine, 8);
-        return $this->save($file, $content);
+        if (!$object instanceof EntityInterface) {
+            throw new \Exception(sprintf('Class %s must implement %s', get_class($object), EntityInterface::class));
+
+        }
+
+        foreach($object as $prop) {
+            if ($prop instanceof EntityInterface) {
+                $this->saveDataDoctrineMetadata($prop);
+            }
+        }
     }
 }
 
@@ -132,16 +130,4 @@ foreach ([
     $commonSchema->saveDataToSchema($key, $value, $data);
 }
 
-
-$trading = new Trading();
-foreach($trading as $prop) {
-    if ($prop instanceof CollectionInterface) {
-        $commonSchema->saveDataToYamlEntity($prop);
-    }
-}
-//
-// foreach ([
-//     'order' => $order,
-// ] as $key => $value) {
-//     $commonSchema->saveDataToDoctrineSchema($key, $value, $data);
-// }
+$commonSchema->recursiveSaveDataDoctrineMetadata(new Trading());

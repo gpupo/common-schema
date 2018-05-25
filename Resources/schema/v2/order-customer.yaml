@@ -1,6 +1,6 @@
 # order-customer gpupo/common-schema
 # version: 2.0
-# generated at Fri, 25 May 2018 19:10:32 +0000
+# generated at Fri, 25 May 2018 19:41:48 +0000
 id: integer
 nickname: string
 email: string

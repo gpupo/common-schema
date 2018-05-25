@@ -15,21 +15,11 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Trading\Order\Payments;
+namespace Gpupo\CommonSchema\Thing;
 
-<<<<<<< HEAD
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\CollectionAbstract;
-use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
-use Gpupo\CommonSchema\Trading\Payment\Payment;
-=======
-use Gpupo\CommonSchema\Thing\AbstractCollection;
->>>>>>> 2c3b65c911569879f9907760eb3bc6ccf873a570
+use Gpupo\CommonSdk\Entity\EntityInterface as Core;
 
-class Collection extends AbstractCollection
+interface EntityInterface extends Core
 {
-    public function factoryElement($data)
-    {
-        return new Payment($data);
-    }
+    public function getTableName();
 }
