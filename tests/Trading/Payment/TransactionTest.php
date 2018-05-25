@@ -151,5 +151,15 @@ class TransactionTest extends AbstractTestCase
       $this->assertSame($expected['date_created'], $transaction->getDateCreated());
     }
 
+    /**
+    * @testdox Cover methods ``setDateLastModified`` and ``getDateLastModified``
+    * @dataProvider dataProviderTransaction
+    */
+    public function testSetAndGetDateLastModified(Transaction $transaction, array $expected)
+    {
+      $transaction->setDateLastModified($expected['date_last_modified']);
+      $this->assertSame($expected['date_last_modified'], $transaction->getDateLastModified());
+    }
+
 
 }
