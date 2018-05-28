@@ -17,10 +17,12 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Products;
 
-use Gpupo\CommonSchema\ArrayCollection\Trading\Product\AbstractProduct;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class Product extends AbstractProduct
+class Product extends AbstractEntity
 {
+    protected $tableName = 'trading_order_shipping_product';
+
     /**
      * @codeCoverageIgnore
      */
@@ -30,13 +32,13 @@ class Product extends AbstractProduct
             parent::getSchema(),
             [
                 'seller_product_id' => 'string',
+                'title' => 'string',
+                'gtin' => 'string',
                 'variation_attributes' => 'array',
+                'sale_fee' => 'number',
+                'quantity' => 'integer',
+                'unit_price' => 'number',
             ]
         );
     }
 }
-
-//
-// "sale_fee": 1.05,
-// "quantity": 1,
-// "unit_price": 10

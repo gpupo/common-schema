@@ -1,0 +1,117 @@
+# expands metadata
+# generated at Mon, 28 May 2018 19:45:26 +0000
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
+  type: entity
+  table: cs_trading_order_shipping
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\ShippingRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    shipping_number:
+      type: bigint
+      options: {  }
+    fulfilled:
+      type: boolean
+      options: {  }
+    hidden_for_seller:
+      type: boolean
+      options: {  }
+    date_created:
+      type: datetime
+      options: {  }
+    date_last_expiration:
+      type: datetime
+      options: {  }
+    date_last_modified:
+      type: datetime
+      options: {  }
+    currency_id:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    total_commission:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    total_discount:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    total_freight:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    total_gross:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    total_net:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    total_quantity:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    tags:
+      type: array
+      options: {  }
+    expands:
+      type: array
+      options: {  }
+  oneToMany:
+    seller:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
+      mappedBy: seller
+      joinColumn:
+        name: seller_id
+        referencedColumnName: id
+      options: {  }
+    product:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product
+      mappedBy: product
+      joinColumn:
+        name: product_id
+        referencedColumnName: id
+      options: {  }
+    transport:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item
+      mappedBy: transport
+      joinColumn:
+        name: transport_id
+        referencedColumnName: id
+      options: {  }
+    invoice:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item
+      mappedBy: invoice
+      joinColumn:
+        name: invoice_id
+        referencedColumnName: id
+      options: {  }
+    comment:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item
+      mappedBy: comment
+      joinColumn:
+        name: comment_id
+        referencedColumnName: id
+      options: {  }
+    feedback:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item
+      mappedBy: feedback
+      joinColumn:
+        name: feedback_id
+        referencedColumnName: id
+      options: {  }
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

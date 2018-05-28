@@ -21,4 +21,5 @@ use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractKeyValue;
 
 class Item extends AbstractKeyValue
 {
+    protected $tableName = 'trading_order_shipping_comment';
 }

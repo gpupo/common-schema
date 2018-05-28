@@ -17,12 +17,12 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Feedback;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-final class Item extends EntityAbstract implements EntityInterface, CollectionInterface
+class Item extends AbstractEntity
 {
+    protected $tableName = 'trading_order_feedback';
+
     /**
      * @codeCoverageIgnore
      */

@@ -17,12 +17,12 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Transport;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\CollectionAbstract;
-use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
 
-final class Collection extends CollectionAbstract implements CollectionInterface, CollectionContainerInterface
+class Collection extends AbstractCollection
 {
+    protected $type = 'oneToMany';
+
     public function factoryElement($data)
     {
         return new Item($data);

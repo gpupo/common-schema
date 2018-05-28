@@ -1,0 +1,162 @@
+# expands metadata
+# generated at Mon, 28 May 2018 19:45:26 +0000
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment:
+  type: entity
+  table: cs_trading_payment
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Payments\PaymentRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    payment_number:
+      type: bigint
+      options: {  }
+    currency_id:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    status:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    status_code:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    status_detail:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    transaction_amount:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    shipping_cost:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    overpaid_amount:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    total_paid_amount:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    marketplace_fee:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    coupon_amount:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    date_created:
+      type: datetime
+      options: {  }
+    date_last_modified:
+      type: datetime
+      options: {  }
+    card_id:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    reason:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    activation_uri:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    payment_method_id:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    installments:
+      type: bigint
+      options: {  }
+    issuer_id:
+      type: bigint
+      options: {  }
+    coupon_id:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    operation_type:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    payment_type:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    available_actions:
+      type: array
+      options: {  }
+    installment_amount:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    deferred_period:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    date_approved:
+      type: datetime
+      options: {  }
+    authorization_code:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    transaction_order_id:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    tags:
+      type: array
+      options: {  }
+    expands:
+      type: array
+      options: {  }
+  oneToMany:
+    collector:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector
+      mappedBy: collector
+      joinColumn:
+        name: collector_id
+        referencedColumnName: id
+      options: {  }
+    atm_transfer_reference:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference
+      mappedBy: atm_transfer_reference
+      joinColumn:
+        name: atm_transfer_reference_id
+        referencedColumnName: id
+      options: {  }
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

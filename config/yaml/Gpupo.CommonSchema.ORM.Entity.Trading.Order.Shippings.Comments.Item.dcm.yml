@@ -1,0 +1,28 @@
+# value metadata
+# generated at Mon, 28 May 2018 19:45:26 +0000
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item:
+  type: entity
+  table: cs_trading_order_shipping_comment
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Comments\ItemRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    expands:
+      type: array
+      options: {  }
+    key:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    value:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

@@ -1,5 +1,5 @@
 # trading 
-# generated at Mon, 28 May 2018 18:42:49 +0000
+# generated at Mon, 28 May 2018 19:45:26 +0000
 expands: array
 order:
     order_number: string
@@ -62,24 +62,14 @@ order:
                 expands: array
             products:
                 -
-                    id: integer
-                    title: string
-                    gtin: string
-                    description: string
-                    category_id: string
-                    brand: string
-                    condition: string
-                    price: number
-                    attributes:
-                        -
-                            expands: array
-                            key: string
-                            value: string
-                    variation_id: integer
-                    variation_attributes: array
-                    tags: array
                     expands: array
                     seller_product_id: string
+                    title: string
+                    gtin: string
+                    variation_attributes: array
+                    sale_fee: number
+                    quantity: integer
+                    unit_price: number
             transport:
                 -
                     tracking_number: string

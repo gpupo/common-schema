@@ -17,12 +17,12 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Transport;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class Item extends EntityAbstract implements EntityInterface, CollectionInterface
+class Item extends AbstractEntity
 {
+    protected $tableName = 'trading_order_shipping_transport';
+
     protected $primaryKey = 'tracking_number';
 
     /**
