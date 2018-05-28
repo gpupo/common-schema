@@ -1,0 +1,33 @@
+# Payment metadata
+# generated at Mon, 28 May 2018 20:29:18 +0000
+Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
+  type: entity
+  table: cs_trading
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\TradingRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    expands:
+      type: array
+      options: {  }
+  oneToMany:
+    order:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+      mappedBy: order
+      joinColumn:
+        name: order_id
+        referencedColumnName: id
+      options: {  }
+    Payment:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+      mappedBy: Payment
+      joinColumn:
+        name: Payment_id
+        referencedColumnName: id
+      options: {  }
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

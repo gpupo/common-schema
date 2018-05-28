@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Order.
+ * Order
  *
  * @ORM\Table(name="cs_trading_order")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderRepository")
@@ -207,7 +192,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment", mappedBy="payment")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="payment")
      */
     private $payment;
 
@@ -219,7 +204,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     private $feedback;
 
     /**
-     * Constructor.
+     * Constructor
      */
     public function __construct()
     {
@@ -763,7 +748,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail $orderStatusDetail
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeOrderStatusDetail(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail $orderStatusDetail)
     {
@@ -799,7 +784,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
     {
@@ -835,7 +820,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer $customer
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeCustomer(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer $customer)
     {
@@ -855,11 +840,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add payment.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment $payment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
      *
      * @return Order
      */
-    public function addPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment $payment)
+    public function addPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
     {
         $this->payment[] = $payment;
 
@@ -869,11 +854,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove payment.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment $payment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment $payment)
+    public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
     {
         return $this->payment->removeElement($payment);
     }
@@ -907,7 +892,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
     {

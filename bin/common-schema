@@ -16,6 +16,8 @@ require 'vendor/autoload.php';
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
+use Gpupo\CommonSchema\ArrayCollection\People\People;
+use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
 use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
@@ -23,20 +25,21 @@ use Gpupo\CommonSdk\Entity\Schema\Tools;
 $output = new ConsoleOutput();
 $generator = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
 
-$trading = new Trading([
-    
-]);
+$trading = new Trading();
+$people = new People();
+$company = new Company();
 
 foreach ([
     'trading' => $trading,
-    //'order' => $order,
+    'people' => $people,
+    'company'=> $company,
 ] as $key => $value) {
     $data = Tools::getRecursiveSchema($value);
     $generator->saveDataToSchema($key, $value, $data);
 }
 
 try {
-    foreach($trading as $object) {
+    foreach([$trading, $people, $company] as $object) {
         $generator->recursiveSaveDataDoctrineMetadata($object);
     }
 } catch (\Exception $exception) {

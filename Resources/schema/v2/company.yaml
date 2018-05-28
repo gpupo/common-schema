@@ -1,0 +1,24 @@
+# company 
+# generated at Mon, 28 May 2018 20:29:18 +0000
+id: integer
+nickname: string
+email: string
+phone:
+    area_code: integer
+    extension: string
+    number: string
+    verified: boolean
+    expands: array
+alternative_phone:
+    area_code: integer
+    extension: string
+    number: string
+    verified: boolean
+    expands: array
+first_name: string
+last_name: string
+document:
+    doc_type: string
+    doc_number: string
+    expands: array
+expands: array

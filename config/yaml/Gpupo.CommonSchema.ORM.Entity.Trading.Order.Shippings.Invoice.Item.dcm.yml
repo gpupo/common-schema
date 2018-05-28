@@ -1,5 +1,5 @@
 # expands metadata
-# generated at Mon, 28 May 2018 19:45:26 +0000
+# generated at Mon, 28 May 2018 20:29:19 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item:
   type: entity
   table: cs_trading_order_invoice

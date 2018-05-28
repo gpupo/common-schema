@@ -15,10 +15,9 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Payments;
+namespace Gpupo\CommonSchema\ArrayCollection\Organization;
 
-use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment as MainPayment;
-
-class Payment extends MainPayment
+final class Company extends AbstractCompany
 {
+    protected $tableName = 'company';
 }
