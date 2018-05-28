@@ -1,6 +1,6 @@
 # expands gpupo/common-schema metadata
 # version: 2.0
-# generated at Fri, 25 May 2018 20:35:48 +0000
+# generated at Mon, 28 May 2018 11:41:36 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
   type: entity
   table: cs_trading_order_customer_address_billing

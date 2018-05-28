@@ -16,16 +16,16 @@ require 'vendor/autoload.php';
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
-use Gpupo\CommonSchema\Trading\Trading;
-use Gpupo\CommonSchema\Trading\Order\Order;
-use Gpupo\CommonSchema\Trading\Order\Customer\Customer;
-use Gpupo\CommonSchema\Trading\Order\OrderSchema;
-use Gpupo\CommonSchema\Trading\Product\ProductSchema;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Customer\Customer;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\OrderSchema;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Product\ProductSchema;
 use Symfony\Component\Yaml\Yaml;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
-use Gpupo\CommonSchema\Thing\EntityInterface;
-use Gpupo\CommonSchema\Thing\CollectionInterface;
-use Gpupo\CommonSchema\Thing\AbstractCollection;
+use Gpupo\CommonSchema\ArrayCollection\Thing\EntityInterface;
+use Gpupo\CommonSchema\ArrayCollection\Thing\CollectionInterface;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
 
 class CommonSchema
 {
@@ -55,8 +55,8 @@ class CommonSchema
     public function saveDataDoctrineMetadata($object)
     {
         $class = get_class($object);
-        $toClass = str_replace('CommonSchema', 'CommonSchema\ORM\Entity', $class);
-        $repositoryClass = str_replace('CommonSchema', 'CommonSchema\ORM\Repository', $class) . 'Repository';
+        $toClass = str_replace('ArrayCollection', 'ORM\Entity', $class);
+        $repositoryClass = str_replace('ArrayCollection', 'ORM\Repository', $class) . 'Repository';
         $table = $object->getTableName();
         $doctrine = [
             'type' =>  'entity',
