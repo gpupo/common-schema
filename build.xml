@@ -5,7 +5,7 @@
  <target name="clean" description="Cleanup build artifacts">
   <delete dir="${basedir}/vendor"/>
   <delete file="${basedir}/composer.lock"/>
-  <delete file="${basedir}/var/logs/*"/>
+  <delete file="${basedir}/var/*.log"/>
  </target>
  <target name="composer" depends="clean" description="Install dependencies with Composer">
   <tstamp>
@@ -23,11 +23,11 @@
    <arg value="install"/>
   </exec>
  </target>
- <target name="travis" description="Run tests" depends="composer-rebuild, phpunit,codeclimate"/>
+ <target name="travis" description="Run tests" depends="composer-rebuild, phpunit"/>
  <target name="test" description="Run tests" depends="phpunit"/>
  <target name="phpunit" description="Generate Reports">
-  <mkdir dir="${basedir}/var/logs"/>
-  <touch file="${basedir}/var/logs/test.log"/>
+  <mkdir dir="${basedir}/var"/>
+  <touch file="${basedir}/var/test.log"/>
   <exec executable="${basedir}/vendor/bin/phpunit" outputproperty="log">
     <arg value="-c"/>
     <arg value="phpunit.xml.dist"/>

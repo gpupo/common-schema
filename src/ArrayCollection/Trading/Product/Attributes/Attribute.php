@@ -21,4 +21,5 @@ use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractKeyValue;
 
 class Attribute extends AbstractKeyValue
 {
+    protected $tableName = 'trading_product_attribute';
 }
