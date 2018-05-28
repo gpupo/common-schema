@@ -23,40 +23,36 @@ use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Seller;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction;
 use Gpupo\Tests\CommonSchema\AbstractTestCase;
+use Gpupo\CommonSdk\Traits\ResourcesTrait;
 
 /**
  * @coversDefaultClass \Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction
  */
 class TransactionTest extends AbstractTestCase
 {
+    use ResourcesTrait;
     /**
      * @return \Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction
      */
     public function dataProviderTransaction()
     {
-        $data = [
-          'transaction_number' => 999999,
-          'description' => 'string',
-          'amount' => 10.0,
-          'financial_institution' => 'string',
-          'order' => new Order(),
-          'payment' => new Payment(),
-          'customer' => new Customer(),
-          'seller' => new Seller(),
-          'date_created' => new \Datetime(),
-          'date_last_modified' => new \Datetime(),
-        ];
+
+        $data = $this->getResourceJson('/fixtures/trading/payment/transactions/transaction.json');
+        $data['order'] = new Order($data['order']);
+        $data['payment'] = new Payment($data['payment']);
+        $data['seller'] = new Seller($data['seller']);
+        $data['customer'] = new Customer($data['customer']);
 
         return [[new Transaction($data), $data]];
     }
 
     /**
-     * @testdox ``getSchema()``
-     * @cover ::getSchema
+     * @testdox Cover method ``getSchema()``
      * @dataProvider dataProviderTransaction
      */
     public function testSetAndGetSchema(Transaction $transaction)
     {
+
         $this->assertInternalType('array', $transaction->getSchema());
     }
 
@@ -159,4 +155,5 @@ class TransactionTest extends AbstractTestCase
         $transaction->setDateLastModified($expected['date_last_modified']);
         $this->assertSame($expected['date_last_modified'], $transaction->getDateLastModified());
     }
+
 }

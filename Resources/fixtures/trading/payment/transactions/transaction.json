@@ -1,0 +1,125 @@
+{
+    "version": "1.0",
+    "expands": [],
+    "transaction_number" :  1,
+    "description" :  "string",
+    "amount" :  10.0,
+    "financial_institution" :  "string",
+    "date_created" :  "datetime",
+    "date_last_modified" :  "datetime",
+    "order" :  [
+      {
+        "order_number" : "string",
+        "order_status" : "string",
+        "order_status_detail" : "object",
+        "order_type" : "string",
+        "date_created" : "datetime",
+        "date_closed" : "datetime",
+        "date_agreed" : "datetime",
+        "date_last_modified" : "datetime",
+        "origin_business_unit" : "string",
+        "origin_number" : "string",
+        "origin_site" : "string",
+        "currency_id" : "string",
+        "total_commission" : "number",
+        "total_discount" : "number",
+        "total_freight" : "number",
+        "total_gross" : "number",
+        "total_net" : "number",
+        "total_quantity" : "number",
+        "shippings" : "object",
+        "customer" : "object",
+        "payments" : "object",
+        "feedback" : "object",
+        "requested_devolution" : "boolean",
+        "requested_exchange" : "boolean",
+        "tags" : "array",
+        "expands" : "array"
+      }
+    ],
+    "customer" : [
+      {
+        "id" : "integer",
+        "nickname" : "string",
+        "email" : "string",
+        "phone" : "object",
+        "alternative_phone" : "object",
+        "first_name" : "string",
+        "last_name" : "string",
+        "document" : "object",
+        "address_billing" : "object",
+        "address_delivery" : "object",
+        "expands" : "array"
+      }
+    ],
+    "payment" : [
+      {
+        "id":1,
+        "payment_number": 1,
+        "collector": {
+            "id": 1
+        },
+        "currency_id": "BRL",
+        "status": "approved",
+        "status_code": null,
+        "status_detail": "accredited",
+        "transaction_amount": 318.33,
+        "shipping_cost": 0,
+        "overpaid_amount": 0,
+        "total_paid_amount": 318.33,
+        "marketplace_fee": 50.93,
+        "coupon_amount": 0,
+        "date_created": "2018-04-20T16:14:03.000-04:00",
+        "date_last_modified": "2018-04-20T16:14:05.000-04:00",
+        "card_id": null,
+        "reason": "Molduras Farol De Milha+frisos Dianteiros Cromados Fiat Toro",
+        "activation_uri": null,
+        "payment_method_id": "visa",
+        "installments": 4,
+        "issuer_id": "25",
+        "atm_transfer_reference": {
+            "company_id": null,
+            "transaction_id": "4088597"
+        },
+        "coupon_id": null,
+        "operation_type": "regular_payment",
+        "payment_type": "credit_card",
+        "available_actions": [
+            "refund"
+        ],
+        "installment_amount": 79.58,
+        "deferred_period": null,
+        "date_approved": "2018-04-20T16:14:05.000-04:00",
+        "authorization_code": "640466",
+        "transaction_order_id": null
+      }
+    ],
+    "seller" :  [
+      {
+          "id": 1,
+          "nickname": "FIATBARIGUI",
+          "email": "fbarigu.k7tvg4+2-oge3dsmbsgy3dcmrv@mail.mercadolivre.com",
+          "phone": {
+              "area_code": null,
+              "extension": "",
+              "number": "984870233",
+              "verified": false
+          },
+          "alternative_phone": {
+              "area_code": "",
+              "extension": "",
+              "number": ""
+          },
+          "first_name": "BARIGUI",
+          "last_name": "VEICULOS LTDA",
+          "document": [
+            {
+              "doc_type" : "string",
+              "doc_number" : "string",
+              "expands" : "array"
+            }
+          ],
+          "expands" : "array"
+      }
+    ]
+}
