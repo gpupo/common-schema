@@ -15,10 +15,11 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Collector;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractPhone;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-final class Phone extends AbstractPhone
+class Collector extends AbstractEntity
 {
+    protected $tableName = 'trading_payment_collector';
 }

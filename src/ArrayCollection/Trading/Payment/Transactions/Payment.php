@@ -15,10 +15,10 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractIdentification;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment as MainPayment;
 
-final class Document extends AbstractIdentification
+class Payment extends MainPayment
 {
 }

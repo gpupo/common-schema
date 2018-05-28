@@ -23,6 +23,6 @@ class Collection extends AbstractCollection
 {
     public function factoryElement($data)
     {
-        return new Transaction($data);
+        return new Payment($data);
     }
 }

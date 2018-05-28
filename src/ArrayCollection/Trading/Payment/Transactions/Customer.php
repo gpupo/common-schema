@@ -15,10 +15,10 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
 
-use Gpupo\CommonSchema\ArrayCollection\People\AbstractPeople;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Customer\Customer as MainCustomer;
 
-class Customer extends AbstractPeople
+class Customer extends MainCustomer
 {
 }
