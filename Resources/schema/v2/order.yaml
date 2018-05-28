@@ -1,6 +1,6 @@
 # order gpupo/common-schema
 # version: 2.0
-# generated at Mon, 28 May 2018 11:41:36 +0000
+# generated at Mon, 28 May 2018 12:05:33 +0000
 order_number: string
 order_status: string
 order_status_detail:
@@ -157,7 +157,7 @@ payments:
     -
         payment_number: integer
         collector:
-            id: integer
+            expands: array
         currency_id: string
         status: string
         status_code: string

@@ -1,6 +1,6 @@
 # order gpupo/common-schema metadata
 # version: 2.0
-# generated at Mon, 28 May 2018 11:41:36 +0000
+# generated at Mon, 28 May 2018 12:05:33 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
   type: entity
   table: cs_trading
