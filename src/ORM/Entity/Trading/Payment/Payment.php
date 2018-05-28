@@ -39,16 +39,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var int
      *
-     * @ORM\Column(name="payment_number", type="integer", unique=false)
+     * @ORM\Column(name="payment_number", type="bigint")
      */
     private $payment_number;
-
-    /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="collector", type="object", unique=false)
-     */
-    private $collector;
 
     /**
      * @var string
@@ -79,58 +72,58 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     private $status_detail;
 
     /**
-     * @var number
+     * @var string
      *
-     * @ORM\Column(name="transaction_amount", type="number", unique=false)
+     * @ORM\Column(name="transaction_amount", type="decimal", precision=10, scale=2)
      */
     private $transaction_amount;
 
     /**
-     * @var number
+     * @var string
      *
-     * @ORM\Column(name="shipping_cost", type="number", unique=false)
+     * @ORM\Column(name="shipping_cost", type="decimal", precision=10, scale=2)
      */
     private $shipping_cost;
 
     /**
-     * @var number
+     * @var string
      *
-     * @ORM\Column(name="overpaid_amount", type="number", unique=false)
+     * @ORM\Column(name="overpaid_amount", type="decimal", precision=10, scale=2)
      */
     private $overpaid_amount;
 
     /**
-     * @var number
+     * @var string
      *
-     * @ORM\Column(name="total_paid_amount", type="number", unique=false)
+     * @ORM\Column(name="total_paid_amount", type="decimal", precision=10, scale=2)
      */
     private $total_paid_amount;
 
     /**
-     * @var number
+     * @var string
      *
-     * @ORM\Column(name="marketplace_fee", type="number", unique=false)
+     * @ORM\Column(name="marketplace_fee", type="decimal", precision=10, scale=2)
      */
     private $marketplace_fee;
 
     /**
-     * @var number
+     * @var string
      *
-     * @ORM\Column(name="coupon_amount", type="number", unique=false)
+     * @ORM\Column(name="coupon_amount", type="decimal", precision=10, scale=2)
      */
     private $coupon_amount;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_created", type="datetime", unique=false)
+     * @ORM\Column(name="date_created", type="datetime")
      */
     private $date_created;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_last_modified", type="datetime", unique=false)
+     * @ORM\Column(name="date_last_modified", type="datetime")
      */
     private $date_last_modified;
 
@@ -165,23 +158,16 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var int
      *
-     * @ORM\Column(name="installments", type="integer", unique=false)
+     * @ORM\Column(name="installments", type="bigint")
      */
     private $installments;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="issuer_id", type="integer", unique=false)
+     * @ORM\Column(name="issuer_id", type="bigint")
      */
     private $issuer_id;
-
-    /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="atm_transfer_reference", type="object", unique=false)
-     */
-    private $atm_transfer_reference;
 
     /**
      * @var string
@@ -207,14 +193,14 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var array
      *
-     * @ORM\Column(name="available_actions", type="array", unique=false)
+     * @ORM\Column(name="available_actions", type="array")
      */
     private $available_actions;
 
     /**
-     * @var number
+     * @var string
      *
-     * @ORM\Column(name="installment_amount", type="number", unique=false)
+     * @ORM\Column(name="installment_amount", type="decimal", precision=10, scale=2)
      */
     private $installment_amount;
 
@@ -228,7 +214,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_approved", type="datetime", unique=false)
+     * @ORM\Column(name="date_approved", type="datetime")
      */
     private $date_approved;
 
@@ -249,16 +235,39 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var array
      *
-     * @ORM\Column(name="tags", type="array", unique=false)
+     * @ORM\Column(name="tags", type="array")
      */
     private $tags;
 
     /**
      * @var array
      *
-     * @ORM\Column(name="expands", type="array", unique=false)
+     * @ORM\Column(name="expands", type="array")
      */
     private $expands;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector", mappedBy="collector")
+     */
+    private $collector;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference", mappedBy="atm_transfer_reference")
+     */
+    private $atm_transfer_reference;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->collector = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->atm_transfer_reference = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -292,30 +301,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getPaymentNumber()
     {
         return $this->payment_number;
-    }
-
-    /**
-     * Set collector.
-     *
-     * @param \stdClass $collector
-     *
-     * @return Payment
-     */
-    public function setCollector($collector)
-    {
-        $this->collector = $collector;
-
-        return $this;
-    }
-
-    /**
-     * Get collector.
-     *
-     * @return \stdClass
-     */
-    public function getCollector()
-    {
-        return $this->collector;
     }
 
     /**
@@ -417,11 +402,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set transactionAmount.
      *
-     * @param \number $transactionAmount
+     * @param string $transactionAmount
      *
      * @return Payment
      */
-    public function setTransactionAmount(\number $transactionAmount)
+    public function setTransactionAmount($transactionAmount)
     {
         $this->transaction_amount = $transactionAmount;
 
@@ -431,7 +416,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get transactionAmount.
      *
-     * @return \number
+     * @return string
      */
     public function getTransactionAmount()
     {
@@ -441,11 +426,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set shippingCost.
      *
-     * @param \number $shippingCost
+     * @param string $shippingCost
      *
      * @return Payment
      */
-    public function setShippingCost(\number $shippingCost)
+    public function setShippingCost($shippingCost)
     {
         $this->shipping_cost = $shippingCost;
 
@@ -455,7 +440,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shippingCost.
      *
-     * @return \number
+     * @return string
      */
     public function getShippingCost()
     {
@@ -465,11 +450,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set overpaidAmount.
      *
-     * @param \number $overpaidAmount
+     * @param string $overpaidAmount
      *
      * @return Payment
      */
-    public function setOverpaidAmount(\number $overpaidAmount)
+    public function setOverpaidAmount($overpaidAmount)
     {
         $this->overpaid_amount = $overpaidAmount;
 
@@ -479,7 +464,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get overpaidAmount.
      *
-     * @return \number
+     * @return string
      */
     public function getOverpaidAmount()
     {
@@ -489,11 +474,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set totalPaidAmount.
      *
-     * @param \number $totalPaidAmount
+     * @param string $totalPaidAmount
      *
      * @return Payment
      */
-    public function setTotalPaidAmount(\number $totalPaidAmount)
+    public function setTotalPaidAmount($totalPaidAmount)
     {
         $this->total_paid_amount = $totalPaidAmount;
 
@@ -503,7 +488,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get totalPaidAmount.
      *
-     * @return \number
+     * @return string
      */
     public function getTotalPaidAmount()
     {
@@ -513,11 +498,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set marketplaceFee.
      *
-     * @param \number $marketplaceFee
+     * @param string $marketplaceFee
      *
      * @return Payment
      */
-    public function setMarketplaceFee(\number $marketplaceFee)
+    public function setMarketplaceFee($marketplaceFee)
     {
         $this->marketplace_fee = $marketplaceFee;
 
@@ -527,7 +512,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get marketplaceFee.
      *
-     * @return \number
+     * @return string
      */
     public function getMarketplaceFee()
     {
@@ -537,11 +522,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set couponAmount.
      *
-     * @param \number $couponAmount
+     * @param string $couponAmount
      *
      * @return Payment
      */
-    public function setCouponAmount(\number $couponAmount)
+    public function setCouponAmount($couponAmount)
     {
         $this->coupon_amount = $couponAmount;
 
@@ -551,7 +536,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get couponAmount.
      *
-     * @return \number
+     * @return string
      */
     public function getCouponAmount()
     {
@@ -751,30 +736,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set atmTransferReference.
-     *
-     * @param \stdClass $atmTransferReference
-     *
-     * @return Payment
-     */
-    public function setAtmTransferReference($atmTransferReference)
-    {
-        $this->atm_transfer_reference = $atmTransferReference;
-
-        return $this;
-    }
-
-    /**
-     * Get atmTransferReference.
-     *
-     * @return \stdClass
-     */
-    public function getAtmTransferReference()
-    {
-        return $this->atm_transfer_reference;
-    }
-
-    /**
      * Set couponId.
      *
      * @param string $couponId
@@ -873,11 +834,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set installmentAmount.
      *
-     * @param \number $installmentAmount
+     * @param string $installmentAmount
      *
      * @return Payment
      */
-    public function setInstallmentAmount(\number $installmentAmount)
+    public function setInstallmentAmount($installmentAmount)
     {
         $this->installment_amount = $installmentAmount;
 
@@ -887,7 +848,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get installmentAmount.
      *
-     * @return \number
+     * @return string
      */
     public function getInstallmentAmount()
     {
@@ -1036,5 +997,77 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getExpands()
     {
         return $this->expands;
+    }
+
+    /**
+     * Add collector.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector $collector
+     *
+     * @return Payment
+     */
+    public function addCollector(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector $collector)
+    {
+        $this->collector[] = $collector;
+
+        return $this;
+    }
+
+    /**
+     * Remove collector.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector $collector
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     */
+    public function removeCollector(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector $collector)
+    {
+        return $this->collector->removeElement($collector);
+    }
+
+    /**
+     * Get collector.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCollector()
+    {
+        return $this->collector;
+    }
+
+    /**
+     * Add atmTransferReference.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference
+     *
+     * @return Payment
+     */
+    public function addAtmTransferReference(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference)
+    {
+        $this->atm_transfer_reference[] = $atmTransferReference;
+
+        return $this;
+    }
+
+    /**
+     * Remove atmTransferReference.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     */
+    public function removeAtmTransferReference(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference)
+    {
+        return $this->atm_transfer_reference->removeElement($atmTransferReference);
+    }
+
+    /**
+     * Get atmTransferReference.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAtmTransferReference()
+    {
+        return $this->atm_transfer_reference;
     }
 }

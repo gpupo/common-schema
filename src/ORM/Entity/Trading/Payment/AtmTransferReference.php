@@ -39,14 +39,14 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var int
      *
-     * @ORM\Column(name="company_id", type="integer", unique=false)
+     * @ORM\Column(name="company_id", type="bigint")
      */
     private $company_id;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="transaction_id", type="integer", unique=false)
+     * @ORM\Column(name="transaction_id", type="bigint")
      */
     private $transaction_id;
 

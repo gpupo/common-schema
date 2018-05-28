@@ -1,5 +1,5 @@
 # expands metadata
-# generated at Mon, 28 May 2018 13:45:03 +0000
+# generated at Mon, 28 May 2018 14:33:56 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
   type: entity
   table: cs_trading_order
@@ -14,132 +14,127 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     order_status:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
-    order_status_detail:
-      type: manyToMany
-      options:
-        comment: ''
+      options: {  }
     order_type:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     date_created:
       type: datetime
-      options:
-        comment: ''
+      options: {  }
     date_closed:
       type: datetime
-      options:
-        comment: ''
+      options: {  }
     date_agreed:
       type: datetime
-      options:
-        comment: ''
+      options: {  }
     date_last_modified:
       type: datetime
-      options:
-        comment: ''
+      options: {  }
     origin_business_unit:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     origin_number:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     origin_site:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     currency_id:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     total_commission:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     total_discount:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     total_freight:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     total_gross:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     total_net:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     total_quantity:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
-    shippings:
-      type: manyToMany
-      options:
-        comment: ''
-    customer:
-      type: manyToMany
-      options:
-        comment: ''
-    payments:
-      type: manyToMany
-      options:
-        comment: ''
-    feedback:
-      type: manyToMany
-      options:
-        comment: ''
+      options: {  }
     requested_devolution:
       type: boolean
-      options:
-        comment: ''
+      options: {  }
     requested_exchange:
       type: boolean
-      options:
-        comment: ''
+      options: {  }
     tags:
       type: array
-      options:
-        comment: ''
+      options: {  }
     expands:
       type: array
-      options:
-        comment: ''
+      options: {  }
+  oneToMany:
+    order_status_detail:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
+      mappedBy: order_status_detail
+      joinColumn:
+        name: order_status_detail_id
+        referencedColumnName: id
+      options: {  }
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+      mappedBy: shipping
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
+      options: {  }
+    customer:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
+      mappedBy: customer
+      joinColumn:
+        name: customer_id
+        referencedColumnName: id
+      options: {  }
+    payment:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+      mappedBy: payment
+      joinColumn:
+        name: payment_id
+        referencedColumnName: id
+      options: {  }
+    feedback:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
+      mappedBy: feedback
+      joinColumn:
+        name: feedback_id
+        referencedColumnName: id
+      options: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

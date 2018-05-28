@@ -1,5 +1,5 @@
 # expands metadata
-# generated at Mon, 28 May 2018 13:45:03 +0000
+# generated at Mon, 28 May 2018 14:33:56 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
   type: entity
   table: cs_trading_payment
@@ -12,174 +12,151 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
   fields:
     payment_number:
       type: bigint
-      options:
-        comment: ''
-    collector:
-      type: manyToMany
-      options:
-        comment: ''
+      options: {  }
     currency_id:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     status:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     status_code:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     status_detail:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     transaction_amount:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     shipping_cost:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     overpaid_amount:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     total_paid_amount:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     marketplace_fee:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     coupon_amount:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     date_created:
       type: datetime
-      options:
-        comment: ''
+      options: {  }
     date_last_modified:
       type: datetime
-      options:
-        comment: ''
+      options: {  }
     card_id:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     reason:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     activation_uri:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     payment_method_id:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     installments:
       type: bigint
-      options:
-        comment: ''
+      options: {  }
     issuer_id:
       type: bigint
-      options:
-        comment: ''
-    atm_transfer_reference:
-      type: manyToMany
-      options:
-        comment: ''
+      options: {  }
     coupon_id:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     operation_type:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     payment_type:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     available_actions:
       type: array
-      options:
-        comment: ''
+      options: {  }
     installment_amount:
       type: decimal
       precision: 10
       scale: 2
-      options:
-        comment: ''
+      options: {  }
     deferred_period:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     date_approved:
       type: datetime
-      options:
-        comment: ''
+      options: {  }
     authorization_code:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     transaction_order_id:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     tags:
       type: array
-      options:
-        comment: ''
+      options: {  }
     expands:
       type: array
-      options:
-        comment: ''
+      options: {  }
+  oneToMany:
+    collector:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector
+      mappedBy: collector
+      joinColumn:
+        name: collector_id
+        referencedColumnName: id
+      options: {  }
+    atm_transfer_reference:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference
+      mappedBy: atm_transfer_reference
+      joinColumn:
+        name: atm_transfer_reference_id
+        referencedColumnName: id
+      options: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

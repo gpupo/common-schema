@@ -51,20 +51,6 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     private $email;
 
     /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="phone", type="object", unique=false)
-     */
-    private $phone;
-
-    /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="alternative_phone", type="object", unique=false)
-     */
-    private $alternative_phone;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", unique=false)
@@ -79,32 +65,58 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     private $last_name;
 
     /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="document", type="object", unique=false)
-     */
-    private $document;
-
-    /**
      * @var array
      *
-     * @ORM\Column(name="expands", type="array", unique=false)
+     * @ORM\Column(name="expands", type="array")
      */
     private $expands;
 
     /**
-     * @var \stdClass
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\Column(name="address_billing", type="object", unique=false)
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Phone", mappedBy="phone")
+     */
+    private $phone;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone", mappedBy="alternative_phone")
+     */
+    private $alternative_phone;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Document", mappedBy="document")
+     */
+    private $document;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling", mappedBy="address_billing")
      */
     private $address_billing;
 
     /**
-     * @var \stdClass
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\Column(name="address_delivery", type="object", unique=false)
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery", mappedBy="address_delivery")
      */
     private $address_delivery;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->phone = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->alternative_phone = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->document = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->address_billing = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->address_delivery = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -165,54 +177,6 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set phone.
-     *
-     * @param \stdClass $phone
-     *
-     * @return Customer
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone.
-     *
-     * @return \stdClass
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set alternativePhone.
-     *
-     * @param \stdClass $alternativePhone
-     *
-     * @return Customer
-     */
-    public function setAlternativePhone($alternativePhone)
-    {
-        $this->alternative_phone = $alternativePhone;
-
-        return $this;
-    }
-
-    /**
-     * Get alternativePhone.
-     *
-     * @return \stdClass
-     */
-    public function getAlternativePhone()
-    {
-        return $this->alternative_phone;
-    }
-
-    /**
      * Set firstName.
      *
      * @param string $firstName
@@ -261,30 +225,6 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set document.
-     *
-     * @param \stdClass $document
-     *
-     * @return Customer
-     */
-    public function setDocument($document)
-    {
-        $this->document = $document;
-
-        return $this;
-    }
-
-    /**
-     * Get document.
-     *
-     * @return \stdClass
-     */
-    public function getDocument()
-    {
-        return $this->document;
-    }
-
-    /**
      * Set expands.
      *
      * @param array $expands
@@ -309,23 +249,143 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set addressBilling.
+     * Add phone.
      *
-     * @param \stdClass $addressBilling
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\Phone $phone
      *
      * @return Customer
      */
-    public function setAddressBilling($addressBilling)
+    public function addPhone(\Gpupo\CommonSchema\ORM\Entity\People\Phone $phone)
     {
-        $this->address_billing = $addressBilling;
+        $this->phone[] = $phone;
 
         return $this;
     }
 
     /**
+     * Remove phone.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\Phone $phone
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     */
+    public function removePhone(\Gpupo\CommonSchema\ORM\Entity\People\Phone $phone)
+    {
+        return $this->phone->removeElement($phone);
+    }
+
+    /**
+     * Get phone.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Add alternativePhone.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone
+     *
+     * @return Customer
+     */
+    public function addAlternativePhone(\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone)
+    {
+        $this->alternative_phone[] = $alternativePhone;
+
+        return $this;
+    }
+
+    /**
+     * Remove alternativePhone.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     */
+    public function removeAlternativePhone(\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone)
+    {
+        return $this->alternative_phone->removeElement($alternativePhone);
+    }
+
+    /**
+     * Get alternativePhone.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAlternativePhone()
+    {
+        return $this->alternative_phone;
+    }
+
+    /**
+     * Add document.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\Document $document
+     *
+     * @return Customer
+     */
+    public function addDocument(\Gpupo\CommonSchema\ORM\Entity\People\Document $document)
+    {
+        $this->document[] = $document;
+
+        return $this;
+    }
+
+    /**
+     * Remove document.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\Document $document
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     */
+    public function removeDocument(\Gpupo\CommonSchema\ORM\Entity\People\Document $document)
+    {
+        return $this->document->removeElement($document);
+    }
+
+    /**
+     * Get document.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDocument()
+    {
+        return $this->document;
+    }
+
+    /**
+     * Add addressBilling.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling $addressBilling
+     *
+     * @return Customer
+     */
+    public function addAddressBilling(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling $addressBilling)
+    {
+        $this->address_billing[] = $addressBilling;
+
+        return $this;
+    }
+
+    /**
+     * Remove addressBilling.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling $addressBilling
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     */
+    public function removeAddressBilling(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling $addressBilling)
+    {
+        return $this->address_billing->removeElement($addressBilling);
+    }
+
+    /**
      * Get addressBilling.
      *
-     * @return \stdClass
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAddressBilling()
     {
@@ -333,23 +393,35 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set addressDelivery.
+     * Add addressDelivery.
      *
-     * @param \stdClass $addressDelivery
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery $addressDelivery
      *
      * @return Customer
      */
-    public function setAddressDelivery($addressDelivery)
+    public function addAddressDelivery(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery $addressDelivery)
     {
-        $this->address_delivery = $addressDelivery;
+        $this->address_delivery[] = $addressDelivery;
 
         return $this;
     }
 
     /**
+     * Remove addressDelivery.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery $addressDelivery
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     */
+    public function removeAddressDelivery(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery $addressDelivery)
+    {
+        return $this->address_delivery->removeElement($addressDelivery);
+    }
+
+    /**
      * Get addressDelivery.
      *
-     * @return \stdClass
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAddressDelivery()
     {

@@ -23,14 +23,17 @@ use Gpupo\CommonSdk\Entity\Schema\Tools;
 $commonSchema = new DoctrineOrmEntityGenerator(new ArgvInput(), new ConsoleOutput());
 
 $order = new Order();
+$trading = new Trading();
+
 foreach ([
-    'order' => $order,
+    'trading' => $trading,
+    //'order' => $order,
 ] as $key => $value) {
     $data = Tools::getRecursiveSchema($value);
     $commonSchema->saveDataToSchema($key, $value, $data);
 }
 
-$trading = new Trading();
+
 foreach($trading as $object) {
     $commonSchema->recursiveSaveDataDoctrineMetadata($object);
 }

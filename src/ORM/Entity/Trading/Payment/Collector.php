@@ -39,7 +39,7 @@ class Collector extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var array
      *
-     * @ORM\Column(name="expands", type="array", unique=false)
+     * @ORM\Column(name="expands", type="array")
      */
     private $expands;
 

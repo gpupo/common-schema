@@ -1,5 +1,5 @@
 # expands metadata
-# generated at Mon, 28 May 2018 13:45:03 +0000
+# generated at Mon, 28 May 2018 14:33:56 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector:
   type: entity
   table: cs_trading_payment_collector
@@ -12,8 +12,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector:
   fields:
     expands:
       type: array
-      options:
-        comment: ''
+      options: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

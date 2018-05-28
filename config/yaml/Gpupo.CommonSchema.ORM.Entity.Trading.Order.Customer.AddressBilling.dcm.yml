@@ -1,5 +1,5 @@
 # expands metadata
-# generated at Mon, 28 May 2018 13:45:03 +0000
+# generated at Mon, 28 May 2018 14:33:56 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
   type: entity
   table: cs_trading_order_customer_address_billing
@@ -14,54 +14,45 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     number:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     neighborhood:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     reference:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     comments:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     city:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     state:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     postalCode:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     expands:
       type: array
-      options:
-        comment: ''
+      options: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

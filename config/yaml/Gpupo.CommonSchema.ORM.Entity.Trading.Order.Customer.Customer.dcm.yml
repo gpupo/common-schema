@@ -1,5 +1,5 @@
 # address_delivery metadata
-# generated at Mon, 28 May 2018 13:45:03 +0000
+# generated at Mon, 28 May 2018 14:33:56 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
   type: entity
   table: cs_trading_order_customer
@@ -14,50 +14,61 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     email:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
-    phone:
-      type: manyToMany
-      options:
-        comment: ''
-    alternative_phone:
-      type: manyToMany
-      options:
-        comment: ''
+      options: {  }
     first_name:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
+      options: {  }
     last_name:
       type: string
       lenght: 50
       unique: false
-      options:
-        comment: ''
-    document:
-      type: manyToMany
-      options:
-        comment: ''
+      options: {  }
     expands:
       type: array
-      options:
-        comment: ''
+      options: {  }
+  oneToMany:
+    phone:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\People\Phone
+      mappedBy: phone
+      joinColumn:
+        name: phone_id
+        referencedColumnName: id
+      options: {  }
+    alternative_phone:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
+      mappedBy: alternative_phone
+      joinColumn:
+        name: alternative_phone_id
+        referencedColumnName: id
+      options: {  }
+    document:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\People\Document
+      mappedBy: document
+      joinColumn:
+        name: document_id
+        referencedColumnName: id
+      options: {  }
     address_billing:
-      type: manyToMany
-      options:
-        comment: ''
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling
+      mappedBy: address_billing
+      joinColumn:
+        name: address_billing_id
+        referencedColumnName: id
+      options: {  }
     address_delivery:
-      type: manyToMany
-      options:
-        comment: ''
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
+      mappedBy: address_delivery
+      joinColumn:
+        name: address_delivery_id
+        referencedColumnName: id
+      options: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }
