@@ -15,22 +15,10 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Payments;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractPhone;
 
-class AtmTransferReference extends EntityAbstract implements EntityInterface, CollectionInterface
+final class AlternativePhone extends AbstractPhone
 {
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
-    {
-        return [
-            'company_id' => 'integer',
-            'transaction_id' => 'integer',
-        ];
-    }
 }

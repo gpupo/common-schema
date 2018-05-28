@@ -15,21 +15,10 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Payments;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
 
-use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSchema\ArrayCollection\People\AbstractPeople;
 
-class Collector extends EntityAbstract implements EntityInterface, CollectionInterface
+class Customer extends AbstractPeople
 {
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
-    {
-        return [
-            'id' => 'integer',
-        ];
-    }
 }
