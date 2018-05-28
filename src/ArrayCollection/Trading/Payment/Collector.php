@@ -21,6 +21,5 @@ use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
 class Collector extends AbstractEntity
 {
-  protected $tableName = 'trading_payment_collector';
-
+    protected $tableName = 'trading_payment_collector';
 }
