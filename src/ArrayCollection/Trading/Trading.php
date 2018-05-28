@@ -35,6 +35,7 @@ class Trading extends AbstractEntity
             parent::getSchema(),
             [
                 'order' => 'object',
+                'Payment' => 'object',
             ]
         );
     }

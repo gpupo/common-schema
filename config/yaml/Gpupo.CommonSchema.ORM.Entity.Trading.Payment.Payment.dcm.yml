@@ -1,53 +1,89 @@
 # expands gpupo/common-schema metadata
 # version: 2.0
 # generated at Mon, 28 May 2018 12:27:59 +0000
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
+Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
   type: entity
-  table: cs_trading_order
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderRepository
+  table: cs_trading_payment
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Payment\PaymentRepository
   id:
     id:
       type: integer
       generator:
         strategy: AUTO
   fields:
-    order_number:
-      type: string
+    payment_number:
+      type: integer
       lenght: 50
       unique: false
       options:
         comment: ''
-    order_status:
-      type: string
-      lenght: 50
-      unique: false
-      options:
-        comment: ''
-    order_status_detail:
+    collector:
       type: object
       lenght: 50
       unique: false
       options:
         comment: ''
-    order_type:
+    currency_id:
       type: string
       lenght: 50
       unique: false
       options:
         comment: ''
+    status:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    status_code:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    status_detail:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    transaction_amount:
+      type: number
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    shipping_cost:
+      type: number
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    overpaid_amount:
+      type: number
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    total_paid_amount:
+      type: number
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    marketplace_fee:
+      type: number
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    coupon_amount:
+      type: number
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
     date_created:
-      type: datetime
-      lenght: 50
-      unique: false
-      options:
-        comment: ''
-    date_closed:
-      type: datetime
-      lenght: 50
-      unique: false
-      options:
-        comment: ''
-    date_agreed:
       type: datetime
       lenght: 50
       unique: false
@@ -59,98 +95,98 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       unique: false
       options:
         comment: ''
-    origin_business_unit:
+    card_id:
       type: string
       lenght: 50
       unique: false
       options:
         comment: ''
-    origin_number:
+    reason:
       type: string
       lenght: 50
       unique: false
       options:
         comment: ''
-    origin_site:
+    activation_uri:
       type: string
       lenght: 50
       unique: false
       options:
         comment: ''
-    currency_id:
+    payment_method_id:
       type: string
       lenght: 50
       unique: false
       options:
         comment: ''
-    total_commission:
-      type: number
+    installments:
+      type: integer
       lenght: 50
       unique: false
       options:
         comment: ''
-    total_discount:
-      type: number
+    issuer_id:
+      type: integer
       lenght: 50
       unique: false
       options:
         comment: ''
-    total_freight:
-      type: number
-      lenght: 50
-      unique: false
-      options:
-        comment: ''
-    total_gross:
-      type: number
-      lenght: 50
-      unique: false
-      options:
-        comment: ''
-    total_net:
-      type: number
-      lenght: 50
-      unique: false
-      options:
-        comment: ''
-    total_quantity:
-      type: number
-      lenght: 50
-      unique: false
-      options:
-        comment: ''
-    shippings:
+    atm_transfer_reference:
       type: object
       lenght: 50
       unique: false
       options:
         comment: ''
-    customer:
-      type: object
+    coupon_id:
+      type: string
       lenght: 50
       unique: false
       options:
         comment: ''
-    payments:
-      type: object
+    operation_type:
+      type: string
       lenght: 50
       unique: false
       options:
         comment: ''
-    feedback:
-      type: object
+    payment_type:
+      type: string
       lenght: 50
       unique: false
       options:
         comment: ''
-    requested_devolution:
-      type: boolean
+    available_actions:
+      type: array
       lenght: 50
       unique: false
       options:
         comment: ''
-    requested_exchange:
-      type: boolean
+    installment_amount:
+      type: number
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    deferred_period:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    date_approved:
+      type: datetime
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    authorization_code:
+      type: string
+      lenght: 50
+      unique: false
+      options:
+        comment: ''
+    transaction_order_id:
+      type: string
       lenght: 50
       unique: false
       options:

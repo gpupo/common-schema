@@ -1,6 +1,6 @@
 # expands gpupo/common-schema metadata
 # version: 2.0
-# generated at Mon, 28 May 2018 12:23:16 +0000
+# generated at Mon, 28 May 2018 12:27:59 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery:
   type: entity
   table: cs_trading_order_customer_address_delivery

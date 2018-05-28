@@ -1,24 +1,24 @@
-# description gpupo/common-schema metadata
+# transaction_id gpupo/common-schema metadata
 # version: 2.0
 # generated at Mon, 28 May 2018 12:27:59 +0000
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
+Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference:
   type: entity
-  table: cs_trading_order_status_detail
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderStatusDetailRepository
+  table: cs_trading_payment_atm_transfer_reference
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Payment\AtmTransferReferenceRepository
   id:
     id:
       type: integer
       generator:
         strategy: AUTO
   fields:
-    code:
-      type: string
+    company_id:
+      type: integer
       lenght: 50
       unique: false
       options:
         comment: ''
-    description:
-      type: string
+    transaction_id:
+      type: integer
       lenght: 50
       unique: false
       options:

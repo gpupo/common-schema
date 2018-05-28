@@ -15,17 +15,17 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\Entity\Trading;
+namespace Gpupo\CommonSchema\ORM\Entity\Trading\Payment;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Trading.
+ * Collector.
  *
- * @ORM\Table(name="cs_trading")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\TradingRepository")
+ * @ORM\Table(name="cs_trading_payment_collector")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Payment\CollectorRepository")
  */
-class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
+class Collector extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
      * @var int
@@ -44,13 +44,6 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="order", type="object", unique=false)
-     */
-    private $order;
-
-    /**
      * Get id.
      *
      * @return int
@@ -65,7 +58,7 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param array $expands
      *
-     * @return Trading
+     * @return Collector
      */
     public function setExpands($expands)
     {
@@ -82,29 +75,5 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getExpands()
     {
         return $this->expands;
-    }
-
-    /**
-     * Set order.
-     *
-     * @param \stdClass $order
-     *
-     * @return Trading
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
-
-        return $this;
-    }
-
-    /**
-     * Get order.
-     *
-     * @return \stdClass
-     */
-    public function getOrder()
-    {
-        return $this->order;
     }
 }

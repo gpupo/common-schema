@@ -136,4 +136,7 @@ foreach ([
     $commonSchema->saveDataToSchema($key, $value, $data);
 }
 
-$commonSchema->recursiveSaveDataDoctrineMetadata(new Trading());
+$trading = new Trading();
+foreach($trading as $object) {
+    $commonSchema->recursiveSaveDataDoctrineMetadata($object);    
+}
