@@ -15,15 +15,22 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Payments;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class Collection extends AbstractCollection
+class AtmTransferReference extends AbstractEntity
 {
-    public function factoryElement($data)
+    protected $tableName = 'trading_payment_atm_transfer_reference';
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getSchema()
     {
-        return new Payment($data);
+        return [
+            'company_id' => 'integer',
+            'transaction_id' => 'integer',
+        ];
     }
 }
