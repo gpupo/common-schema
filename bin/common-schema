@@ -15,118 +15,12 @@ require 'vendor/autoload.php';
 
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Customer\Customer;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\OrderSchema;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Product\ProductSchema;
-use Symfony\Component\Yaml\Yaml;
+use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
-use Gpupo\CommonSchema\ArrayCollection\Thing\EntityInterface;
-use Gpupo\CommonSchema\ArrayCollection\Thing\CollectionInterface;
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
 
-class CommonSchema
-{
-    protected $input;
-    protected $output;
-
-    public function __construct($input, $output)
-    {
-        $this->input = $input;
-        $this->output = $output;
-    }
-
-    protected function save($file, $content)
-    {
-        file_put_contents($file, $content);
-        $this->output->writeln(sprintf('Generated <fg=green> %s </> file', $file));
-    }
-
-    public function saveDataToSchema($key, $value, array $data)
-    {
-        $file = sprintf('Resources/schema/v2/%s.yaml', $key);
-        $content = sprintf("# %s gpupo/common-schema\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($data, 8);
-
-        return $this->save($file, $content);
-    }
-
-    public function saveDataDoctrineMetadata($object)
-    {
-        $class = get_class($object);
-        $explode = explode('\\', $class);
-
-        $abstractList = ['People', 'Thing'];
-
-        if (in_array($explode[3], $abstractList)) {
-            return;
-        }
-
-        $toClass = str_replace('ArrayCollection', 'ORM\Entity', $class);
-        $repositoryClass = str_replace('ArrayCollection', 'ORM\Repository', $class) . 'Repository';
-        $table = $object->getTableName();
-        $doctrine = [
-            'type' =>  'entity',
-            'table' => $table,
-            'repositoryClass' => $repositoryClass,
-            'id'    => [
-                'id' => ['type' => 'integer', 'generator' => ['strategy' => 'AUTO']],
-            ]
-        ];
-
-        foreach($object->getSchema() as $key => $value) {
-            if ('id' === $key) {
-                continue;
-            }
-            $doctrine['fields'][$key] = [
-                'type' =>  $value,
-                'lenght' =>  50,
-                'unique' => false,
-                'options'=> [
-                    'comment' => '',
-                ],
-            ];
-
-            $this->recursiveSaveDataDoctrineMetadata($object->get($key));
-        }
-
-        $doctrine['lifecycleCallbacks'] = [
-            'prePersist' => [],
-            'postPersist' => [],
-        ];
-
-        $entity = [$toClass => $doctrine];
-        $file = sprintf('config/yaml/%s.dcm.yml', str_replace('\\', '.', $toClass));
-        $content = sprintf("# %s gpupo/common-schema metadata\n# version: 2.0\n# generated at %s\n", $key, date('r')).Yaml::dump($entity, 8, 2);
-
-        return $this->save($file, $content);
-    }
-
-    public function recursiveSaveDataDoctrineMetadata($object)
-    {
-        if (!is_object($object)) {
-            return;
-        }
-        if ($object instanceof CollectionInterface) {
-            return $this->recursiveSaveDataDoctrineMetadata($object->first());
-        }
-
-        if (!$object instanceof EntityInterface) {
-            die(sprintf('Class %s must implement %s', get_class($object), EntityInterface::class));
-        }
-
-        $this->saveDataDoctrineMetadata($object);
-
-        foreach($object as $prop) {
-            if (is_object($prop)) {
-                $this->recursiveSaveDataDoctrineMetadata($prop);
-            }
-        }
-    }
-}
-
-$commonSchema = new CommonSchema(new ArgvInput(), new ConsoleOutput());
+$commonSchema = new DoctrineOrmEntityGenerator(new ArgvInput(), new ConsoleOutput());
 
 $order = new Order();
 foreach ([
@@ -138,5 +32,5 @@ foreach ([
 
 $trading = new Trading();
 foreach($trading as $object) {
-    $commonSchema->recursiveSaveDataDoctrineMetadata($object);    
+    $commonSchema->recursiveSaveDataDoctrineMetadata($object);
 }

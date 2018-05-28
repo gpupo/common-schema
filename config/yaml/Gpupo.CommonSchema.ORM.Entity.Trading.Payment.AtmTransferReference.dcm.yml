@@ -1,6 +1,5 @@
-# transaction_id gpupo/common-schema metadata
-# version: 2.0
-# generated at Mon, 28 May 2018 12:27:59 +0000
+# transaction_id metadata
+# generated at Mon, 28 May 2018 13:45:03 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference:
   type: entity
   table: cs_trading_payment_atm_transfer_reference
@@ -12,15 +11,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference:
         strategy: AUTO
   fields:
     company_id:
-      type: integer
-      lenght: 50
-      unique: false
+      type: bigint
       options:
         comment: ''
     transaction_id:
-      type: integer
-      lenght: 50
-      unique: false
+      type: bigint
       options:
         comment: ''
   lifecycleCallbacks:

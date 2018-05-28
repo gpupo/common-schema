@@ -1,6 +1,5 @@
-# expands gpupo/common-schema metadata
-# version: 2.0
-# generated at Mon, 28 May 2018 12:27:59 +0000
+# expands metadata
+# generated at Mon, 28 May 2018 13:45:03 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
   type: entity
   table: cs_trading_payment
@@ -12,15 +11,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
         strategy: AUTO
   fields:
     payment_number:
-      type: integer
-      lenght: 50
-      unique: false
+      type: bigint
       options:
         comment: ''
     collector:
-      type: object
-      lenght: 50
-      unique: false
+      type: manyToMany
       options:
         comment: ''
     currency_id:
@@ -48,51 +43,47 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       options:
         comment: ''
     transaction_amount:
-      type: number
-      lenght: 50
-      unique: false
+      type: decimal
+      precision: 10
+      scale: 2
       options:
         comment: ''
     shipping_cost:
-      type: number
-      lenght: 50
-      unique: false
+      type: decimal
+      precision: 10
+      scale: 2
       options:
         comment: ''
     overpaid_amount:
-      type: number
-      lenght: 50
-      unique: false
+      type: decimal
+      precision: 10
+      scale: 2
       options:
         comment: ''
     total_paid_amount:
-      type: number
-      lenght: 50
-      unique: false
+      type: decimal
+      precision: 10
+      scale: 2
       options:
         comment: ''
     marketplace_fee:
-      type: number
-      lenght: 50
-      unique: false
+      type: decimal
+      precision: 10
+      scale: 2
       options:
         comment: ''
     coupon_amount:
-      type: number
-      lenght: 50
-      unique: false
+      type: decimal
+      precision: 10
+      scale: 2
       options:
         comment: ''
     date_created:
       type: datetime
-      lenght: 50
-      unique: false
       options:
         comment: ''
     date_last_modified:
       type: datetime
-      lenght: 50
-      unique: false
       options:
         comment: ''
     card_id:
@@ -120,21 +111,15 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       options:
         comment: ''
     installments:
-      type: integer
-      lenght: 50
-      unique: false
+      type: bigint
       options:
         comment: ''
     issuer_id:
-      type: integer
-      lenght: 50
-      unique: false
+      type: bigint
       options:
         comment: ''
     atm_transfer_reference:
-      type: object
-      lenght: 50
-      unique: false
+      type: manyToMany
       options:
         comment: ''
     coupon_id:
@@ -157,14 +142,12 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
         comment: ''
     available_actions:
       type: array
-      lenght: 50
-      unique: false
       options:
         comment: ''
     installment_amount:
-      type: number
-      lenght: 50
-      unique: false
+      type: decimal
+      precision: 10
+      scale: 2
       options:
         comment: ''
     deferred_period:
@@ -175,8 +158,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
         comment: ''
     date_approved:
       type: datetime
-      lenght: 50
-      unique: false
       options:
         comment: ''
     authorization_code:
@@ -193,14 +174,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
         comment: ''
     tags:
       type: array
-      lenght: 50
-      unique: false
       options:
         comment: ''
     expands:
       type: array
-      lenght: 50
-      unique: false
       options:
         comment: ''
   lifecycleCallbacks:

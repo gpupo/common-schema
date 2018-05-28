@@ -1,6 +1,5 @@
-# expands gpupo/common-schema metadata
-# version: 2.0
-# generated at Mon, 28 May 2018 12:27:59 +0000
+# expands metadata
+# generated at Mon, 28 May 2018 13:45:03 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector:
   type: entity
   table: cs_trading_payment_collector
@@ -13,8 +12,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector:
   fields:
     expands:
       type: array
-      lenght: 50
-      unique: false
       options:
         comment: ''
   lifecycleCallbacks:

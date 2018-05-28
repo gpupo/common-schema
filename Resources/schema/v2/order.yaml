@@ -1,6 +1,5 @@
-# order gpupo/common-schema
-# version: 2.0
-# generated at Mon, 28 May 2018 12:27:58 +0000
+# order 
+# generated at Mon, 28 May 2018 13:45:02 +0000
 order_number: string
 order_status: string
 order_status_detail:

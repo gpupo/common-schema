@@ -1,6 +1,5 @@
-# address_delivery gpupo/common-schema metadata
-# version: 2.0
-# generated at Mon, 28 May 2018 12:27:59 +0000
+# address_delivery metadata
+# generated at Mon, 28 May 2018 13:45:03 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
   type: entity
   table: cs_trading_order_customer
@@ -24,15 +23,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
       options:
         comment: ''
     phone:
-      type: object
-      lenght: 50
-      unique: false
+      type: manyToMany
       options:
         comment: ''
     alternative_phone:
-      type: object
-      lenght: 50
-      unique: false
+      type: manyToMany
       options:
         comment: ''
     first_name:
@@ -48,27 +43,19 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
       options:
         comment: ''
     document:
-      type: object
-      lenght: 50
-      unique: false
+      type: manyToMany
       options:
         comment: ''
     expands:
       type: array
-      lenght: 50
-      unique: false
       options:
         comment: ''
     address_billing:
-      type: object
-      lenght: 50
-      unique: false
+      type: manyToMany
       options:
         comment: ''
     address_delivery:
-      type: object
-      lenght: 50
-      unique: false
+      type: manyToMany
       options:
         comment: ''
   lifecycleCallbacks:
