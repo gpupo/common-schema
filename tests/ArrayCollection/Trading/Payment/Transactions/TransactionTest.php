@@ -22,8 +22,8 @@ use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Seller;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction;
-use Gpupo\Tests\CommonSchema\AbstractTestCase;
 use Gpupo\CommonSdk\Traits\ResourcesTrait;
+use Gpupo\Tests\CommonSchema\AbstractTestCase;
 
 /**
  * @coversDefaultClass \Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction
@@ -31,12 +31,12 @@ use Gpupo\CommonSdk\Traits\ResourcesTrait;
 class TransactionTest extends AbstractTestCase
 {
     use ResourcesTrait;
+
     /**
      * @return \Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction
      */
     public function dataProviderTransaction()
     {
-
         $data = $this->getResourceJson('/fixtures/trading/payment/transactions/transaction.json');
         $data['order'] = new Order($data['order']);
         $data['payment'] = new Payment($data['payment']);
@@ -52,7 +52,6 @@ class TransactionTest extends AbstractTestCase
      */
     public function testSetAndGetSchema(Transaction $transaction)
     {
-
         $this->assertInternalType('array', $transaction->getSchema());
     }
 
@@ -155,5 +154,4 @@ class TransactionTest extends AbstractTestCase
         $transaction->setDateLastModified($expected['date_last_modified']);
         $this->assertSame($expected['date_last_modified'], $transaction->getDateLastModified());
     }
-
 }
