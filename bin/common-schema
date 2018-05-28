@@ -55,6 +55,14 @@ class CommonSchema
     public function saveDataDoctrineMetadata($object)
     {
         $class = get_class($object);
+        $explode = explode('\\', $class);
+
+        $abstractList = ['People', 'Thing'];
+
+        if (in_array($explode[3], $abstractList)) {
+            return;
+        }
+
         $toClass = str_replace('ArrayCollection', 'ORM\Entity', $class);
         $repositoryClass = str_replace('ArrayCollection', 'ORM\Repository', $class) . 'Repository';
         $table = $object->getTableName();
