@@ -249,7 +249,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector", mappedBy="collector")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector", mappedBy="collector")
      */
     private $collector;
 
@@ -1002,11 +1002,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add collector.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector $collector
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector
      *
      * @return Payment
      */
-    public function addCollector(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector $collector)
+    public function addCollector(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector)
     {
         $this->collector[] = $collector;
 
@@ -1016,11 +1016,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove collector.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector $collector
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeCollector(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector $collector)
+    public function removeCollector(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector)
     {
         return $this->collector->removeElement($collector);
     }

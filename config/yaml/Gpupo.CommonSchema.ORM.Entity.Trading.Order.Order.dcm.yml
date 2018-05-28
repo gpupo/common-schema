@@ -1,5 +1,5 @@
 # expands metadata
-# generated at Mon, 28 May 2018 14:33:56 +0000
+# generated at Mon, 28 May 2018 18:15:04 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
   type: entity
   table: cs_trading_order
@@ -122,7 +122,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
         referencedColumnName: id
       options: {  }
     payment:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment
       mappedBy: payment
       joinColumn:
         name: payment_id

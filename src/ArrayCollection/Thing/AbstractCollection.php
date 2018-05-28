@@ -22,6 +22,17 @@ use Gpupo\CommonSdk\Entity\CollectionContainerInterface;
 
 abstract class AbstractCollection extends CollectionAbstract implements CollectionInterface, CollectionContainerInterface
 {
+    protected $type;
+
+    public function getAssociationMappingType()
+    {
+        if (empty($this->type)) {
+            throw new \InvalidArgumentException(sprintf('Collection Type missing on %s', get_class($this)));
+        }
+
+        return $this->type;
+    }
+
     public function factoryElement($data)
     {
         throw new \InvalidArgumentException('factoryElement() must be implemented!');

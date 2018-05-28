@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\Entity\Trading\Payment;
+namespace Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Collector.
  *
  * @ORM\Table(name="cs_trading_payment_collector")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Payment\CollectorRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Payment\Collector\CollectorRepository")
  */
 class Collector extends \Gpupo\CommonSchema\AbstractORMEntity
 {

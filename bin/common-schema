@@ -20,10 +20,12 @@ use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
 use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
 
-$commonSchema = new DoctrineOrmEntityGenerator(new ArgvInput(), new ConsoleOutput());
+$output = new ConsoleOutput();
+$commonSchema = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
 
 $order = new Order();
 $trading = new Trading();
+
 
 foreach ([
     'trading' => $trading,
@@ -33,7 +35,10 @@ foreach ([
     $commonSchema->saveDataToSchema($key, $value, $data);
 }
 
-
-foreach($trading as $object) {
-    $commonSchema->recursiveSaveDataDoctrineMetadata($object);
+try {
+    foreach($trading as $object) {
+        $commonSchema->recursiveSaveDataDoctrineMetadata($object);
+    }
+} catch (\Exception $exception) {
+    $output->writeln(sprintf('<error>%s</>', $exception->getMessage()));
 }

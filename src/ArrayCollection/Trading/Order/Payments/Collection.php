@@ -21,6 +21,8 @@ use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
 
 class Collection extends AbstractCollection
 {
+    protected $type = 'oneToMany';
+
     public function factoryElement($data)
     {
         return new Payment($data);

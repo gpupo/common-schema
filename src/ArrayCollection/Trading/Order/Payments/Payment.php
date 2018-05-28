@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Payments;
 
 use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment as MainPayment;
 

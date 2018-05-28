@@ -207,7 +207,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="payment")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment", mappedBy="payment")
      */
     private $payment;
 
@@ -855,11 +855,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add payment.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment $payment
      *
      * @return Order
      */
-    public function addPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
+    public function addPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment $payment)
     {
         $this->payment[] = $payment;
 
@@ -869,11 +869,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove payment.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment $payment
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
+    public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Payments\Payment $payment)
     {
         return $this->payment->removeElement($payment);
     }

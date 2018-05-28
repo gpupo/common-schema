@@ -1,9 +1,9 @@
 # expands metadata
-# generated at Mon, 28 May 2018 14:33:56 +0000
-Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector:
+# generated at Mon, 28 May 2018 18:15:04 +0000
+Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector:
   type: entity
   table: cs_trading_payment_collector
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Payment\CollectorRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Payment\Collector\CollectorRepository
   id:
     id:
       type: integer
