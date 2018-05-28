@@ -1,5 +1,5 @@
 # expands metadata
-# generated at Mon, 28 May 2018 18:15:04 +0000
+# generated at Mon, 28 May 2018 18:42:49 +0000
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
   type: entity
   table: cs_trading_order_customer_address_billing

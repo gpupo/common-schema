@@ -21,23 +21,23 @@ use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
 
 $output = new ConsoleOutput();
-$commonSchema = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
+$generator = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
 
-$order = new Order();
-$trading = new Trading();
-
+$trading = new Trading([
+    
+]);
 
 foreach ([
     'trading' => $trading,
     //'order' => $order,
 ] as $key => $value) {
     $data = Tools::getRecursiveSchema($value);
-    $commonSchema->saveDataToSchema($key, $value, $data);
+    $generator->saveDataToSchema($key, $value, $data);
 }
 
 try {
     foreach($trading as $object) {
-        $commonSchema->recursiveSaveDataDoctrineMetadata($object);
+        $generator->recursiveSaveDataDoctrineMetadata($object);
     }
 } catch (\Exception $exception) {
     $output->writeln(sprintf('<error>%s</>', $exception->getMessage()));

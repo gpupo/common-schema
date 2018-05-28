@@ -1,24 +1,27 @@
-# description metadata
+# expands metadata
 # generated at Mon, 28 May 2018 18:42:49 +0000
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
+Gpupo\CommonSchema\ORM\Entity\People\Document:
   type: entity
-  table: cs_trading_order_status_detail
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderStatusDetailRepository
+  table: cs_people_document
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\DocumentRepository
   id:
     id:
       type: integer
       generator:
         strategy: AUTO
   fields:
-    code:
+    doc_type:
       type: string
       lenght: 50
       unique: false
       options: {  }
-    description:
+    doc_number:
       type: string
       lenght: 50
       unique: false
+      options: {  }
+    expands:
+      type: array
       options: {  }
   lifecycleCallbacks:
     prePersist: {  }

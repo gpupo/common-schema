@@ -21,7 +21,7 @@ use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
 
-final class Shipping extends EntityAbstract implements EntityInterface, CollectionInterface
+class Shipping extends EntityAbstract implements EntityInterface, CollectionInterface
 {
     protected $primaryKey = 'shipping_number';
 
