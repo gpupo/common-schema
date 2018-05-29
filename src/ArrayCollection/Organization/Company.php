@@ -19,5 +19,5 @@ namespace Gpupo\CommonSchema\ArrayCollection\Organization;
 
 final class Company extends AbstractCompany
 {
-    protected $tableName = 'company';
+    protected $tableName = 'organization_company';
 }

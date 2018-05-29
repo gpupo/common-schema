@@ -1,8 +1,8 @@
 # expands metadata
-# generated at Mon, 28 May 2018 20:29:19 +0000
+# generated at 2018-05-29
 Gpupo\CommonSchema\ORM\Entity\Organization\Document:
   type: entity
-  table: cs_organization_document
+  table: cs_organization_company_document
   repositoryClass: Gpupo\CommonSchema\ORM\Repository\Organization\DocumentRepository
   id:
     id:

@@ -1,5 +1,5 @@
 # expands metadata
-# generated at Mon, 28 May 2018 20:29:19 +0000
+# generated at 2018-05-29
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery:
   type: entity
   table: cs_trading_order_customer_address_delivery

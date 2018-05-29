@@ -1,5 +1,5 @@
 # expands metadata
-# generated at Mon, 28 May 2018 20:29:19 +0000
+# generated at 2018-05-29
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector:
   type: entity
   table: cs_trading_payment_collector

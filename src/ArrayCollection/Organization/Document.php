@@ -21,5 +21,5 @@ use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractIdentification;
 
 final class Document extends AbstractIdentification
 {
-    protected $tableName = 'organization_document';
+    protected $tableName = 'organization_company_document';
 }

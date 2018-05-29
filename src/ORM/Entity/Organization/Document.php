@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Document
  *
- * @ORM\Table(name="cs_organization_document")
+ * @ORM\Table(name="cs_organization_company_document")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Organization\DocumentRepository")
  */
 class Document extends \Gpupo\CommonSchema\AbstractORMEntity
