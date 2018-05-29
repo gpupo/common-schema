@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Customer
+ * Customer.
  *
  * @ORM\Table(name="cs_trading_order_customer")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\CustomerRepository")
@@ -57,40 +72,75 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
+
+    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\Phone
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Phone", mappedBy="phone")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Phone")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="phone_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $phone;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone", mappedBy="alternative_phone")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="alternative_phone_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $alternative_phone;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\Document
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Document", mappedBy="document")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Document")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="document_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $document;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling", mappedBy="address_billing")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address_billing_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $address_billing;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery", mappedBy="address_delivery")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address_delivery_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $address_delivery;
-
 
     /**
      * Get id.
@@ -223,9 +273,81 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set createdAt.
+     *
+     * @param null|\DateTime $createdAt
+     *
+     * @return Customer
+     */
+    public function setCreatedAt($createdAt = null)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt.
+     *
+     * @param null|\DateTime $updatedAt
+     *
+     * @return Customer
+     */
+    public function setUpdatedAt($updatedAt = null)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set deletedAt.
+     *
+     * @param null|\DateTime $deletedAt
+     *
+     * @return Customer
+     */
+    public function setDeletedAt($deletedAt = null)
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
      * Set phone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\People\Phone|null $phone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Phone $phone
      *
      * @return Customer
      */
@@ -239,7 +361,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get phone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\People\Phone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Phone
      */
     public function getPhone()
     {
@@ -249,7 +371,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set alternativePhone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null $alternativePhone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone
      *
      * @return Customer
      */
@@ -263,7 +385,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get alternativePhone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
      */
     public function getAlternativePhone()
     {
@@ -273,7 +395,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set document.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\People\Document|null $document
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Document $document
      *
      * @return Customer
      */
@@ -287,7 +409,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get document.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\People\Document|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Document
      */
     public function getDocument()
     {
@@ -297,7 +419,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set addressBilling.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling|null $addressBilling
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling $addressBilling
      *
      * @return Customer
      */
@@ -311,7 +433,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get addressBilling.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling
      */
     public function getAddressBilling()
     {
@@ -321,7 +443,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set addressDelivery.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery|null $addressDelivery
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery $addressDelivery
      *
      * @return Customer
      */
@@ -335,7 +457,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get addressDelivery.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
      */
     public function getAddressDelivery()
     {

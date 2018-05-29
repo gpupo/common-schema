@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Organization;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Company
+ * Company.
  *
  * @ORM\Table(name="cs_organization_company")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Organization\CompanyRepository")
@@ -57,26 +72,55 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
+
+    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Organization\Phone
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Organization\Phone", mappedBy="phone")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Organization\Phone")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="phone_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $phone;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone", mappedBy="alternative_phone")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="alternative_phone_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $alternative_phone;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Organization\Document
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Organization\Document", mappedBy="document")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Organization\Document")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="document_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $document;
-
 
     /**
      * Get id.
@@ -209,9 +253,81 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set createdAt.
+     *
+     * @param null|\DateTime $createdAt
+     *
+     * @return Company
+     */
+    public function setCreatedAt($createdAt = null)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt.
+     *
+     * @param null|\DateTime $updatedAt
+     *
+     * @return Company
+     */
+    public function setUpdatedAt($updatedAt = null)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set deletedAt.
+     *
+     * @param null|\DateTime $deletedAt
+     *
+     * @return Company
+     */
+    public function setDeletedAt($deletedAt = null)
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
      * Set phone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Organization\Phone|null $phone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Organization\Phone $phone
      *
      * @return Company
      */
@@ -225,7 +341,7 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get phone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Organization\Phone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Organization\Phone
      */
     public function getPhone()
     {
@@ -235,7 +351,7 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set alternativePhone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone|null $alternativePhone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone $alternativePhone
      *
      * @return Company
      */
@@ -249,7 +365,7 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get alternativePhone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone
      */
     public function getAlternativePhone()
     {
@@ -259,7 +375,7 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set document.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Organization\Document|null $document
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Organization\Document $document
      *
      * @return Company
      */
@@ -273,7 +389,7 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get document.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Organization\Document|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Organization\Document
      */
     public function getDocument()
     {

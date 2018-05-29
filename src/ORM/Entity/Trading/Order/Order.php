@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Order
+ * Order.
  *
  * @ORM\Table(name="cs_trading_order")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderRepository")
@@ -169,16 +184,43 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
+
+    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail", mappedBy="order_status_detail")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="order_status_detail_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $order_status_detail;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer", mappedBy="customer")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $customer;
 
@@ -204,7 +246,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     private $feedback;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -728,9 +770,81 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set createdAt.
+     *
+     * @param null|\DateTime $createdAt
+     *
+     * @return Order
+     */
+    public function setCreatedAt($createdAt = null)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt.
+     *
+     * @param null|\DateTime $updatedAt
+     *
+     * @return Order
+     */
+    public function setUpdatedAt($updatedAt = null)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set deletedAt.
+     *
+     * @param null|\DateTime $deletedAt
+     *
+     * @return Order
+     */
+    public function setDeletedAt($deletedAt = null)
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
      * Set orderStatusDetail.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail|null $orderStatusDetail
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail $orderStatusDetail
      *
      * @return Order
      */
@@ -744,7 +858,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get orderStatusDetail.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
      */
     public function getOrderStatusDetail()
     {
@@ -754,7 +868,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set customer.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer|null $customer
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer $customer
      *
      * @return Order
      */
@@ -768,7 +882,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get customer.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
      */
     public function getCustomer()
     {
@@ -794,7 +908,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removeShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
     {
@@ -830,7 +944,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
     {
@@ -866,7 +980,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
     {

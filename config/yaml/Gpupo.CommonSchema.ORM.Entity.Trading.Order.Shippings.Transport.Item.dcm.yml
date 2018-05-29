@@ -1,5 +1,5 @@
 # expands metadata
-# generated at 2018-05-29
+# generated at 2018-05-30
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item:
   type: entity
   table: cs_trading_order_shipping_transport
@@ -42,6 +42,26 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item:
     expands:
       type: array
       options: {  }
+    createdAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': create
+    updatedAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': update
+    deletedAt:
+      type: datetime
+      nullable: true
+  gedmo:
+    soft_deleteable:
+      field_name: deletedAt
+      time_aware: false
+      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

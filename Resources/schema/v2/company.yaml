@@ -1,4 +1,4 @@
-# common-schema company $ generated at 2018-05-29
+# common-schema company $ generated at 2018-05-30
 id: integer
 nickname: string
 email: string

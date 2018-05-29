@@ -1,4 +1,4 @@
-# common-schema trading $ generated at 2018-05-29
+# common-schema trading $ generated at 2018-05-30
 expands: array
 order:
     order_number: string
@@ -192,7 +192,7 @@ order:
     requested_exchange: boolean
     tags: array
     expands: array
-Payment:
+payment:
     payment_number: integer
     collector:
         expands: array

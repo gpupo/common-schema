@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Shipping
+ * Shipping.
  *
  * @ORM\Table(name="cs_trading_order_shipping")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\ShippingRepository")
@@ -127,9 +142,33 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
+
+    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller", mappedBy="seller")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="seller_id", referencedColumnName="id", unique=true)
+     * })
      */
     private $seller;
 
@@ -169,7 +208,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     private $feedback;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -551,9 +590,81 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set createdAt.
+     *
+     * @param null|\DateTime $createdAt
+     *
+     * @return Shipping
+     */
+    public function setCreatedAt($createdAt = null)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt.
+     *
+     * @param null|\DateTime $updatedAt
+     *
+     * @return Shipping
+     */
+    public function setUpdatedAt($updatedAt = null)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set deletedAt.
+     *
+     * @param null|\DateTime $deletedAt
+     *
+     * @return Shipping
+     */
+    public function setDeletedAt($deletedAt = null)
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
      * Set seller.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller|null $seller
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller $seller
      *
      * @return Shipping
      */
@@ -567,7 +678,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get seller.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
      */
     public function getSeller()
     {
@@ -593,7 +704,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product $product
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removeProduct(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product $product)
     {
@@ -629,7 +740,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removeTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
     {
@@ -665,7 +776,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item $invoice
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removeInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item $invoice)
     {
@@ -701,7 +812,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item $comment
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removeComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item $comment)
     {
@@ -737,7 +848,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item $feedback
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item $feedback)
     {

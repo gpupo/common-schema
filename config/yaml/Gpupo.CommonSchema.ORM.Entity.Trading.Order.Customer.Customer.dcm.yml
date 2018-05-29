@@ -1,5 +1,5 @@
 # address_delivery metadata
-# generated at 2018-05-29
+# generated at 2018-05-30
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
   type: entity
   table: cs_trading_order_customer
@@ -33,42 +33,42 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
     expands:
       type: array
       options: {  }
+    createdAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': create
+    updatedAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': update
+    deletedAt:
+      type: datetime
+      nullable: true
   oneToOne:
     phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\People\Phone
-      mappedBy: phone
-      joinColumn:
-        name: phone_id
-        referencedColumnName: id
       options: {  }
     alternative_phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
-      mappedBy: alternative_phone
-      joinColumn:
-        name: alternative_phone_id
-        referencedColumnName: id
       options: {  }
     document:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\People\Document
-      mappedBy: document
-      joinColumn:
-        name: document_id
-        referencedColumnName: id
       options: {  }
     address_billing:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling
-      mappedBy: address_billing
-      joinColumn:
-        name: address_billing_id
-        referencedColumnName: id
       options: {  }
     address_delivery:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
-      mappedBy: address_delivery
-      joinColumn:
-        name: address_delivery_id
-        referencedColumnName: id
       options: {  }
+  gedmo:
+    soft_deleteable:
+      field_name: deletedAt
+      time_aware: false
+      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

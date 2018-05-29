@@ -1,5 +1,5 @@
 # expands metadata
-# generated at 2018-05-29
+# generated at 2018-05-30
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller:
   type: entity
   table: cs_trading_order_seller
@@ -33,28 +33,36 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller:
     expands:
       type: array
       options: {  }
+    createdAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': create
+    updatedAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': update
+    deletedAt:
+      type: datetime
+      nullable: true
   oneToOne:
     phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Organization\Phone
-      mappedBy: phone
-      joinColumn:
-        name: phone_id
-        referencedColumnName: id
       options: {  }
     alternative_phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone
-      mappedBy: alternative_phone
-      joinColumn:
-        name: alternative_phone_id
-        referencedColumnName: id
       options: {  }
     document:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Organization\Document
-      mappedBy: document
-      joinColumn:
-        name: document_id
-        referencedColumnName: id
       options: {  }
+  gedmo:
+    soft_deleteable:
+      field_name: deletedAt
+      time_aware: false
+      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

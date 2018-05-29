@@ -1,5 +1,5 @@
 # expands metadata
-# generated at 2018-05-29
+# generated at 2018-05-30
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
   type: entity
   table: cs_trading_payment
@@ -142,21 +142,33 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
     expands:
       type: array
       options: {  }
+    createdAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': create
+    updatedAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': update
+    deletedAt:
+      type: datetime
+      nullable: true
   oneToOne:
     collector:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector
-      mappedBy: collector
-      joinColumn:
-        name: collector_id
-        referencedColumnName: id
       options: {  }
     atm_transfer_reference:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference
-      mappedBy: atm_transfer_reference
-      joinColumn:
-        name: atm_transfer_reference_id
-        referencedColumnName: id
       options: {  }
+  gedmo:
+    soft_deleteable:
+      field_name: deletedAt
+      time_aware: false
+      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

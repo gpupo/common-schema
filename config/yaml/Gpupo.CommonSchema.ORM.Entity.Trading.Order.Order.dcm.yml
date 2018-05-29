@@ -1,5 +1,5 @@
 # expands metadata
-# generated at 2018-05-29
+# generated at 2018-05-30
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
   type: entity
   table: cs_trading_order
@@ -99,43 +99,55 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
     expands:
       type: array
       options: {  }
+    createdAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': create
+    updatedAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': update
+    deletedAt:
+      type: datetime
+      nullable: true
   oneToOne:
     order_status_detail:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
-      mappedBy: order_status_detail
-      joinColumn:
-        name: order_status_detail_id
-        referencedColumnName: id
       options: {  }
     customer:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
-      mappedBy: customer
-      joinColumn:
-        name: customer_id
-        referencedColumnName: id
       options: {  }
   oneToMany:
     shipping:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+      options: {  }
       mappedBy: shipping
       joinColumn:
         name: shipping_id
         referencedColumnName: id
-      options: {  }
     payment:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+      options: {  }
       mappedBy: payment
       joinColumn:
         name: payment_id
         referencedColumnName: id
-      options: {  }
     feedback:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
+      options: {  }
       mappedBy: feedback
       joinColumn:
         name: feedback_id
         referencedColumnName: id
-      options: {  }
+  gedmo:
+    soft_deleteable:
+      field_name: deletedAt
+      time_aware: false
+      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

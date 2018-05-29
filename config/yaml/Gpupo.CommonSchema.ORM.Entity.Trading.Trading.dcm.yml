@@ -1,5 +1,5 @@
-# Payment metadata
-# generated at 2018-05-29
+# payment metadata
+# generated at 2018-05-30
 Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
   type: entity
   table: cs_trading
@@ -13,21 +13,33 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
     expands:
       type: array
       options: {  }
+    createdAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': create
+    updatedAt:
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          'on': update
+    deletedAt:
+      type: datetime
+      nullable: true
   oneToOne:
     order:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
-      mappedBy: order
-      joinColumn:
-        name: order_id
-        referencedColumnName: id
       options: {  }
-    Payment:
+    payment:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
-      mappedBy: Payment
-      joinColumn:
-        name: Payment_id
-        referencedColumnName: id
       options: {  }
+  gedmo:
+    soft_deleteable:
+      field_name: deletedAt
+      time_aware: false
+      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

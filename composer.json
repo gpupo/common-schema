@@ -26,13 +26,14 @@
         "preferred-install": "dist"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
+    "prefer-stable": false,
     "require": {
         "gpupo/common": "^2.7",
-        "symfony/console": "^4.0",
-        "symfony/var-dumper": "^4.0",
-        "symfony/yaml": "^4.0",
+        "symfony/console": "^4.1",
+        "symfony/var-dumper": "^4.1",
+        "symfony/yaml": "^4.1",
         "gpupo/common-sdk": "^4.3",
-        "doctrine/orm": "^2.6"
+        "doctrine/orm": "^2.6",
+        "gedmo/doctrine-extensions": "^3.0@dev"
     }
 }
