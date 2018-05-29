@@ -99,7 +99,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
     expands:
       type: array
       options: {  }
-  oneToMany:
+  oneToOne:
     order_status_detail:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
       mappedBy: order_status_detail
@@ -107,18 +107,19 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
         name: order_status_detail_id
         referencedColumnName: id
       options: {  }
-    shipping:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
-      mappedBy: shipping
-      joinColumn:
-        name: shipping_id
-        referencedColumnName: id
-      options: {  }
     customer:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
       mappedBy: customer
       joinColumn:
         name: customer_id
+        referencedColumnName: id
+      options: {  }
+  oneToMany:
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+      mappedBy: shipping
+      joinColumn:
+        name: shipping_id
         referencedColumnName: id
       options: {  }
     payment:

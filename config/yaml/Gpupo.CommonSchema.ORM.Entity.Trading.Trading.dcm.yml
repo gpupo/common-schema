@@ -13,7 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
     expands:
       type: array
       options: {  }
-  oneToMany:
+  oneToOne:
     order:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
       mappedBy: order

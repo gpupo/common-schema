@@ -142,7 +142,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
     expands:
       type: array
       options: {  }
-  oneToMany:
+  oneToOne:
     collector:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector
       mappedBy: collector

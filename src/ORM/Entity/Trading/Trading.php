@@ -29,27 +29,19 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", mappedBy="order")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", mappedBy="order")
      */
     private $order;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="Payment")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="Payment")
      */
     private $Payment;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->order = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->Payment = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id.
@@ -86,35 +78,23 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Add order.
+     * Set order.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null $order
      *
      * @return Trading
      */
-    public function addOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order)
+    public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order = null)
     {
-        $this->order[] = $order;
+        $this->order = $order;
 
         return $this;
     }
 
     /**
-     * Remove order.
-     *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order)
-    {
-        return $this->order->removeElement($order);
-    }
-
-    /**
      * Get order.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null
      */
     public function getOrder()
     {
@@ -122,35 +102,23 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Add payment.
+     * Set payment.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment|null $payment
      *
      * @return Trading
      */
-    public function addPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
+    public function setPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment = null)
     {
-        $this->Payment[] = $payment;
+        $this->Payment = $payment;
 
         return $this;
     }
 
     /**
-     * Remove payment.
-     *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
-    {
-        return $this->Payment->removeElement($payment);
-    }
-
-    /**
      * Get payment.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment|null
      */
     public function getPayment()
     {

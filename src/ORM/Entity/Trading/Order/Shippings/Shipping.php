@@ -127,9 +127,9 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller", mappedBy="seller")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller", mappedBy="seller")
      */
     private $seller;
 
@@ -173,7 +173,6 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function __construct()
     {
-        $this->seller = new \Doctrine\Common\Collections\ArrayCollection();
         $this->product = new \Doctrine\Common\Collections\ArrayCollection();
         $this->transport = new \Doctrine\Common\Collections\ArrayCollection();
         $this->invoice = new \Doctrine\Common\Collections\ArrayCollection();
@@ -552,35 +551,23 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Add seller.
+     * Set seller.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller $seller
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller|null $seller
      *
      * @return Shipping
      */
-    public function addSeller(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller $seller)
+    public function setSeller(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller $seller = null)
     {
-        $this->seller[] = $seller;
+        $this->seller = $seller;
 
         return $this;
     }
 
     /**
-     * Remove seller.
-     *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller $seller
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeSeller(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller $seller)
-    {
-        return $this->seller->removeElement($seller);
-    }
-
-    /**
      * Get seller.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller|null
      */
     public function getSeller()
     {

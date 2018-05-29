@@ -33,7 +33,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
     expands:
       type: array
       options: {  }
-  oneToMany:
+  oneToOne:
     phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\People\Phone
       mappedBy: phone

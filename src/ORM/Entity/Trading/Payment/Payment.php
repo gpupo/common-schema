@@ -232,27 +232,19 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector", mappedBy="collector")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector", mappedBy="collector")
      */
     private $collector;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference", mappedBy="atm_transfer_reference")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference", mappedBy="atm_transfer_reference")
      */
     private $atm_transfer_reference;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->collector = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->atm_transfer_reference = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id.
@@ -985,35 +977,23 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Add collector.
+     * Set collector.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector|null $collector
      *
      * @return Payment
      */
-    public function addCollector(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector)
+    public function setCollector(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector = null)
     {
-        $this->collector[] = $collector;
+        $this->collector = $collector;
 
         return $this;
     }
 
     /**
-     * Remove collector.
-     *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeCollector(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector)
-    {
-        return $this->collector->removeElement($collector);
-    }
-
-    /**
      * Get collector.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector|null
      */
     public function getCollector()
     {
@@ -1021,35 +1001,23 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Add atmTransferReference.
+     * Set atmTransferReference.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference|null $atmTransferReference
      *
      * @return Payment
      */
-    public function addAtmTransferReference(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference)
+    public function setAtmTransferReference(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference = null)
     {
-        $this->atm_transfer_reference[] = $atmTransferReference;
+        $this->atm_transfer_reference = $atmTransferReference;
 
         return $this;
     }
 
     /**
-     * Remove atmTransferReference.
-     *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeAtmTransferReference(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference)
-    {
-        return $this->atm_transfer_reference->removeElement($atmTransferReference);
-    }
-
-    /**
      * Get atmTransferReference.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference|null
      */
     public function getAtmTransferReference()
     {
