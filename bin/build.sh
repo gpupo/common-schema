@@ -9,8 +9,9 @@ printf "\n\n\n ========= Build YAML files =========\n\n";
 
 ./vendor/bin/doctrine orm:generate-entities var/doctrine \
  --num-spaces=4 \
- --generate-annotations=true --regenerate-entities=true \
+ --generate-annotations=true --regenerate-entities=false \
  --generate-methods=true \
+ --no-backup \
  --extend='Gpupo\CommonSchema\AbstractORMEntity';
 
 printf "\n\n\n ========= Build ORM objects =========\n\n";

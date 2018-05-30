@@ -142,21 +142,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
     expands:
       type: array
       options: {  }
-    createdAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': create
-    updatedAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': update
-    deletedAt:
-      type: datetime
-      nullable: true
   oneToOne:
     collector:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector
@@ -164,11 +149,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
     atm_transfer_reference:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference
       options: {  }
-  gedmo:
-    soft_deleteable:
-      field_name: deletedAt
-      time_aware: false
-      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

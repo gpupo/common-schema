@@ -99,21 +99,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
     expands:
       type: array
       options: {  }
-    createdAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': create
-    updatedAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': update
-    deletedAt:
-      type: datetime
-      nullable: true
   oneToOne:
     order_status_detail:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
@@ -143,11 +128,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       joinColumn:
         name: feedback_id
         referencedColumnName: id
-  gedmo:
-    soft_deleteable:
-      field_name: deletedAt
-      time_aware: false
-      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

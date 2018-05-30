@@ -69,21 +69,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
     expands:
       type: array
       options: {  }
-    createdAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': create
-    updatedAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': update
-    deletedAt:
-      type: datetime
-      nullable: true
   oneToOne:
     seller:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
@@ -124,11 +109,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
       joinColumn:
         name: feedback_id
         referencedColumnName: id
-  gedmo:
-    soft_deleteable:
-      field_name: deletedAt
-      time_aware: false
-      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

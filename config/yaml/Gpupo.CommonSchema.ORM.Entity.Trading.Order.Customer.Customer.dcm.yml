@@ -33,21 +33,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
     expands:
       type: array
       options: {  }
-    createdAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': create
-    updatedAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': update
-    deletedAt:
-      type: datetime
-      nullable: true
   oneToOne:
     phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\People\Phone
@@ -64,11 +49,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
     address_delivery:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
       options: {  }
-  gedmo:
-    soft_deleteable:
-      field_name: deletedAt
-      time_aware: false
-      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

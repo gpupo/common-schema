@@ -29,26 +29,6 @@ Gpupo\CommonSchema\ORM\Entity\People\Phone:
     expands:
       type: array
       options: {  }
-    createdAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': create
-    updatedAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': update
-    deletedAt:
-      type: datetime
-      nullable: true
-  gedmo:
-    soft_deleteable:
-      field_name: deletedAt
-      time_aware: false
-      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

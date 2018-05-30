@@ -13,21 +13,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
     expands:
       type: array
       options: {  }
-    createdAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': create
-    updatedAt:
-      type: datetime
-      nullable: true
-      gedmo:
-        timestampable:
-          'on': update
-    deletedAt:
-      type: datetime
-      nullable: true
   oneToOne:
     order:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
@@ -35,11 +20,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
     payment:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
       options: {  }
-  gedmo:
-    soft_deleteable:
-      field_name: deletedAt
-      time_aware: false
-      hard_delete: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }
