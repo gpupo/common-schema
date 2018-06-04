@@ -1,5 +1,5 @@
 # transaction_id metadata
-# generated at 2018-05-30
+# generated at 2018-06-04
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference:
   type: entity
   table: cs_trading_payment_atm_transfer_reference

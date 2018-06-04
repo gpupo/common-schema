@@ -1,4 +1,4 @@
-# common-schema trading $ generated at 2018-05-30
+# common-schema trading $ generated at 2018-06-04
 expands: array
 order:
     order_number: string

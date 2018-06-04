@@ -22,7 +22,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\MappedSuperclass
- * @Gedmo\Loggable(logEntryClass="App\Entity\System\LogModel")
+ * @Gedmo\Loggable(logEntryClass="\Gpupo\CommonSchema\LogModel")
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
  */
 abstract class AbstractORMEntity

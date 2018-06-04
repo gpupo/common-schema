@@ -1,5 +1,5 @@
 # value metadata
-# generated at 2018-05-30
+# generated at 2018-06-04
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item:
   type: entity
   table: cs_trading_order_shipping_feedback

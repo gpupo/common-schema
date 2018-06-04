@@ -64,6 +64,7 @@ if (in_array($command, ['schema-tool', 'info'], true)) {
     // $sortableListener = new Gedmo\Sortable\SortableListener;
     // $sortableListener->setAnnotationReader($cachedAnnotationReader);
     // $evm->addEventSubscriber($sortableListener);
+    $config = Setup::createAnnotationMetadataConfiguration([__DIR__."/../src/ORM/Entity"], $isDevMode, null, null, false);
 
 
 } else {

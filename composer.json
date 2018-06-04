@@ -34,6 +34,6 @@
         "symfony/yaml": "^4.1",
         "gpupo/common-sdk": "^4.4",
         "doctrine/orm": "^2.6",
-        "gedmo/doctrine-extensions": "^3.0@dev"
+        "gedmo/doctrine-extensions": "^2.4"
     }
 }
