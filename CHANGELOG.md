@@ -1,4 +1,13 @@
 
+VERSION 4  MAJOR VERSION 4
+==========================
+
+   Version 4.0 - Major version 4
+      14/06/2018 11:42  4.0.0  initial release
+         7fe86d4 Major version 4
+         1c7bd0c Fix annotation bugs and add LogModel
+         1fcf2cc Release of new version 3.1.0
+
 VERSION 3  REFACTORY TRADING NAMESPACE
 ======================================
 
