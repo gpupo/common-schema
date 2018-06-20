@@ -321,7 +321,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
     {
         $this->shipping = $shipping;
+
         return $this;
     }
-
 }

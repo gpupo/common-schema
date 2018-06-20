@@ -799,6 +799,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order)
     {
         $this->order = $order;
+
         return $this;
     }
 }

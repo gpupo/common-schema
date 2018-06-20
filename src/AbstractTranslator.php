@@ -51,6 +51,22 @@ abstract class AbstractTranslator extends CollectionAbstract
         return $data;
     }
 
+    /**
+     * Alias.
+     */
+    public function translateToForeign()
+    {
+        return $this->translateTo();
+    }
+
+    /**
+     * Alias.
+     */
+    public function translateFromForeign()
+    {
+        return $this->translateFrom();
+    }
+
     abstract public function translateTo();
 
     abstract public function translateFrom();

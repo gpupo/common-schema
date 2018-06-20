@@ -37,6 +37,7 @@ class Payment extends AbstractEntity
             'status_code' => 'string',
             'status_detail' => 'string',
             'transaction_amount' => 'number',
+            'transaction_net_amount' => 'number',
             'shipping_cost' => 'number',
             'overpaid_amount' => 'number',
             'total_paid_amount' => 'number',

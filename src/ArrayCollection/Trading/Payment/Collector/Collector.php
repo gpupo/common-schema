@@ -22,4 +22,14 @@ use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 class Collector extends AbstractEntity
 {
     protected $tableName = 'trading_payment_collector';
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getSchema()
+    {
+        return [
+            'id' => 'integer',
+        ];
+    }
 }
