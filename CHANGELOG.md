@@ -3,6 +3,9 @@ VERSION 4  MAJOR VERSION 4
 ==========================
 
    Version 4.0 - Major version 4
+      20/06/2018 09:56  4.0.1  Add transaction_net_amount
+         2b6fcd8 Add transaction_net_amount
+         c7f6d00 Fix entities relationships
       14/06/2018 11:42  4.0.0  initial release
          7fe86d4 Major version 4
          1c7bd0c Fix annotation bugs and add LogModel
