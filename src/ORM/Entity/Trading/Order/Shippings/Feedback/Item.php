@@ -58,13 +58,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     private $value;
 
     /**
-     * @var Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
-     *
-     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", inversedBy="feedbacks")
-     */
-    private $order;
-
-    /**
      * Get id.
      *
      * @return int
@@ -144,29 +137,5 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getValue()
     {
         return $this->value;
-    }
-
-    /**
-     * Get order.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * Set order.
-     *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
-     *
-     * @return Item
-     */
-    public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order)
-    {
-        $this->order = $order;
-
-        return $this;
     }
 }

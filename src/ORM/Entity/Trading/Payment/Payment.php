@@ -81,6 +81,13 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
+     * @ORM\Column(name="transaction_net_amount", type="decimal", precision=10, scale=2)
+     */
+    private $transaction_net_amount;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="shipping_cost", type="decimal", precision=10, scale=2)
      */
     private $shipping_cost;
@@ -267,13 +274,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     private $atm_transfer_reference;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", inversedBy="payments")
-     */
-    private $order;
-
-    /**
      * Get id.
      *
      * @return int
@@ -425,6 +425,30 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getTransactionAmount()
     {
         return $this->transaction_amount;
+    }
+
+    /**
+     * Set transactionNetAmount.
+     *
+     * @param string $transactionNetAmount
+     *
+     * @return Payment
+     */
+    public function setTransactionNetAmount($transactionNetAmount)
+    {
+        $this->transaction_net_amount = $transactionNetAmount;
+
+        return $this;
+    }
+
+    /**
+     * Get transactionNetAmount.
+     *
+     * @return string
+     */
+    public function getTransactionNetAmount()
+    {
+        return $this->transaction_net_amount;
     }
 
     /**
@@ -1049,29 +1073,5 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getAtmTransferReference()
     {
         return $this->atm_transfer_reference;
-    }
-
-    /**
-     * Get order.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * Set order.
-     *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
-     *
-     * @return Payment
-     */
-    public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order)
-    {
-        $this->order = $order;
-
-        return $this;
     }
 }

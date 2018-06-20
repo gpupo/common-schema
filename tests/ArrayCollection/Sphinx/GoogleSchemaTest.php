@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\Tests\CommonSchema\ArrayCollection\Sphinx;
+namespace Gpupo\CommonSchema\Tests\ArrayCollection\Sphinx;
 
 use Gpupo\CommonSchema\ArrayCollection\Sphinx\GoogleSchema;
 

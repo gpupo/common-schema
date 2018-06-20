@@ -1,5 +1,4 @@
 # payment metadata
-# generated at 2018-06-04
 Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
   type: entity
   table: cs_trading

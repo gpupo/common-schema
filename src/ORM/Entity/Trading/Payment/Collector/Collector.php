@@ -37,13 +37,6 @@ class Collector extends \Gpupo\CommonSchema\AbstractORMEntity
     private $id;
 
     /**
-     * @var array
-     *
-     * @ORM\Column(name="expands", type="array")
-     */
-    private $expands;
-
-    /**
      * Get id.
      *
      * @return int
@@ -51,29 +44,5 @@ class Collector extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param array $expands
-     *
-     * @return Collector
-     */
-    public function setExpands($expands)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 }

@@ -59,6 +59,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
 
     /**
      * @var \DateTime
+     *
      * @ORM\Column(name="date_created", type="datetime")
      */
     private $date_created;
@@ -205,32 +206,56 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping", mappedBy="order")
+     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping")
+     * @ORM\JoinTable(name="cs_pivot_order_to_shipping",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="shipping_id", referencedColumnName="id", unique=true)
+     *   }
+     * )
      */
-    private $shippings;
+    private $shipping;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="order")
+     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment")
+     * @ORM\JoinTable(name="cs_pivot_order_to_payment",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="payment_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="payment_id", referencedColumnName="id", unique=true)
+     *   }
+     * )
      */
-    private $payments;
+    private $payment;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item", mappedBy="order")
+     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item")
+     * @ORM\JoinTable(name="cs_pivot_order_to_feedback",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="feedback_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="feedback_id", referencedColumnName="id", unique=true)
+     *   }
+     * )
      */
-    private $feedbacks;
+    private $feedback;
 
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $this->shippings = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->payments = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->shipping = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->payment = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->feedback = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -804,7 +829,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
     {
-        $this->shippings[] = $shipping;
+        $this->shipping[] = $shipping;
 
         return $this;
     }
@@ -818,7 +843,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
     {
-        return $this->shippings->removeElement($shipping);
+        return $this->shipping->removeElement($shipping);
     }
 
     /**
@@ -826,9 +851,9 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getShippings()
+    public function getShipping()
     {
-        return $this->shippings;
+        return $this->shipping;
     }
 
     /**
@@ -840,7 +865,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
     {
-        $this->payments[] = $payment;
+        $this->payment[] = $payment;
 
         return $this;
     }
@@ -854,7 +879,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
     {
-        return $this->payments->removeElement($payment);
+        return $this->payment->removeElement($payment);
     }
 
     /**
@@ -862,9 +887,9 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getPayments()
+    public function getPayment()
     {
-        return $this->payments;
+        return $this->payment;
     }
 
     /**
@@ -876,7 +901,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
     {
-        $this->feedbacks[] = $feedback;
+        $this->feedback[] = $feedback;
 
         return $this;
     }
@@ -890,7 +915,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
     {
-        return $this->feedbacks->removeElement($feedback);
+        return $this->feedback->removeElement($feedback);
     }
 
     /**
@@ -898,8 +923,8 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFeedbacks()
+    public function getFeedback()
     {
-        return $this->feedbacks;
+        return $this->feedback;
     }
 }

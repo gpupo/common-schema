@@ -15,10 +15,10 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\Tests\CommonSchema\ArrayCollection\Trading\Product;
+namespace Gpupo\CommonSchema\Tests\ArrayCollection\Trading\Product;
 
 use Gpupo\CommonSchema\ArrayCollection\Trading\Product\ProductSchema;
-use Gpupo\Tests\CommonSchema\AbstractTestCase;
+use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
 /**
  * @coversDefaultClass \Gpupo\CommonSchema\ArrayCollection\Trading\Product\ProductSchema

@@ -15,15 +15,15 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\Tests\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
+namespace Gpupo\CommonSchema\Tests\ArrayCollection\Trading\Payment\Transactions;
 
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Customer\Customer;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Seller;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction;
+use Gpupo\CommonSchema\Tests\AbstractTestCase;
 use Gpupo\CommonSdk\Traits\ResourcesTrait;
-use Gpupo\Tests\CommonSchema\AbstractTestCase;
 
 /**
  * @coversDefaultClass \Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction

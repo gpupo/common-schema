@@ -1,4 +1,4 @@
-# common-schema trading $ generated at 2018-06-04
+# common-schema trading $ generated at 2018-06-20
 expands: array
 order:
     order_number: string
@@ -147,12 +147,13 @@ order:
         -
             payment_number: integer
             collector:
-                expands: array
+                id: integer
             currency_id: string
             status: string
             status_code: string
             status_detail: string
             transaction_amount: number
+            transaction_net_amount: number
             shipping_cost: number
             overpaid_amount: number
             total_paid_amount: number
@@ -195,12 +196,13 @@ order:
 payment:
     payment_number: integer
     collector:
-        expands: array
+        id: integer
     currency_id: string
     status: string
     status_code: string
     status_detail: string
     transaction_amount: number
+    transaction_net_amount: number
     shipping_cost: number
     overpaid_amount: number
     total_paid_amount: number

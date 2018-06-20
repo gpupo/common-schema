@@ -15,7 +15,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Gpupo\\Tests\\CommonSchema\\": "tests"
+            "Gpupo\\CommonSchema\\Tests\\": "tests"
         }
     },
     "require-dev": {

@@ -1,5 +1,4 @@
-# expands metadata
-# generated at 2018-06-04
+# id metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector:
   type: entity
   table: cs_trading_payment_collector
@@ -9,10 +8,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector:
       type: integer
       generator:
         strategy: AUTO
-  fields:
-    expands:
-      type: array
-      options: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

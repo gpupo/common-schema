@@ -1,5 +1,4 @@
 # expands metadata
-# generated at 2018-06-04
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
   type: entity
   table: cs_trading_order_shipping
@@ -73,42 +72,67 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
     seller:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
       options: {  }
-  oneToMany:
+  manyToMany:
     product:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product
       options: {  }
-      mappedBy: product
-      joinColumn:
-        name: product_id
-        referencedColumnName: id
+      joinTable:
+        name: cs_pivot_shipping_to_product
+        joinColumns:
+          product_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          product_id:
+            referencedColumnName: id
+            unique: true
     transport:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item
       options: {  }
-      mappedBy: transport
-      joinColumn:
-        name: transport_id
-        referencedColumnName: id
+      joinTable:
+        name: cs_pivot_shipping_to_transport
+        joinColumns:
+          transport_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          transport_id:
+            referencedColumnName: id
+            unique: true
     invoice:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item
       options: {  }
-      mappedBy: invoice
-      joinColumn:
-        name: invoice_id
-        referencedColumnName: id
+      joinTable:
+        name: cs_pivot_shipping_to_invoice
+        joinColumns:
+          invoice_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          invoice_id:
+            referencedColumnName: id
+            unique: true
     comment:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item
       options: {  }
-      mappedBy: comment
-      joinColumn:
-        name: comment_id
-        referencedColumnName: id
+      joinTable:
+        name: cs_pivot_shipping_to_comment
+        joinColumns:
+          comment_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          comment_id:
+            referencedColumnName: id
+            unique: true
     feedback:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item
       options: {  }
-      mappedBy: feedback
-      joinColumn:
-        name: feedback_id
-        referencedColumnName: id
+      joinTable:
+        name: cs_pivot_shipping_to_feedback
+        joinColumns:
+          feedback_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          feedback_id:
+            referencedColumnName: id
+            unique: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

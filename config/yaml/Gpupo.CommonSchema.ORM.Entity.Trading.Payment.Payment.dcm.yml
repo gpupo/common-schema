@@ -1,5 +1,4 @@
 # expands metadata
-# generated at 2018-06-04
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
   type: entity
   table: cs_trading_payment
@@ -34,6 +33,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       unique: false
       options: {  }
     transaction_amount:
+      type: decimal
+      precision: 10
+      scale: 2
+      options: {  }
+    transaction_net_amount:
       type: decimal
       precision: 10
       scale: 2

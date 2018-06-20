@@ -1,5 +1,4 @@
 # expands metadata
-# generated at 2018-06-04
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
   type: entity
   table: cs_trading_order
@@ -106,28 +105,43 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
     customer:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
       options: {  }
-  oneToMany:
+  manyToMany:
     shipping:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
       options: {  }
-      mappedBy: shipping
-      joinColumn:
-        name: shipping_id
-        referencedColumnName: id
+      joinTable:
+        name: cs_pivot_order_to_shipping
+        joinColumns:
+          shipping_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          shipping_id:
+            referencedColumnName: id
+            unique: true
     payment:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
       options: {  }
-      mappedBy: payment
-      joinColumn:
-        name: payment_id
-        referencedColumnName: id
+      joinTable:
+        name: cs_pivot_order_to_payment
+        joinColumns:
+          payment_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          payment_id:
+            referencedColumnName: id
+            unique: true
     feedback:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
       options: {  }
-      mappedBy: feedback
-      joinColumn:
-        name: feedback_id
-        referencedColumnName: id
+      joinTable:
+        name: cs_pivot_order_to_feedback
+        joinColumns:
+          feedback_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          feedback_id:
+            referencedColumnName: id
+            unique: true
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

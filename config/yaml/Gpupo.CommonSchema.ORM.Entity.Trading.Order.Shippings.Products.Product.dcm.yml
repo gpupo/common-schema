@@ -1,5 +1,4 @@
 # unit_price metadata
-# generated at 2018-06-04
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product:
   type: entity
   table: cs_trading_order_shipping_product
