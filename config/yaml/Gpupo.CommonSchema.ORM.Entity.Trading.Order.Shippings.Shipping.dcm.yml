@@ -85,7 +85,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
           product_id:
             referencedColumnName: id
             unique: true
-    transport:
+    transports:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item
       options: {  }
       joinTable:
@@ -97,7 +97,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
           transport_id:
             referencedColumnName: id
             unique: true
-    invoice:
+    invoices:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item
       options: {  }
       joinTable:
@@ -121,7 +121,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
           comment_id:
             referencedColumnName: id
             unique: true
-    feedback:
+    feedbacks:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item
       options: {  }
       joinTable:

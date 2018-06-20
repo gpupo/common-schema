@@ -179,7 +179,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *   }
      * )
      */
-    private $transport;
+    private $transports;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -194,7 +194,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *   }
      * )
      */
-    private $invoice;
+    private $invoices;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -224,7 +224,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *   }
      * )
      */
-    private $feedback;
+    private $feedbacks;
 
     /**
      * Constructor.
@@ -232,10 +232,10 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     public function __construct()
     {
         $this->products = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->transport = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->invoice = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->transports = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->invoices = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->feedback = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -677,7 +677,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
     {
-        $this->transport[] = $transport;
+        $this->transports[] = $transport;
 
         return $this;
     }
@@ -691,17 +691,17 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
     {
-        return $this->transport->removeElement($transport);
+        return $this->transports->removeElement($transport);
     }
 
     /**
-     * Get transport.
+     * Get transports.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getTransport()
+    public function getTransports()
     {
-        return $this->transport;
+        return $this->transports;
     }
 
     /**
@@ -713,7 +713,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item $invoice)
     {
-        $this->invoice[] = $invoice;
+        $this->invoices[] = $invoice;
 
         return $this;
     }
@@ -727,17 +727,17 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item $invoice)
     {
-        return $this->invoice->removeElement($invoice);
+        return $this->invoices->removeElement($invoice);
     }
 
     /**
-     * Get invoice.
+     * Get invoices.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getInvoice()
+    public function getInvoices()
     {
-        return $this->invoice;
+        return $this->invoices;
     }
 
     /**
@@ -785,7 +785,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item $feedback)
     {
-        $this->feedback[] = $feedback;
+        $this->feedbacks[] = $feedback;
 
         return $this;
     }
@@ -799,16 +799,16 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item $feedback)
     {
-        return $this->feedback->removeElement($feedback);
+        return $this->feedbacks->removeElement($feedback);
     }
 
     /**
-     * Get feedback.
+     * Get feedbacks.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFeedback()
+    public function getFeedbacks()
     {
-        return $this->feedback;
+        return $this->feedbacks;
     }
 }

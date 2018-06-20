@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -fv var/db.sqlite > /dev/null;
+#rm -fv var/db.sqlite > /dev/null;
 rm -fv config/yaml/* > /dev/null;
 ./bin/common-schema;
 mkdir -p var/doctrine;
@@ -28,5 +28,5 @@ rsync -av var/doctrine/Gpupo/CommonSchema/ORM/ src/ORM/;
 rm -f .php_cs.cache
 docker-compose run php-dev /root/.composer/vendor/bin/php-cs-fixer fix;
 
-printf "\n\n\n ========= Update Database =========\n\n";
-./vendor/bin/doctrine orm:schema-tool:update --force
+#printf "\n\n\n ========= Update Database =========\n\n";
+#./vendor/bin/doctrine orm:schema-tool:update --force

@@ -130,7 +130,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
           payment_id:
             referencedColumnName: id
             unique: true
-    feedback:
+    feedbacks:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
       options: {  }
       joinTable:

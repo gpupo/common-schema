@@ -246,7 +246,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *   }
      * )
      */
-    private $feedback;
+    private $feedbacks;
 
     /**
      * Constructor.
@@ -255,7 +255,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     {
         $this->shippings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->payments = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->feedback = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -901,7 +901,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
     {
-        $this->feedback[] = $feedback;
+        $this->feedbacks[] = $feedback;
 
         return $this;
     }
@@ -915,16 +915,16 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
     {
-        return $this->feedback->removeElement($feedback);
+        return $this->feedbacks->removeElement($feedback);
     }
 
     /**
-     * Get feedback.
+     * Get feedbacks.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFeedback()
+    public function getFeedbacks()
     {
-        return $this->feedback;
+        return $this->feedbacks;
     }
 }
