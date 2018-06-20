@@ -155,7 +155,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_product",
+     * @ORM\JoinTable(name="cs_pivot_shipping_to_products",
      *   joinColumns={
      *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      *   },
@@ -164,13 +164,13 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *   }
      * )
      */
-    private $product;
+    private $products;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_transport",
+     * @ORM\JoinTable(name="cs_pivot_shipping_to_transports",
      *   joinColumns={
      *     @ORM\JoinColumn(name="transport_id", referencedColumnName="id")
      *   },
@@ -185,7 +185,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_invoice",
+     * @ORM\JoinTable(name="cs_pivot_shipping_to_invoices",
      *   joinColumns={
      *     @ORM\JoinColumn(name="invoice_id", referencedColumnName="id")
      *   },
@@ -200,7 +200,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_comment",
+     * @ORM\JoinTable(name="cs_pivot_shipping_to_comments",
      *   joinColumns={
      *     @ORM\JoinColumn(name="comment_id", referencedColumnName="id")
      *   },
@@ -209,13 +209,13 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *   }
      * )
      */
-    private $comment;
+    private $comments;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_feedback",
+     * @ORM\JoinTable(name="cs_pivot_shipping_to_feedbacks",
      *   joinColumns={
      *     @ORM\JoinColumn(name="feedback_id", referencedColumnName="id")
      *   },
@@ -231,10 +231,10 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function __construct()
     {
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
         $this->transport = new \Doctrine\Common\Collections\ArrayCollection();
         $this->invoice = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
         $this->feedback = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -641,7 +641,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addProduct(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product $product)
     {
-        $this->product[] = $product;
+        $this->products[] = $product;
 
         return $this;
     }
@@ -655,17 +655,17 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeProduct(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product $product)
     {
-        return $this->product->removeElement($product);
+        return $this->products->removeElement($product);
     }
 
     /**
-     * Get product.
+     * Get products.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getProduct()
+    public function getProducts()
     {
-        return $this->product;
+        return $this->products;
     }
 
     /**
@@ -749,7 +749,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item $comment)
     {
-        $this->comment[] = $comment;
+        $this->comments[] = $comment;
 
         return $this;
     }
@@ -763,17 +763,17 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item $comment)
     {
-        return $this->comment->removeElement($comment);
+        return $this->comments->removeElement($comment);
     }
 
     /**
-     * Get comment.
+     * Get comments.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getComment()
+    public function getComments()
     {
-        return $this->comment;
+        return $this->comments;
     }
 
     /**

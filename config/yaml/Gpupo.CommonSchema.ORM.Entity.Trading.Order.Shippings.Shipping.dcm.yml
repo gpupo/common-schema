@@ -73,11 +73,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
       options: {  }
   manyToMany:
-    product:
+    products:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product
       options: {  }
       joinTable:
-        name: cs_pivot_shipping_to_product
+        name: cs_pivot_shipping_to_products
         joinColumns:
           product_id:
             referencedColumnName: id
@@ -89,7 +89,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item
       options: {  }
       joinTable:
-        name: cs_pivot_shipping_to_transport
+        name: cs_pivot_shipping_to_transports
         joinColumns:
           transport_id:
             referencedColumnName: id
@@ -101,7 +101,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item
       options: {  }
       joinTable:
-        name: cs_pivot_shipping_to_invoice
+        name: cs_pivot_shipping_to_invoices
         joinColumns:
           invoice_id:
             referencedColumnName: id
@@ -109,11 +109,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
           invoice_id:
             referencedColumnName: id
             unique: true
-    comment:
+    comments:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item
       options: {  }
       joinTable:
-        name: cs_pivot_shipping_to_comment
+        name: cs_pivot_shipping_to_comments
         joinColumns:
           comment_id:
             referencedColumnName: id
@@ -125,7 +125,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item
       options: {  }
       joinTable:
-        name: cs_pivot_shipping_to_feedback
+        name: cs_pivot_shipping_to_feedbacks
         joinColumns:
           feedback_id:
             referencedColumnName: id

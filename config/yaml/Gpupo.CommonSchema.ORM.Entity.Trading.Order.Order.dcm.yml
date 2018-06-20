@@ -106,11 +106,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
       options: {  }
   manyToMany:
-    shipping:
+    shippings:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
       options: {  }
       joinTable:
-        name: cs_pivot_order_to_shipping
+        name: cs_pivot_order_to_shippings
         joinColumns:
           shipping_id:
             referencedColumnName: id
@@ -118,11 +118,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
           shipping_id:
             referencedColumnName: id
             unique: true
-    payment:
+    payments:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
       options: {  }
       joinTable:
-        name: cs_pivot_order_to_payment
+        name: cs_pivot_order_to_payments
         joinColumns:
           payment_id:
             referencedColumnName: id
@@ -134,7 +134,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
       options: {  }
       joinTable:
-        name: cs_pivot_order_to_feedback
+        name: cs_pivot_order_to_feedbacks
         joinColumns:
           feedback_id:
             referencedColumnName: id
