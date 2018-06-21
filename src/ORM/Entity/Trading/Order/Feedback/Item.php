@@ -34,42 +34,42 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="status", type="string", unique=false)
      */
-    private $status;
+    protected $status;
 
     /**
      * @var string
      *
      * @ORM\Column(name="reason", type="string", unique=false)
      */
-    private $reason;
+    protected $reason;
 
     /**
      * @var string
      *
      * @ORM\Column(name="message", type="string", unique=false)
      */
-    private $message;
+    protected $message;
 
     /**
      * @var int
      *
      * @ORM\Column(name="rating", type="bigint")
      */
-    private $rating;
+    protected $rating;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
@@ -79,7 +79,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="order_id", referencedColumnName="id")
      * })
      */
-    private $order;
+    protected $order;
 
     /**
      * Get id.

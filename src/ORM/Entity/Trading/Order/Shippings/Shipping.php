@@ -34,112 +34,112 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var int
      *
      * @ORM\Column(name="shipping_number", type="bigint")
      */
-    private $shipping_number;
+    protected $shipping_number;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="fulfilled", type="boolean")
      */
-    private $fulfilled;
+    protected $fulfilled;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="hidden_for_seller", type="boolean")
      */
-    private $hidden_for_seller;
+    protected $hidden_for_seller;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_created", type="datetime")
      */
-    private $date_created;
+    protected $date_created;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_last_expiration", type="datetime")
      */
-    private $date_last_expiration;
+    protected $date_last_expiration;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_last_modified", type="datetime")
      */
-    private $date_last_modified;
+    protected $date_last_modified;
 
     /**
      * @var string
      *
      * @ORM\Column(name="currency_id", type="string", unique=false)
      */
-    private $currency_id;
+    protected $currency_id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_commission", type="decimal", precision=10, scale=2)
      */
-    private $total_commission;
+    protected $total_commission;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_discount", type="decimal", precision=10, scale=2)
      */
-    private $total_discount;
+    protected $total_discount;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_freight", type="decimal", precision=10, scale=2)
      */
-    private $total_freight;
+    protected $total_freight;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_gross", type="decimal", precision=10, scale=2)
      */
-    private $total_gross;
+    protected $total_gross;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_net", type="decimal", precision=10, scale=2)
      */
-    private $total_net;
+    protected $total_net;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_quantity", type="decimal", precision=10, scale=2)
      */
-    private $total_quantity;
+    protected $total_quantity;
 
     /**
      * @var array
      *
      * @ORM\Column(name="tags", type="array")
      */
-    private $tags;
+    protected $tags;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
@@ -149,42 +149,42 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="seller_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $seller;
+    protected $seller;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product", mappedBy="shipping")
      */
-    private $products;
+    protected $products;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item", mappedBy="shipping")
      */
-    private $transports;
+    protected $transports;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item", mappedBy="shipping")
      */
-    private $invoices;
+    protected $invoices;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item", mappedBy="shipping")
      */
-    private $comments;
+    protected $comments;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item", mappedBy="shipping")
      */
-    private $feedbacks;
+    protected $feedbacks;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
@@ -194,7 +194,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="order_id", referencedColumnName="id")
      * })
      */
-    private $order;
+    protected $order;
 
     /**
      * Constructor.

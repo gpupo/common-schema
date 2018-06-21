@@ -34,42 +34,42 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nickname", type="string", unique=false)
      */
-    private $nickname;
+    protected $nickname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", unique=false)
      */
-    private $email;
+    protected $email;
 
     /**
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", unique=false)
      */
-    private $first_name;
+    protected $first_name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", unique=false)
      */
-    private $last_name;
+    protected $last_name;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\Phone
@@ -79,7 +79,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="phone_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $phone;
+    protected $phone;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
@@ -89,7 +89,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="alternative_phone_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $alternative_phone;
+    protected $alternative_phone;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\Document
@@ -99,7 +99,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="document_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $document;
+    protected $document;
 
     /**
      * Get id.

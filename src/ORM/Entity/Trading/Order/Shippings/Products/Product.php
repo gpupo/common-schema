@@ -34,63 +34,63 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var string
      *
      * @ORM\Column(name="seller_product_id", type="string", unique=false)
      */
-    private $seller_product_id;
+    protected $seller_product_id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", unique=false)
      */
-    private $title;
+    protected $title;
 
     /**
      * @var string
      *
      * @ORM\Column(name="gtin", type="string", unique=false)
      */
-    private $gtin;
+    protected $gtin;
 
     /**
      * @var array
      *
      * @ORM\Column(name="variation_attributes", type="array")
      */
-    private $variation_attributes;
+    protected $variation_attributes;
 
     /**
      * @var string
      *
      * @ORM\Column(name="sale_fee", type="decimal", precision=10, scale=2)
      */
-    private $sale_fee;
+    protected $sale_fee;
 
     /**
      * @var int
      *
      * @ORM\Column(name="quantity", type="bigint")
      */
-    private $quantity;
+    protected $quantity;
 
     /**
      * @var string
      *
      * @ORM\Column(name="unit_price", type="decimal", precision=10, scale=2)
      */
-    private $unit_price;
+    protected $unit_price;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
@@ -100,7 +100,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
      * })
      */
-    private $shipping;
+    protected $shipping;
 
     /**
      * Get id.

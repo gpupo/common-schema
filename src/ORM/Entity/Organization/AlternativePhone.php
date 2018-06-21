@@ -34,42 +34,42 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var int
      *
      * @ORM\Column(name="area_code", type="bigint")
      */
-    private $area_code;
+    protected $area_code;
 
     /**
      * @var string
      *
      * @ORM\Column(name="extension", type="string", unique=false)
      */
-    private $extension;
+    protected $extension;
 
     /**
      * @var string
      *
      * @ORM\Column(name="number", type="string", unique=false)
      */
-    private $number;
+    protected $number;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="verified", type="boolean")
      */
-    private $verified;
+    protected $verified;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * Get id.

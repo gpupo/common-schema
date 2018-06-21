@@ -34,56 +34,56 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="invoice_number", type="string", unique=false)
      */
-    private $invoice_number;
+    protected $invoice_number;
 
     /**
      * @var string
      *
      * @ORM\Column(name="invoice_link", type="string", unique=false)
      */
-    private $invoice_link;
+    protected $invoice_link;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="invoice_date", type="datetime")
      */
-    private $invoice_date;
+    protected $invoice_date;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="ship_date", type="datetime")
      */
-    private $ship_date;
+    protected $ship_date;
 
     /**
      * @var string
      *
      * @ORM\Column(name="accessKey", type="string", unique=false)
      */
-    private $accessKey;
+    protected $accessKey;
 
     /**
      * @var array
      *
      * @ORM\Column(name="tags", type="array")
      */
-    private $tags;
+    protected $tags;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
@@ -93,7 +93,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
      * })
      */
-    private $shipping;
+    protected $shipping;
 
     /**
      * Get id.

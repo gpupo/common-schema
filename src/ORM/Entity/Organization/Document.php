@@ -34,28 +34,28 @@ class Document extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="doc_type", type="string", unique=false)
      */
-    private $doc_type;
+    protected $doc_type;
 
     /**
      * @var string
      *
      * @ORM\Column(name="doc_number", type="string", unique=false)
      */
-    private $doc_number;
+    protected $doc_number;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * Get id.

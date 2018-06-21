@@ -28,11 +28,11 @@
     "minimum-stability": "dev",
     "prefer-stable": false,
     "require": {
-        "gpupo/common": "^4.0",
+        "gpupo/common": "^4.0|dev-master",
         "symfony/console": "^4.1",
         "symfony/var-dumper": "^4.1",
         "symfony/yaml": "^4.1",
-        "gpupo/common-sdk": "^4.4",
+        "gpupo/common-sdk": "^4.4|dev-master",
         "doctrine/orm": "^2.6",
         "gedmo/doctrine-extensions": "^2.4"
     }

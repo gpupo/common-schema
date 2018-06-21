@@ -34,154 +34,154 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="order_number", type="string", unique=false)
      */
-    private $order_number;
+    protected $order_number;
 
     /**
      * @var string
      *
      * @ORM\Column(name="order_status", type="string", unique=false)
      */
-    private $order_status;
+    protected $order_status;
 
     /**
      * @var string
      *
      * @ORM\Column(name="order_type", type="string", unique=false)
      */
-    private $order_type;
+    protected $order_type;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_created", type="datetime")
      */
-    private $date_created;
+    protected $date_created;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_closed", type="datetime")
      */
-    private $date_closed;
+    protected $date_closed;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_agreed", type="datetime")
      */
-    private $date_agreed;
+    protected $date_agreed;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_last_modified", type="datetime")
      */
-    private $date_last_modified;
+    protected $date_last_modified;
 
     /**
      * @var string
      *
      * @ORM\Column(name="origin_business_unit", type="string", unique=false)
      */
-    private $origin_business_unit;
+    protected $origin_business_unit;
 
     /**
      * @var string
      *
      * @ORM\Column(name="origin_number", type="string", unique=false)
      */
-    private $origin_number;
+    protected $origin_number;
 
     /**
      * @var string
      *
      * @ORM\Column(name="origin_site", type="string", unique=false)
      */
-    private $origin_site;
+    protected $origin_site;
 
     /**
      * @var string
      *
      * @ORM\Column(name="currency_id", type="string", unique=false)
      */
-    private $currency_id;
+    protected $currency_id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_commission", type="decimal", precision=10, scale=2)
      */
-    private $total_commission;
+    protected $total_commission;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_discount", type="decimal", precision=10, scale=2)
      */
-    private $total_discount;
+    protected $total_discount;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_freight", type="decimal", precision=10, scale=2)
      */
-    private $total_freight;
+    protected $total_freight;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_gross", type="decimal", precision=10, scale=2)
      */
-    private $total_gross;
+    protected $total_gross;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_net", type="decimal", precision=10, scale=2)
      */
-    private $total_net;
+    protected $total_net;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_quantity", type="decimal", precision=10, scale=2)
      */
-    private $total_quantity;
+    protected $total_quantity;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="requested_devolution", type="boolean")
      */
-    private $requested_devolution;
+    protected $requested_devolution;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="requested_exchange", type="boolean")
      */
-    private $requested_exchange;
+    protected $requested_exchange;
 
     /**
      * @var array
      *
      * @ORM\Column(name="tags", type="array")
      */
-    private $tags;
+    protected $tags;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
@@ -191,7 +191,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="order_status_detail_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $order_status_detail;
+    protected $order_status_detail;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
@@ -201,28 +201,28 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $customer;
+    protected $customer;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping", mappedBy="order")
      */
-    private $shippings;
+    protected $shippings;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="order")
      */
-    private $payments;
+    protected $payments;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item", mappedBy="order")
      */
-    private $feedbacks;
+    protected $feedbacks;
 
     /**
      * Constructor.

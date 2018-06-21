@@ -34,224 +34,224 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var int
      *
      * @ORM\Column(name="payment_number", type="bigint")
      */
-    private $payment_number;
+    protected $payment_number;
 
     /**
      * @var string
      *
      * @ORM\Column(name="currency_id", type="string", unique=false)
      */
-    private $currency_id;
+    protected $currency_id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="status", type="string", unique=false)
      */
-    private $status;
+    protected $status;
 
     /**
      * @var string
      *
      * @ORM\Column(name="status_code", type="string", unique=false)
      */
-    private $status_code;
+    protected $status_code;
 
     /**
      * @var string
      *
      * @ORM\Column(name="status_detail", type="string", unique=false)
      */
-    private $status_detail;
+    protected $status_detail;
 
     /**
      * @var string
      *
      * @ORM\Column(name="transaction_amount", type="decimal", precision=10, scale=2)
      */
-    private $transaction_amount;
+    protected $transaction_amount;
 
     /**
      * @var string
      *
      * @ORM\Column(name="transaction_net_amount", type="decimal", precision=10, scale=2)
      */
-    private $transaction_net_amount;
+    protected $transaction_net_amount;
 
     /**
      * @var string
      *
      * @ORM\Column(name="shipping_cost", type="decimal", precision=10, scale=2)
      */
-    private $shipping_cost;
+    protected $shipping_cost;
 
     /**
      * @var string
      *
      * @ORM\Column(name="overpaid_amount", type="decimal", precision=10, scale=2)
      */
-    private $overpaid_amount;
+    protected $overpaid_amount;
 
     /**
      * @var string
      *
      * @ORM\Column(name="total_paid_amount", type="decimal", precision=10, scale=2)
      */
-    private $total_paid_amount;
+    protected $total_paid_amount;
 
     /**
      * @var string
      *
      * @ORM\Column(name="marketplace_fee", type="decimal", precision=10, scale=2)
      */
-    private $marketplace_fee;
+    protected $marketplace_fee;
 
     /**
      * @var string
      *
      * @ORM\Column(name="coupon_amount", type="decimal", precision=10, scale=2)
      */
-    private $coupon_amount;
+    protected $coupon_amount;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_created", type="datetime")
      */
-    private $date_created;
+    protected $date_created;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_last_modified", type="datetime")
      */
-    private $date_last_modified;
+    protected $date_last_modified;
 
     /**
      * @var string
      *
      * @ORM\Column(name="card_id", type="string", unique=false)
      */
-    private $card_id;
+    protected $card_id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="reason", type="string", unique=false)
      */
-    private $reason;
+    protected $reason;
 
     /**
      * @var string
      *
      * @ORM\Column(name="activation_uri", type="string", unique=false)
      */
-    private $activation_uri;
+    protected $activation_uri;
 
     /**
      * @var string
      *
      * @ORM\Column(name="payment_method_id", type="string", unique=false)
      */
-    private $payment_method_id;
+    protected $payment_method_id;
 
     /**
      * @var int
      *
      * @ORM\Column(name="installments", type="bigint")
      */
-    private $installments;
+    protected $installments;
 
     /**
      * @var int
      *
      * @ORM\Column(name="issuer_id", type="bigint")
      */
-    private $issuer_id;
+    protected $issuer_id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="coupon_id", type="string", unique=false)
      */
-    private $coupon_id;
+    protected $coupon_id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="operation_type", type="string", unique=false)
      */
-    private $operation_type;
+    protected $operation_type;
 
     /**
      * @var string
      *
      * @ORM\Column(name="payment_type", type="string", unique=false)
      */
-    private $payment_type;
+    protected $payment_type;
 
     /**
      * @var array
      *
      * @ORM\Column(name="available_actions", type="array")
      */
-    private $available_actions;
+    protected $available_actions;
 
     /**
      * @var string
      *
      * @ORM\Column(name="installment_amount", type="decimal", precision=10, scale=2)
      */
-    private $installment_amount;
+    protected $installment_amount;
 
     /**
      * @var string
      *
      * @ORM\Column(name="deferred_period", type="string", unique=false)
      */
-    private $deferred_period;
+    protected $deferred_period;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_approved", type="datetime")
      */
-    private $date_approved;
+    protected $date_approved;
 
     /**
      * @var string
      *
      * @ORM\Column(name="authorization_code", type="string", unique=false)
      */
-    private $authorization_code;
+    protected $authorization_code;
 
     /**
      * @var string
      *
      * @ORM\Column(name="transaction_order_id", type="string", unique=false)
      */
-    private $transaction_order_id;
+    protected $transaction_order_id;
 
     /**
      * @var array
      *
      * @ORM\Column(name="tags", type="array")
      */
-    private $tags;
+    protected $tags;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector
@@ -261,7 +261,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="collector_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $collector;
+    protected $collector;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference
@@ -271,7 +271,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="atm_transfer_reference_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $atm_transfer_reference;
+    protected $atm_transfer_reference;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
@@ -281,7 +281,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="order_id", referencedColumnName="id")
      * })
      */
-    private $order;
+    protected $order;
 
     /**
      * Get id.

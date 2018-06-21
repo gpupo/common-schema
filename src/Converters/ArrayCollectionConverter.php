@@ -27,7 +27,7 @@ class ArrayCollectionConverter
         $target = '\\'.str_replace('ArrayCollection', 'ORM\Entity', get_class($arrayCollection));
         $orm = new $target();
 
-        foreach($arrayCollection->getSchema() as $key => $type) {
+        foreach ($arrayCollection->getSchema() as $key => $type) {
             $sufix = StringTool::snakeCaseToCamelCase($key, true);
             $singular = StringTool::normalizeToSingular($sufix);
             $value = $arrayCollection->{sprintf('get%s', $sufix)}();
@@ -38,14 +38,14 @@ class ArrayCollectionConverter
 
             if ('object' === $type) {
                 if (method_exists($orm, sprintf('add%s', $singular))) {
-                    foreach($value as $item) {
+                    foreach ($value as $item) {
                         $orm->{sprintf('add%s', $singular)}($this->convertToOrm($item));
                     }
                 } else {
-                  $orm->{sprintf('set%s', $sufix)}($this->convertToOrm($value));
+                    $orm->{sprintf('set%s', $sufix)}($this->convertToOrm($value));
                 }
             } else {
-              $orm->{sprintf('set%s', $sufix)}($value);
+                $orm->{sprintf('set%s', $sufix)}($value);
             }
         }
 

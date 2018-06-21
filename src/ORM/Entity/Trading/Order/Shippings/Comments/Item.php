@@ -34,28 +34,28 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var string
      *
      * @ORM\Column(name="key", type="string", unique=false)
      */
-    private $key;
+    protected $key;
 
     /**
      * @var string
      *
      * @ORM\Column(name="value", type="string", unique=false)
      */
-    private $value;
+    protected $value;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
@@ -65,7 +65,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
      * })
      */
-    private $shipping;
+    protected $shipping;
 
     /**
      * Get id.

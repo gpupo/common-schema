@@ -34,14 +34,14 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
@@ -51,7 +51,7 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="order_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $order;
+    protected $order;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
@@ -61,7 +61,7 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="payment_id", referencedColumnName="id", unique=true)
      * })
      */
-    private $payment;
+    protected $payment;
 
     /**
      * Get id.

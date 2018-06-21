@@ -69,11 +69,11 @@ abstract class AbstractTranslator extends CollectionAbstract
         $object = $this->translateTo();
 
         if ('ORM' === $this->conversion) {
-          $converter = new ArrayCollectionConverter();
+            $converter = new ArrayCollectionConverter();
 
-          return $converter->convertToOrm($object);
+            return $converter->convertToOrm($object);
         }
-        
+
         return $object;
     }
 

@@ -34,21 +34,21 @@ class OrderStatusDetail extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="code", type="string", unique=false)
      */
-    private $code;
+    protected $code;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", unique=false)
      */
-    private $description;
+    protected $description;
 
     /**
      * Get id.

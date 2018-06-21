@@ -34,63 +34,63 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="tracking_number", type="string", unique=false)
      */
-    private $tracking_number;
+    protected $tracking_number;
 
     /**
      * @var string
      *
      * @ORM\Column(name="tracking_link", type="string", unique=false)
      */
-    private $tracking_link;
+    protected $tracking_link;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_ship", type="datetime")
      */
-    private $date_ship;
+    protected $date_ship;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_tracking_ship", type="datetime")
      */
-    private $date_tracking_ship;
+    protected $date_tracking_ship;
 
     /**
      * @var string
      *
      * @ORM\Column(name="delivery_service", type="string", unique=false)
      */
-    private $delivery_service;
+    protected $delivery_service;
 
     /**
      * @var string
      *
      * @ORM\Column(name="carrier", type="string", unique=false)
      */
-    private $carrier;
+    protected $carrier;
 
     /**
      * @var array
      *
      * @ORM\Column(name="tags", type="array")
      */
-    private $tags;
+    protected $tags;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
@@ -100,7 +100,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
      * })
      */
-    private $shipping;
+    protected $shipping;
 
     /**
      * Get id.

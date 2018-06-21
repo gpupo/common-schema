@@ -34,70 +34,70 @@ class AddressBilling extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="street", type="string", unique=false)
      */
-    private $street;
+    protected $street;
 
     /**
      * @var string
      *
      * @ORM\Column(name="number", type="string", unique=false)
      */
-    private $number;
+    protected $number;
 
     /**
      * @var string
      *
      * @ORM\Column(name="neighborhood", type="string", unique=false)
      */
-    private $neighborhood;
+    protected $neighborhood;
 
     /**
      * @var string
      *
      * @ORM\Column(name="reference", type="string", unique=false)
      */
-    private $reference;
+    protected $reference;
 
     /**
      * @var string
      *
      * @ORM\Column(name="comments", type="string", unique=false)
      */
-    private $comments;
+    protected $comments;
 
     /**
      * @var string
      *
      * @ORM\Column(name="city", type="string", unique=false)
      */
-    private $city;
+    protected $city;
 
     /**
      * @var string
      *
      * @ORM\Column(name="state", type="string", unique=false)
      */
-    private $state;
+    protected $state;
 
     /**
      * @var string
      *
      * @ORM\Column(name="postalCode", type="string", unique=false)
      */
-    private $postalCode;
+    protected $postalCode;
 
     /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
      */
-    private $expands;
+    protected $expands;
 
     /**
      * Get id.

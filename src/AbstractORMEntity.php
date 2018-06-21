@@ -118,4 +118,9 @@ abstract class AbstractORMEntity
     {
         return null !== $this->deletedAt;
     }
+
+    public function setId($id)
+    {
+        return $this->id = $id;
+    }
 }

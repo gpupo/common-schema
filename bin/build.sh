@@ -15,6 +15,7 @@ printf "\n\n\n ========= Build YAML files =========\n\n";
  --no-backup \
  --extend='Gpupo\CommonSchema\AbstractORMEntity';
 
+
 rsync -av var/doctrine/Gpupo/CommonSchema/ORM/ src/ORM/;
 
 printf "\n\n\n ========= Build ORM objects =========\n\n";
@@ -22,6 +23,8 @@ printf "\n\n\n ========= Build ORM objects =========\n\n";
 ./vendor/bin/doctrine orm:generate-repositories var/doctrine/;
 
 rsync -av var/doctrine/Gpupo/CommonSchema/ORM/ src/ORM/;
+
+find src/ORM/ -type f -print0 | xargs -0 sed -i 's/private/protected/g'
 
 ./vendor/bin/doctrine orm:validate-schema
 

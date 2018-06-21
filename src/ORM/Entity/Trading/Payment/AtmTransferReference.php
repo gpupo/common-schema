@@ -34,21 +34,21 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var int
      *
      * @ORM\Column(name="company_id", type="bigint")
      */
-    private $company_id;
+    protected $company_id;
 
     /**
      * @var int
      *
      * @ORM\Column(name="transaction_id", type="bigint")
      */
-    private $transaction_id;
+    protected $transaction_id;
 
     /**
      * Get id.
