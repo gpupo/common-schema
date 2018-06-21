@@ -154,77 +154,47 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_products",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="product_id", referencedColumnName="id", unique=true)
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product", mappedBy="shipping")
      */
     private $products;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_transports",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="transport_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="transport_id", referencedColumnName="id", unique=true)
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item", mappedBy="shipping")
      */
     private $transports;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_invoices",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="invoice_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="invoice_id", referencedColumnName="id", unique=true)
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item", mappedBy="shipping")
      */
     private $invoices;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_comments",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="comment_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="comment_id", referencedColumnName="id", unique=true)
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item", mappedBy="shipping")
      */
     private $comments;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item")
-     * @ORM\JoinTable(name="cs_pivot_shipping_to_feedbacks",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="feedback_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="feedback_id", referencedColumnName="id", unique=true)
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item", mappedBy="shipping")
      */
     private $feedbacks;
+
+    /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+     *
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", inversedBy="shippings")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="order_id", referencedColumnName="id")
+     * })
+     */
+    private $order;
 
     /**
      * Constructor.
@@ -810,5 +780,29 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getFeedbacks()
     {
         return $this->feedbacks;
+    }
+
+    /**
+     * Set order.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
+     *
+     * @return Shipping
+     */
+    public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order = null)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order.
+     *
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+     */
+    public function getOrder()
+    {
+        return $this->order;
     }
 }

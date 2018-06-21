@@ -17,10 +17,6 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Converters;
 
-use Gpupo\Common\Entity\CollectionAbstract;
-
 class ArrayCollectionConverter
 {
-
-
 }

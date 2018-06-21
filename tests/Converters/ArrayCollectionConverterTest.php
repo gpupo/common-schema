@@ -18,8 +18,8 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\Tests\Converters;
 
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
-use Gpupo\CommonSchema\Tests\AbstractTestCase;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
+use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
 /**
  * @coversDefaultClass \Gpupo\CommonSchema\Converters\ArrayCollectionConverter
@@ -28,7 +28,7 @@ class ArrayCollectionConverterTest extends AbstractTestCase
 {
     public function testConversionToOrm()
     {
-       
+        $arrayCollection = new Order();
+        $converter = new ArrayCollectionConverter();
     }
-
 }

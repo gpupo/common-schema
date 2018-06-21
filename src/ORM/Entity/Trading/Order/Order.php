@@ -206,45 +206,21 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping")
-     * @ORM\JoinTable(name="cs_pivot_order_to_shippings",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="shipping_id", referencedColumnName="id", unique=true)
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping", mappedBy="order")
      */
     private $shippings;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment")
-     * @ORM\JoinTable(name="cs_pivot_order_to_payments",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="payment_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="payment_id", referencedColumnName="id", unique=true)
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="order")
      */
     private $payments;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item")
-     * @ORM\JoinTable(name="cs_pivot_order_to_feedbacks",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="feedback_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="feedback_id", referencedColumnName="id", unique=true)
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item", mappedBy="order")
      */
     private $feedbacks;
 

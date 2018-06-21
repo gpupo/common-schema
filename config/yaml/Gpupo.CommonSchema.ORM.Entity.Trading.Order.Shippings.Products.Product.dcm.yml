@@ -43,6 +43,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product:
       precision: 10
       scale: 2
       options: {  }
+  manyToOne:
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+      inversedBy: products
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

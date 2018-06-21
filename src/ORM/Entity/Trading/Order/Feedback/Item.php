@@ -72,6 +72,16 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+     *
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", inversedBy="feedbacks")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="order_id", referencedColumnName="id")
+     * })
+     */
+    private $order;
+
+    /**
      * Get id.
      *
      * @return int
@@ -199,5 +209,29 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getExpands()
     {
         return $this->expands;
+    }
+
+    /**
+     * Set order.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
+     *
+     * @return Item
+     */
+    public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order = null)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order.
+     *
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+     */
+    public function getOrder()
+    {
+        return $this->order;
     }
 }

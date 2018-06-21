@@ -86,6 +86,16 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+     *
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping", inversedBy="invoices")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
+     * })
+     */
+    private $shipping;
+
+    /**
      * Get id.
      *
      * @return int
@@ -261,5 +271,29 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getExpands()
     {
         return $this->expands;
+    }
+
+    /**
+     * Set shipping.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
+     *
+     * @return Item
+     */
+    public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping = null)
+    {
+        $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    /**
+     * Get shipping.
+     *
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
     }
 }

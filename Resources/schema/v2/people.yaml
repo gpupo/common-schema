@@ -1,4 +1,4 @@
-# common-schema people $ generated at 2018-06-20
+# common-schema people
 id: integer
 nickname: string
 email: string

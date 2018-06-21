@@ -36,6 +36,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item:
     expands:
       type: array
       options: {  }
+  manyToOne:
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+      inversedBy: invoices
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

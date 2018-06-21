@@ -30,11 +30,6 @@ abstract class AbstractCollection extends CollectionAbstract implements Collecti
             throw new \InvalidArgumentException(sprintf('Collection Type missing on %s', get_class($this)));
         }
 
-        if ('oneToMany' === $this->type) {
-            //one-to-many-unidirectional-with-join-table
-            return 'manyToMany';
-        }
-
         return $this->type;
     }
 

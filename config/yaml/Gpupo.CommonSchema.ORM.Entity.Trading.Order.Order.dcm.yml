@@ -105,43 +105,19 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
     customer:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
       options: {  }
-  manyToMany:
+  oneToMany:
     shippings:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
       options: {  }
-      joinTable:
-        name: cs_pivot_order_to_shippings
-        joinColumns:
-          shipping_id:
-            referencedColumnName: id
-        inverseJoinColumns:
-          shipping_id:
-            referencedColumnName: id
-            unique: true
+      mappedBy: order
     payments:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
       options: {  }
-      joinTable:
-        name: cs_pivot_order_to_payments
-        joinColumns:
-          payment_id:
-            referencedColumnName: id
-        inverseJoinColumns:
-          payment_id:
-            referencedColumnName: id
-            unique: true
+      mappedBy: order
     feedbacks:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
       options: {  }
-      joinTable:
-        name: cs_pivot_order_to_feedbacks
-        joinColumns:
-          feedback_id:
-            referencedColumnName: id
-        inverseJoinColumns:
-          feedback_id:
-            referencedColumnName: id
-            unique: true
+      mappedBy: order
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }
