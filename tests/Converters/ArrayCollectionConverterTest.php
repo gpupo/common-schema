@@ -31,11 +31,14 @@ class ArrayCollectionConverterTest extends AbstractTestCase
     {
         $arrayCollection = new ArrayCollectionOrder([
           'order_number'  => 123321,
+          'date_created'  => '2018-05-01T00:00:00Z',
         ]);
         $converter = new ArrayCollectionConverter();
         $orm = $converter->convertToOrm($arrayCollection);
         $this->assertInstanceof(ORMOrder::class, $orm);
 
         $this->assertSame(123321, $orm->getOrderNumber());
+        $this->assertSame('2018-05-01T00:00:00Z', $orm->getDateCreated());
+
     }
 }

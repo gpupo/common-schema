@@ -18,9 +18,12 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema;
 
 use Gpupo\Common\Entity\CollectionAbstract;
+use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
 
 abstract class AbstractTranslator extends CollectionAbstract
 {
+    private $conversion = false;
+
     public function setNative(CollectionAbstract $collection)
     {
         $this->set('native', $collection);
@@ -51,20 +54,34 @@ abstract class AbstractTranslator extends CollectionAbstract
         return $data;
     }
 
-    /**
-     * Alias.
-     */
-    public function translateToForeign()
+    public function enableConversionToORM()
     {
-        return $this->translateTo();
+        $this->conversion = 'ORM';
+
+        return $this;
     }
 
     /**
      * Alias.
      */
+    public function translateToForeign()
+    {
+        $object = $this->translateTo();
+
+        if ('ORM' === $this->conversion) {
+          $converter = new ArrayCollectionConverter();
+
+          return $converter->convertToOrm($object);
+        }
+        
+        return $object;
+    }
+
     public function translateFromForeign()
     {
-        return $this->translateFrom();
+        $object = $this->translateFrom();
+
+        return $object;
     }
 
     abstract public function translateTo();
