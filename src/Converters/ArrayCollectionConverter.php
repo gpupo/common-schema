@@ -17,6 +17,38 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Converters;
 
+use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\Common\Tools\StringTool;
+
 class ArrayCollectionConverter
 {
+    public function convertToOrm(CollectionInterface $arrayCollection)
+    {
+        $target = '\\'.str_replace('ArrayCollection', 'ORM\Entity', get_class($arrayCollection));
+        $orm = new $target();
+
+        foreach($arrayCollection->getSchema() as $key => $type) {
+            $sufix = StringTool::snakeCaseToCamelCase($key, true);
+            $singular = StringTool::normalizeToSingular($sufix);
+            $value = $arrayCollection->{sprintf('get%s', $sufix)}();
+
+            if (empty($value)) {
+                continue;
+            }
+
+            if ('object' === $type) {
+                if (method_exists($orm, sprintf('add%s', $singular))) {
+                    foreach($value as $item) {
+                        $orm->{sprintf('add%s', $singular)}($this->convertToOrm($item));
+                    }
+                } else {
+                  $orm->{sprintf('set%s', $sufix)}($this->convertToOrm($value));
+                }
+            } else {
+              $orm->{sprintf('set%s', $sufix)}($value);
+            }
+        }
+
+        return $orm;
+    }
 }

@@ -17,7 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests\Converters;
 
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order as ArrayCollectionOrder;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order as ORMOrder;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
@@ -28,7 +29,13 @@ class ArrayCollectionConverterTest extends AbstractTestCase
 {
     public function testConversionToOrm()
     {
-        $arrayCollection = new Order();
+        $arrayCollection = new ArrayCollectionOrder([
+          'order_number'  => 123321,
+        ]);
         $converter = new ArrayCollectionConverter();
+        $orm = $converter->convertToOrm($arrayCollection);
+        $this->assertInstanceof(ORMOrder::class, $orm);
+
+        $this->assertSame(123321, $orm->getOrderNumber());
     }
 }
