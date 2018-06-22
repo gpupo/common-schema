@@ -1,10 +1,9 @@
 #!/bin/bash
-#rm -fv var/db.sqlite > /dev/null;
 rm -fv config/yaml/* > /dev/null;
 ./bin/common-schema;
 mkdir -p var/doctrine;
 rm -rfv var/doctrine/* > /dev/null;
-rm -rf src/ORM/*;
+#rm -rf src/ORM/*;
 
 printf "\n\n\n ========= Build YAML files =========\n\n";
 
@@ -31,5 +30,6 @@ find src/ORM/ -type f -print0 | xargs -0 sed -i 's/private/protected/g'
 rm -f .php_cs.cache
 docker-compose run php-dev /root/.composer/vendor/bin/php-cs-fixer fix;
 
-#printf "\n\n\n ========= Update Database =========\n\n";
-#./vendor/bin/doctrine orm:schema-tool:update --force
+printf "\n\n\n ========= Update Database =========\n\n";
+# rm -fv var/db.sqlite > /dev/null;
+./vendor/bin/doctrine orm:schema-tool:update --force

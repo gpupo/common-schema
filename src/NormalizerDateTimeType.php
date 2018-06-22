@@ -15,32 +15,23 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Converters;
+namespace Gpupo\CommonSchema;
 
-trait ConverterContainerTrait
+use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\DateTimeType;
+use Gpupo\Common\Tools\Datetime\Normalizer;
+
+class NormalizerDateTimeType extends DateTimeType
 {
-    private $conversionType = false;
-
-    public function setConversionType($string)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        $this->conversionType = $string;
-
-        return $this;
-    }
-
-    public function getConversionType()
-    {
-        return $this->conversionType;
-    }
-
-    protected function decorateByConversionType($object)
-    {
-        if ('ORM' === $this->getConversionType()) {
-            $converter = new ArrayCollectionConverter();
-
-            return $converter->convertToOrm($object);
+        $normalizer = new Normalizer();
+        if ($value instanceof \DateTime) {
+            $value = $normalizer->normalizeTimeZone($value);
+        } elseif (!empty($value)) {
+            $value = $normalizer->factoryDateTimeByString($normalizer->normalizeFormat($value));
         }
 
-        return $object;
+        return parent::convertToDatabaseValue($value, $platform);
     }
 }

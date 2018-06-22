@@ -81,7 +81,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\Phone
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Phone")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Phone", cascade={"persist","remove"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="phone_id", referencedColumnName="id", unique=true)
      * })
@@ -91,7 +91,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone", cascade={"persist","remove"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="alternative_phone_id", referencedColumnName="id", unique=true)
      * })
@@ -101,7 +101,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\Document
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Document")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Document", cascade={"persist","remove"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="document_id", referencedColumnName="id", unique=true)
      * })

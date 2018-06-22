@@ -101,21 +101,36 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
   oneToOne:
     order_status_detail:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
+      cascade:
+        - persist
+        - remove
       options: {  }
     customer:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
+      cascade:
+        - persist
+        - remove
       options: {  }
   oneToMany:
     shippings:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+      cascade:
+        - persist
+        - remove
       options: {  }
       mappedBy: order
     payments:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+      cascade:
+        - persist
+        - remove
       options: {  }
       mappedBy: order
     feedbacks:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
+      cascade:
+        - persist
+        - remove
       options: {  }
       mappedBy: order
   lifecycleCallbacks:

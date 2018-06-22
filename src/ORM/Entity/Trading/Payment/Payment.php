@@ -256,7 +256,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector", cascade={"persist","remove"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="collector_id", referencedColumnName="id", unique=true)
      * })
@@ -266,7 +266,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference", cascade={"persist","remove"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="atm_transfer_reference_id", referencedColumnName="id", unique=true)
      * })

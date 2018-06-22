@@ -25,4 +25,9 @@ abstract class AbstractTestCase extends TestCase
     {
         return __DIR__.'/../Resources';
     }
+
+    protected function getDoctrineEntityManager()
+    {
+        return Bootstrap::factoryDoctrineEntityManager();
+    }
 }

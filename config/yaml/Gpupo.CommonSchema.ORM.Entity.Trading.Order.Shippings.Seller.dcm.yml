@@ -38,12 +38,21 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller:
   oneToOne:
     phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Organization\Phone
+      cascade:
+        - persist
+        - remove
       options: {  }
     alternative_phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone
+      cascade:
+        - persist
+        - remove
       options: {  }
     document:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Organization\Document
+      cascade:
+        - persist
+        - remove
       options: {  }
   lifecycleCallbacks:
     prePersist: {  }

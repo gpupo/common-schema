@@ -156,9 +156,15 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
   oneToOne:
     collector:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector
+      cascade:
+        - persist
+        - remove
       options: {  }
     atm_transfer_reference:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference
+      cascade:
+        - persist
+        - remove
       options: {  }
   lifecycleCallbacks:
     prePersist: {  }

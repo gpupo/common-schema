@@ -17,9 +17,6 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests\ORM\Entity\Trading\Payment;
 
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Customer\Customer;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Seller;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment as PaymentORM;
@@ -59,7 +56,15 @@ class PaymentTest extends AbstractTestCase
      */
     public function testGetMarketplaceFee(PaymentORM $payment, array $expected)
     {
-        $this->assertSame($expected['marketplace_fee'], $payment->getMarketplaceFee());
+        $this->assertSame((float) $expected['marketplace_fee'], $payment->getMarketplaceFee());
+    }
+
+    /**
+     * @dataProvider dataProviderPayment
+     */
+    public function testGetShippingCost(PaymentORM $payment, array $expected)
+    {
+        $this->assertSame((float) $expected['shipping_cost'], $payment->getShippingCost());
     }
 
     /**
@@ -69,5 +74,22 @@ class PaymentTest extends AbstractTestCase
     {
         $this->assertInstanceOf('\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector', $payment->getCollector());
         $this->assertSame($expected['collector']['id'], $payment->getCollector()->getId());
+    }
+
+    /**
+     * @dataProvider dataProviderPayment
+     */
+    public function testPersist(PaymentORM $payment, array $expected)
+    {
+        $entityManager = $this->getDoctrineEntityManager();
+        $entityManager->persist($payment);
+        $entityManager->flush();
+
+        $row = $entityManager->find(PaymentORM::class, 1);
+
+        $this->assertSame((int) $expected['payment_number'], $row->getPaymentNumber(), 'payment_number');
+        $this->assertSame((int) $expected['collector']['id'], $row->getCollector()->getId(), 'collector');
+        $this->assertSame((float) $expected['shipping_cost'], $row->getShippingCost());
+        $this->assertSame((float) $expected['marketplace_fee'], $row->getMarketplaceFee());
     }
 }

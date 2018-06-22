@@ -3,7 +3,7 @@ collector:
     id: 254289619
 currency_id: BRL
 status: approved
-status_code: ''
+status_code: 2
 status_detail: accredited
 transaction_amount: 243.9
 transaction_net_amount: 204.88

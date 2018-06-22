@@ -38,18 +38,33 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
   oneToOne:
     phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\People\Phone
+      cascade:
+        - persist
+        - remove
       options: {  }
     alternative_phone:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
+      cascade:
+        - persist
+        - remove
       options: {  }
     document:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\People\Document
+      cascade:
+        - persist
+        - remove
       options: {  }
     address_billing:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling
+      cascade:
+        - persist
+        - remove
       options: {  }
     address_delivery:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
+      cascade:
+        - persist
+        - remove
       options: {  }
   lifecycleCallbacks:
     prePersist: {  }

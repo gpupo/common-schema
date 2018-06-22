@@ -32,17 +32,22 @@ class ArrayCollectionConverter
             $singular = StringTool::normalizeToSingular($sufix);
             $value = $arrayCollection->{sprintf('get%s', $sufix)}();
 
-            if (empty($value)) {
+            if (null === $value) {
                 continue;
             }
 
             if ('object' === $type) {
                 if (method_exists($orm, sprintf('add%s', $singular))) {
                     foreach ($value as $item) {
-                        $orm->{sprintf('add%s', $singular)}($this->convertToOrm($item));
+                        if ($item->hasValues()) {
+                            $orm->{sprintf('add%s', $singular)}($this->convertToOrm($item));
+                        }
                     }
                 } else {
-                    $orm->{sprintf('set%s', $sufix)}($this->convertToOrm($value));
+                    if ($value->hasValues()) {
+                        $child = $this->convertToOrm($value);
+                        $orm->{sprintf('set%s', $sufix)}($child);
+                    }
                 }
             } else {
                 $orm->{sprintf('set%s', $sufix)}($value);

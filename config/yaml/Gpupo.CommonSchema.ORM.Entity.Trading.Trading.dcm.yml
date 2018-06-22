@@ -15,9 +15,15 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
   oneToOne:
     order:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+      cascade:
+        - persist
+        - remove
       options: {  }
     payment:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+      cascade:
+        - persist
+        - remove
       options: {  }
   lifecycleCallbacks:
     prePersist: {  }

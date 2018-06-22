@@ -78,26 +78,44 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
   oneToOne:
     seller:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
+      cascade:
+        - persist
+        - remove
       options: {  }
   oneToMany:
     products:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product
+      cascade:
+        - persist
+        - remove
       options: {  }
       mappedBy: shipping
     transports:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item
+      cascade:
+        - persist
+        - remove
       options: {  }
       mappedBy: shipping
     invoices:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item
+      cascade:
+        - persist
+        - remove
       options: {  }
       mappedBy: shipping
     comments:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item
+      cascade:
+        - persist
+        - remove
       options: {  }
       mappedBy: shipping
     feedbacks:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item
+      cascade:
+        - persist
+        - remove
       options: {  }
       mappedBy: shipping
   lifecycleCallbacks:
