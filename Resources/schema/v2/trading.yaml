@@ -58,6 +58,7 @@ order:
                     doc_type: string
                     doc_number: string
                     expands: array
+                internal_id: integer
                 expands: array
             products:
                 -
@@ -122,6 +123,7 @@ order:
             doc_type: string
             doc_number: string
             expands: array
+        internal_id: integer
         expands: array
         address_billing:
             street: string

@@ -29,6 +29,9 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
       lenght: 50
       unique: false
       options: {  }
+    internal_id:
+      type: bigint
+      options: {  }
     expands:
       type: array
       options: {  }

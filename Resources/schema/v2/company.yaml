@@ -20,4 +20,5 @@ document:
     doc_type: string
     doc_number: string
     expands: array
+internal_id: integer
 expands: array

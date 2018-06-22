@@ -54,7 +54,6 @@
     ],
     "payment" : [
       {
-        "id":1,
         "payment_number": 1,
         "collector": {
             "id": 1
@@ -72,7 +71,7 @@
         "date_created": "2018-04-20T16:14:03.000-04:00",
         "date_last_modified": "2018-04-20T16:14:05.000-04:00",
         "card_id": null,
-        "reason": "Molduras Farol De Milha+frisos Dianteiros Cromados Fiat Toro",
+        "reason": "Kit Acme de atordoamento de RoadRunners",
         "activation_uri": null,
         "payment_method_id": "visa",
         "installments": 4,
@@ -97,8 +96,8 @@
     "seller" :  [
       {
           "id": 1,
-          "nickname": "FIATBARIGUI",
-          "email": "fbarigu.k7tvg4+2-oge3dsmbsgy3dcmrv@mail.mercadolivre.com",
+          "nickname": "Wilye",
+          "email": "wylie.coyote@desert.com",
           "phone": {
               "area_code": null,
               "extension": "",
@@ -110,8 +109,8 @@
               "extension": "",
               "number": ""
           },
-          "first_name": "BARIGUI",
-          "last_name": "VEICULOS LTDA",
+          "first_name": "Wilye",
+          "last_name": "Coyote",
           "document": [
             {
               "doc_type" : "string",

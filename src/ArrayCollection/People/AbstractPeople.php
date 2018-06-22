@@ -35,6 +35,7 @@ abstract class AbstractPeople extends AbstractEntity
             'first_name' => 'string',
             'last_name' => 'string',
             'document' => 'object',
+            'internal_id' => 'integer',
             'expands' => 'array',
         ];
     }

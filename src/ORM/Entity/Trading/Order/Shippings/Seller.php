@@ -65,6 +65,13 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $last_name;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="internal_id", type="bigint")
+     */
+    protected $internal_id;
+
+    /**
      * @var array
      *
      * @ORM\Column(name="expands", type="array")
@@ -205,6 +212,30 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getLastName()
     {
         return $this->last_name;
+    }
+
+    /**
+     * Set internalId.
+     *
+     * @param int $internalId
+     *
+     * @return Seller
+     */
+    public function setInternalId($internalId)
+    {
+        $this->internal_id = $internalId;
+
+        return $this;
+    }
+
+    /**
+     * Get internalId.
+     *
+     * @return int
+     */
+    public function getInternalId()
+    {
+        return $this->internal_id;
     }
 
     /**
