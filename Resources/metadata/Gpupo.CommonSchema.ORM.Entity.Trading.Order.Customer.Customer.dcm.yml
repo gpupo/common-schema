@@ -9,22 +9,15 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
       generator:
         strategy: AUTO
   fields:
-    nickname:
-      type: string
-      lenght: 50
-      unique: false
-      options: {  }
     email:
       type: string
       lenght: 50
       unique: false
       options: {  }
-    first_name:
-      type: string
-      lenght: 50
-      unique: false
+    expands:
+      type: array
       options: {  }
-    last_name:
+    first_name:
       type: string
       lenght: 50
       unique: false
@@ -32,8 +25,15 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
     internal_id:
       type: bigint
       options: {  }
-    expands:
-      type: array
+    last_name:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    nickname:
+      type: string
+      lenght: 50
+      unique: false
       options: {  }
   oneToOne:
     phone:
@@ -60,12 +60,21 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
         - persist
         - remove
       options: {  }
+      mappedBy: customer
     address_delivery:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
       cascade:
         - persist
         - remove
       options: {  }
+      mappedBy: customer
+    order:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+      inversedBy: customer
+      joinColumn:
+        name: order_id
+        referencedColumnName: id
+  uniqueConstraints: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

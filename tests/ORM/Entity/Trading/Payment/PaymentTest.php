@@ -73,7 +73,7 @@ class PaymentTest extends AbstractTestCase
     public function testGetCollector(PaymentORM $payment, array $expected)
     {
         $this->assertInstanceOf('\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector', $payment->getCollector());
-        $this->assertSame($expected['collector']['id'], $payment->getCollector()->getId());
+        $this->assertSame($expected['collector']['identifier'], $payment->getCollector()->getIdentifier());
     }
 
     /**
@@ -88,8 +88,8 @@ class PaymentTest extends AbstractTestCase
         $row = $entityManager->find(PaymentORM::class, 1);
 
         $this->assertSame((int) $expected['payment_number'], $row->getPaymentNumber(), 'payment_number');
-        $this->assertSame((int) $expected['collector']['id'], $row->getCollector()->getId(), 'collector');
-        $this->assertSame((float) $expected['shipping_cost'], $row->getShippingCost());
-        $this->assertSame((float) $expected['marketplace_fee'], $row->getMarketplaceFee());
+        $this->assertSame((int) $expected['collector']['identifier'], $row->getCollector()->getIdentifier(), 'collector');
+        $this->assertSame((float) $expected['shipping_cost'], $row->getShippingCost(), 'shipping_cost');
+        $this->assertSame((float) $expected['marketplace_fee'], $row->getMarketplaceFee(), 'marketplace_fee');
     }
 }

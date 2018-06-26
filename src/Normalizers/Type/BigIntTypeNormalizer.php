@@ -15,28 +15,18 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading;
+namespace Gpupo\CommonSchema\Normalizers\Type;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
+use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\BigIntType as Core;
 
-class Trading extends AbstractEntity
+class BigIntTypeNormalizer extends Core
 {
-    public function getTableName()
-    {
-        return $this->tablePrefix.'trading';
-    }
-
     /**
-     * @codeCoverageIgnore
+     * {@inheritdoc}
      */
-    public function getSchema()
+    public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return array_merge(
-            parent::getSchema(),
-            [
-                'order' => 'oneToOneBidirectional',
-                'payment' => 'oneToOneBidirectional',
-            ]
-        );
+        return (null === $value) ? null : (int) $value;
     }
 }

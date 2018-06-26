@@ -22,6 +22,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item:
       lenght: 50
       unique: false
       options: {  }
+  uniqueConstraints: {  }
   manyToOne:
     shipping:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping

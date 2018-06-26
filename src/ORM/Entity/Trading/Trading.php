@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Trading.
+ * Trading
  *
  * @ORM\Table(name="cs_trading")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\TradingRepository")
@@ -46,22 +31,17 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", cascade={"persist","remove"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="order_id", referencedColumnName="id", unique=true)
-     * })
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", mappedBy="trading", cascade={"persist","remove"})
      */
     protected $order;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", cascade={"persist","remove"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="payment_id", referencedColumnName="id", unique=true)
-     * })
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="trading", cascade={"persist","remove"})
      */
     protected $payment;
+
 
     /**
      * Get id.
@@ -100,7 +80,7 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set order.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null $order
      *
      * @return Trading
      */
@@ -114,7 +94,7 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get order.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null
      */
     public function getOrder()
     {
@@ -124,7 +104,7 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set payment.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment|null $payment
      *
      * @return Trading
      */
@@ -138,7 +118,7 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get payment.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment|null
      */
     public function getPayment()
     {

@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item.
+ * Item
  *
  * @ORM\Table(name="cs_trading_order_feedback")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Feedback\ItemRepository")
@@ -37,18 +22,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="status", type="string", unique=false)
+     * @ORM\Column(name="expands", type="array")
      */
-    protected $status;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="reason", type="string", unique=false)
-     */
-    protected $reason;
+    protected $expands;
 
     /**
      * @var string
@@ -65,11 +43,18 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $rating;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="reason", type="string", unique=false)
      */
-    protected $expands;
+    protected $reason;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", unique=false)
+     */
+    protected $status;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
@@ -80,6 +65,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      * })
      */
     protected $order;
+
 
     /**
      * Get id.
@@ -92,51 +78,27 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set status.
+     * Set expands.
      *
-     * @param string $status
+     * @param array $expands
      *
      * @return Item
      */
-    public function setStatus($status)
+    public function setExpands($expands)
     {
-        $this->status = $status;
+        $this->expands = $expands;
 
         return $this;
     }
 
     /**
-     * Get status.
+     * Get expands.
      *
-     * @return string
+     * @return array
      */
-    public function getStatus()
+    public function getExpands()
     {
-        return $this->status;
-    }
-
-    /**
-     * Set reason.
-     *
-     * @param string $reason
-     *
-     * @return Item
-     */
-    public function setReason($reason)
-    {
-        $this->reason = $reason;
-
-        return $this;
-    }
-
-    /**
-     * Get reason.
-     *
-     * @return string
-     */
-    public function getReason()
-    {
-        return $this->reason;
+        return $this->expands;
     }
 
     /**
@@ -188,33 +150,57 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set expands.
+     * Set reason.
      *
-     * @param array $expands
+     * @param string $reason
      *
      * @return Item
      */
-    public function setExpands($expands)
+    public function setReason($reason)
     {
-        $this->expands = $expands;
+        $this->reason = $reason;
 
         return $this;
     }
 
     /**
-     * Get expands.
+     * Get reason.
      *
-     * @return array
+     * @return string
      */
-    public function getExpands()
+    public function getReason()
     {
-        return $this->expands;
+        return $this->reason;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param string $status
+     *
+     * @return Item
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**
      * Set order.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null $order
      *
      * @return Item
      */
@@ -228,7 +214,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get order.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null
      */
     public function getOrder()
     {

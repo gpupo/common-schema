@@ -9,12 +9,12 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Document:
       generator:
         strategy: AUTO
   fields:
-    doc_type:
+    doc_number:
       type: string
       lenght: 50
       unique: false
       options: {  }
-    doc_number:
+    doc_type:
       type: string
       lenght: 50
       unique: false
@@ -22,6 +22,7 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Document:
     expands:
       type: array
       options: {  }
+  uniqueConstraints: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

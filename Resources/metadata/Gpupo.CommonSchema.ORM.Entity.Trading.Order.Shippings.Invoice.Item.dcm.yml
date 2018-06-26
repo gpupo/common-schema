@@ -9,33 +9,34 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item:
       generator:
         strategy: AUTO
   fields:
-    invoice_number:
+    accessKey:
       type: string
       lenght: 50
       unique: false
+      options: {  }
+    expands:
+      type: array
+      options: {  }
+    invoice_date:
+      type: datetime
       options: {  }
     invoice_link:
       type: string
       lenght: 50
       unique: false
       options: {  }
-    invoice_date:
-      type: datetime
-      options: {  }
-    ship_date:
-      type: datetime
-      options: {  }
-    accessKey:
+    invoice_number:
       type: string
       lenght: 50
       unique: false
       options: {  }
+    ship_date:
+      type: datetime
+      options: {  }
     tags:
       type: array
       options: {  }
-    expands:
-      type: array
-      options: {  }
+  uniqueConstraints: {  }
   manyToOne:
     shipping:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping

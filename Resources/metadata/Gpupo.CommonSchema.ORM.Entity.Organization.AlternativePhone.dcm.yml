@@ -1,0 +1,34 @@
+# expands metadata
+Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone:
+  type: entity
+  table: cs_organization_company_alternative_phone
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Organization\AlternativePhoneRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    area_code:
+      type: bigint
+      options: {  }
+    expands:
+      type: array
+      options: {  }
+    extension:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    number:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    verified:
+      type: boolean
+      options: {  }
+  uniqueConstraints: {  }
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

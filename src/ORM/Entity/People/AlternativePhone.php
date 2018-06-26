@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\People;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * AlternativePhone.
+ * AlternativePhone
  *
  * @ORM\Table(name="cs_people_alternative_phone")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\People\AlternativePhoneRepository")
@@ -44,6 +29,13 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $area_code;
 
     /**
+     * @var array
+     *
+     * @ORM\Column(name="expands", type="array")
+     */
+    protected $expands;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="extension", type="string", unique=false)
@@ -64,12 +56,6 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     protected $verified;
 
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="expands", type="array")
-     */
-    protected $expands;
 
     /**
      * Get id.
@@ -103,6 +89,30 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getAreaCode()
     {
         return $this->area_code;
+    }
+
+    /**
+     * Set expands.
+     *
+     * @param array $expands
+     *
+     * @return AlternativePhone
+     */
+    public function setExpands($expands)
+    {
+        $this->expands = $expands;
+
+        return $this;
+    }
+
+    /**
+     * Get expands.
+     *
+     * @return array
+     */
+    public function getExpands()
+    {
+        return $this->expands;
     }
 
     /**
@@ -175,29 +185,5 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getVerified()
     {
         return $this->verified;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param array $expands
-     *
-     * @return AlternativePhone
-     */
-    public function setExpands($expands)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 }

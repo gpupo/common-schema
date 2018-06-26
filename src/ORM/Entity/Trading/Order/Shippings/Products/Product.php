@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Product.
+ * Product
  *
  * @ORM\Table(name="cs_trading_order_shipping_product")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Products\ProductRepository")
@@ -46,6 +31,27 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
+     * @ORM\Column(name="gtin", type="string", unique=false)
+     */
+    protected $gtin;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="quantity", type="bigint")
+     */
+    protected $quantity;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="sale_fee", type="float", precision=10, scale=2)
+     */
+    protected $sale_fee;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="seller_product_id", type="string", unique=false)
      */
     protected $seller_product_id;
@@ -58,11 +64,11 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $title;
 
     /**
-     * @var string
+     * @var float
      *
-     * @ORM\Column(name="gtin", type="string", unique=false)
+     * @ORM\Column(name="unit_price", type="float", precision=10, scale=2)
      */
-    protected $gtin;
+    protected $unit_price;
 
     /**
      * @var array
@@ -70,27 +76,6 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Column(name="variation_attributes", type="array")
      */
     protected $variation_attributes;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="sale_fee", type="decimal", precision=10, scale=2)
-     */
-    protected $sale_fee;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="quantity", type="bigint")
-     */
-    protected $quantity;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="unit_price", type="decimal", precision=10, scale=2)
-     */
-    protected $unit_price;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
@@ -101,6 +86,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
      * })
      */
     protected $shipping;
+
 
     /**
      * Get id.
@@ -134,6 +120,78 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getExpands()
     {
         return $this->expands;
+    }
+
+    /**
+     * Set gtin.
+     *
+     * @param string $gtin
+     *
+     * @return Product
+     */
+    public function setGtin($gtin)
+    {
+        $this->gtin = $gtin;
+
+        return $this;
+    }
+
+    /**
+     * Get gtin.
+     *
+     * @return string
+     */
+    public function getGtin()
+    {
+        return $this->gtin;
+    }
+
+    /**
+     * Set quantity.
+     *
+     * @param int $quantity
+     *
+     * @return Product
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Get quantity.
+     *
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * Set saleFee.
+     *
+     * @param float $saleFee
+     *
+     * @return Product
+     */
+    public function setSaleFee($saleFee)
+    {
+        $this->sale_fee = $saleFee;
+
+        return $this;
+    }
+
+    /**
+     * Get saleFee.
+     *
+     * @return float
+     */
+    public function getSaleFee()
+    {
+        return $this->sale_fee;
     }
 
     /**
@@ -185,27 +243,27 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set gtin.
+     * Set unitPrice.
      *
-     * @param string $gtin
+     * @param float $unitPrice
      *
      * @return Product
      */
-    public function setGtin($gtin)
+    public function setUnitPrice($unitPrice)
     {
-        $this->gtin = $gtin;
+        $this->unit_price = $unitPrice;
 
         return $this;
     }
 
     /**
-     * Get gtin.
+     * Get unitPrice.
      *
-     * @return string
+     * @return float
      */
-    public function getGtin()
+    public function getUnitPrice()
     {
-        return $this->gtin;
+        return $this->unit_price;
     }
 
     /**
@@ -233,81 +291,9 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set saleFee.
-     *
-     * @param string $saleFee
-     *
-     * @return Product
-     */
-    public function setSaleFee($saleFee)
-    {
-        $this->sale_fee = $saleFee;
-
-        return $this;
-    }
-
-    /**
-     * Get saleFee.
-     *
-     * @return string
-     */
-    public function getSaleFee()
-    {
-        return $this->sale_fee;
-    }
-
-    /**
-     * Set quantity.
-     *
-     * @param int $quantity
-     *
-     * @return Product
-     */
-    public function setQuantity($quantity)
-    {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * Get quantity.
-     *
-     * @return int
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * Set unitPrice.
-     *
-     * @param string $unitPrice
-     *
-     * @return Product
-     */
-    public function setUnitPrice($unitPrice)
-    {
-        $this->unit_price = $unitPrice;
-
-        return $this;
-    }
-
-    /**
-     * Get unitPrice.
-     *
-     * @return string
-     */
-    public function getUnitPrice()
-    {
-        return $this->unit_price;
-    }
-
-    /**
      * Set shipping.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null $shipping
      *
      * @return Product
      */
@@ -321,7 +307,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shipping.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null
      */
     public function getShipping()
     {

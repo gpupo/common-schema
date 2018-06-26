@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Customer.
+ * Customer
  *
  * @ORM\Table(name="cs_trading_order_customer")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\CustomerRepository")
@@ -39,16 +24,16 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="nickname", type="string", unique=false)
-     */
-    protected $nickname;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="email", type="string", unique=false)
      */
     protected $email;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="expands", type="array")
+     */
+    protected $expands;
 
     /**
      * @var string
@@ -58,13 +43,6 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $first_name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="last_name", type="string", unique=false)
-     */
-    protected $last_name;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="internal_id", type="bigint")
@@ -72,11 +50,18 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $internal_id;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="last_name", type="string", unique=false)
      */
-    protected $expands;
+    protected $last_name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nickname", type="string", unique=false)
+     */
+    protected $nickname;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\Phone
@@ -111,22 +96,27 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling", cascade={"persist","remove"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="address_billing_id", referencedColumnName="id", unique=true)
-     * })
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling", mappedBy="customer", cascade={"persist","remove"})
      */
     protected $address_billing;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery", cascade={"persist","remove"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="address_delivery_id", referencedColumnName="id", unique=true)
-     * })
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery", mappedBy="customer", cascade={"persist","remove"})
      */
     protected $address_delivery;
+
+    /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+     *
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", inversedBy="customer")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="order_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    protected $order;
+
 
     /**
      * Get id.
@@ -136,30 +126,6 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set nickname.
-     *
-     * @param string $nickname
-     *
-     * @return Customer
-     */
-    public function setNickname($nickname)
-    {
-        $this->nickname = $nickname;
-
-        return $this;
-    }
-
-    /**
-     * Get nickname.
-     *
-     * @return string
-     */
-    public function getNickname()
-    {
-        return $this->nickname;
     }
 
     /**
@@ -187,6 +153,30 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set expands.
+     *
+     * @param array $expands
+     *
+     * @return Customer
+     */
+    public function setExpands($expands)
+    {
+        $this->expands = $expands;
+
+        return $this;
+    }
+
+    /**
+     * Get expands.
+     *
+     * @return array
+     */
+    public function getExpands()
+    {
+        return $this->expands;
+    }
+
+    /**
      * Set firstName.
      *
      * @param string $firstName
@@ -208,30 +198,6 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getFirstName()
     {
         return $this->first_name;
-    }
-
-    /**
-     * Set lastName.
-     *
-     * @param string $lastName
-     *
-     * @return Customer
-     */
-    public function setLastName($lastName)
-    {
-        $this->last_name = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName.
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->last_name;
     }
 
     /**
@@ -259,33 +225,57 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set expands.
+     * Set lastName.
      *
-     * @param array $expands
+     * @param string $lastName
      *
      * @return Customer
      */
-    public function setExpands($expands)
+    public function setLastName($lastName)
     {
-        $this->expands = $expands;
+        $this->last_name = $lastName;
 
         return $this;
     }
 
     /**
-     * Get expands.
+     * Get lastName.
      *
-     * @return array
+     * @return string
      */
-    public function getExpands()
+    public function getLastName()
     {
-        return $this->expands;
+        return $this->last_name;
+    }
+
+    /**
+     * Set nickname.
+     *
+     * @param string $nickname
+     *
+     * @return Customer
+     */
+    public function setNickname($nickname)
+    {
+        $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Get nickname.
+     *
+     * @return string
+     */
+    public function getNickname()
+    {
+        return $this->nickname;
     }
 
     /**
      * Set phone.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Phone $phone
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\Phone|null $phone
      *
      * @return Customer
      */
@@ -299,7 +289,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get phone.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Phone
+     * @return \Gpupo\CommonSchema\ORM\Entity\People\Phone|null
      */
     public function getPhone()
     {
@@ -309,7 +299,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set alternativePhone.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null $alternativePhone
      *
      * @return Customer
      */
@@ -323,7 +313,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get alternativePhone.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
+     * @return \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null
      */
     public function getAlternativePhone()
     {
@@ -333,7 +323,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set document.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Document $document
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\Document|null $document
      *
      * @return Customer
      */
@@ -347,7 +337,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get document.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Document
+     * @return \Gpupo\CommonSchema\ORM\Entity\People\Document|null
      */
     public function getDocument()
     {
@@ -357,7 +347,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set addressBilling.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling $addressBilling
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling|null $addressBilling
      *
      * @return Customer
      */
@@ -371,7 +361,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get addressBilling.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling|null
      */
     public function getAddressBilling()
     {
@@ -381,7 +371,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set addressDelivery.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery $addressDelivery
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery|null $addressDelivery
      *
      * @return Customer
      */
@@ -395,10 +385,34 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get addressDelivery.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery|null
      */
     public function getAddressDelivery()
     {
         return $this->address_delivery;
+    }
+
+    /**
+     * Set order.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null $order
+     *
+     * @return Customer
+     */
+    public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order = null)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order.
+     *
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null
+     */
+    public function getOrder()
+    {
+        return $this->order;
     }
 }

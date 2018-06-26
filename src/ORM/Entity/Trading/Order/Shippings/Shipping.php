@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Shipping.
+ * Shipping
  *
  * @ORM\Table(name="cs_trading_order_shipping")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\ShippingRepository")
@@ -37,25 +22,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="shipping_number", type="bigint")
+     * @ORM\Column(name="currency_id", type="string", unique=false)
      */
-    protected $shipping_number;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="fulfilled", type="boolean")
-     */
-    protected $fulfilled;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="hidden_for_seller", type="boolean")
-     */
-    protected $hidden_for_seller;
+    protected $currency_id;
 
     /**
      * @var \DateTime
@@ -79,53 +50,32 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $date_last_modified;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="currency_id", type="string", unique=false)
+     * @ORM\Column(name="expands", type="array")
      */
-    protected $currency_id;
+    protected $expands;
 
     /**
-     * @var string
+     * @var bool
      *
-     * @ORM\Column(name="total_commission", type="decimal", precision=10, scale=2)
+     * @ORM\Column(name="fulfilled", type="boolean")
      */
-    protected $total_commission;
+    protected $fulfilled;
 
     /**
-     * @var string
+     * @var bool
      *
-     * @ORM\Column(name="total_discount", type="decimal", precision=10, scale=2)
+     * @ORM\Column(name="hidden_for_seller", type="boolean")
      */
-    protected $total_discount;
+    protected $hidden_for_seller;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="total_freight", type="decimal", precision=10, scale=2)
+     * @ORM\Column(name="shipping_number", type="bigint")
      */
-    protected $total_freight;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_gross", type="decimal", precision=10, scale=2)
-     */
-    protected $total_gross;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_net", type="decimal", precision=10, scale=2)
-     */
-    protected $total_net;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_quantity", type="decimal", precision=10, scale=2)
-     */
-    protected $total_quantity;
+    protected $shipping_number;
 
     /**
      * @var array
@@ -135,19 +85,51 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $tags;
 
     /**
-     * @var array
+     * @var float
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="total_commission", type="float", precision=10, scale=2)
      */
-    protected $expands;
+    protected $total_commission;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_discount", type="float", precision=10, scale=2)
+     */
+    protected $total_discount;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_freight", type="float", precision=10, scale=2)
+     */
+    protected $total_freight;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_gross", type="float", precision=10, scale=2)
+     */
+    protected $total_gross;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_net", type="float", precision=10, scale=2)
+     */
+    protected $total_net;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_quantity", type="float", precision=10, scale=2)
+     */
+    protected $total_quantity;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller", cascade={"persist","remove"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="seller_id", referencedColumnName="id", unique=true)
-     * })
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller", mappedBy="shipping", cascade={"persist","remove"})
      */
     protected $seller;
 
@@ -197,7 +179,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $order;
 
     /**
-     * Constructor.
+     * Constructor
      */
     public function __construct()
     {
@@ -219,75 +201,27 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set shippingNumber.
+     * Set currencyId.
      *
-     * @param int $shippingNumber
+     * @param string $currencyId
      *
      * @return Shipping
      */
-    public function setShippingNumber($shippingNumber)
+    public function setCurrencyId($currencyId)
     {
-        $this->shipping_number = $shippingNumber;
+        $this->currency_id = $currencyId;
 
         return $this;
     }
 
     /**
-     * Get shippingNumber.
+     * Get currencyId.
      *
-     * @return int
+     * @return string
      */
-    public function getShippingNumber()
+    public function getCurrencyId()
     {
-        return $this->shipping_number;
-    }
-
-    /**
-     * Set fulfilled.
-     *
-     * @param bool $fulfilled
-     *
-     * @return Shipping
-     */
-    public function setFulfilled($fulfilled)
-    {
-        $this->fulfilled = $fulfilled;
-
-        return $this;
-    }
-
-    /**
-     * Get fulfilled.
-     *
-     * @return bool
-     */
-    public function getFulfilled()
-    {
-        return $this->fulfilled;
-    }
-
-    /**
-     * Set hiddenForSeller.
-     *
-     * @param bool $hiddenForSeller
-     *
-     * @return Shipping
-     */
-    public function setHiddenForSeller($hiddenForSeller)
-    {
-        $this->hidden_for_seller = $hiddenForSeller;
-
-        return $this;
-    }
-
-    /**
-     * Get hiddenForSeller.
-     *
-     * @return bool
-     */
-    public function getHiddenForSeller()
-    {
-        return $this->hidden_for_seller;
+        return $this->currency_id;
     }
 
     /**
@@ -363,171 +297,99 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set currencyId.
+     * Set expands.
      *
-     * @param string $currencyId
+     * @param array $expands
      *
      * @return Shipping
      */
-    public function setCurrencyId($currencyId)
+    public function setExpands($expands)
     {
-        $this->currency_id = $currencyId;
+        $this->expands = $expands;
 
         return $this;
     }
 
     /**
-     * Get currencyId.
+     * Get expands.
      *
-     * @return string
+     * @return array
      */
-    public function getCurrencyId()
+    public function getExpands()
     {
-        return $this->currency_id;
+        return $this->expands;
     }
 
     /**
-     * Set totalCommission.
+     * Set fulfilled.
      *
-     * @param string $totalCommission
+     * @param bool $fulfilled
      *
      * @return Shipping
      */
-    public function setTotalCommission($totalCommission)
+    public function setFulfilled($fulfilled)
     {
-        $this->total_commission = $totalCommission;
+        $this->fulfilled = $fulfilled;
 
         return $this;
     }
 
     /**
-     * Get totalCommission.
+     * Get fulfilled.
      *
-     * @return string
+     * @return bool
      */
-    public function getTotalCommission()
+    public function getFulfilled()
     {
-        return $this->total_commission;
+        return $this->fulfilled;
     }
 
     /**
-     * Set totalDiscount.
+     * Set hiddenForSeller.
      *
-     * @param string $totalDiscount
+     * @param bool $hiddenForSeller
      *
      * @return Shipping
      */
-    public function setTotalDiscount($totalDiscount)
+    public function setHiddenForSeller($hiddenForSeller)
     {
-        $this->total_discount = $totalDiscount;
+        $this->hidden_for_seller = $hiddenForSeller;
 
         return $this;
     }
 
     /**
-     * Get totalDiscount.
+     * Get hiddenForSeller.
      *
-     * @return string
+     * @return bool
      */
-    public function getTotalDiscount()
+    public function getHiddenForSeller()
     {
-        return $this->total_discount;
+        return $this->hidden_for_seller;
     }
 
     /**
-     * Set totalFreight.
+     * Set shippingNumber.
      *
-     * @param string $totalFreight
+     * @param int $shippingNumber
      *
      * @return Shipping
      */
-    public function setTotalFreight($totalFreight)
+    public function setShippingNumber($shippingNumber)
     {
-        $this->total_freight = $totalFreight;
+        $this->shipping_number = $shippingNumber;
 
         return $this;
     }
 
     /**
-     * Get totalFreight.
+     * Get shippingNumber.
      *
-     * @return string
+     * @return int
      */
-    public function getTotalFreight()
+    public function getShippingNumber()
     {
-        return $this->total_freight;
-    }
-
-    /**
-     * Set totalGross.
-     *
-     * @param string $totalGross
-     *
-     * @return Shipping
-     */
-    public function setTotalGross($totalGross)
-    {
-        $this->total_gross = $totalGross;
-
-        return $this;
-    }
-
-    /**
-     * Get totalGross.
-     *
-     * @return string
-     */
-    public function getTotalGross()
-    {
-        return $this->total_gross;
-    }
-
-    /**
-     * Set totalNet.
-     *
-     * @param string $totalNet
-     *
-     * @return Shipping
-     */
-    public function setTotalNet($totalNet)
-    {
-        $this->total_net = $totalNet;
-
-        return $this;
-    }
-
-    /**
-     * Get totalNet.
-     *
-     * @return string
-     */
-    public function getTotalNet()
-    {
-        return $this->total_net;
-    }
-
-    /**
-     * Set totalQuantity.
-     *
-     * @param string $totalQuantity
-     *
-     * @return Shipping
-     */
-    public function setTotalQuantity($totalQuantity)
-    {
-        $this->total_quantity = $totalQuantity;
-
-        return $this;
-    }
-
-    /**
-     * Get totalQuantity.
-     *
-     * @return string
-     */
-    public function getTotalQuantity()
-    {
-        return $this->total_quantity;
+        return $this->shipping_number;
     }
 
     /**
@@ -555,33 +417,153 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set expands.
+     * Set totalCommission.
      *
-     * @param array $expands
+     * @param float $totalCommission
      *
      * @return Shipping
      */
-    public function setExpands($expands)
+    public function setTotalCommission($totalCommission)
     {
-        $this->expands = $expands;
+        $this->total_commission = $totalCommission;
 
         return $this;
     }
 
     /**
-     * Get expands.
+     * Get totalCommission.
      *
-     * @return array
+     * @return float
      */
-    public function getExpands()
+    public function getTotalCommission()
     {
-        return $this->expands;
+        return $this->total_commission;
+    }
+
+    /**
+     * Set totalDiscount.
+     *
+     * @param float $totalDiscount
+     *
+     * @return Shipping
+     */
+    public function setTotalDiscount($totalDiscount)
+    {
+        $this->total_discount = $totalDiscount;
+
+        return $this;
+    }
+
+    /**
+     * Get totalDiscount.
+     *
+     * @return float
+     */
+    public function getTotalDiscount()
+    {
+        return $this->total_discount;
+    }
+
+    /**
+     * Set totalFreight.
+     *
+     * @param float $totalFreight
+     *
+     * @return Shipping
+     */
+    public function setTotalFreight($totalFreight)
+    {
+        $this->total_freight = $totalFreight;
+
+        return $this;
+    }
+
+    /**
+     * Get totalFreight.
+     *
+     * @return float
+     */
+    public function getTotalFreight()
+    {
+        return $this->total_freight;
+    }
+
+    /**
+     * Set totalGross.
+     *
+     * @param float $totalGross
+     *
+     * @return Shipping
+     */
+    public function setTotalGross($totalGross)
+    {
+        $this->total_gross = $totalGross;
+
+        return $this;
+    }
+
+    /**
+     * Get totalGross.
+     *
+     * @return float
+     */
+    public function getTotalGross()
+    {
+        return $this->total_gross;
+    }
+
+    /**
+     * Set totalNet.
+     *
+     * @param float $totalNet
+     *
+     * @return Shipping
+     */
+    public function setTotalNet($totalNet)
+    {
+        $this->total_net = $totalNet;
+
+        return $this;
+    }
+
+    /**
+     * Get totalNet.
+     *
+     * @return float
+     */
+    public function getTotalNet()
+    {
+        return $this->total_net;
+    }
+
+    /**
+     * Set totalQuantity.
+     *
+     * @param float $totalQuantity
+     *
+     * @return Shipping
+     */
+    public function setTotalQuantity($totalQuantity)
+    {
+        $this->total_quantity = $totalQuantity;
+
+        return $this;
+    }
+
+    /**
+     * Get totalQuantity.
+     *
+     * @return float
+     */
+    public function getTotalQuantity()
+    {
+        return $this->total_quantity;
     }
 
     /**
      * Set seller.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller $seller
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller|null $seller
      *
      * @return Shipping
      */
@@ -595,7 +577,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get seller.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller|null
      */
     public function getSeller()
     {
@@ -621,7 +603,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product $product
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeProduct(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product $product)
     {
@@ -657,7 +639,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
     {
@@ -693,7 +675,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item $invoice
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item $invoice)
     {
@@ -729,7 +711,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item $comment
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item $comment)
     {
@@ -765,7 +747,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item $feedback
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item $feedback)
     {
@@ -785,7 +767,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set order.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null $order
      *
      * @return Shipping
      */
@@ -799,7 +781,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get order.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null
      */
     public function getOrder()
     {

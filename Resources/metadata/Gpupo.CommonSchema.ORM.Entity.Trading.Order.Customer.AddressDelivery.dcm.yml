@@ -9,22 +9,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery:
       generator:
         strategy: AUTO
   fields:
-    street:
-      type: string
-      lenght: 50
-      unique: false
-      options: {  }
-    number:
-      type: string
-      lenght: 50
-      unique: false
-      options: {  }
-    neighborhood:
-      type: string
-      lenght: 50
-      unique: false
-      options: {  }
-    reference:
+    city:
       type: string
       lenght: 50
       unique: false
@@ -34,12 +19,15 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery:
       lenght: 50
       unique: false
       options: {  }
-    city:
+    expands:
+      type: array
+      options: {  }
+    neighborhood:
       type: string
       lenght: 50
       unique: false
       options: {  }
-    state:
+    number:
       type: string
       lenght: 50
       unique: false
@@ -49,9 +37,29 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery:
       lenght: 50
       unique: false
       options: {  }
-    expands:
-      type: array
+    reference:
+      type: string
+      lenght: 50
+      unique: false
       options: {  }
+    state:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    street:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+  uniqueConstraints: {  }
+  oneToOne:
+    customer:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
+      inversedBy: address_delivery
+      joinColumn:
+        name: customer_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

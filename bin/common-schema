@@ -29,19 +29,12 @@ $trading = new Trading();
 $people = new People();
 $company = new Company();
 
-foreach ([
-    'trading' => $trading,
-    'people' => $people,
-    'company'=> $company,
-] as $key => $value) {
-    $data = Tools::getRecursiveSchema($value);
-    $generator->saveDataToSchema($key, $value, $data);
-}
-
 try {
     foreach([$trading, $people, $company] as $object) {
-        $generator->recursiveSaveDataDoctrineMetadata($object);
+        $generator->recursiveSave($object);
     }
+
 } catch (\Exception $exception) {
     $output->writeln(sprintf('<error>%s</>', $exception->getMessage()));
 }
+$generator->debug();

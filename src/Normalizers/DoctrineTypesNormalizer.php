@@ -15,23 +15,30 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema;
+namespace Gpupo\CommonSchema\Normalizers;
 
-use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\DateTimeType;
-use Gpupo\Common\Tools\Datetime\Normalizer;
+use Doctrine\DBAL\Types\Type;
 
-class NormalizerDateTimeType extends DateTimeType
+class DoctrineTypesNormalizer
 {
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public static function overrideTypes()
     {
-        $normalizer = new Normalizer();
-        if ($value instanceof \DateTime) {
-            $value = $normalizer->normalizeTimeZone($value);
-        } elseif (!empty($value)) {
-            $value = $normalizer->factoryDateTimeByString($normalizer->normalizeFormat($value));
+        foreach ([
+        'datetime' => 'DateTime',
+        'datetimetz' => 'DateTime',
+        'bigint' => 'BigInt',
+      ] as $type => $class) {
+            self::overrideType($type, $class);
         }
+    }
 
-        return parent::convertToDatabaseValue($value, $platform);
+    protected static function getNormalizerName($prefix)
+    {
+        return sprintf('%s\Type\%sTypeNormalizer', __NAMESPACE__, $prefix);
+    }
+
+    protected static function overrideType($type, $class)
+    {
+        return Type::overrideType($type, self::getNormalizerName($class));
     }
 }

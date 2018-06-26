@@ -24,6 +24,10 @@ class Payment extends AbstractEntity
     protected $tableName = 'trading_payment';
     protected $primaryKey = 'payment_number';
 
+    protected $uniqueConstraints = [
+      ['payment_number'],
+    ];
+
     /**
      * @codeCoverageIgnore
      */
@@ -31,7 +35,7 @@ class Payment extends AbstractEntity
     {
         return [
             'payment_number' => 'integer',
-            'collector' => 'object',
+            'collector' => 'oneToOneBidirectional',
             'currency_id' => 'string',
             'status' => 'string',
             'status_code' => 'string',
@@ -51,7 +55,7 @@ class Payment extends AbstractEntity
             'payment_method_id' => 'string',
             'installments' => 'integer',
             'issuer_id' => 'integer',
-            'atm_transfer_reference' => 'object',
+            'atm_transfer_reference' => 'oneToOneBidirectional',
             'coupon_id' => 'string',
             'operation_type' => 'string',
             'payment_type' => 'string',

@@ -9,6 +9,26 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       generator:
         strategy: AUTO
   fields:
+    currency_id:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    date_agreed:
+      type: datetime
+      options: {  }
+    date_closed:
+      type: datetime
+      options: {  }
+    date_created:
+      type: datetime
+      options: {  }
+    date_last_modified:
+      type: datetime
+      options: {  }
+    expands:
+      type: array
+      options: {  }
     order_number:
       type: string
       lenght: 50
@@ -23,18 +43,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       type: string
       lenght: 50
       unique: false
-      options: {  }
-    date_created:
-      type: datetime
-      options: {  }
-    date_closed:
-      type: datetime
-      options: {  }
-    date_agreed:
-      type: datetime
-      options: {  }
-    date_last_modified:
-      type: datetime
       options: {  }
     origin_business_unit:
       type: string
@@ -51,41 +59,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       lenght: 50
       unique: false
       options: {  }
-    currency_id:
-      type: string
-      lenght: 50
-      unique: false
-      options: {  }
-    total_commission:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
-    total_discount:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
-    total_freight:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
-    total_gross:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
-    total_net:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
-    total_quantity:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
     requested_devolution:
       type: boolean
       options: {  }
@@ -95,8 +68,35 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
     tags:
       type: array
       options: {  }
-    expands:
-      type: array
+    total_commission:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_discount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_freight:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_gross:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_net:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_quantity:
+      type: float
+      precision: 10
+      scale: 2
       options: {  }
   oneToOne:
     order_status_detail:
@@ -105,12 +105,20 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
         - persist
         - remove
       options: {  }
+      mappedBy: order
     customer:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
       cascade:
         - persist
         - remove
       options: {  }
+      mappedBy: order
+    trading:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Trading
+      inversedBy: order
+      joinColumn:
+        name: trading_id
+        referencedColumnName: id
   oneToMany:
     shippings:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
@@ -133,6 +141,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
         - remove
       options: {  }
       mappedBy: order
+  uniqueConstraints: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

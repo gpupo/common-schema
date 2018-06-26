@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Order.
+ * Order
  *
  * @ORM\Table(name="cs_trading_order")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderRepository")
@@ -35,6 +20,48 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="currency_id", type="string", unique=false)
+     */
+    protected $currency_id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_agreed", type="datetime")
+     */
+    protected $date_agreed;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_closed", type="datetime")
+     */
+    protected $date_closed;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_created", type="datetime")
+     */
+    protected $date_created;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_last_modified", type="datetime")
+     */
+    protected $date_last_modified;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="expands", type="array")
+     */
+    protected $expands;
 
     /**
      * @var string
@@ -58,34 +85,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $order_type;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_created", type="datetime")
-     */
-    protected $date_created;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_closed", type="datetime")
-     */
-    protected $date_closed;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_agreed", type="datetime")
-     */
-    protected $date_agreed;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_last_modified", type="datetime")
-     */
-    protected $date_last_modified;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="origin_business_unit", type="string", unique=false)
@@ -105,55 +104,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Column(name="origin_site", type="string", unique=false)
      */
     protected $origin_site;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="currency_id", type="string", unique=false)
-     */
-    protected $currency_id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_commission", type="decimal", precision=10, scale=2)
-     */
-    protected $total_commission;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_discount", type="decimal", precision=10, scale=2)
-     */
-    protected $total_discount;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_freight", type="decimal", precision=10, scale=2)
-     */
-    protected $total_freight;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_gross", type="decimal", precision=10, scale=2)
-     */
-    protected $total_gross;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_net", type="decimal", precision=10, scale=2)
-     */
-    protected $total_net;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_quantity", type="decimal", precision=10, scale=2)
-     */
-    protected $total_quantity;
 
     /**
      * @var bool
@@ -177,31 +127,70 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $tags;
 
     /**
-     * @var array
+     * @var float
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="total_commission", type="float", precision=10, scale=2)
      */
-    protected $expands;
+    protected $total_commission;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_discount", type="float", precision=10, scale=2)
+     */
+    protected $total_discount;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_freight", type="float", precision=10, scale=2)
+     */
+    protected $total_freight;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_gross", type="float", precision=10, scale=2)
+     */
+    protected $total_gross;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_net", type="float", precision=10, scale=2)
+     */
+    protected $total_net;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total_quantity", type="float", precision=10, scale=2)
+     */
+    protected $total_quantity;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail", cascade={"persist","remove"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="order_status_detail_id", referencedColumnName="id", unique=true)
-     * })
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail", mappedBy="order", cascade={"persist","remove"})
      */
     protected $order_status_detail;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer", cascade={"persist","remove"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id", unique=true)
-     * })
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer", mappedBy="order", cascade={"persist","remove"})
      */
     protected $customer;
+
+    /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Trading
+     *
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Trading", inversedBy="order")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="trading_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    protected $trading;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -225,7 +214,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $feedbacks;
 
     /**
-     * Constructor.
+     * Constructor
      */
     public function __construct()
     {
@@ -242,6 +231,150 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set currencyId.
+     *
+     * @param string $currencyId
+     *
+     * @return Order
+     */
+    public function setCurrencyId($currencyId)
+    {
+        $this->currency_id = $currencyId;
+
+        return $this;
+    }
+
+    /**
+     * Get currencyId.
+     *
+     * @return string
+     */
+    public function getCurrencyId()
+    {
+        return $this->currency_id;
+    }
+
+    /**
+     * Set dateAgreed.
+     *
+     * @param \DateTime $dateAgreed
+     *
+     * @return Order
+     */
+    public function setDateAgreed($dateAgreed)
+    {
+        $this->date_agreed = $dateAgreed;
+
+        return $this;
+    }
+
+    /**
+     * Get dateAgreed.
+     *
+     * @return \DateTime
+     */
+    public function getDateAgreed()
+    {
+        return $this->date_agreed;
+    }
+
+    /**
+     * Set dateClosed.
+     *
+     * @param \DateTime $dateClosed
+     *
+     * @return Order
+     */
+    public function setDateClosed($dateClosed)
+    {
+        $this->date_closed = $dateClosed;
+
+        return $this;
+    }
+
+    /**
+     * Get dateClosed.
+     *
+     * @return \DateTime
+     */
+    public function getDateClosed()
+    {
+        return $this->date_closed;
+    }
+
+    /**
+     * Set dateCreated.
+     *
+     * @param \DateTime $dateCreated
+     *
+     * @return Order
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->date_created = $dateCreated;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCreated.
+     *
+     * @return \DateTime
+     */
+    public function getDateCreated()
+    {
+        return $this->date_created;
+    }
+
+    /**
+     * Set dateLastModified.
+     *
+     * @param \DateTime $dateLastModified
+     *
+     * @return Order
+     */
+    public function setDateLastModified($dateLastModified)
+    {
+        $this->date_last_modified = $dateLastModified;
+
+        return $this;
+    }
+
+    /**
+     * Get dateLastModified.
+     *
+     * @return \DateTime
+     */
+    public function getDateLastModified()
+    {
+        return $this->date_last_modified;
+    }
+
+    /**
+     * Set expands.
+     *
+     * @param array $expands
+     *
+     * @return Order
+     */
+    public function setExpands($expands)
+    {
+        $this->expands = $expands;
+
+        return $this;
+    }
+
+    /**
+     * Get expands.
+     *
+     * @return array
+     */
+    public function getExpands()
+    {
+        return $this->expands;
     }
 
     /**
@@ -317,102 +450,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set dateCreated.
-     *
-     * @param \DateTime $dateCreated
-     *
-     * @return Order
-     */
-    public function setDateCreated($dateCreated)
-    {
-        $this->date_created = $dateCreated;
-
-        return $this;
-    }
-
-    /**
-     * Get dateCreated.
-     *
-     * @return \DateTime
-     */
-    public function getDateCreated()
-    {
-        return $this->date_created;
-    }
-
-    /**
-     * Set dateClosed.
-     *
-     * @param \DateTime $dateClosed
-     *
-     * @return Order
-     */
-    public function setDateClosed($dateClosed)
-    {
-        $this->date_closed = $dateClosed;
-
-        return $this;
-    }
-
-    /**
-     * Get dateClosed.
-     *
-     * @return \DateTime
-     */
-    public function getDateClosed()
-    {
-        return $this->date_closed;
-    }
-
-    /**
-     * Set dateAgreed.
-     *
-     * @param \DateTime $dateAgreed
-     *
-     * @return Order
-     */
-    public function setDateAgreed($dateAgreed)
-    {
-        $this->date_agreed = $dateAgreed;
-
-        return $this;
-    }
-
-    /**
-     * Get dateAgreed.
-     *
-     * @return \DateTime
-     */
-    public function getDateAgreed()
-    {
-        return $this->date_agreed;
-    }
-
-    /**
-     * Set dateLastModified.
-     *
-     * @param \DateTime $dateLastModified
-     *
-     * @return Order
-     */
-    public function setDateLastModified($dateLastModified)
-    {
-        $this->date_last_modified = $dateLastModified;
-
-        return $this;
-    }
-
-    /**
-     * Get dateLastModified.
-     *
-     * @return \DateTime
-     */
-    public function getDateLastModified()
-    {
-        return $this->date_last_modified;
-    }
-
-    /**
      * Set originBusinessUnit.
      *
      * @param string $originBusinessUnit
@@ -482,174 +519,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getOriginSite()
     {
         return $this->origin_site;
-    }
-
-    /**
-     * Set currencyId.
-     *
-     * @param string $currencyId
-     *
-     * @return Order
-     */
-    public function setCurrencyId($currencyId)
-    {
-        $this->currency_id = $currencyId;
-
-        return $this;
-    }
-
-    /**
-     * Get currencyId.
-     *
-     * @return string
-     */
-    public function getCurrencyId()
-    {
-        return $this->currency_id;
-    }
-
-    /**
-     * Set totalCommission.
-     *
-     * @param string $totalCommission
-     *
-     * @return Order
-     */
-    public function setTotalCommission($totalCommission)
-    {
-        $this->total_commission = $totalCommission;
-
-        return $this;
-    }
-
-    /**
-     * Get totalCommission.
-     *
-     * @return string
-     */
-    public function getTotalCommission()
-    {
-        return $this->total_commission;
-    }
-
-    /**
-     * Set totalDiscount.
-     *
-     * @param string $totalDiscount
-     *
-     * @return Order
-     */
-    public function setTotalDiscount($totalDiscount)
-    {
-        $this->total_discount = $totalDiscount;
-
-        return $this;
-    }
-
-    /**
-     * Get totalDiscount.
-     *
-     * @return string
-     */
-    public function getTotalDiscount()
-    {
-        return $this->total_discount;
-    }
-
-    /**
-     * Set totalFreight.
-     *
-     * @param string $totalFreight
-     *
-     * @return Order
-     */
-    public function setTotalFreight($totalFreight)
-    {
-        $this->total_freight = $totalFreight;
-
-        return $this;
-    }
-
-    /**
-     * Get totalFreight.
-     *
-     * @return string
-     */
-    public function getTotalFreight()
-    {
-        return $this->total_freight;
-    }
-
-    /**
-     * Set totalGross.
-     *
-     * @param string $totalGross
-     *
-     * @return Order
-     */
-    public function setTotalGross($totalGross)
-    {
-        $this->total_gross = $totalGross;
-
-        return $this;
-    }
-
-    /**
-     * Get totalGross.
-     *
-     * @return string
-     */
-    public function getTotalGross()
-    {
-        return $this->total_gross;
-    }
-
-    /**
-     * Set totalNet.
-     *
-     * @param string $totalNet
-     *
-     * @return Order
-     */
-    public function setTotalNet($totalNet)
-    {
-        $this->total_net = $totalNet;
-
-        return $this;
-    }
-
-    /**
-     * Get totalNet.
-     *
-     * @return string
-     */
-    public function getTotalNet()
-    {
-        return $this->total_net;
-    }
-
-    /**
-     * Set totalQuantity.
-     *
-     * @param string $totalQuantity
-     *
-     * @return Order
-     */
-    public function setTotalQuantity($totalQuantity)
-    {
-        $this->total_quantity = $totalQuantity;
-
-        return $this;
-    }
-
-    /**
-     * Get totalQuantity.
-     *
-     * @return string
-     */
-    public function getTotalQuantity()
-    {
-        return $this->total_quantity;
     }
 
     /**
@@ -725,33 +594,153 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set expands.
+     * Set totalCommission.
      *
-     * @param array $expands
+     * @param float $totalCommission
      *
      * @return Order
      */
-    public function setExpands($expands)
+    public function setTotalCommission($totalCommission)
     {
-        $this->expands = $expands;
+        $this->total_commission = $totalCommission;
 
         return $this;
     }
 
     /**
-     * Get expands.
+     * Get totalCommission.
      *
-     * @return array
+     * @return float
      */
-    public function getExpands()
+    public function getTotalCommission()
     {
-        return $this->expands;
+        return $this->total_commission;
+    }
+
+    /**
+     * Set totalDiscount.
+     *
+     * @param float $totalDiscount
+     *
+     * @return Order
+     */
+    public function setTotalDiscount($totalDiscount)
+    {
+        $this->total_discount = $totalDiscount;
+
+        return $this;
+    }
+
+    /**
+     * Get totalDiscount.
+     *
+     * @return float
+     */
+    public function getTotalDiscount()
+    {
+        return $this->total_discount;
+    }
+
+    /**
+     * Set totalFreight.
+     *
+     * @param float $totalFreight
+     *
+     * @return Order
+     */
+    public function setTotalFreight($totalFreight)
+    {
+        $this->total_freight = $totalFreight;
+
+        return $this;
+    }
+
+    /**
+     * Get totalFreight.
+     *
+     * @return float
+     */
+    public function getTotalFreight()
+    {
+        return $this->total_freight;
+    }
+
+    /**
+     * Set totalGross.
+     *
+     * @param float $totalGross
+     *
+     * @return Order
+     */
+    public function setTotalGross($totalGross)
+    {
+        $this->total_gross = $totalGross;
+
+        return $this;
+    }
+
+    /**
+     * Get totalGross.
+     *
+     * @return float
+     */
+    public function getTotalGross()
+    {
+        return $this->total_gross;
+    }
+
+    /**
+     * Set totalNet.
+     *
+     * @param float $totalNet
+     *
+     * @return Order
+     */
+    public function setTotalNet($totalNet)
+    {
+        $this->total_net = $totalNet;
+
+        return $this;
+    }
+
+    /**
+     * Get totalNet.
+     *
+     * @return float
+     */
+    public function getTotalNet()
+    {
+        return $this->total_net;
+    }
+
+    /**
+     * Set totalQuantity.
+     *
+     * @param float $totalQuantity
+     *
+     * @return Order
+     */
+    public function setTotalQuantity($totalQuantity)
+    {
+        $this->total_quantity = $totalQuantity;
+
+        return $this;
+    }
+
+    /**
+     * Get totalQuantity.
+     *
+     * @return float
+     */
+    public function getTotalQuantity()
+    {
+        return $this->total_quantity;
     }
 
     /**
      * Set orderStatusDetail.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail $orderStatusDetail
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail|null $orderStatusDetail
      *
      * @return Order
      */
@@ -765,7 +754,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get orderStatusDetail.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail|null
      */
     public function getOrderStatusDetail()
     {
@@ -775,7 +764,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set customer.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer $customer
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer|null $customer
      *
      * @return Order
      */
@@ -789,11 +778,35 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get customer.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer|null
      */
     public function getCustomer()
     {
         return $this->customer;
+    }
+
+    /**
+     * Set trading.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Trading|null $trading
+     *
+     * @return Order
+     */
+    public function setTrading(\Gpupo\CommonSchema\ORM\Entity\Trading\Trading $trading = null)
+    {
+        $this->trading = $trading;
+
+        return $this;
+    }
+
+    /**
+     * Get trading.
+     *
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Trading|null
+     */
+    public function getTrading()
+    {
+        return $this->trading;
     }
 
     /**
@@ -815,7 +828,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
     {
@@ -851,7 +864,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
     {
@@ -887,7 +900,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
     {

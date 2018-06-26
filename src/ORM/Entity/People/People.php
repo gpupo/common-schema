@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\People;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * People.
+ * People
  *
  * @ORM\Table(name="cs_people")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\People\PeopleRepository")
@@ -39,16 +24,16 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="nickname", type="string", unique=false)
-     */
-    protected $nickname;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="email", type="string", unique=false)
      */
     protected $email;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="expands", type="array")
+     */
+    protected $expands;
 
     /**
      * @var string
@@ -58,13 +43,6 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $first_name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="last_name", type="string", unique=false)
-     */
-    protected $last_name;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="internal_id", type="bigint")
@@ -72,11 +50,18 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $internal_id;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="last_name", type="string", unique=false)
      */
-    protected $expands;
+    protected $last_name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nickname", type="string", unique=false)
+     */
+    protected $nickname;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\Phone
@@ -108,6 +93,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     protected $document;
 
+
     /**
      * Get id.
      *
@@ -116,30 +102,6 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set nickname.
-     *
-     * @param string $nickname
-     *
-     * @return People
-     */
-    public function setNickname($nickname)
-    {
-        $this->nickname = $nickname;
-
-        return $this;
-    }
-
-    /**
-     * Get nickname.
-     *
-     * @return string
-     */
-    public function getNickname()
-    {
-        return $this->nickname;
     }
 
     /**
@@ -167,6 +129,30 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set expands.
+     *
+     * @param array $expands
+     *
+     * @return People
+     */
+    public function setExpands($expands)
+    {
+        $this->expands = $expands;
+
+        return $this;
+    }
+
+    /**
+     * Get expands.
+     *
+     * @return array
+     */
+    public function getExpands()
+    {
+        return $this->expands;
+    }
+
+    /**
      * Set firstName.
      *
      * @param string $firstName
@@ -188,30 +174,6 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getFirstName()
     {
         return $this->first_name;
-    }
-
-    /**
-     * Set lastName.
-     *
-     * @param string $lastName
-     *
-     * @return People
-     */
-    public function setLastName($lastName)
-    {
-        $this->last_name = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName.
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->last_name;
     }
 
     /**
@@ -239,33 +201,57 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set expands.
+     * Set lastName.
      *
-     * @param array $expands
+     * @param string $lastName
      *
      * @return People
      */
-    public function setExpands($expands)
+    public function setLastName($lastName)
     {
-        $this->expands = $expands;
+        $this->last_name = $lastName;
 
         return $this;
     }
 
     /**
-     * Get expands.
+     * Get lastName.
      *
-     * @return array
+     * @return string
      */
-    public function getExpands()
+    public function getLastName()
     {
-        return $this->expands;
+        return $this->last_name;
+    }
+
+    /**
+     * Set nickname.
+     *
+     * @param string $nickname
+     *
+     * @return People
+     */
+    public function setNickname($nickname)
+    {
+        $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Get nickname.
+     *
+     * @return string
+     */
+    public function getNickname()
+    {
+        return $this->nickname;
     }
 
     /**
      * Set phone.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Phone $phone
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\Phone|null $phone
      *
      * @return People
      */
@@ -279,7 +265,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get phone.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Phone
+     * @return \Gpupo\CommonSchema\ORM\Entity\People\Phone|null
      */
     public function getPhone()
     {
@@ -289,7 +275,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set alternativePhone.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null $alternativePhone
      *
      * @return People
      */
@@ -303,7 +289,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get alternativePhone.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
+     * @return \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null
      */
     public function getAlternativePhone()
     {
@@ -313,7 +299,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set document.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Document $document
+     * @param \Gpupo\CommonSchema\ORM\Entity\People\Document|null $document
      *
      * @return People
      */
@@ -327,7 +313,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get document.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Document
+     * @return \Gpupo\CommonSchema\ORM\Entity\People\Document|null
      */
     public function getDocument()
     {

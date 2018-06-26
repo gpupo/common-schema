@@ -26,6 +26,8 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface,
 
     protected $tableName;
 
+    protected $uniqueConstraints;
+
     public function getTableName()
     {
         if (empty($this->tableName)) {
@@ -33,6 +35,22 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface,
         }
 
         return $this->tablePrefix.$this->tableName;
+    }
+
+    public function getUniqueConstraints()
+    {
+        $ucs = [];
+
+        if (empty($this->uniqueConstraints)) {
+            return $ucs;
+        }
+
+        foreach ($this->uniqueConstraints as $array) {
+            $name = sprintf('%s_idx', implode('_', $array));
+            $ucs[$name] = ['columns' => $array];
+        }
+
+        return $ucs;
     }
 
     /**

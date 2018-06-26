@@ -1,33 +1,28 @@
 # expands metadata
-Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
+Gpupo\CommonSchema\ORM\Entity\People\Document:
   type: entity
-  table: cs_organization_company_phone
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Organization\PhoneRepository
+  table: cs_people_document
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\DocumentRepository
   id:
     id:
       type: integer
       generator:
         strategy: AUTO
   fields:
-    area_code:
-      type: bigint
-      options: {  }
-    extension:
+    doc_number:
       type: string
       lenght: 50
       unique: false
       options: {  }
-    number:
+    doc_type:
       type: string
       lenght: 50
       unique: false
-      options: {  }
-    verified:
-      type: boolean
       options: {  }
     expands:
       type: array
       options: {  }
+  uniqueConstraints: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

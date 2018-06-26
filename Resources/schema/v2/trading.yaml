@@ -149,7 +149,7 @@ order:
         -
             payment_number: integer
             collector:
-                id: integer
+                identifier: integer
             currency_id: string
             status: string
             status_code: string
@@ -198,7 +198,7 @@ order:
 payment:
     payment_number: integer
     collector:
-        id: integer
+        identifier: integer
     currency_id: string
     status: string
     status_code: string

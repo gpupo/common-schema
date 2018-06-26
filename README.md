@@ -53,3 +53,14 @@ Proibido:
 ## Links
 
 * [Composer Package](https://packagist.org/packages/gpupo/common-schema/) on packagist.org
+
+## Desenvolvimento
+
+Preparando o banco de dados
+
+    docker-compose up -d  mariadb;
+    vendor/bin/doctrine orm:schema-tool:update --force
+
+Rodando os testes
+
+    vendor/bin/phpunit;

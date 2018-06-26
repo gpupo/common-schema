@@ -1,8 +1,8 @@
 # expands metadata
-Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone:
+Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
   type: entity
-  table: cs_people_alternative_phone
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\AlternativePhoneRepository
+  table: cs_organization_company_phone
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Organization\PhoneRepository
   id:
     id:
       type: integer
@@ -11,6 +11,9 @@ Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone:
   fields:
     area_code:
       type: bigint
+      options: {  }
+    expands:
+      type: array
       options: {  }
     extension:
       type: string
@@ -25,9 +28,7 @@ Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone:
     verified:
       type: boolean
       options: {  }
-    expands:
-      type: array
-      options: {  }
+  uniqueConstraints: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

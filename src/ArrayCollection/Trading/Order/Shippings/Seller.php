@@ -21,5 +21,5 @@ use Gpupo\CommonSchema\ArrayCollection\Organization\AbstractCompany;
 
 class Seller extends AbstractCompany
 {
-    protected $tableName = 'trading_order_seller';
+    protected $tableName = 'trading_order_shipping_seller';
 }

@@ -1,30 +1,23 @@
 # expands metadata
-Gpupo\CommonSchema\ORM\Entity\Organization\Company:
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller:
   type: entity
-  table: cs_organization_company
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Organization\CompanyRepository
+  table: cs_trading_order_shipping_seller
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\SellerRepository
   id:
     id:
       type: integer
       generator:
         strategy: AUTO
   fields:
-    nickname:
-      type: string
-      lenght: 50
-      unique: false
-      options: {  }
     email:
       type: string
       lenght: 50
       unique: false
       options: {  }
-    first_name:
-      type: string
-      lenght: 50
-      unique: false
+    expands:
+      type: array
       options: {  }
-    last_name:
+    first_name:
       type: string
       lenght: 50
       unique: false
@@ -32,8 +25,15 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Company:
     internal_id:
       type: bigint
       options: {  }
-    expands:
-      type: array
+    last_name:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    nickname:
+      type: string
+      lenght: 50
+      unique: false
       options: {  }
   oneToOne:
     phone:
@@ -54,6 +54,13 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Company:
         - persist
         - remove
       options: {  }
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+      inversedBy: seller
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
+  uniqueConstraints: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

@@ -19,6 +19,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
       lenght: 50
       unique: false
       options: {  }
+  uniqueConstraints: {  }
+  oneToOne:
+    order:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+      inversedBy: order_status_detail
+      joinColumn:
+        name: order_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

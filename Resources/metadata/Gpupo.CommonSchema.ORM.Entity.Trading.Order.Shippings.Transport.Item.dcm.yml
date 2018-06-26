@@ -1,52 +1,51 @@
-# unit_price metadata
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product:
+# expands metadata
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item:
   type: entity
-  table: cs_trading_order_shipping_product
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Products\ProductRepository
+  table: cs_trading_order_shipping_transport
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Transport\ItemRepository
   id:
     id:
       type: integer
       generator:
         strategy: AUTO
   fields:
+    carrier:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    date_ship:
+      type: datetime
+      options: {  }
+    date_tracking_ship:
+      type: datetime
+      options: {  }
+    delivery_service:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
     expands:
       type: array
       options: {  }
-    seller_product_id:
-      type: string
-      lenght: 50
-      unique: false
-      options: {  }
-    title:
-      type: string
-      lenght: 50
-      unique: false
-      options: {  }
-    gtin:
-      type: string
-      lenght: 50
-      unique: false
-      options: {  }
-    variation_attributes:
+    tags:
       type: array
       options: {  }
-    sale_fee:
-      type: decimal
-      precision: 10
-      scale: 2
+    tracking_link:
+      type: string
+      lenght: 50
+      unique: false
       options: {  }
-    quantity:
-      type: bigint
+    tracking_number:
+      type: string
+      lenght: 50
+      unique: false
       options: {  }
-    unit_price:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
+  uniqueConstraints: {  }
   manyToOne:
     shipping:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
-      inversedBy: products
+      inversedBy: transports
       joinColumn:
         name: shipping_id
         referencedColumnName: id

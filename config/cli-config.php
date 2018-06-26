@@ -13,8 +13,10 @@ if (in_array($command, ['generate-entities', 'generate-repositories'], true)) {
     echo "\nUsing YAML/NO Connection config\n";
     $isDevMode = true;
     $evm = new Doctrine\Common\EventManager();
-    $config = Setup::createYAMLMetadataConfiguration([__DIR__."/yaml"], $isDevMode);
-    $entityManager = EntityManager::create([], $config, $evm);
+    $config = Setup::createYAMLMetadataConfiguration([__DIR__."/../Resources/metadata/"], $isDevMode);
+    $entityManager = EntityManager::create([
+      'driver'  => 'pdo_sqlite',
+    ], $config, $evm);
 } else {
   $entityManager = Bootstrap::factoryDoctrineEntityManager();
 }

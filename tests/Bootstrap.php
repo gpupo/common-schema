@@ -17,17 +17,15 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests;
 
-use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
-use Gpupo\CommonSchema\NormalizerDateTimeType;
+use Gpupo\CommonSchema\Normalizers\DoctrineTypesNormalizer;
 
 class Bootstrap
 {
     public static function factoryDoctrineEntityManager()
     {
-        Type::overrideType('datetime', NormalizerDateTimeType::class);
-        Type::overrideType('datetimetz', NormalizerDateTimeType::class);
+        DoctrineTypesNormalizer::overrideTypes();
         $evm = new \Doctrine\Common\EventManager();
         $cache = new \Doctrine\Common\Cache\ArrayCache();
         $annotationReader = new \Doctrine\Common\Annotations\AnnotationReader();
@@ -55,7 +53,7 @@ class Bootstrap
         $timestampableListener = new \Gedmo\Timestampable\TimestampableListener();
         $timestampableListener->setAnnotationReader($cachedAnnotationReader);
         $evm->addEventSubscriber($timestampableListener);
-        $config = Setup::createAnnotationMetadataConfiguration([__DIR__.'/../src/ORM/Entity'], true, null, null, false);
+        $config = Setup::createAnnotationMetadataConfiguration([__DIR__.'/../src/'], true, null, null, false);
         $connectionParams = [
             'dbname' => 'app',
             'user' => 'app_db_user',

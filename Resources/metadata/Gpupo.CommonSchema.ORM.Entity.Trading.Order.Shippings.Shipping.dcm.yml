@@ -9,14 +9,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
       generator:
         strategy: AUTO
   fields:
-    shipping_number:
-      type: bigint
-      options: {  }
-    fulfilled:
-      type: boolean
-      options: {  }
-    hidden_for_seller:
-      type: boolean
+    currency_id:
+      type: string
+      lenght: 50
+      unique: false
       options: {  }
     date_created:
       type: datetime
@@ -27,54 +23,51 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
     date_last_modified:
       type: datetime
       options: {  }
-    currency_id:
-      type: string
-      lenght: 50
-      unique: false
+    expands:
+      type: array
       options: {  }
-    total_commission:
-      type: decimal
-      precision: 10
-      scale: 2
+    fulfilled:
+      type: boolean
       options: {  }
-    total_discount:
-      type: decimal
-      precision: 10
-      scale: 2
+    hidden_for_seller:
+      type: boolean
       options: {  }
-    total_freight:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
-    total_gross:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
-    total_net:
-      type: decimal
-      precision: 10
-      scale: 2
-      options: {  }
-    total_quantity:
-      type: decimal
-      precision: 10
-      scale: 2
+    shipping_number:
+      type: bigint
       options: {  }
     tags:
       type: array
       options: {  }
-    expands:
-      type: array
+    total_commission:
+      type: float
+      precision: 10
+      scale: 2
       options: {  }
-  manyToOne:
-    order:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
-      inversedBy: shippings
-      joinColumn:
-        name: order_id
-        referencedColumnName: id
+    total_discount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_freight:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_gross:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_net:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_quantity:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
   oneToOne:
     seller:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller
@@ -82,6 +75,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
         - persist
         - remove
       options: {  }
+      mappedBy: shipping
   oneToMany:
     products:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product
@@ -118,6 +112,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
         - remove
       options: {  }
       mappedBy: shipping
+  uniqueConstraints: {  }
+  manyToOne:
+    order:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+      inversedBy: shippings
+      joinColumn:
+        name: order_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

@@ -15,6 +15,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference:
     transaction_id:
       type: bigint
       options: {  }
+  uniqueConstraints: {  }
+  oneToOne:
+    payment:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+      inversedBy: atm_transfer_reference
+      joinColumn:
+        name: payment_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

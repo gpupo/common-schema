@@ -19,12 +19,15 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
         - persist
         - remove
       options: {  }
+      mappedBy: trading
     payment:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
       cascade:
         - persist
         - remove
       options: {  }
+      mappedBy: trading
+  uniqueConstraints: {  }
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

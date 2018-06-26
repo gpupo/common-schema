@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * AddressBilling.
+ * AddressBilling
  *
  * @ORM\Table(name="cs_trading_order_customer_address_billing")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\AddressBillingRepository")
@@ -39,16 +24,23 @@ class AddressBilling extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="street", type="string", unique=false)
+     * @ORM\Column(name="city", type="string", unique=false)
      */
-    protected $street;
+    protected $city;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="number", type="string", unique=false)
+     * @ORM\Column(name="comments", type="string", unique=false)
      */
-    protected $number;
+    protected $comments;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="expands", type="array")
+     */
+    protected $expands;
 
     /**
      * @var string
@@ -60,23 +52,23 @@ class AddressBilling extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
+     * @ORM\Column(name="number", type="string", unique=false)
+     */
+    protected $number;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postalCode", type="string", unique=false)
+     */
+    protected $postalCode;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="reference", type="string", unique=false)
      */
     protected $reference;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="comments", type="string", unique=false)
-     */
-    protected $comments;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", unique=false)
-     */
-    protected $city;
 
     /**
      * @var string
@@ -88,16 +80,20 @@ class AddressBilling extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="postalCode", type="string", unique=false)
+     * @ORM\Column(name="street", type="string", unique=false)
      */
-    protected $postalCode;
+    protected $street;
 
     /**
-     * @var array
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer", inversedBy="address_billing")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id", unique=true)
+     * })
      */
-    protected $expands;
+    protected $customer;
+
 
     /**
      * Get id.
@@ -107,126 +103,6 @@ class AddressBilling extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set street.
-     *
-     * @param string $street
-     *
-     * @return AddressBilling
-     */
-    public function setStreet($street)
-    {
-        $this->street = $street;
-
-        return $this;
-    }
-
-    /**
-     * Get street.
-     *
-     * @return string
-     */
-    public function getStreet()
-    {
-        return $this->street;
-    }
-
-    /**
-     * Set number.
-     *
-     * @param string $number
-     *
-     * @return AddressBilling
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-
-        return $this;
-    }
-
-    /**
-     * Get number.
-     *
-     * @return string
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
-    /**
-     * Set neighborhood.
-     *
-     * @param string $neighborhood
-     *
-     * @return AddressBilling
-     */
-    public function setNeighborhood($neighborhood)
-    {
-        $this->neighborhood = $neighborhood;
-
-        return $this;
-    }
-
-    /**
-     * Get neighborhood.
-     *
-     * @return string
-     */
-    public function getNeighborhood()
-    {
-        return $this->neighborhood;
-    }
-
-    /**
-     * Set reference.
-     *
-     * @param string $reference
-     *
-     * @return AddressBilling
-     */
-    public function setReference($reference)
-    {
-        $this->reference = $reference;
-
-        return $this;
-    }
-
-    /**
-     * Get reference.
-     *
-     * @return string
-     */
-    public function getReference()
-    {
-        return $this->reference;
-    }
-
-    /**
-     * Set comments.
-     *
-     * @param string $comments
-     *
-     * @return AddressBilling
-     */
-    public function setComments($comments)
-    {
-        $this->comments = $comments;
-
-        return $this;
-    }
-
-    /**
-     * Get comments.
-     *
-     * @return string
-     */
-    public function getComments()
-    {
-        return $this->comments;
     }
 
     /**
@@ -254,27 +130,99 @@ class AddressBilling extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set state.
+     * Set comments.
      *
-     * @param string $state
+     * @param string $comments
      *
      * @return AddressBilling
      */
-    public function setState($state)
+    public function setComments($comments)
     {
-        $this->state = $state;
+        $this->comments = $comments;
 
         return $this;
     }
 
     /**
-     * Get state.
+     * Get comments.
      *
      * @return string
      */
-    public function getState()
+    public function getComments()
     {
-        return $this->state;
+        return $this->comments;
+    }
+
+    /**
+     * Set expands.
+     *
+     * @param array $expands
+     *
+     * @return AddressBilling
+     */
+    public function setExpands($expands)
+    {
+        $this->expands = $expands;
+
+        return $this;
+    }
+
+    /**
+     * Get expands.
+     *
+     * @return array
+     */
+    public function getExpands()
+    {
+        return $this->expands;
+    }
+
+    /**
+     * Set neighborhood.
+     *
+     * @param string $neighborhood
+     *
+     * @return AddressBilling
+     */
+    public function setNeighborhood($neighborhood)
+    {
+        $this->neighborhood = $neighborhood;
+
+        return $this;
+    }
+
+    /**
+     * Get neighborhood.
+     *
+     * @return string
+     */
+    public function getNeighborhood()
+    {
+        return $this->neighborhood;
+    }
+
+    /**
+     * Set number.
+     *
+     * @param string $number
+     *
+     * @return AddressBilling
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number.
+     *
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 
     /**
@@ -302,26 +250,98 @@ class AddressBilling extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set expands.
+     * Set reference.
      *
-     * @param array $expands
+     * @param string $reference
      *
      * @return AddressBilling
      */
-    public function setExpands($expands)
+    public function setReference($reference)
     {
-        $this->expands = $expands;
+        $this->reference = $reference;
 
         return $this;
     }
 
     /**
-     * Get expands.
+     * Get reference.
      *
-     * @return array
+     * @return string
      */
-    public function getExpands()
+    public function getReference()
     {
-        return $this->expands;
+        return $this->reference;
+    }
+
+    /**
+     * Set state.
+     *
+     * @param string $state
+     *
+     * @return AddressBilling
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state.
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Set street.
+     *
+     * @param string $street
+     *
+     * @return AddressBilling
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    /**
+     * Get street.
+     *
+     * @return string
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * Set customer.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer|null $customer
+     *
+     * @return AddressBilling
+     */
+    public function setCustomer(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer $customer = null)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Get customer.
+     *
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer|null
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
     }
 }

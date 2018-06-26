@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item.
+ * Item
  *
  * @ORM\Table(name="cs_trading_order_shipping_transport")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Transport\ItemRepository")
@@ -39,16 +24,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="tracking_number", type="string", unique=false)
+     * @ORM\Column(name="carrier", type="string", unique=false)
      */
-    protected $tracking_number;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tracking_link", type="string", unique=false)
-     */
-    protected $tracking_link;
+    protected $carrier;
 
     /**
      * @var \DateTime
@@ -72,11 +50,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $delivery_service;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="carrier", type="string", unique=false)
+     * @ORM\Column(name="expands", type="array")
      */
-    protected $carrier;
+    protected $expands;
 
     /**
      * @var array
@@ -86,11 +64,18 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $tags;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="tracking_link", type="string", unique=false)
      */
-    protected $expands;
+    protected $tracking_link;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tracking_number", type="string", unique=false)
+     */
+    protected $tracking_number;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
@@ -101,6 +86,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      * })
      */
     protected $shipping;
+
 
     /**
      * Get id.
@@ -113,51 +99,27 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set trackingNumber.
+     * Set carrier.
      *
-     * @param string $trackingNumber
+     * @param string $carrier
      *
      * @return Item
      */
-    public function setTrackingNumber($trackingNumber)
+    public function setCarrier($carrier)
     {
-        $this->tracking_number = $trackingNumber;
+        $this->carrier = $carrier;
 
         return $this;
     }
 
     /**
-     * Get trackingNumber.
+     * Get carrier.
      *
      * @return string
      */
-    public function getTrackingNumber()
+    public function getCarrier()
     {
-        return $this->tracking_number;
-    }
-
-    /**
-     * Set trackingLink.
-     *
-     * @param string $trackingLink
-     *
-     * @return Item
-     */
-    public function setTrackingLink($trackingLink)
-    {
-        $this->tracking_link = $trackingLink;
-
-        return $this;
-    }
-
-    /**
-     * Get trackingLink.
-     *
-     * @return string
-     */
-    public function getTrackingLink()
-    {
-        return $this->tracking_link;
+        return $this->carrier;
     }
 
     /**
@@ -233,27 +195,27 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set carrier.
+     * Set expands.
      *
-     * @param string $carrier
+     * @param array $expands
      *
      * @return Item
      */
-    public function setCarrier($carrier)
+    public function setExpands($expands)
     {
-        $this->carrier = $carrier;
+        $this->expands = $expands;
 
         return $this;
     }
 
     /**
-     * Get carrier.
+     * Get expands.
      *
-     * @return string
+     * @return array
      */
-    public function getCarrier()
+    public function getExpands()
     {
-        return $this->carrier;
+        return $this->expands;
     }
 
     /**
@@ -281,33 +243,57 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set expands.
+     * Set trackingLink.
      *
-     * @param array $expands
+     * @param string $trackingLink
      *
      * @return Item
      */
-    public function setExpands($expands)
+    public function setTrackingLink($trackingLink)
     {
-        $this->expands = $expands;
+        $this->tracking_link = $trackingLink;
 
         return $this;
     }
 
     /**
-     * Get expands.
+     * Get trackingLink.
      *
-     * @return array
+     * @return string
      */
-    public function getExpands()
+    public function getTrackingLink()
     {
-        return $this->expands;
+        return $this->tracking_link;
+    }
+
+    /**
+     * Set trackingNumber.
+     *
+     * @param string $trackingNumber
+     *
+     * @return Item
+     */
+    public function setTrackingNumber($trackingNumber)
+    {
+        $this->tracking_number = $trackingNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get trackingNumber.
+     *
+     * @return string
+     */
+    public function getTrackingNumber()
+    {
+        return $this->tracking_number;
     }
 
     /**
      * Set shipping.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null $shipping
      *
      * @return Item
      */
@@ -321,7 +307,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shipping.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null
      */
     public function getShipping()
     {

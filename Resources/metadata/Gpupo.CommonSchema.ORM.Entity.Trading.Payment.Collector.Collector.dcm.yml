@@ -1,4 +1,4 @@
-# id metadata
+# identifier metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector:
   type: entity
   table: cs_trading_payment_collector
@@ -8,6 +8,18 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector:
       type: integer
       generator:
         strategy: AUTO
+  fields:
+    identifier:
+      type: bigint
+      options: {  }
+  uniqueConstraints: {  }
+  oneToOne:
+    payment:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+      inversedBy: collector
+      joinColumn:
+        name: payment_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

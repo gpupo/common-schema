@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Payment;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * AtmTransferReference.
+ * AtmTransferReference
  *
  * @ORM\Table(name="cs_trading_payment_atm_transfer_reference")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Payment\AtmTransferReferenceRepository")
@@ -49,6 +34,17 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Column(name="transaction_id", type="bigint")
      */
     protected $transaction_id;
+
+    /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+     *
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", inversedBy="atm_transfer_reference")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="payment_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    protected $payment;
+
 
     /**
      * Get id.
@@ -106,5 +102,29 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getTransactionId()
     {
         return $this->transaction_id;
+    }
+
+    /**
+     * Set payment.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment|null $payment
+     *
+     * @return AtmTransferReference
+     */
+    public function setPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment = null)
+    {
+        $this->payment = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Get payment.
+     *
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment|null
+     */
+    public function getPayment()
+    {
+        return $this->payment;
     }
 }

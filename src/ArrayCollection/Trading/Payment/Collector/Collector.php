@@ -29,7 +29,7 @@ class Collector extends AbstractEntity
     public function getSchema()
     {
         return [
-            'id' => 'integer',
+            'identifier' => 'integer',
         ];
     }
 }

@@ -19,6 +19,7 @@ namespace Gpupo\CommonSchema\Converters;
 
 use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\Common\Tools\StringTool;
+use Gpupo\CommonSdk\Entity\Schema\Tools;
 
 class ArrayCollectionConverter
 {
@@ -29,28 +30,31 @@ class ArrayCollectionConverter
 
         foreach ($arrayCollection->getSchema() as $key => $type) {
             $sufix = StringTool::snakeCaseToCamelCase($key, true);
-            $singular = StringTool::normalizeToSingular($sufix);
             $value = $arrayCollection->{sprintf('get%s', $sufix)}();
 
             if (null === $value) {
                 continue;
             }
 
-            if ('object' === $type) {
-                if (method_exists($orm, sprintf('add%s', $singular))) {
+            $setter = sprintf('set%s', $sufix);
+            $adder = sprintf('add%s', StringTool::normalizeToSingular($sufix));
+
+            if ($value instanceof CollectionInterface) {
+                if (method_exists($orm, $adder)) {
                     foreach ($value as $item) {
                         if ($item->hasValues()) {
-                            $orm->{sprintf('add%s', $singular)}($this->convertToOrm($item));
+                            $orm->{$adder}($this->convertToOrm($item));
                         }
                     }
                 } else {
                     if ($value->hasValues()) {
                         $child = $this->convertToOrm($value);
-                        $orm->{sprintf('set%s', $sufix)}($child);
+
+                        $orm->{$setter}($child);
                     }
                 }
             } else {
-                $orm->{sprintf('set%s', $sufix)}($value);
+                $orm->{$setter}($value);
             }
         }
 

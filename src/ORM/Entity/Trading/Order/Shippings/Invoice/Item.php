@@ -1,26 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
- */
-
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item.
+ * Item
  *
  * @ORM\Table(name="cs_trading_order_invoice")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Invoice\ItemRepository")
@@ -39,16 +24,16 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="invoice_number", type="string", unique=false)
+     * @ORM\Column(name="accessKey", type="string", unique=false)
      */
-    protected $invoice_number;
+    protected $accessKey;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="invoice_link", type="string", unique=false)
+     * @ORM\Column(name="expands", type="array")
      */
-    protected $invoice_link;
+    protected $expands;
 
     /**
      * @var \DateTime
@@ -58,6 +43,20 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $invoice_date;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="invoice_link", type="string", unique=false)
+     */
+    protected $invoice_link;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="invoice_number", type="string", unique=false)
+     */
+    protected $invoice_number;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="ship_date", type="datetime")
@@ -65,25 +64,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $ship_date;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="accessKey", type="string", unique=false)
-     */
-    protected $accessKey;
-
-    /**
      * @var array
      *
      * @ORM\Column(name="tags", type="array")
      */
     protected $tags;
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="expands", type="array")
-     */
-    protected $expands;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
@@ -95,6 +80,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     protected $shipping;
 
+
     /**
      * Get id.
      *
@@ -103,102 +89,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set invoiceNumber.
-     *
-     * @param string $invoiceNumber
-     *
-     * @return Item
-     */
-    public function setInvoiceNumber($invoiceNumber)
-    {
-        $this->invoice_number = $invoiceNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get invoiceNumber.
-     *
-     * @return string
-     */
-    public function getInvoiceNumber()
-    {
-        return $this->invoice_number;
-    }
-
-    /**
-     * Set invoiceLink.
-     *
-     * @param string $invoiceLink
-     *
-     * @return Item
-     */
-    public function setInvoiceLink($invoiceLink)
-    {
-        $this->invoice_link = $invoiceLink;
-
-        return $this;
-    }
-
-    /**
-     * Get invoiceLink.
-     *
-     * @return string
-     */
-    public function getInvoiceLink()
-    {
-        return $this->invoice_link;
-    }
-
-    /**
-     * Set invoiceDate.
-     *
-     * @param \DateTime $invoiceDate
-     *
-     * @return Item
-     */
-    public function setInvoiceDate($invoiceDate)
-    {
-        $this->invoice_date = $invoiceDate;
-
-        return $this;
-    }
-
-    /**
-     * Get invoiceDate.
-     *
-     * @return \DateTime
-     */
-    public function getInvoiceDate()
-    {
-        return $this->invoice_date;
-    }
-
-    /**
-     * Set shipDate.
-     *
-     * @param \DateTime $shipDate
-     *
-     * @return Item
-     */
-    public function setShipDate($shipDate)
-    {
-        $this->ship_date = $shipDate;
-
-        return $this;
-    }
-
-    /**
-     * Get shipDate.
-     *
-     * @return \DateTime
-     */
-    public function getShipDate()
-    {
-        return $this->ship_date;
     }
 
     /**
@@ -226,30 +116,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set tags.
-     *
-     * @param array $tags
-     *
-     * @return Item
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Get tags.
-     *
-     * @return array
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
      * Set expands.
      *
      * @param array $expands
@@ -274,9 +140,129 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set invoiceDate.
+     *
+     * @param \DateTime $invoiceDate
+     *
+     * @return Item
+     */
+    public function setInvoiceDate($invoiceDate)
+    {
+        $this->invoice_date = $invoiceDate;
+
+        return $this;
+    }
+
+    /**
+     * Get invoiceDate.
+     *
+     * @return \DateTime
+     */
+    public function getInvoiceDate()
+    {
+        return $this->invoice_date;
+    }
+
+    /**
+     * Set invoiceLink.
+     *
+     * @param string $invoiceLink
+     *
+     * @return Item
+     */
+    public function setInvoiceLink($invoiceLink)
+    {
+        $this->invoice_link = $invoiceLink;
+
+        return $this;
+    }
+
+    /**
+     * Get invoiceLink.
+     *
+     * @return string
+     */
+    public function getInvoiceLink()
+    {
+        return $this->invoice_link;
+    }
+
+    /**
+     * Set invoiceNumber.
+     *
+     * @param string $invoiceNumber
+     *
+     * @return Item
+     */
+    public function setInvoiceNumber($invoiceNumber)
+    {
+        $this->invoice_number = $invoiceNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get invoiceNumber.
+     *
+     * @return string
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->invoice_number;
+    }
+
+    /**
+     * Set shipDate.
+     *
+     * @param \DateTime $shipDate
+     *
+     * @return Item
+     */
+    public function setShipDate($shipDate)
+    {
+        $this->ship_date = $shipDate;
+
+        return $this;
+    }
+
+    /**
+     * Get shipDate.
+     *
+     * @return \DateTime
+     */
+    public function getShipDate()
+    {
+        return $this->ship_date;
+    }
+
+    /**
+     * Set tags.
+     *
+     * @param array $tags
+     *
+     * @return Item
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Get tags.
+     *
+     * @return array
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
      * Set shipping.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null $shipping
      *
      * @return Item
      */
@@ -290,7 +276,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shipping.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null
      */
     public function getShipping()
     {
