@@ -1,10 +1,6 @@
 build:
     environment:
         php: 7.2.3
-    tests:
-        override:
-            -
-                command: 'ant test'
 filter:
     paths: [src/*]
     excluded_paths: [README.md, src/ORM/*, tests/*, vendor/*, build/*, Resources/*]

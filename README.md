@@ -64,3 +64,9 @@ Preparando o banco de dados
 Rodando os testes
 
     vendor/bin/phpunit;
+
+
+Rebuild database
+
+    vendor/bin/doctrine orm:schema-tool:drop --force
+    vendor/bin/doctrine orm:schema-tool:create

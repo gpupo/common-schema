@@ -26,7 +26,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @Gedmo\Loggable(logEntryClass="\Gpupo\CommonSchema\LogModel")
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
  */
-abstract class AbstractORMEntity
+abstract class AbstractORMEntity implements ORMEntityInterface
 {
     /**
      * @var DateTime (Record creation timestamp)
