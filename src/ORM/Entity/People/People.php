@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\People;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * People
+ * People.
  *
  * @ORM\Table(name="cs_people")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\People\PeopleRepository")
@@ -92,7 +107,6 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      * })
      */
     protected $document;
-
 
     /**
      * Get id.
@@ -251,7 +265,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set phone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\People\Phone|null $phone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Phone $phone
      *
      * @return People
      */
@@ -265,7 +279,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get phone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\People\Phone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Phone
      */
     public function getPhone()
     {
@@ -275,7 +289,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set alternativePhone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null $alternativePhone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone
      *
      * @return People
      */
@@ -289,7 +303,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get alternativePhone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
      */
     public function getAlternativePhone()
     {
@@ -299,7 +313,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set document.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\People\Document|null $document
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Document $document
      *
      * @return People
      */
@@ -313,7 +327,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get document.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\People\Document|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Document
      */
     public function getDocument()
     {

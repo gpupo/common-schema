@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Customer
+ * Customer.
  *
  * @ORM\Table(name="cs_trading_order_customer")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\CustomerRepository")
@@ -116,7 +131,6 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
      * })
      */
     protected $order;
-
 
     /**
      * Get id.
@@ -275,7 +289,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set phone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\People\Phone|null $phone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Phone $phone
      *
      * @return Customer
      */
@@ -289,7 +303,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get phone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\People\Phone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Phone
      */
     public function getPhone()
     {
@@ -299,7 +313,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set alternativePhone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null $alternativePhone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone
      *
      * @return Customer
      */
@@ -313,7 +327,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get alternativePhone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone
      */
     public function getAlternativePhone()
     {
@@ -323,7 +337,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set document.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\People\Document|null $document
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Document $document
      *
      * @return Customer
      */
@@ -337,7 +351,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get document.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\People\Document|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\People\Document
      */
     public function getDocument()
     {
@@ -347,7 +361,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set addressBilling.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling|null $addressBilling
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling $addressBilling
      *
      * @return Customer
      */
@@ -361,7 +375,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get addressBilling.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling
      */
     public function getAddressBilling()
     {
@@ -371,7 +385,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set addressDelivery.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery|null $addressDelivery
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery $addressDelivery
      *
      * @return Customer
      */
@@ -385,7 +399,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get addressDelivery.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery
      */
     public function getAddressDelivery()
     {
@@ -395,7 +409,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set order.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null $order
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
      *
      * @return Customer
      */
@@ -409,7 +423,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get order.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
      */
     public function getOrder()
     {

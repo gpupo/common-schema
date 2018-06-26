@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Order
+ * Order.
  *
  * @ORM\Table(name="cs_trading_order")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderRepository")
@@ -29,30 +44,30 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $currency_id;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="date_agreed", type="datetime")
+     * @ORM\Column(name="date_agreed", type="datetime", nullable=true)
      */
     protected $date_agreed;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="date_closed", type="datetime")
+     * @ORM\Column(name="date_closed", type="datetime", nullable=true)
      */
     protected $date_closed;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="date_created", type="datetime")
+     * @ORM\Column(name="date_created", type="datetime", nullable=true)
      */
     protected $date_created;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="date_last_modified", type="datetime")
+     * @ORM\Column(name="date_last_modified", type="datetime", nullable=true)
      */
     protected $date_last_modified;
 
@@ -214,7 +229,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $feedbacks;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -260,11 +275,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set dateAgreed.
      *
-     * @param \DateTime $dateAgreed
+     * @param null|\DateTime $dateAgreed
      *
      * @return Order
      */
-    public function setDateAgreed($dateAgreed)
+    public function setDateAgreed($dateAgreed = null)
     {
         $this->date_agreed = $dateAgreed;
 
@@ -274,7 +289,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get dateAgreed.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getDateAgreed()
     {
@@ -284,11 +299,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set dateClosed.
      *
-     * @param \DateTime $dateClosed
+     * @param null|\DateTime $dateClosed
      *
      * @return Order
      */
-    public function setDateClosed($dateClosed)
+    public function setDateClosed($dateClosed = null)
     {
         $this->date_closed = $dateClosed;
 
@@ -298,7 +313,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get dateClosed.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getDateClosed()
     {
@@ -308,11 +323,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set dateCreated.
      *
-     * @param \DateTime $dateCreated
+     * @param null|\DateTime $dateCreated
      *
      * @return Order
      */
-    public function setDateCreated($dateCreated)
+    public function setDateCreated($dateCreated = null)
     {
         $this->date_created = $dateCreated;
 
@@ -322,7 +337,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get dateCreated.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getDateCreated()
     {
@@ -332,11 +347,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set dateLastModified.
      *
-     * @param \DateTime $dateLastModified
+     * @param null|\DateTime $dateLastModified
      *
      * @return Order
      */
-    public function setDateLastModified($dateLastModified)
+    public function setDateLastModified($dateLastModified = null)
     {
         $this->date_last_modified = $dateLastModified;
 
@@ -346,7 +361,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get dateLastModified.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getDateLastModified()
     {
@@ -740,7 +755,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set orderStatusDetail.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail|null $orderStatusDetail
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail $orderStatusDetail
      *
      * @return Order
      */
@@ -754,7 +769,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get orderStatusDetail.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
      */
     public function getOrderStatusDetail()
     {
@@ -764,7 +779,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set customer.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer|null $customer
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer $customer
      *
      * @return Order
      */
@@ -778,7 +793,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get customer.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
      */
     public function getCustomer()
     {
@@ -788,7 +803,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set trading.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Trading|null $trading
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Trading $trading
      *
      * @return Order
      */
@@ -802,7 +817,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get trading.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Trading|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Trading
      */
     public function getTrading()
     {
@@ -828,7 +843,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removeShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
     {
@@ -864,7 +879,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
     {
@@ -900,7 +915,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback
      *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
     {

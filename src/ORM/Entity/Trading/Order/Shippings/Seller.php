@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Seller
+ * Seller.
  *
  * @ORM\Table(name="cs_trading_order_shipping_seller")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\SellerRepository")
@@ -102,7 +117,6 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
      * })
      */
     protected $shipping;
-
 
     /**
      * Get id.
@@ -261,7 +275,7 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set phone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Organization\Phone|null $phone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Organization\Phone $phone
      *
      * @return Seller
      */
@@ -275,7 +289,7 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get phone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Organization\Phone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Organization\Phone
      */
     public function getPhone()
     {
@@ -285,7 +299,7 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set alternativePhone.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone|null $alternativePhone
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone $alternativePhone
      *
      * @return Seller
      */
@@ -299,7 +313,7 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get alternativePhone.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone
      */
     public function getAlternativePhone()
     {
@@ -309,7 +323,7 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set document.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Organization\Document|null $document
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Organization\Document $document
      *
      * @return Seller
      */
@@ -323,7 +337,7 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get document.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Organization\Document|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Organization\Document
      */
     public function getDocument()
     {
@@ -333,7 +347,7 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set shipping.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null $shipping
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
      *
      * @return Seller
      */
@@ -347,7 +361,7 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shipping.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
      */
     public function getShipping()
     {

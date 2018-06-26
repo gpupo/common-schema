@@ -1,0 +1,106 @@
+# date_last_modified metadata
+Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
+  type: entity
+  table: cs_banking_report_record
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Banking\Report\RecordRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    coupon_amount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    date:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    date_created:
+      type: datetime
+      nullable: true
+      options: {  }
+    date_last_modified:
+      type: datetime
+      nullable: true
+      options: {  }
+    description:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    external_reference:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    fee_amount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    financing_fee_amount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    gross_amount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    installments:
+      type: bigint
+      options: {  }
+    net_credit_amount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    net_debit_amount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    payment_method:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    record_type:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    shipping_fee_amount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    source_id:
+      type: bigint
+      options: {  }
+    taxes_amount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+  uniqueConstraints:
+    source_id_record_type_description_idx:
+      columns:
+        - source_id
+        - record_type
+        - description
+  manyToOne:
+    report:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report
+      inversedBy: records
+      joinColumn:
+        name: report_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

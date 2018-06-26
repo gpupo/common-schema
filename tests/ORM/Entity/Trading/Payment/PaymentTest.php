@@ -87,8 +87,8 @@ class PaymentTest extends AbstractTestCase
         $repository = $entityManager->getRepository(PaymentORM::class);
 
         if ($row = $repository->findOneBy(['payment_number' => $id])) {
-          $entityManager->remove($row);
-          $entityManager->flush();
+            $entityManager->remove($row);
+            $entityManager->flush();
         }
 
         $entityManager->persist($payment);
@@ -119,5 +119,4 @@ class PaymentTest extends AbstractTestCase
         $entityManager->flush();
         $this->assertNull($repository->findOneBy(['payment_number' => $id]));
     }
-
 }

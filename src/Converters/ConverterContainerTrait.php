@@ -23,7 +23,7 @@ trait ConverterContainerTrait
 
     public function setConversionType($string)
     {
-        $this->conversionType = $string;
+        $this->conversionType = strtoupper($string);
 
         return $this;
     }

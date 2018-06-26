@@ -16,12 +16,15 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
       options: {  }
     date_created:
       type: datetime
+      nullable: true
       options: {  }
     date_last_expiration:
       type: datetime
+      nullable: true
       options: {  }
     date_last_modified:
       type: datetime
+      nullable: true
       options: {  }
     expands:
       type: array

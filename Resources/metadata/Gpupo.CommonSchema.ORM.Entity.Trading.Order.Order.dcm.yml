@@ -16,15 +16,19 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       options: {  }
     date_agreed:
       type: datetime
+      nullable: true
       options: {  }
     date_closed:
       type: datetime
+      nullable: true
       options: {  }
     date_created:
       type: datetime
+      nullable: true
       options: {  }
     date_last_modified:
       type: datetime
+      nullable: true
       options: {  }
     expands:
       type: array

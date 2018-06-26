@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Collector
+ * Collector.
  *
  * @ORM\Table(name="cs_trading_payment_collector")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Payment\Collector\CollectorRepository")
@@ -37,7 +52,6 @@ class Collector extends \Gpupo\CommonSchema\AbstractORMEntity
      * })
      */
     protected $payment;
-
 
     /**
      * Get id.
@@ -76,7 +90,7 @@ class Collector extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set payment.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment|null $payment
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
      *
      * @return Collector
      */
@@ -90,7 +104,7 @@ class Collector extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get payment.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
      */
     public function getPayment()
     {

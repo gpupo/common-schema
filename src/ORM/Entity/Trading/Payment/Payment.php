@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Payment;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Payment
+ * Payment.
  *
  * @ORM\Table(name="cs_trading_payment", uniqueConstraints={@ORM\UniqueConstraint(name="payment_number_idx", columns={"payment_number"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Payment\PaymentRepository")
@@ -71,23 +86,23 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $currency_id;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="date_approved", type="datetime")
+     * @ORM\Column(name="date_approved", type="datetime", nullable=true)
      */
     protected $date_approved;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="date_created", type="datetime")
+     * @ORM\Column(name="date_created", type="datetime", nullable=true)
      */
     protected $date_created;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="date_last_modified", type="datetime")
+     * @ORM\Column(name="date_last_modified", type="datetime", nullable=true)
      */
     protected $date_last_modified;
 
@@ -272,7 +287,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     protected $order;
 
-
     /**
      * Get id.
      *
@@ -454,11 +468,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set dateApproved.
      *
-     * @param \DateTime $dateApproved
+     * @param null|\DateTime $dateApproved
      *
      * @return Payment
      */
-    public function setDateApproved($dateApproved)
+    public function setDateApproved($dateApproved = null)
     {
         $this->date_approved = $dateApproved;
 
@@ -468,7 +482,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get dateApproved.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getDateApproved()
     {
@@ -478,11 +492,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set dateCreated.
      *
-     * @param \DateTime $dateCreated
+     * @param null|\DateTime $dateCreated
      *
      * @return Payment
      */
-    public function setDateCreated($dateCreated)
+    public function setDateCreated($dateCreated = null)
     {
         $this->date_created = $dateCreated;
 
@@ -492,7 +506,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get dateCreated.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getDateCreated()
     {
@@ -502,11 +516,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set dateLastModified.
      *
-     * @param \DateTime $dateLastModified
+     * @param null|\DateTime $dateLastModified
      *
      * @return Payment
      */
-    public function setDateLastModified($dateLastModified)
+    public function setDateLastModified($dateLastModified = null)
     {
         $this->date_last_modified = $dateLastModified;
 
@@ -516,7 +530,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get dateLastModified.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getDateLastModified()
     {
@@ -1030,7 +1044,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set collector.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector|null $collector
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector $collector
      *
      * @return Payment
      */
@@ -1044,7 +1058,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get collector.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Collector\Collector
      */
     public function getCollector()
     {
@@ -1054,7 +1068,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set atmTransferReference.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference|null $atmTransferReference
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference $atmTransferReference
      *
      * @return Payment
      */
@@ -1068,7 +1082,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get atmTransferReference.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference
      */
     public function getAtmTransferReference()
     {
@@ -1078,7 +1092,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set trading.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Trading|null $trading
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Trading $trading
      *
      * @return Payment
      */
@@ -1092,7 +1106,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get trading.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Trading|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Trading
      */
     public function getTrading()
     {
@@ -1102,7 +1116,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set order.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null $order
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
      *
      * @return Payment
      */
@@ -1116,7 +1130,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get order.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
      */
     public function getOrder()
     {

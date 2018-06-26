@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item
+ * Item.
  *
  * @ORM\Table(name="cs_trading_order_shipping_transport")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Transport\ItemRepository")
@@ -29,16 +44,16 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $carrier;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="date_ship", type="datetime")
+     * @ORM\Column(name="date_ship", type="datetime", nullable=true)
      */
     protected $date_ship;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="date_tracking_ship", type="datetime")
+     * @ORM\Column(name="date_tracking_ship", type="datetime", nullable=true)
      */
     protected $date_tracking_ship;
 
@@ -87,7 +102,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     protected $shipping;
 
-
     /**
      * Get id.
      *
@@ -125,11 +139,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set dateShip.
      *
-     * @param \DateTime $dateShip
+     * @param null|\DateTime $dateShip
      *
      * @return Item
      */
-    public function setDateShip($dateShip)
+    public function setDateShip($dateShip = null)
     {
         $this->date_ship = $dateShip;
 
@@ -139,7 +153,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get dateShip.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getDateShip()
     {
@@ -149,11 +163,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set dateTrackingShip.
      *
-     * @param \DateTime $dateTrackingShip
+     * @param null|\DateTime $dateTrackingShip
      *
      * @return Item
      */
-    public function setDateTrackingShip($dateTrackingShip)
+    public function setDateTrackingShip($dateTrackingShip = null)
     {
         $this->date_tracking_ship = $dateTrackingShip;
 
@@ -163,7 +177,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get dateTrackingShip.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getDateTrackingShip()
     {
@@ -293,7 +307,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set shipping.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null $shipping
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
      *
      * @return Item
      */
@@ -307,7 +321,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shipping.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
      */
     public function getShipping()
     {

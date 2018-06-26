@@ -16,9 +16,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item:
       options: {  }
     date_ship:
       type: datetime
+      nullable: true
       options: {  }
     date_tracking_ship:
       type: datetime
+      nullable: true
       options: {  }
     delivery_service:
       type: string

@@ -19,6 +19,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item:
       options: {  }
     invoice_date:
       type: datetime
+      nullable: true
       options: {  }
     invoice_link:
       type: string
@@ -32,6 +33,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item:
       options: {  }
     ship_date:
       type: datetime
+      nullable: true
       options: {  }
     tags:
       type: array

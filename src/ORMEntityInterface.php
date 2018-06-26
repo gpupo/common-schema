@@ -17,6 +17,6 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema;
 
-interface ORMEntityInterface {
-
+interface ORMEntityInterface
+{
 }

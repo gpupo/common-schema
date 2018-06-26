@@ -44,12 +44,15 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       options: {  }
     date_approved:
       type: datetime
+      nullable: true
       options: {  }
     date_created:
       type: datetime
+      nullable: true
       options: {  }
     date_last_modified:
       type: datetime
+      nullable: true
       options: {  }
     deferred_period:
       type: string

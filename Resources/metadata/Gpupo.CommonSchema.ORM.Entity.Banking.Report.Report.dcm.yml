@@ -1,0 +1,61 @@
+# date_last_modified metadata
+Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
+  type: entity
+  table: cs_banking_report
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Banking\Report\ReportRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    begin_date:
+      type: datetime
+      nullable: true
+      options: {  }
+    date_created:
+      type: datetime
+      nullable: true
+      options: {  }
+    date_last_modified:
+      type: datetime
+      nullable: true
+      options: {  }
+    description:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    end_date:
+      type: datetime
+      nullable: true
+      options: {  }
+    external_id:
+      type: bigint
+      options: {  }
+    file_name:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    institution:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+  oneToMany:
+    records:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: report
+  uniqueConstraints:
+    institution_file_name_idx:
+      columns:
+        - institution
+        - file_name
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

@@ -19,7 +19,6 @@ namespace Gpupo\CommonSchema\Converters;
 
 use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\Common\Tools\StringTool;
-use Gpupo\CommonSdk\Entity\Schema\Tools;
 use Gpupo\CommonSchema\ORMEntityInterface;
 
 class ArrayCollectionConverter
@@ -44,7 +43,7 @@ class ArrayCollectionConverter
                 if (method_exists($orm, $adder)) {
                     foreach ($value as $item) {
                         if ($item->hasValues()) {
-                            $orm->{$adder}($this->embed($orm,$this->convertToOrm($item)));
+                            $orm->{$adder}($this->embed($orm, $this->convertToOrm($item)));
                         }
                     }
                 } else {
@@ -64,11 +63,11 @@ class ArrayCollectionConverter
 
     protected function embed(ORMEntityInterface $owner, ORMEntityInterface $object)
     {
-      $explode = explode('\\', get_class($owner));
-      $sufix = StringTool::snakeCaseToCamelCase(end($explode), true);
-      $setter = sprintf('set%s', $sufix);
-      $object->{$setter}($owner);
+        $explode = explode('\\', get_class($owner));
+        $sufix = StringTool::snakeCaseToCamelCase(end($explode), true);
+        $setter = sprintf('set%s', $sufix);
+        $object->{$setter}($owner);
 
-      return $object;
+        return $object;
     }
 }

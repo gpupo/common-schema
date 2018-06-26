@@ -1,11 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of gpupo/common-schema
+ * Created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <https://opensource.gpupo.com/>.
+ *
+ */
+
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item
+ * Item.
  *
  * @ORM\Table(name="cs_trading_order_invoice")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Invoice\ItemRepository")
@@ -36,9 +51,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $expands;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="invoice_date", type="datetime")
+     * @ORM\Column(name="invoice_date", type="datetime", nullable=true)
      */
     protected $invoice_date;
 
@@ -57,9 +72,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $invoice_number;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      *
-     * @ORM\Column(name="ship_date", type="datetime")
+     * @ORM\Column(name="ship_date", type="datetime", nullable=true)
      */
     protected $ship_date;
 
@@ -79,7 +94,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      * })
      */
     protected $shipping;
-
 
     /**
      * Get id.
@@ -142,11 +156,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set invoiceDate.
      *
-     * @param \DateTime $invoiceDate
+     * @param null|\DateTime $invoiceDate
      *
      * @return Item
      */
-    public function setInvoiceDate($invoiceDate)
+    public function setInvoiceDate($invoiceDate = null)
     {
         $this->invoice_date = $invoiceDate;
 
@@ -156,7 +170,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get invoiceDate.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getInvoiceDate()
     {
@@ -214,11 +228,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set shipDate.
      *
-     * @param \DateTime $shipDate
+     * @param null|\DateTime $shipDate
      *
      * @return Item
      */
-    public function setShipDate($shipDate)
+    public function setShipDate($shipDate = null)
     {
         $this->ship_date = $shipDate;
 
@@ -228,7 +242,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shipDate.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      */
     public function getShipDate()
     {
@@ -262,7 +276,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set shipping.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null $shipping
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
      *
      * @return Item
      */
@@ -276,7 +290,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shipping.
      *
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping|null
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
      */
     public function getShipping()
     {

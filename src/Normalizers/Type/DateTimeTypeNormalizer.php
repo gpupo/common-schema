@@ -30,6 +30,8 @@ class DateTimeTypeNormalizer extends DateTimeType
             $value = $normalizer->normalizeTimeZone($value);
         } elseif (!empty($value)) {
             $value = $normalizer->factoryDateTimeByString($normalizer->normalizeFormat($value));
+        } else {
+            $value = null;
         }
 
         return parent::convertToDatabaseValue($value, $platform);
