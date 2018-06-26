@@ -2,6 +2,23 @@
 VERSION 4  MAJOR VERSION 4
 ==========================
 
+   Version 4.1 - Improve associations
+      26/06/2018 11:23  4.1.0  initial release
+         a8bfafd add owner embed
+         f031d79 Improve one to one associations
+         5f0a47a Add date conversion and mariadb config
+         1f42737 Add internal_id and ConverterContainerTrait
+         33524e1 add test simple ORM entity
+         45e1d7e change props visibility
+         1dc1856 add conversion
+         18fcc09 add conversion array collection to ORM
+         b478cb2 Change strategy to one to many Squashed commit of the following:
+         757aa46 add Converter draft
+         ca736a7 Fix plural
+         b5291d2 Add plural
+         181fdb8 Modify association Mapping Type
+         3651672 update CI config
+
    Version 4.0 - Major version 4
       20/06/2018 09:56  4.0.1  Add transaction_net_amount
          2b6fcd8 Add transaction_net_amount
