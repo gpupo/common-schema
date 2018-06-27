@@ -1,6 +1,5 @@
 payment_number: 5046323112
-collector:
-    identifier: 254289619
+collector: 254289619
 currency_id: BRL
 status: approved
 status_code: 2

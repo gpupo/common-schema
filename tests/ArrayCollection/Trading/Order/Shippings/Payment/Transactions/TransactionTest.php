@@ -20,7 +20,7 @@ namespace Gpupo\CommonSchema\Tests\ArrayCollection\Trading\Order\Shippings\Payme
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Customer\Customer;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Payment\Payment;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Payment\Transactions\Transaction;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Payment\Transaction\Transaction;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Seller;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 use Gpupo\CommonSdk\Traits\ResourcesTrait;
