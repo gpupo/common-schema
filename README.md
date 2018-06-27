@@ -68,5 +68,5 @@ Rodando os testes
 
 Rebuild database
 
-    vendor/bin/doctrine orm:schema-tool:drop --force
+	vendor/bin/doctrine orm:schema-tool:drop --force --full-database
     vendor/bin/doctrine orm:schema-tool:create

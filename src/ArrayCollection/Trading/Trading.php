@@ -35,7 +35,7 @@ class Trading extends AbstractEntity
             parent::getSchema(),
             [
                 'order' => 'oneToOneBidirectional',
-                'payment' => 'oneToOneBidirectional',
+                'payment' => 'oneToMany',
             ]
         );
     }

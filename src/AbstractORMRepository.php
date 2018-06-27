@@ -15,22 +15,10 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
+namespace Gpupo\CommonSchema;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
+use Doctrine\ORM\EntityRepository;
 
-class AtmTransferReference extends AbstractEntity
+abstract class AbstractORMRepository extends EntityRepository
 {
-    protected $tableName = 'trading_payment_atm_transfer_reference';
-
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
-    {
-        return [
-            'company_id' => 'integer',
-            'transaction_id' => 'integer',
-        ];
-    }
 }

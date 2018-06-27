@@ -15,15 +15,15 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\Entity\Trading\Payment;
+namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * AtmTransferReference.
  *
- * @ORM\Table(name="cs_trading_payment_atm_transfer_reference")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Payment\AtmTransferReferenceRepository")
+ * @ORM\Table(name="cs_trading_order_shipping_payment_atm_transfer_reference")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Payment\AtmTransferReferenceRepository")
  */
 class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
 {
@@ -51,9 +51,9 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $transaction_id;
 
     /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", inversedBy="atm_transfer_reference")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment", inversedBy="atm_transfer_reference")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="payment_id", referencedColumnName="id", unique=true)
      * })
@@ -121,11 +121,11 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set payment.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment $payment
      *
      * @return AtmTransferReference
      */
-    public function setPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment = null)
+    public function setPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment $payment = null)
     {
         $this->payment = $payment;
 
@@ -135,7 +135,7 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get payment.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment
      */
     public function getPayment()
     {

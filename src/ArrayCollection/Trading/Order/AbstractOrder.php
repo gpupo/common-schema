@@ -53,7 +53,7 @@ abstract class AbstractOrder extends AbstractEntity
             //Objects
             'shippings' => 'object',
             'customer' => 'object',
-            'payments' => 'object',
+
             'feedback' => 'object',
             //Extra
             'requested_devolution' => 'boolean',

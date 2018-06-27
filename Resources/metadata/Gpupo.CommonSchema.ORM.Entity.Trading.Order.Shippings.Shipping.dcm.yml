@@ -79,6 +79,20 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping:
         - remove
       options: {  }
       mappedBy: shipping
+    payment:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+    conciliation:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Conciliation
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
   oneToMany:
     products:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product

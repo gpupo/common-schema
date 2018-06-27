@@ -149,6 +149,20 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $seller;
 
     /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment
+     *
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment", mappedBy="shipping", cascade={"persist","remove"})
+     */
+    protected $payment;
+
+    /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Conciliation
+     *
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Conciliation", mappedBy="shipping", cascade={"persist","remove"})
+     */
+    protected $conciliation;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product", mappedBy="shipping", cascade={"persist","remove"})
@@ -597,6 +611,54 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getSeller()
     {
         return $this->seller;
+    }
+
+    /**
+     * Set payment.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment $payment
+     *
+     * @return Shipping
+     */
+    public function setPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment $payment = null)
+    {
+        $this->payment = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Get payment.
+     *
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment
+     */
+    public function getPayment()
+    {
+        return $this->payment;
+    }
+
+    /**
+     * Set conciliation.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Conciliation $conciliation
+     *
+     * @return Shipping
+     */
+    public function setConciliation(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Conciliation $conciliation = null)
+    {
+        $this->conciliation = $conciliation;
+
+        return $this;
+    }
+
+    /**
+     * Get conciliation.
+     *
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Conciliation
+     */
+    public function getConciliation()
+    {
+        return $this->conciliation;
     }
 
     /**

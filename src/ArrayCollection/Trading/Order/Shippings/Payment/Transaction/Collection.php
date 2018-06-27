@@ -15,10 +15,14 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Payment\Transaction;
 
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order as MainOrder;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
 
-class Order extends MainOrder
+class Collection extends AbstractCollection
 {
+    public function factoryElement($data)
+    {
+        return new Transaction($data);
+    }
 }

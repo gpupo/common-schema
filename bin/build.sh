@@ -2,7 +2,7 @@
 rm -fv Resources/metadata/* > /dev/null;
 ./bin/common-schema;
 mkdir -p var/doctrine;
-rm -rfv var/doctrine/* > /dev/null;
+rm -rf var/doctrine/* > /dev/null;
 
 printf "\n\n\n ========= Build YAML files =========\n\n";
 
@@ -13,15 +13,16 @@ printf "\n\n\n ========= Build YAML files =========\n\n";
  --no-backup \
  --extend='Gpupo\CommonSchema\AbstractORMEntity';
 
-rsync -av var/doctrine/Gpupo/CommonSchema/ORM/ src/ORM/;
+rsync -aq var/doctrine/Gpupo/CommonSchema/ORM/Entity/ src/ORM/Entity/;
 
 printf "\n\n\n ========= Build ORM objects =========\n\n";
 
 ./vendor/bin/doctrine orm:generate-repositories var/doctrine/;
 
-rsync -av var/doctrine/Gpupo/CommonSchema/ORM/ src/ORM/;
+rsync --ignore-existing -q var/doctrine/Gpupo/CommonSchema/ORM/Repository/ src/ORM/Repository/;
 
-find src/ORM/ -type f -print0 | xargs -0 sed -i 's/private/protected/g'
+find src/ORM/Entity/ -type f -print0 | xargs -0 sed -i 's/private/protected/g'
+find src/ORM/Repository/ -type f -print0 | xargs -0 sed -i 's~Doctrine\\ORM\\EntityRepository~Gpupo\\CommonSchema\\AbstractORMRepository~g'
 
 ./vendor/bin/doctrine orm:validate-schema --skip-sync
 

@@ -53,6 +53,9 @@ class Shipping extends AbstractEntity
             'invoice' => 'object',
             'comments' => 'object',
             'feedback' => 'object',
+            'payment' => 'object',
+            'conciliation' => 'object',
+
             //extra
             'tags' => 'array',
             'expands' => 'array',

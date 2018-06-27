@@ -217,13 +217,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="order", cascade={"persist","remove"})
-     */
-    protected $payments;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item", mappedBy="order", cascade={"persist","remove"})
      */
     protected $feedbacks;
@@ -234,7 +227,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     public function __construct()
     {
         $this->shippings = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->payments = new \Doctrine\Common\Collections\ArrayCollection();
         $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -858,42 +850,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getShippings()
     {
         return $this->shippings;
-    }
-
-    /**
-     * Add payment.
-     *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
-     *
-     * @return Order
-     */
-    public function addPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
-    {
-        $this->payments[] = $payment;
-
-        return $this;
-    }
-
-    /**
-     * Remove payment.
-     *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
-     *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
-     */
-    public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
-    {
-        return $this->payments->removeElement($payment);
-    }
-
-    /**
-     * Get payments.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPayments()
-    {
-        return $this->payments;
     }
 
     /**

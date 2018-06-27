@@ -1,8 +1,8 @@
 # transaction_id metadata
-Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference:
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\AtmTransferReference:
   type: entity
-  table: cs_trading_payment_atm_transfer_reference
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Payment\AtmTransferReferenceRepository
+  table: cs_trading_order_shipping_payment_atm_transfer_reference
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shippings\Payment\AtmTransferReferenceRepository
   id:
     id:
       type: integer
@@ -18,7 +18,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\AtmTransferReference:
   uniqueConstraints: {  }
   oneToOne:
     payment:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment
       inversedBy: atm_transfer_reference
       joinColumn:
         name: payment_id

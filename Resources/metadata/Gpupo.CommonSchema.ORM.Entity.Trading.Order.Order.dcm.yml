@@ -131,13 +131,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
         - remove
       options: {  }
       mappedBy: order
-    payments:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
-      cascade:
-        - persist
-        - remove
-      options: {  }
-      mappedBy: order
     feedbacks:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
       cascade:

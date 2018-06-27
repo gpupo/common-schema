@@ -15,13 +15,13 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Payment\Transaction;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class AbstractTransaction extends AbstractEntity
+class Transaction extends AbstractEntity
 {
-    protected $primaryKey = 'transaction_number';
+    protected $tableName = 'trading_order_shipping_payment_transaction';
 
     /**
      * @codeCoverageIgnore
@@ -30,14 +30,10 @@ class AbstractTransaction extends AbstractEntity
     {
         return [
             'transaction_number' => 'integer',
+            'type' => 'string',
             'description' => 'string',
             'amount' => 'number',
             'financial_institution' => 'string',
-            //objects
-            'order' => 'object',
-            'payment' => 'object',
-            'customer' => 'object',
-            'seller' => 'object',
             //dates
             'date_created' => 'datetime',
             'date_last_modified' => 'datetime',
