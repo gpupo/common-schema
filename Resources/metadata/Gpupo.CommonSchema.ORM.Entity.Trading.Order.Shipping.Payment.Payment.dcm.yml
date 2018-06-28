@@ -169,8 +169,9 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
         name: shipping_id
         referencedColumnName: id
   uniqueConstraints:
-    payment_number_idx:
+    collector_payment_number_idx:
       columns:
+        - collector
         - payment_number
   lifecycleCallbacks:
     prePersist: {  }

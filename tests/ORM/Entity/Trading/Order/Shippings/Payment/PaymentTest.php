@@ -20,6 +20,7 @@ namespace Gpupo\CommonSchema\Tests\ORM\Entity\Trading\Order\Shipping\Payment;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Payment\Payment;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment as PaymentORM;
+use Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Payment\PaymentRepository;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 use Gpupo\CommonSdk\Traits\ResourcesTrait;
 
@@ -80,38 +81,22 @@ class PaymentTest extends AbstractTestCase
      */
     public function testPersist(PaymentORM $payment, array $expected)
     {
-        $id = (int) $expected['payment_number'];
-        $entityManager = $this->getDoctrineEntityManager();
-        $repository = $entityManager->getRepository(PaymentORM::class);
+        $em = $this->getDoctrineEntityManager();
+        $repository = $em->getRepository(PaymentORM::class);
 
-        if ($row = $repository->findOneBy(['payment_number' => $id])) {
-            $entityManager->remove($row);
-            $entityManager->flush();
+        if (!$repository->exists($payment)) {
+            $em->persist($payment);
+            $em->flush();
         }
 
-        $entityManager->persist($payment);
-        $entityManager->flush();
+        $id = (int) $expected['payment_number'];
+        $row = $repository->findByObject($payment);
 
-        $row = $repository->findOneBy(['payment_number' => $id]);
-        $this->assertInstanceOf(PaymentORM::class, $row);
+        $this->assertInstanceOf(PaymentORM::class, $row, sprintf('Loaded object #%s', $id));
         $this->assertSame($id, $row->getPaymentNumber(), 'payment_number');
-        $this->assertSame((int) $expected['collector'], $row->getCollector(), 'collector');
+        $this->assertSame((string) $expected['collector'], $row->getCollector(), 'collector');
 
         $this->assertSame((float) $expected['shipping_cost'], $row->getShippingCost(), 'shipping_cost');
         $this->assertSame((float) $expected['marketplace_fee'], $row->getMarketplaceFee(), 'marketplace_fee');
-    }
-
-    /**
-     * @dataProvider dataProviderPayment
-     */
-    public function testRemove(PaymentORM $payment, array $expected)
-    {
-        $id = (int) $expected['payment_number'];
-        $entityManager = $this->getDoctrineEntityManager();
-        $repository = $entityManager->getRepository(PaymentORM::class);
-        $row = $repository->findOneBy(['payment_number' => $id]);
-        $entityManager->remove($row);
-        $entityManager->flush();
-        $this->assertNull($repository->findOneBy(['payment_number' => $id]));
     }
 }

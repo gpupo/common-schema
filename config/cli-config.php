@@ -10,7 +10,7 @@ require 'vendor/autoload.php';
 $command = isset($argv[1]) ? explode(':', $argv[1])[1] : null;
 
 if (in_array($command, ['generate-entities', 'generate-repositories'], true)) {
-    echo "\nUsing YAML/NO Connection config\n";
+    echo " - Using YAML/NO Connection config\n";
     $isDevMode = true;
     $evm = new Doctrine\Common\EventManager();
     $config = Setup::createYAMLMetadataConfiguration([__DIR__."/../Resources/metadata/"], $isDevMode);
@@ -18,7 +18,8 @@ if (in_array($command, ['generate-entities', 'generate-repositories'], true)) {
       'driver'  => 'pdo_sqlite',
     ], $config, $evm);
 } else {
-  $entityManager = Bootstrap::factoryDoctrineEntityManager();
+    echo " - Using main config\n";
+    $entityManager = Bootstrap::factoryDoctrineEntityManager();
 }
 
 return ConsoleRunner::createHelperSet($entityManager);

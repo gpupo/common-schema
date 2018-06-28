@@ -39,9 +39,9 @@ class Conciliation extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var float
      *
-     * @ORM\Column(name="ammount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="amount", type="float", precision=10, scale=2)
      */
-    protected $ammount;
+    protected $amount;
 
     /**
      * @var string
@@ -92,27 +92,27 @@ class Conciliation extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set ammount.
+     * Set amount.
      *
-     * @param float $ammount
+     * @param float $amount
      *
      * @return Conciliation
      */
-    public function setAmmount($ammount)
+    public function setAmount($amount)
     {
-        $this->ammount = $ammount;
+        $this->amount = $amount;
 
         return $this;
     }
 
     /**
-     * Get ammount.
+     * Get amount.
      *
      * @return float
      */
-    public function getAmmount()
+    public function getAmount()
     {
-        return $this->ammount;
+        return $this->amount;
     }
 
     /**

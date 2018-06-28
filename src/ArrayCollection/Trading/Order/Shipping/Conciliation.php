@@ -30,7 +30,7 @@ class Conciliation extends AbstractEntity
     {
         return [
             'type' => 'string',
-            'ammount' => 'number',
+            'amount' => 'number',
             'description' => 'string',
             'tags' => 'array',
             'expands' => 'array',
