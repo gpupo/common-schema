@@ -32,10 +32,8 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       lenght: 50
       unique: false
       options: {  }
-    external_reference:
-      type: string
-      lenght: 50
-      unique: false
+    external_id:
+      type: bigint
       options: {  }
     fee_amount:
       type: float

@@ -20,7 +20,6 @@ namespace Gpupo\CommonSchema\Tests\ORM\Entity\Trading\Order\Shipping\Payment;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Payment\Payment;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment as PaymentORM;
-use Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Payment\PaymentRepository;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 use Gpupo\CommonSdk\Traits\ResourcesTrait;
 

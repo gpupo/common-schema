@@ -74,7 +74,7 @@ expands:
     order:
         type: mercadolibre
         id: '6485856515'
-    external_reference: '6485856515'
+    external_id: '6485856515'
     transaction_amount: 243.9
     transaction_amount_refunded: 0
     coupon_amount: 0

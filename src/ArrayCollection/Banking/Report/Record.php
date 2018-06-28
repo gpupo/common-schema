@@ -34,7 +34,7 @@ class Record extends AbstractEntity
     {
         return [
             'source_id' => 'integer',
-            'external_reference' => 'string',
+            'external_id' => 'integer',
             'record_type' => 'string',
             'date' => 'string',
             'description' => 'string',

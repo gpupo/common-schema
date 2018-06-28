@@ -15,25 +15,19 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Payment;
+namespace Gpupo\CommonSchema\ORM\Decorator\Banking\Report;
 
-use Gpupo\CommonSchema\AbstractORMRepository;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
+use Gpupo\CommonSchema\ORM\Decorator\AbstractDecorator;
 
-/**
- *  PaymentRepository..
- *
- * Here's custom repository methods, persistent after rebuild
- */
-class PaymentRepository extends AbstractORMRepository
+class Records extends AbstractDecorator
 {
-    public function exists(Payment $payment): bool
+    public function getTotalGross()
     {
-        return (null !== $this->findByObject($payment)) ? true : false;
+        return $this->getTotalOf('gross_amount');
     }
 
-    public function findByObject(Payment $payment): ?Payment
+    public function getTotalFee()
     {
-        return $this->findOneBy(['payment_number' => $payment->getPaymentNumber()]);
+        return $this->getTotalOf('fee_amount');
     }
 }

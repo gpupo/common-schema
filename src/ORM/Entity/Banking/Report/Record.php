@@ -72,11 +72,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $description;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="external_reference", type="string", unique=false)
+     * @ORM\Column(name="external_id", type="bigint")
      */
-    protected $external_reference;
+    protected $external_id;
 
     /**
      * @var float
@@ -296,27 +296,27 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set externalReference.
+     * Set externalId.
      *
-     * @param string $externalReference
+     * @param int $externalId
      *
      * @return Record
      */
-    public function setExternalReference($externalReference)
+    public function setExternalId($externalId)
     {
-        $this->external_reference = $externalReference;
+        $this->external_id = $externalId;
 
         return $this;
     }
 
     /**
-     * Get externalReference.
+     * Get externalId.
      *
-     * @return string
+     * @return int
      */
-    public function getExternalReference()
+    public function getExternalId()
     {
-        return $this->external_reference;
+        return $this->external_id;
     }
 
     /**

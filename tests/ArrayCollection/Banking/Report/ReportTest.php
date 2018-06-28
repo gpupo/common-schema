@@ -37,7 +37,7 @@ class ReportTest extends AbstractTestCase
            'records' => [[
               'date' => '2017-02-09T17:08:21.000-04:00',
               'source_id' => '3628220487',
-              'external_reference' => '1684847823',
+              'external_id' => '1684847823',
               'record_type' => 'release',
               'description' => 'mediation',
               'net_credit_amount' => '0.00',

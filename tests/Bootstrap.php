@@ -55,7 +55,6 @@ class Bootstrap
         $evm->addEventSubscriber($timestampableListener);
         $config = Setup::createAnnotationMetadataConfiguration([__DIR__.'/../src/'], true, null, null, false);
 
-
         //SQL log
         // $logger = new \Doctrine\DBAL\Logging\EchoSQLLogger();
         // $config->setSQLLogger($logger);

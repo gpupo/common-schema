@@ -15,22 +15,9 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\Repository\Banking\Report;
+namespace Gpupo\CommonSchema\ORM\Decorator;
 
-use Gpupo\CommonSchema\AbstractORMRepository;
-use Gpupo\CommonSchema\ORM\Decorator\Banking\Report\Records;
-
-/**
- * RecordRepository.
- *
- * Here's custom repository methods, persistent after rebuild
- */
-class RecordRepository extends AbstractORMRepository
+interface DecoratorInterface
 {
-    public function findByExternalId($external_id):? Records
-    {
-        $array = $this->findBy(['external_id' => $external_id]);
-
-        return empty($array) ? null : new Records($array);
-    }
+    
 }
