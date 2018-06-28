@@ -1,0 +1,51 @@
+# expands metadata
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item:
+  type: entity
+  table: cs_trading_order_invoice
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Invoice\ItemRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    accessKey:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    expands:
+      type: array
+      options: {  }
+    invoice_date:
+      type: datetime
+      nullable: true
+      options: {  }
+    invoice_link:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    invoice_number:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    ship_date:
+      type: datetime
+      nullable: true
+      options: {  }
+    tags:
+      type: array
+      options: {  }
+  uniqueConstraints: {  }
+  manyToOne:
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+      inversedBy: invoices
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

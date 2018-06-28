@@ -191,6 +191,13 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $order_status_detail;
 
     /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+     *
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", mappedBy="order", cascade={"persist","remove"})
+     */
+    protected $shipping;
+
+    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
      *
      * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer", mappedBy="order", cascade={"persist","remove"})
@@ -210,13 +217,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping", mappedBy="order", cascade={"persist","remove"})
-     */
-    protected $shippings;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item", mappedBy="order", cascade={"persist","remove"})
      */
     protected $feedbacks;
@@ -226,7 +226,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function __construct()
     {
-        $this->shippings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -769,6 +768,30 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set shipping.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping
+     *
+     * @return Order
+     */
+    public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping = null)
+    {
+        $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    /**
+     * Get shipping.
+     *
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
+    }
+
+    /**
      * Set customer.
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer $customer
@@ -814,42 +837,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getTrading()
     {
         return $this->trading;
-    }
-
-    /**
-     * Add shipping.
-     *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
-     *
-     * @return Order
-     */
-    public function addShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
-    {
-        $this->shippings[] = $shipping;
-
-        return $this;
-    }
-
-    /**
-     * Remove shipping.
-     *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
-     *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
-     */
-    public function removeShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
-    {
-        return $this->shippings->removeElement($shipping);
-    }
-
-    /**
-     * Get shippings.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getShippings()
-    {
-        return $this->shippings;
     }
 
     /**

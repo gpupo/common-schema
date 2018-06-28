@@ -15,13 +15,13 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-abstract class AbstractOrder extends AbstractEntity
+class Shipping extends AbstractEntity
 {
-    protected $primaryKey = 'order_number';
+    protected $tableName = 'trading_order_shipping';
 
     /**
      * @codeCoverageIgnore
@@ -29,19 +29,13 @@ abstract class AbstractOrder extends AbstractEntity
     public function getSchema()
     {
         return [
-            'order_number' => 'string',
-            'order_status' => 'string',
-            'order_status_detail' => 'object',
-            'order_type' => 'string',
-            //dates
+            'shipping_number' => 'integer',
+            'fulfilled' => 'boolean',
+            'hidden_for_seller' => 'boolean',
+            //date
             'date_created' => 'datetime',
-            'date_closed' => 'datetime',
-            'date_agreed' => 'datetime',
+            'date_last_expiration' => 'datetime',
             'date_last_modified' => 'datetime',
-            //B2C info
-            'origin_business_unit' => 'string',
-            'origin_number' => 'string',
-            'origin_site' => 'string',
             //Totals
             'currency_id' => 'string',
             'total_commission' => 'number',
@@ -50,13 +44,17 @@ abstract class AbstractOrder extends AbstractEntity
             'total_gross' => 'number',
             'total_net' => 'number',
             'total_quantity' => 'number',
-            //Objects
-            'shipping' => 'object',
-            'customer' => 'object',
+            //object
+            'seller' => 'object',
+            'products' => 'object',
+            'transport' => 'object',
+            'invoice' => 'object',
+            'comments' => 'object',
             'feedback' => 'object',
-            //Extra
-            'requested_devolution' => 'boolean',
-            'requested_exchange' => 'boolean',
+            'payment' => 'object',
+            'conciliation' => 'object',
+
+            //extra
             'tags' => 'array',
             'expands' => 'array',
         ];

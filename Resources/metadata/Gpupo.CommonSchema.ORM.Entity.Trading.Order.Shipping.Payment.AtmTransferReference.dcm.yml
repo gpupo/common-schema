@@ -1,0 +1,28 @@
+# transaction_id metadata
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReference:
+  type: entity
+  table: cs_trading_order_shipping_payment_atm_transfer_reference
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Payment\AtmTransferReferenceRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    company_id:
+      type: bigint
+      options: {  }
+    transaction_id:
+      type: bigint
+      options: {  }
+  uniqueConstraints: {  }
+  oneToOne:
+    payment:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment
+      inversedBy: atm_transfer_reference
+      joinColumn:
+        name: payment_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

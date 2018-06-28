@@ -110,6 +110,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
         - remove
       options: {  }
       mappedBy: order
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: order
     customer:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
       cascade:
@@ -124,13 +131,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
         name: trading_id
         referencedColumnName: id
   oneToMany:
-    shippings:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
-      cascade:
-        - persist
-        - remove
-      options: {  }
-      mappedBy: order
     feedbacks:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
       cascade:

@@ -1,0 +1,56 @@
+# expands metadata
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item:
+  type: entity
+  table: cs_trading_order_shipping_transport
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Transport\ItemRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    carrier:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    date_ship:
+      type: datetime
+      nullable: true
+      options: {  }
+    date_tracking_ship:
+      type: datetime
+      nullable: true
+      options: {  }
+    delivery_service:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    expands:
+      type: array
+      options: {  }
+    tags:
+      type: array
+      options: {  }
+    tracking_link:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    tracking_number:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+  uniqueConstraints: {  }
+  manyToOne:
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+      inversedBy: transports
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

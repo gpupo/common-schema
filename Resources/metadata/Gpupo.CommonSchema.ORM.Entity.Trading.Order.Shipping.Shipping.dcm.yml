@@ -1,0 +1,141 @@
+# expands metadata
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
+  type: entity
+  table: cs_trading_order_shipping
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\ShippingRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    currency_id:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    date_created:
+      type: datetime
+      nullable: true
+      options: {  }
+    date_last_expiration:
+      type: datetime
+      nullable: true
+      options: {  }
+    date_last_modified:
+      type: datetime
+      nullable: true
+      options: {  }
+    expands:
+      type: array
+      options: {  }
+    fulfilled:
+      type: boolean
+      options: {  }
+    hidden_for_seller:
+      type: boolean
+      options: {  }
+    shipping_number:
+      type: bigint
+      options: {  }
+    tags:
+      type: array
+      options: {  }
+    total_commission:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_discount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_freight:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_gross:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_net:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    total_quantity:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+  oneToOne:
+    seller:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Seller
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+    payment:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+    conciliation:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+    order:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+      inversedBy: shipping
+      joinColumn:
+        name: order_id
+        referencedColumnName: id
+  oneToMany:
+    products:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Products\Product
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+    transports:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+    invoices:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+    comments:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comments\Item
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+    feedbacks:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Item
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+  uniqueConstraints: {  }
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

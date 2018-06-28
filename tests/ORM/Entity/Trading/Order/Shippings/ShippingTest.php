@@ -15,21 +15,21 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Tests\ORM\Entity\Trading\Order\Shippings;
+namespace Gpupo\CommonSchema\Tests\ORM\Entity\Trading\Order\Shipping;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item as Comment;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item as Feedback;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item as Invoice;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Seller;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item as Transport;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comments\Item as Comment;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Item as Feedback;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item as Invoice;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Products\Product;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Seller;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item as Transport;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
 /**
- * @coversDefaultClass \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+ * @coversDefaultClass \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
  */
 class ShippingTest extends AbstractTestCase
 {

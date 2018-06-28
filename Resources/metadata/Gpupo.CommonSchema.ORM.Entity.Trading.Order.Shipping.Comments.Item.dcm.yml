@@ -1,0 +1,35 @@
+# value metadata
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comments\Item:
+  type: entity
+  table: cs_trading_order_shipping_comment
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Comments\ItemRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    expands:
+      type: array
+      options: {  }
+    key:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    value:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+  uniqueConstraints: {  }
+  manyToOne:
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+      inversedBy: comments
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

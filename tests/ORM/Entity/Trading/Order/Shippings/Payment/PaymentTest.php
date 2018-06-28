@@ -15,23 +15,23 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Tests\ORM\Entity\Trading\Order\Shippings\Payment;
+namespace Gpupo\CommonSchema\Tests\ORM\Entity\Trading\Order\Shipping\Payment;
 
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Payment\Payment;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Payment\Payment;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment as PaymentORM;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment as PaymentORM;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 use Gpupo\CommonSdk\Traits\ResourcesTrait;
 
 /**
- * @coversDefaultClass \Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Payment\Payment
+ * @coversDefaultClass \Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Payment\Payment
  */
 class PaymentTest extends AbstractTestCase
 {
     use ResourcesTrait;
 
     /**
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Payment\Payment
+     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment
      */
     public function dataProviderPayment()
     {
@@ -95,7 +95,7 @@ class PaymentTest extends AbstractTestCase
         $row = $repository->findOneBy(['payment_number' => $id]);
         $this->assertInstanceOf(PaymentORM::class, $row);
         $this->assertSame($id, $row->getPaymentNumber(), 'payment_number');
-        $this->assertSame((int) $expected['collector'] , $row->getCollector(), 'collector');
+        $this->assertSame((int) $expected['collector'], $row->getCollector(), 'collector');
 
         $this->assertSame((float) $expected['shipping_cost'], $row->getShippingCost(), 'shipping_cost');
         $this->assertSame((float) $expected['marketplace_fee'], $row->getMarketplaceFee(), 'marketplace_fee');

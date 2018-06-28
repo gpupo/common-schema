@@ -1,0 +1,43 @@
+# expands metadata
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation:
+  type: entity
+  table: cs_trading_order_shipping_conciliation
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\ConciliationRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    ammount:
+      type: float
+      precision: 10
+      scale: 2
+      options: {  }
+    description:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    expands:
+      type: array
+      options: {  }
+    tags:
+      type: array
+      options: {  }
+    type:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+  uniqueConstraints: {  }
+  oneToOne:
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+      inversedBy: conciliation
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

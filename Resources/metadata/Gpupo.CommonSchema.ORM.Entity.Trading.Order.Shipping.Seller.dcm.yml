@@ -1,0 +1,66 @@
+# expands metadata
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Seller:
+  type: entity
+  table: cs_trading_order_shipping_seller
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\SellerRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    email:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    expands:
+      type: array
+      options: {  }
+    first_name:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    internal_id:
+      type: bigint
+      options: {  }
+    last_name:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    nickname:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+  oneToOne:
+    phone:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Organization\Phone
+      cascade:
+        - persist
+        - remove
+      options: {  }
+    alternative_phone:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone
+      cascade:
+        - persist
+        - remove
+      options: {  }
+    document:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Organization\Document
+      cascade:
+        - persist
+        - remove
+      options: {  }
+    shipping:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+      inversedBy: seller
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
+  uniqueConstraints: {  }
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }
