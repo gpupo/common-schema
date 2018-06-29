@@ -37,7 +37,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
-    
+
     /**
      * @var DateTime (Record creation timestamp)
      * @Gedmo\Timestampable(on="create")

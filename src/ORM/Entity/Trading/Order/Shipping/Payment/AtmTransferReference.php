@@ -28,15 +28,6 @@ use Doctrine\ORM\Mapping as ORM;
 class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    protected $id;
-
-    /**
      * @var null|int
      *
      * @ORM\Column(name="company_id", type="bigint", nullable=true)

@@ -36,7 +36,6 @@ class AccessToken extends AbstractEntity
             'token_type' => 'string',
             'expires_in' => 'integer',
             'scope' => 'string',
-            'created_at' => 'datetime',
         ];
     }
 }

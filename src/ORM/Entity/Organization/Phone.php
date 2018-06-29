@@ -28,15 +28,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    protected $id;
-
-    /**
      * @var null|int
      *
      * @ORM\Column(name="area_code", type="bigint", nullable=true)

@@ -28,27 +28,11 @@ use Doctrine\ORM\Mapping as ORM;
 class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    protected $id;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="access_token", type="string", unique=false)
      */
     protected $access_token;
-
-    /**
-     * @var null|\DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime", nullable=true)
-     */
-    protected $created_at;
 
     /**
      * @var null|int

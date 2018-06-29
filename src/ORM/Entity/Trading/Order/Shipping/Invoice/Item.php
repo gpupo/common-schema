@@ -28,15 +28,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Item extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    protected $id;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="accessKey", type="string", unique=false)

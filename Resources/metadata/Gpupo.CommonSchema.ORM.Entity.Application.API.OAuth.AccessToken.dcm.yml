@@ -1,4 +1,4 @@
-# created_at metadata
+# scope metadata
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken:
   type: entity
   table: cs_application_API_OAuth_access_token
@@ -13,10 +13,6 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken:
       type: string
       lenght: 50
       unique: false
-      options: {  }
-    created_at:
-      type: datetime
-      nullable: true
       options: {  }
     expires_in:
       type: bigint

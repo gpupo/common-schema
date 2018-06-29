@@ -28,15 +28,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Document extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    protected $id;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="doc_number", type="string", unique=false)
