@@ -76,6 +76,18 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
       scale: 2
       nullable: true
       options: {  }
+    total_payments_amount:
+      type: float
+      precision: 10
+      scale: 2
+      nullable: true
+      options: {  }
+    total_payments_net_amount:
+      type: float
+      precision: 10
+      scale: 2
+      nullable: true
+      options: {  }
     total_quantity:
       type: float
       precision: 10

@@ -128,6 +128,20 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var null|float
      *
+     * @ORM\Column(name="total_payments_amount", type="float", precision=10, scale=2, nullable=true)
+     */
+    protected $total_payments_amount;
+
+    /**
+     * @var null|float
+     *
+     * @ORM\Column(name="total_payments_net_amount", type="float", precision=10, scale=2, nullable=true)
+     */
+    protected $total_payments_net_amount;
+
+    /**
+     * @var null|float
+     *
      * @ORM\Column(name="total_quantity", type="float", precision=10, scale=2, nullable=true)
      */
     protected $total_quantity;
@@ -556,6 +570,54 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getTotalNet()
     {
         return $this->total_net;
+    }
+
+    /**
+     * Set totalPaymentsAmount.
+     *
+     * @param null|float $totalPaymentsAmount
+     *
+     * @return Shipping
+     */
+    public function setTotalPaymentsAmount($totalPaymentsAmount = null)
+    {
+        $this->total_payments_amount = $totalPaymentsAmount;
+
+        return $this;
+    }
+
+    /**
+     * Get totalPaymentsAmount.
+     *
+     * @return null|float
+     */
+    public function getTotalPaymentsAmount()
+    {
+        return $this->total_payments_amount;
+    }
+
+    /**
+     * Set totalPaymentsNetAmount.
+     *
+     * @param null|float $totalPaymentsNetAmount
+     *
+     * @return Shipping
+     */
+    public function setTotalPaymentsNetAmount($totalPaymentsNetAmount = null)
+    {
+        $this->total_payments_net_amount = $totalPaymentsNetAmount;
+
+        return $this;
+    }
+
+    /**
+     * Get totalPaymentsNetAmount.
+     *
+     * @return null|float
+     */
+    public function getTotalPaymentsNetAmount()
+    {
+        return $this->total_payments_net_amount;
     }
 
     /**
