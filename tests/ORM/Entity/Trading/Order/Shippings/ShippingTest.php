@@ -49,11 +49,14 @@ class ShippingTest extends AbstractTestCase
             $em->flush();
         }
 
-        $row = $repository->findOneByObject($payment);
+        $row = $repository->findOneByObject($shipping);
+        $this->assertSame($id, $row->getShippingNumber());
         $this->assertInstanceOf(PersistentCollection::class, $row->getPayments());
+        $this->assertSame(1, $row->getPayments()->count(), 'Payments count');
         $decorator = $row->getDecorator('payments');
         $this->assertInstanceOf(CollectionDecoratorInterface::class, $decorator);
-
-        $this->assertSame(243.9, $decorator->getTotalOf('total_paid'), 'total_paid');
+        $this->assertSame(243.9, $decorator->getTotalOf('transaction_amount'), 'transaction_amount');
+        $this->assertSame(243.9, $decorator->getTotalAmount(), 'transaction_amount');
+        $this->assertSame(204.88, $decorator->getTotalNetAmount(), 'transaction_net_amount');
     }
 }

@@ -21,8 +21,13 @@ use Gpupo\CommonSchema\ORM\Decorator\AbstractCollectionDecorator;
 
 class Payments extends AbstractCollectionDecorator
 {
-    public function getTotalGross()
+    public function getTotalAmount()
     {
-        return $this->getTotalOf('gross_amount');
+        return $this->getTotalOf('transaction_amount');
+    }
+
+    public function getTotalNetAmount()
+    {
+        return $this->getTotalOf('transaction_net_amount');
     }
 }

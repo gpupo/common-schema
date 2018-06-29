@@ -17,26 +17,12 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Decorator;
 
-use Doctrine\ORM\PersistentCollection;
-
 trait CollectionContainerTrait
 {
     public function getDecorator($key)
     {
         $getter = sprintf('get%s', ucfirst($key));
-        $value = $this->{$getter}();
-        $decoratorClassName = sprintf('\%s\%s', str_replace('Entity', 'Decorator', substr(get_called_class(), 0, strrpos(get_called_class(), '\\'))), ucfirst($key));
 
-        if (!class_exists($decoratorClassName)) {
-            throw new \InvalidArgumentException(sprintf('Decorator [%s] not found', $decoratorClassName));
-        }
-
-        $decorator = new $decoratorClassName();
-
-        if ($value instanceof PersistentCollection) {
-            $decorator->setPersistentCollection($value);
-        }
-
-        return $decorator;
+        return FactoryDecorator::createCollectionDecorator(get_called_class(), $this->{$getter}(), $key);
     }
 }

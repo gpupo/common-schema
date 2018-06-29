@@ -140,7 +140,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
         - remove
       options: {  }
       mappedBy: shipping
-  uniqueConstraints: {  }
+  uniqueConstraints:
+    shipping_number_idx:
+      columns:
+        - shipping_number
   manyToOne:
     order:
       cascade:

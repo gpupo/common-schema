@@ -23,6 +23,10 @@ class Shipping extends AbstractEntity
 {
     protected $tableName = 'trading_order_shipping';
 
+    protected $uniqueConstraints = [
+      ['shipping_number'],
+    ];
+
     /**
      * @codeCoverageIgnore
      */

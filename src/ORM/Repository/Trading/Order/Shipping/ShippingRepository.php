@@ -17,6 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping;
 
+use Gpupo\CommonSchema\ORMEntityInterface;
+
 /**
  * ShippingRepository.
  *
@@ -25,4 +27,8 @@ namespace Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping;
  */
 class ShippingRepository extends \Gpupo\CommonSchema\AbstractORMRepository
 {
+    protected function defaultFindByParameters(ORMEntityInterface $entity): array
+    {
+        return ['shipping_number' => $entity->getShippingNumber()];
+    }
 }

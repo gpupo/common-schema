@@ -24,7 +24,7 @@ abstract class AbstractDecorator implements DecoratorInterface
     public function getElementsValuesByKey($key)
     {
         if (1 > $this->count()) {
-            throw new \Exception('Required at least one element!');
+            throw new DecoratorException('Required at least one element!');
         }
 
         $getter = sprintf('get%s', StringTool::snakeCaseToCamelCase($key, true));
@@ -35,7 +35,6 @@ abstract class AbstractDecorator implements DecoratorInterface
     protected function sliceValuesBy($getter)
     {
         $list = [];
-
         foreach ($this->toArray() as $record) {
             $list[] = $record->{$getter}();
         }

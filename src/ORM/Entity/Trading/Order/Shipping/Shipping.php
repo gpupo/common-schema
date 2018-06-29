@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Shipping.
  *
- * @ORM\Table(name="cs_trading_order_shipping")
+ * @ORM\Table(name="cs_trading_order_shipping", uniqueConstraints={@ORM\UniqueConstraint(name="shipping_number_idx", columns={"shipping_number"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\ShippingRepository")
  */
 class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity

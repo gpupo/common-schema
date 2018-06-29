@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Decorator;
 
-use Doctrine\ORM\PersistentCollection;
 use  Gpupo\Common\Tools\Absorbed\AbsorbedAware;
 
 abstract class AbstractCollectionDecorator extends AbstractDecorator implements CollectionDecoratorInterface
@@ -42,10 +41,13 @@ abstract class AbstractCollectionDecorator extends AbstractDecorator implements 
         return $value;
     }
 
-    public function setPersistentCollection(PersistentCollection $persistentCollection)
+    protected function accessObjectGetter($object, $getter)
     {
-        dump($persistentCollection->count());
-        $this->absorb($persistentCollection);
+        if (!method_exists($object, $getter)) {
+            throw new DecoratorException(sprintf('Method [%s] not found in [%s]', $getter, get_class($object)));
+        }
+
+        return $object->{$getter}();
     }
 
     protected function sliceValuesBy($getter)
@@ -53,7 +55,7 @@ abstract class AbstractCollectionDecorator extends AbstractDecorator implements 
         $list = [];
 
         foreach ($this->accessAbsorbed() as $record) {
-            $list[] = $record->{$getter}();
+            $list[] = $this->accessObjectGetter($record, $getter);
         }
 
         return $list;
