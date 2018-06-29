@@ -1,8 +1,8 @@
 # expands metadata
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation:
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item:
   type: entity
   table: cs_trading_order_shipping_conciliation
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\ConciliationRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Conciliation\ItemRepository
   id:
     id:
       type: integer
@@ -13,6 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     description:
       type: string
@@ -21,9 +22,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation:
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
     tags:
       type: array
+      nullable: true
       options: {  }
     type:
       type: string
@@ -31,10 +34,12 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation:
       unique: false
       options: {  }
   uniqueConstraints: {  }
-  oneToOne:
+  manyToOne:
     shipping:
+      cascade:
+        - persist
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
-      inversedBy: conciliation
+      inversedBy: conciliations
       joinColumn:
         name: shipping_id
         referencedColumnName: id

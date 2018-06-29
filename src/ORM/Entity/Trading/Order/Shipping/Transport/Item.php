@@ -65,16 +65,16 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $delivery_service;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="tags", type="array")
+     * @ORM\Column(name="tags", type="array", nullable=true)
      */
     protected $tags;
 
@@ -95,7 +95,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
      *
-     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="transports")
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="transports", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
      * })
@@ -211,11 +211,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return Item
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -225,7 +225,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -235,11 +235,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set tags.
      *
-     * @param array $tags
+     * @param null|array $tags
      *
      * @return Item
      */
-    public function setTags($tags)
+    public function setTags($tags = null)
     {
         $this->tags = $tags;
 
@@ -249,7 +249,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get tags.
      *
-     * @return array
+     * @return null|array
      */
     public function getTags()
     {

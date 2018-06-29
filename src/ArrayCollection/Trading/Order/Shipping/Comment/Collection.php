@@ -15,25 +15,16 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Comment;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
 
-class Conciliation extends AbstractEntity
+class Collection extends AbstractCollection
 {
-    protected $tableName = 'trading_order_shipping_conciliation';
+    protected $type = 'oneToMany';
 
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
+    public function factoryElement($data)
     {
-        return [
-            'type' => 'string',
-            'amount' => 'number',
-            'description' => 'string',
-            'tags' => 'array',
-            'expands' => 'array',
-        ];
+        return new Item($data);
     }
 }

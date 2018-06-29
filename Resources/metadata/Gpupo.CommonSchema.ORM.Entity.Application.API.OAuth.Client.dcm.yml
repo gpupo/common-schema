@@ -1,0 +1,58 @@
+# access_token metadata
+Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client:
+  type: entity
+  table: cs_application_API_OAuth_client
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\ClientRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    client_id:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    client_secret:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    description:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    external_id:
+      type: bigint
+      nullable: true
+      options: {  }
+    name:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+  oneToOne:
+    provider:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: client
+    access_token:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: client
+  uniqueConstraints:
+    provider_client_id_idx:
+      columns:
+        - provider
+        - client_id
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

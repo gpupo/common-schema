@@ -1,0 +1,58 @@
+# created_at metadata
+Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken:
+  type: entity
+  table: cs_application_API_OAuth_access_token
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\AccessTokenRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    access_token:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    expires_in:
+      type: bigint
+      nullable: true
+      options: {  }
+    live_mode:
+      type: boolean
+      nullable: true
+      options: {  }
+    refresh_token:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    scope:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    token_type:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    user_id:
+      type: bigint
+      nullable: true
+      options: {  }
+  uniqueConstraints: {  }
+  oneToOne:
+    client:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client
+      inversedBy: access_token
+      joinColumn:
+        name: client_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

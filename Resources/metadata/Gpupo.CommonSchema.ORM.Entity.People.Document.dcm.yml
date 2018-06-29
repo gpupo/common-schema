@@ -21,6 +21,7 @@ Gpupo\CommonSchema\ORM\Entity\People\Document:
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
   uniqueConstraints: {  }
   lifecycleCallbacks:

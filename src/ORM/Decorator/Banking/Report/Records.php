@@ -17,9 +17,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Decorator\Banking\Report;
 
-use Gpupo\CommonSchema\ORM\Decorator\AbstractDecorator;
+use Gpupo\CommonSchema\ORM\Decorator\AbstractCollectionDecorator;
 
-class Records extends AbstractDecorator
+class Records extends AbstractCollectionDecorator
 {
     public function getTotalGross()
     {

@@ -15,16 +15,22 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Comments;
+namespace Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class Collection extends AbstractCollection
+class Provider extends AbstractEntity
 {
-    protected $type = 'oneToMany';
+    protected $tableName = 'application_API_OAuth_provider';
 
-    public function factoryElement($data)
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getSchema()
     {
-        return new Item($data);
+        return [
+            'name' => 'string',
+            'version' => 'string',
+        ];
     }
 }

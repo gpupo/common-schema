@@ -32,6 +32,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
     order_number:
       type: string
@@ -65,53 +66,55 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       options: {  }
     requested_devolution:
       type: boolean
+      nullable: true
       options: {  }
     requested_exchange:
       type: boolean
+      nullable: true
       options: {  }
     tags:
       type: array
+      nullable: true
       options: {  }
     total_commission:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_discount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_freight:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_gross:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_net:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_quantity:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
   oneToOne:
     order_status_detail:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail
-      cascade:
-        - persist
-        - remove
-      options: {  }
-      mappedBy: order
-    shipping:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
       cascade:
         - persist
         - remove
@@ -131,6 +134,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
         name: trading_id
         referencedColumnName: id
   oneToMany:
+    shippings:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: order
     feedbacks:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
       cascade:

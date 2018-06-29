@@ -21,6 +21,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
     neighborhood:
       type: string

@@ -37,9 +37,9 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="coupon_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="coupon_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $coupon_amount;
 
@@ -72,51 +72,51 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $description;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="external_id", type="bigint")
+     * @ORM\Column(name="external_id", type="bigint", nullable=true)
      */
     protected $external_id;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="fee_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="fee_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $fee_amount;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="financing_fee_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="financing_fee_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $financing_fee_amount;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="gross_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="gross_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $gross_amount;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="installments", type="bigint")
+     * @ORM\Column(name="installments", type="bigint", nullable=true)
      */
     protected $installments;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="net_credit_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="net_credit_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $net_credit_amount;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="net_debit_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="net_debit_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $net_debit_amount;
 
@@ -135,30 +135,30 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $record_type;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="shipping_fee_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="shipping_fee_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $shipping_fee_amount;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="source_id", type="bigint")
+     * @ORM\Column(name="source_id", type="bigint", nullable=true)
      */
     protected $source_id;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="taxes_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="taxes_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $taxes_amount;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report
      *
-     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report", inversedBy="records")
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report", inversedBy="records", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="report_id", referencedColumnName="id")
      * })
@@ -178,11 +178,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set couponAmount.
      *
-     * @param float $couponAmount
+     * @param null|float $couponAmount
      *
      * @return Record
      */
-    public function setCouponAmount($couponAmount)
+    public function setCouponAmount($couponAmount = null)
     {
         $this->coupon_amount = $couponAmount;
 
@@ -192,7 +192,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get couponAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getCouponAmount()
     {
@@ -298,11 +298,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set externalId.
      *
-     * @param int $externalId
+     * @param null|int $externalId
      *
      * @return Record
      */
-    public function setExternalId($externalId)
+    public function setExternalId($externalId = null)
     {
         $this->external_id = $externalId;
 
@@ -312,7 +312,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get externalId.
      *
-     * @return int
+     * @return null|int
      */
     public function getExternalId()
     {
@@ -322,11 +322,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set feeAmount.
      *
-     * @param float $feeAmount
+     * @param null|float $feeAmount
      *
      * @return Record
      */
-    public function setFeeAmount($feeAmount)
+    public function setFeeAmount($feeAmount = null)
     {
         $this->fee_amount = $feeAmount;
 
@@ -336,7 +336,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get feeAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getFeeAmount()
     {
@@ -346,11 +346,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set financingFeeAmount.
      *
-     * @param float $financingFeeAmount
+     * @param null|float $financingFeeAmount
      *
      * @return Record
      */
-    public function setFinancingFeeAmount($financingFeeAmount)
+    public function setFinancingFeeAmount($financingFeeAmount = null)
     {
         $this->financing_fee_amount = $financingFeeAmount;
 
@@ -360,7 +360,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get financingFeeAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getFinancingFeeAmount()
     {
@@ -370,11 +370,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set grossAmount.
      *
-     * @param float $grossAmount
+     * @param null|float $grossAmount
      *
      * @return Record
      */
-    public function setGrossAmount($grossAmount)
+    public function setGrossAmount($grossAmount = null)
     {
         $this->gross_amount = $grossAmount;
 
@@ -384,7 +384,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get grossAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getGrossAmount()
     {
@@ -394,11 +394,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set installments.
      *
-     * @param int $installments
+     * @param null|int $installments
      *
      * @return Record
      */
-    public function setInstallments($installments)
+    public function setInstallments($installments = null)
     {
         $this->installments = $installments;
 
@@ -408,7 +408,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get installments.
      *
-     * @return int
+     * @return null|int
      */
     public function getInstallments()
     {
@@ -418,11 +418,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set netCreditAmount.
      *
-     * @param float $netCreditAmount
+     * @param null|float $netCreditAmount
      *
      * @return Record
      */
-    public function setNetCreditAmount($netCreditAmount)
+    public function setNetCreditAmount($netCreditAmount = null)
     {
         $this->net_credit_amount = $netCreditAmount;
 
@@ -432,7 +432,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get netCreditAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getNetCreditAmount()
     {
@@ -442,11 +442,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set netDebitAmount.
      *
-     * @param float $netDebitAmount
+     * @param null|float $netDebitAmount
      *
      * @return Record
      */
-    public function setNetDebitAmount($netDebitAmount)
+    public function setNetDebitAmount($netDebitAmount = null)
     {
         $this->net_debit_amount = $netDebitAmount;
 
@@ -456,7 +456,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get netDebitAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getNetDebitAmount()
     {
@@ -514,11 +514,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set shippingFeeAmount.
      *
-     * @param float $shippingFeeAmount
+     * @param null|float $shippingFeeAmount
      *
      * @return Record
      */
-    public function setShippingFeeAmount($shippingFeeAmount)
+    public function setShippingFeeAmount($shippingFeeAmount = null)
     {
         $this->shipping_fee_amount = $shippingFeeAmount;
 
@@ -528,7 +528,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shippingFeeAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getShippingFeeAmount()
     {
@@ -538,11 +538,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set sourceId.
      *
-     * @param int $sourceId
+     * @param null|int $sourceId
      *
      * @return Record
      */
-    public function setSourceId($sourceId)
+    public function setSourceId($sourceId = null)
     {
         $this->source_id = $sourceId;
 
@@ -552,7 +552,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get sourceId.
      *
-     * @return int
+     * @return null|int
      */
     public function getSourceId()
     {
@@ -562,11 +562,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set taxesAmount.
      *
-     * @param float $taxesAmount
+     * @param null|float $taxesAmount
      *
      * @return Record
      */
-    public function setTaxesAmount($taxesAmount)
+    public function setTaxesAmount($taxesAmount = null)
     {
         $this->taxes_amount = $taxesAmount;
 
@@ -576,7 +576,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get taxesAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getTaxesAmount()
     {

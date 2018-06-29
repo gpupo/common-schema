@@ -72,9 +72,9 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $date_last_modified;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
@@ -121,65 +121,65 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $origin_site;
 
     /**
-     * @var bool
+     * @var null|bool
      *
-     * @ORM\Column(name="requested_devolution", type="boolean")
+     * @ORM\Column(name="requested_devolution", type="boolean", nullable=true)
      */
     protected $requested_devolution;
 
     /**
-     * @var bool
+     * @var null|bool
      *
-     * @ORM\Column(name="requested_exchange", type="boolean")
+     * @ORM\Column(name="requested_exchange", type="boolean", nullable=true)
      */
     protected $requested_exchange;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="tags", type="array")
+     * @ORM\Column(name="tags", type="array", nullable=true)
      */
     protected $tags;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="total_commission", type="float", precision=10, scale=2)
+     * @ORM\Column(name="total_commission", type="float", precision=10, scale=2, nullable=true)
      */
     protected $total_commission;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="total_discount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="total_discount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $total_discount;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="total_freight", type="float", precision=10, scale=2)
+     * @ORM\Column(name="total_freight", type="float", precision=10, scale=2, nullable=true)
      */
     protected $total_freight;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="total_gross", type="float", precision=10, scale=2)
+     * @ORM\Column(name="total_gross", type="float", precision=10, scale=2, nullable=true)
      */
     protected $total_gross;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="total_net", type="float", precision=10, scale=2)
+     * @ORM\Column(name="total_net", type="float", precision=10, scale=2, nullable=true)
      */
     protected $total_net;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="total_quantity", type="float", precision=10, scale=2)
+     * @ORM\Column(name="total_quantity", type="float", precision=10, scale=2, nullable=true)
      */
     protected $total_quantity;
 
@@ -189,13 +189,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail", mappedBy="order", cascade={"persist","remove"})
      */
     protected $order_status_detail;
-
-    /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
-     *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", mappedBy="order", cascade={"persist","remove"})
-     */
-    protected $shipping;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer
@@ -217,6 +210,13 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", mappedBy="order", cascade={"persist","remove"})
+     */
+    protected $shippings;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item", mappedBy="order", cascade={"persist","remove"})
      */
     protected $feedbacks;
@@ -226,6 +226,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function __construct()
     {
+        $this->shippings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -362,11 +363,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return Order
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -376,7 +377,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -530,11 +531,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set requestedDevolution.
      *
-     * @param bool $requestedDevolution
+     * @param null|bool $requestedDevolution
      *
      * @return Order
      */
-    public function setRequestedDevolution($requestedDevolution)
+    public function setRequestedDevolution($requestedDevolution = null)
     {
         $this->requested_devolution = $requestedDevolution;
 
@@ -544,7 +545,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get requestedDevolution.
      *
-     * @return bool
+     * @return null|bool
      */
     public function getRequestedDevolution()
     {
@@ -554,11 +555,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set requestedExchange.
      *
-     * @param bool $requestedExchange
+     * @param null|bool $requestedExchange
      *
      * @return Order
      */
-    public function setRequestedExchange($requestedExchange)
+    public function setRequestedExchange($requestedExchange = null)
     {
         $this->requested_exchange = $requestedExchange;
 
@@ -568,7 +569,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get requestedExchange.
      *
-     * @return bool
+     * @return null|bool
      */
     public function getRequestedExchange()
     {
@@ -578,11 +579,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set tags.
      *
-     * @param array $tags
+     * @param null|array $tags
      *
      * @return Order
      */
-    public function setTags($tags)
+    public function setTags($tags = null)
     {
         $this->tags = $tags;
 
@@ -592,7 +593,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get tags.
      *
-     * @return array
+     * @return null|array
      */
     public function getTags()
     {
@@ -602,11 +603,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set totalCommission.
      *
-     * @param float $totalCommission
+     * @param null|float $totalCommission
      *
      * @return Order
      */
-    public function setTotalCommission($totalCommission)
+    public function setTotalCommission($totalCommission = null)
     {
         $this->total_commission = $totalCommission;
 
@@ -616,7 +617,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get totalCommission.
      *
-     * @return float
+     * @return null|float
      */
     public function getTotalCommission()
     {
@@ -626,11 +627,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set totalDiscount.
      *
-     * @param float $totalDiscount
+     * @param null|float $totalDiscount
      *
      * @return Order
      */
-    public function setTotalDiscount($totalDiscount)
+    public function setTotalDiscount($totalDiscount = null)
     {
         $this->total_discount = $totalDiscount;
 
@@ -640,7 +641,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get totalDiscount.
      *
-     * @return float
+     * @return null|float
      */
     public function getTotalDiscount()
     {
@@ -650,11 +651,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set totalFreight.
      *
-     * @param float $totalFreight
+     * @param null|float $totalFreight
      *
      * @return Order
      */
-    public function setTotalFreight($totalFreight)
+    public function setTotalFreight($totalFreight = null)
     {
         $this->total_freight = $totalFreight;
 
@@ -664,7 +665,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get totalFreight.
      *
-     * @return float
+     * @return null|float
      */
     public function getTotalFreight()
     {
@@ -674,11 +675,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set totalGross.
      *
-     * @param float $totalGross
+     * @param null|float $totalGross
      *
      * @return Order
      */
-    public function setTotalGross($totalGross)
+    public function setTotalGross($totalGross = null)
     {
         $this->total_gross = $totalGross;
 
@@ -688,7 +689,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get totalGross.
      *
-     * @return float
+     * @return null|float
      */
     public function getTotalGross()
     {
@@ -698,11 +699,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set totalNet.
      *
-     * @param float $totalNet
+     * @param null|float $totalNet
      *
      * @return Order
      */
-    public function setTotalNet($totalNet)
+    public function setTotalNet($totalNet = null)
     {
         $this->total_net = $totalNet;
 
@@ -712,7 +713,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get totalNet.
      *
-     * @return float
+     * @return null|float
      */
     public function getTotalNet()
     {
@@ -722,11 +723,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set totalQuantity.
      *
-     * @param float $totalQuantity
+     * @param null|float $totalQuantity
      *
      * @return Order
      */
-    public function setTotalQuantity($totalQuantity)
+    public function setTotalQuantity($totalQuantity = null)
     {
         $this->total_quantity = $totalQuantity;
 
@@ -736,7 +737,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get totalQuantity.
      *
-     * @return float
+     * @return null|float
      */
     public function getTotalQuantity()
     {
@@ -765,30 +766,6 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getOrderStatusDetail()
     {
         return $this->order_status_detail;
-    }
-
-    /**
-     * Set shipping.
-     *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping
-     *
-     * @return Order
-     */
-    public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping = null)
-    {
-        $this->shipping = $shipping;
-
-        return $this;
-    }
-
-    /**
-     * Get shipping.
-     *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
-     */
-    public function getShipping()
-    {
-        return $this->shipping;
     }
 
     /**
@@ -837,6 +814,42 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getTrading()
     {
         return $this->trading;
+    }
+
+    /**
+     * Add shipping.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping
+     *
+     * @return Order
+     */
+    public function addShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping)
+    {
+        $this->shippings[] = $shipping;
+
+        return $this;
+    }
+
+    /**
+     * Remove shipping.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     */
+    public function removeShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping)
+    {
+        return $this->shippings->removeElement($shipping);
+    }
+
+    /**
+     * Get shippings.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getShippings()
+    {
+        return $this->shippings;
     }
 
     /**

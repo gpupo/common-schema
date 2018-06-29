@@ -17,31 +17,23 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Decorator;
 
-use Gpupo\Common\Entity\ArrayCollection;
 use Gpupo\Common\Tools\StringTool;
 
-abstract class AbstractDecorator extends ArrayCollection implements DecoratorInterface
+abstract class AbstractDecorator implements DecoratorInterface
 {
-    public function getTotalOf($key, $convertToPositiveValue = false)
-    {
-        $list = $this->getElementsValuesByKey($key);
-
-        $value = (float) array_sum($list);
-
-        if (true === $convertToPositiveValue && 0 > $value) {
-            return -$value;
-        }
-
-        return $value;
-    }
-
     public function getElementsValuesByKey($key)
     {
-        if ($this->isEmpty()) {
+        if (1 > $this->count()) {
             throw new \Exception('Required at least one element!');
         }
 
         $getter = sprintf('get%s', StringTool::snakeCaseToCamelCase($key, true));
+
+        return $this->sliceValuesBy($getter);
+    }
+
+    protected function sliceValuesBy($getter)
+    {
         $list = [];
 
         foreach ($this->toArray() as $record) {

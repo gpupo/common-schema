@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Payment;
 
 use Gpupo\CommonSchema\AbstractORMRepository;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
+use Gpupo\CommonSchema\ORMEntityInterface;
 
 /**
  *  PaymentRepository..
@@ -27,13 +27,13 @@ use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
  */
 class PaymentRepository extends AbstractORMRepository
 {
-    public function exists(Payment $payment): bool
+    public function findByPaymentNumber(int $payment_number)
     {
-        return (null !== $this->findByObject($payment)) ? true : false;
+        return $this->findOneBy(['payment_number' => $payment_number]);
     }
 
-    public function findByObject(Payment $payment): ?Payment
+    protected function defaultFindByParameters(ORMEntityInterface $entity): array
     {
-        return $this->findOneBy(['payment_number' => $payment->getPaymentNumber()]);
+        return ['payment_number' => $entity->getPaymentNumber()];
     }
 }

@@ -89,11 +89,10 @@ class PaymentTest extends AbstractTestCase
         }
 
         $id = (int) $expected['payment_number'];
-        $row = $repository->findByObject($payment);
+        $row = $repository->findOneByObject($payment);
 
         $this->assertInstanceOf(PaymentORM::class, $row, sprintf('Loaded object #%s', $id));
         $this->assertSame($id, $row->getPaymentNumber(), 'payment_number');
-        $this->assertSame((string) $expected['collector'], $row->getCollector(), 'collector');
 
         $this->assertSame((float) $expected['shipping_cost'], $row->getShippingCost(), 'shipping_cost');
         $this->assertSame((float) $expected['marketplace_fee'], $row->getMarketplaceFee(), 'marketplace_fee');

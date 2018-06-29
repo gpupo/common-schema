@@ -37,9 +37,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
@@ -60,7 +60,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
      *
-     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="feedbacks")
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="feedbacks", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
      * })
@@ -80,11 +80,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return Item
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -94,7 +94,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {

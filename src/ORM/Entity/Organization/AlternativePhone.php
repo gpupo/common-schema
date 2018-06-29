@@ -37,16 +37,16 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="area_code", type="bigint")
+     * @ORM\Column(name="area_code", type="bigint", nullable=true)
      */
     protected $area_code;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
@@ -65,9 +65,9 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $number;
 
     /**
-     * @var bool
+     * @var null|bool
      *
-     * @ORM\Column(name="verified", type="boolean")
+     * @ORM\Column(name="verified", type="boolean", nullable=true)
      */
     protected $verified;
 
@@ -84,11 +84,11 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set areaCode.
      *
-     * @param int $areaCode
+     * @param null|int $areaCode
      *
      * @return AlternativePhone
      */
-    public function setAreaCode($areaCode)
+    public function setAreaCode($areaCode = null)
     {
         $this->area_code = $areaCode;
 
@@ -98,7 +98,7 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get areaCode.
      *
-     * @return int
+     * @return null|int
      */
     public function getAreaCode()
     {
@@ -108,11 +108,11 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return AlternativePhone
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -122,7 +122,7 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -180,11 +180,11 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set verified.
      *
-     * @param bool $verified
+     * @param null|bool $verified
      *
      * @return AlternativePhone
      */
-    public function setVerified($verified)
+    public function setVerified($verified = null)
     {
         $this->verified = $verified;
 
@@ -194,7 +194,7 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get verified.
      *
-     * @return bool
+     * @return null|bool
      */
     public function getVerified()
     {

@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Repository\Banking\Report;
 
+use Gpupo\Common\Entity\ArrayCollection;
 use Gpupo\CommonSchema\AbstractORMRepository;
 use Gpupo\CommonSchema\ORM\Decorator\Banking\Report\Records;
 
@@ -27,10 +28,21 @@ use Gpupo\CommonSchema\ORM\Decorator\Banking\Report\Records;
  */
 class RecordRepository extends AbstractORMRepository
 {
-    public function findByExternalId($external_id):? Records
+    public function findByExternalId($external_id): ?Records
     {
         $array = $this->findBy(['external_id' => $external_id]);
 
-        return empty($array) ? null : new Records($array);
+        if (empty($array)) {
+            return null;
+        }
+
+        if (is_array($array)) {
+            $array = new ArrayCollection($array);
+        }
+
+        $decorator = new Records();
+        $decorator->absorb($array);
+
+        return $decorator;
     }
 }

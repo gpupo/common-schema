@@ -44,9 +44,9 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $email;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
@@ -58,9 +58,9 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $first_name;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="internal_id", type="bigint")
+     * @ORM\Column(name="internal_id", type="bigint", nullable=true)
      */
     protected $internal_id;
 
@@ -169,11 +169,11 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return Customer
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -183,7 +183,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -217,11 +217,11 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set internalId.
      *
-     * @param int $internalId
+     * @param null|int $internalId
      *
      * @return Customer
      */
-    public function setInternalId($internalId)
+    public function setInternalId($internalId = null)
     {
         $this->internal_id = $internalId;
 
@@ -231,7 +231,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get internalId.
      *
-     * @return int
+     * @return null|int
      */
     public function getInternalId()
     {

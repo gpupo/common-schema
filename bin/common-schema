@@ -20,19 +20,28 @@ use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
 use Gpupo\CommonSchema\ArrayCollection\People\People;
 use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
+use Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Client;
 use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
 
 $output = new ConsoleOutput();
+
+if(in_array('-v',$argv)) {
+    $output->setVerbosity(ConsoleOutput::VERBOSITY_VERBOSE);
+} elseif(in_array('-vv',$argv)) {
+    $output->setVerbosity(ConsoleOutput::VERBOSITY_VERY_VERBOSE);
+}
+
 $generator = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
 
 $trading = new Trading();
 $people = new People();
 $company = new Company();
 $report = new Report();
+$client = new Client();
 
 try {
-    foreach([$trading, $people, $company, $report] as $object) {
+    foreach([$trading, $people, $company, $report, $client] as $object) {
         $generator->recursiveSave($object);
     }
 

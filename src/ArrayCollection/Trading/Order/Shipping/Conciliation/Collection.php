@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Products;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Conciliation;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
 
@@ -25,6 +25,6 @@ class Collection extends AbstractCollection
 
     public function factoryElement($data)
     {
-        return new Product($data);
+        return new Item($data);
     }
 }

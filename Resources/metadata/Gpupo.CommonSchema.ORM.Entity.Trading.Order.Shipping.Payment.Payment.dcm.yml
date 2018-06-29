@@ -21,6 +21,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       options: {  }
     available_actions:
       type: array
+      nullable: true
       options: {  }
     card_id:
       type: string
@@ -36,6 +37,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     coupon_id:
       type: string
@@ -66,22 +68,27 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
     installment_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     installments:
       type: bigint
+      nullable: true
       options: {  }
     issuer_id:
       type: bigint
+      nullable: true
       options: {  }
     marketplace_fee:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     operation_type:
       type: string
@@ -92,6 +99,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     payment_method_id:
       type: string
@@ -100,6 +108,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       options: {  }
     payment_number:
       type: bigint
+      nullable: true
       options: {  }
     payment_type:
       type: string
@@ -115,6 +124,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     status:
       type: string
@@ -133,21 +143,25 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       options: {  }
     tags:
       type: array
+      nullable: true
       options: {  }
     total_paid_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     transaction_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     transaction_net_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     transaction_order_id:
       type: string
@@ -162,17 +176,20 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
         - remove
       options: {  }
       mappedBy: payment
-    shipping:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
-      inversedBy: payment
-      joinColumn:
-        name: shipping_id
-        referencedColumnName: id
   uniqueConstraints:
     collector_payment_number_idx:
       columns:
         - collector
         - payment_number
+  manyToOne:
+    shipping:
+      cascade:
+        - persist
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
+      inversedBy: payments
+      joinColumn:
+        name: shipping_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

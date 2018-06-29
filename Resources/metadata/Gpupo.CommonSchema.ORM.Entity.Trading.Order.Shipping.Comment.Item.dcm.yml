@@ -1,8 +1,8 @@
 # value metadata
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comments\Item:
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item:
   type: entity
   table: cs_trading_order_shipping_comment
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Comments\ItemRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Comment\ItemRepository
   id:
     id:
       type: integer
@@ -11,6 +11,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comments\Item:
   fields:
     expands:
       type: array
+      nullable: true
       options: {  }
     key:
       type: string
@@ -25,6 +26,8 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comments\Item:
   uniqueConstraints: {  }
   manyToOne:
     shipping:
+      cascade:
+        - persist
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
       inversedBy: comments
       joinColumn:

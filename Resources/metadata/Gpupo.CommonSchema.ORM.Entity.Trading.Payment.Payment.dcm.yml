@@ -16,9 +16,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
     payment_number:
       type: bigint
+      nullable: true
       options: {  }
     status:
       type: string
@@ -27,15 +29,18 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       options: {  }
     tags:
       type: array
+      nullable: true
       options: {  }
   uniqueConstraints:
     payment_number_idx:
       columns:
         - payment_number
-  oneToOne:
+  manyToOne:
     trading:
+      cascade:
+        - persist
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Trading
-      inversedBy: payment
+      inversedBy: payments
       joinColumn:
         name: trading_id
         referencedColumnName: id

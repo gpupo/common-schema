@@ -19,6 +19,7 @@ namespace Gpupo\CommonSchema;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -122,5 +123,19 @@ abstract class AbstractORMEntity implements ORMEntityInterface
     public function setId($id)
     {
         return $this->id = $id;
+    }
+
+    public function getDecorator($key)
+    {
+        $getter = sprintf('get%s', ucfirst($key));
+        $value = $this->{$getter}();
+        $decoratorClassName = sprintf('\%s\%s', str_replace('Entity', 'Decorator', substr(get_called_class(), 0, strrpos(get_called_class(), '\\'))), ucfirst($key));
+        $decorator = new $decoratorClassName();
+
+        if ($value instanceof PersistentCollection) {
+            $decorator->setPersistentCollection($value);
+        }
+
+        return $decorator;
     }
 }

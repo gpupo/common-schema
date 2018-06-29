@@ -13,6 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     date:
       type: string
@@ -34,34 +35,41 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       options: {  }
     external_id:
       type: bigint
+      nullable: true
       options: {  }
     fee_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     financing_fee_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     gross_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     installments:
       type: bigint
+      nullable: true
       options: {  }
     net_credit_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     net_debit_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     payment_method:
       type: string
@@ -77,14 +85,17 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     source_id:
       type: bigint
+      nullable: true
       options: {  }
     taxes_amount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
   uniqueConstraints:
     source_id_record_type_description_idx:
@@ -94,6 +105,8 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
         - description
   manyToOne:
     report:
+      cascade:
+        - persist
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report
       inversedBy: records
       joinColumn:

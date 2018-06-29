@@ -11,6 +11,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
   fields:
     expands:
       type: array
+      nullable: true
       options: {  }
     message:
       type: string
@@ -19,6 +20,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
       options: {  }
     rating:
       type: bigint
+      nullable: true
       options: {  }
     reason:
       type: string
@@ -33,6 +35,8 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
   uniqueConstraints: {  }
   manyToOne:
     order:
+      cascade:
+        - persist
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
       inversedBy: feedbacks
       joinColumn:

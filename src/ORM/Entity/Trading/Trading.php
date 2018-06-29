@@ -37,9 +37,9 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
@@ -51,11 +51,19 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $order;
 
     /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="trading", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment", mappedBy="trading", cascade={"persist","remove"})
      */
-    protected $payment;
+    protected $payments;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->payments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -70,11 +78,11 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return Trading
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -84,7 +92,7 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -116,26 +124,38 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set payment.
+     * Add payment.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
      *
      * @return Trading
      */
-    public function setPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment = null)
+    public function addPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
     {
-        $this->payment = $payment;
+        $this->payments[] = $payment;
 
         return $this;
     }
 
     /**
-     * Get payment.
+     * Remove payment.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function getPayment()
+    public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment)
     {
-        return $this->payment;
+        return $this->payments->removeElement($payment);
+    }
+
+    /**
+     * Get payments.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPayments()
+    {
+        return $this->payments;
     }
 }

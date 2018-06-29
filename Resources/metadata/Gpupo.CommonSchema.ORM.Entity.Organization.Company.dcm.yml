@@ -16,6 +16,7 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Company:
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
     first_name:
       type: string
@@ -24,6 +25,7 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Company:
       options: {  }
     internal_id:
       type: bigint
+      nullable: true
       options: {  }
     last_name:
       type: string

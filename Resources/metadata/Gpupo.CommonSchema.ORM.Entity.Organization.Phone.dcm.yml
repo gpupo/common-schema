@@ -11,9 +11,11 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
   fields:
     area_code:
       type: bigint
+      nullable: true
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
     extension:
       type: string
@@ -27,6 +29,7 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
       options: {  }
     verified:
       type: boolean
+      nullable: true
       options: {  }
   uniqueConstraints: {  }
   lifecycleCallbacks:

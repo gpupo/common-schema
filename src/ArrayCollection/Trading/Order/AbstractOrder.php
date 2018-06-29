@@ -51,9 +51,9 @@ abstract class AbstractOrder extends AbstractEntity
             'total_net' => 'number',
             'total_quantity' => 'number',
             //Objects
-            'shipping' => 'object',
-            'customer' => 'object',
-            'feedback' => 'object',
+            'shipping' => 'oneToMany',
+            'customer' => 'oneToOne',
+            'feedback' => 'oneToMany',
             //Extra
             'requested_devolution' => 'boolean',
             'requested_exchange' => 'boolean',

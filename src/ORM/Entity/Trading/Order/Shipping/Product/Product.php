@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Products;
+namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Product;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Product.
  *
  * @ORM\Table(name="cs_trading_order_shipping_product")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Products\ProductRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Product\ProductRepository")
  */
 class Product extends \Gpupo\CommonSchema\AbstractORMEntity
 {
@@ -37,9 +37,9 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
@@ -51,16 +51,16 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $gtin;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="quantity", type="bigint")
+     * @ORM\Column(name="quantity", type="bigint", nullable=true)
      */
     protected $quantity;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="sale_fee", type="float", precision=10, scale=2)
+     * @ORM\Column(name="sale_fee", type="float", precision=10, scale=2, nullable=true)
      */
     protected $sale_fee;
 
@@ -79,23 +79,23 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $title;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="unit_price", type="float", precision=10, scale=2)
+     * @ORM\Column(name="unit_price", type="float", precision=10, scale=2, nullable=true)
      */
     protected $unit_price;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="variation_attributes", type="array")
+     * @ORM\Column(name="variation_attributes", type="array", nullable=true)
      */
     protected $variation_attributes;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
      *
-     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="products")
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="products", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
      * })
@@ -115,11 +115,11 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return Product
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -129,7 +129,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -163,11 +163,11 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set quantity.
      *
-     * @param int $quantity
+     * @param null|int $quantity
      *
      * @return Product
      */
-    public function setQuantity($quantity)
+    public function setQuantity($quantity = null)
     {
         $this->quantity = $quantity;
 
@@ -177,7 +177,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get quantity.
      *
-     * @return int
+     * @return null|int
      */
     public function getQuantity()
     {
@@ -187,11 +187,11 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set saleFee.
      *
-     * @param float $saleFee
+     * @param null|float $saleFee
      *
      * @return Product
      */
-    public function setSaleFee($saleFee)
+    public function setSaleFee($saleFee = null)
     {
         $this->sale_fee = $saleFee;
 
@@ -201,7 +201,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get saleFee.
      *
-     * @return float
+     * @return null|float
      */
     public function getSaleFee()
     {
@@ -259,11 +259,11 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set unitPrice.
      *
-     * @param float $unitPrice
+     * @param null|float $unitPrice
      *
      * @return Product
      */
-    public function setUnitPrice($unitPrice)
+    public function setUnitPrice($unitPrice = null)
     {
         $this->unit_price = $unitPrice;
 
@@ -273,7 +273,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get unitPrice.
      *
-     * @return float
+     * @return null|float
      */
     public function getUnitPrice()
     {
@@ -283,11 +283,11 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set variationAttributes.
      *
-     * @param array $variationAttributes
+     * @param null|array $variationAttributes
      *
      * @return Product
      */
-    public function setVariationAttributes($variationAttributes)
+    public function setVariationAttributes($variationAttributes = null)
     {
         $this->variation_attributes = $variationAttributes;
 
@@ -297,7 +297,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get variationAttributes.
      *
-     * @return array
+     * @return null|array
      */
     public function getVariationAttributes()
     {

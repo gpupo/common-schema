@@ -2,7 +2,7 @@
 rm -fv Resources/metadata/* > /dev/null;
 ./bin/common-schema;
 mkdir -p var/doctrine;
-rm -rf var/doctrine/* > /dev/null;
+rm -rf var/doctrine/*  src/ORM/Entity/* > /dev/null;
 
 
 printf "\n ========= Build ORM objects =========\n";

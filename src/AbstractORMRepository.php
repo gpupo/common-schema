@@ -18,7 +18,36 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema;
 
 use Doctrine\ORM\EntityRepository;
+use Gpupo\Common\Entity\ArrayCollection;
 
 abstract class AbstractORMRepository extends EntityRepository
 {
+    public function exists(ORMEntityInterface $entity): bool
+    {
+        return (null !== $this->findOneByObject($entity)) ? true : false;
+    }
+
+    public function findOneByObject(ORMEntityInterface $entity): ?ORMEntityInterface
+    {
+        return $this->findOneBy($this->defaultFindByParameters($entity));
+    }
+
+    public function findByObject(ORMEntityInterface $entity): ?ArrayCollection
+    {
+        return $this->decorateResultCollection($this->findBy($this->defaultFindByParameters($entity)));
+    }
+
+    protected function defaultFindByParameters(ORMEntityInterface $entity): array
+    {
+        return ['id' => $entity->getId()];
+    }
+
+    protected function decorateResultCollection($result): ?ArrayCollection
+    {
+        if (empty($result)) {
+            return null;
+        }
+
+        return new ArrayCollection($result);
+    }
 }

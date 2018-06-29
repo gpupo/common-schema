@@ -1,8 +1,8 @@
 # unit_price metadata
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Products\Product:
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Product\Product:
   type: entity
   table: cs_trading_order_shipping_product
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Products\ProductRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Product\ProductRepository
   id:
     id:
       type: integer
@@ -11,6 +11,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Products\Product:
   fields:
     expands:
       type: array
+      nullable: true
       options: {  }
     gtin:
       type: string
@@ -19,11 +20,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Products\Product:
       options: {  }
     quantity:
       type: bigint
+      nullable: true
       options: {  }
     sale_fee:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     seller_product_id:
       type: string
@@ -39,13 +42,17 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Products\Product:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     variation_attributes:
       type: array
+      nullable: true
       options: {  }
   uniqueConstraints: {  }
   manyToOne:
     shipping:
+      cascade:
+        - persist
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
       inversedBy: products
       joinColumn:

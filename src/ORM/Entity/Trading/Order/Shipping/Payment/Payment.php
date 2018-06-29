@@ -51,9 +51,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $authorization_code;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="available_actions", type="array")
+     * @ORM\Column(name="available_actions", type="array", nullable=true)
      */
     protected $available_actions;
 
@@ -72,9 +72,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $collector;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="coupon_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="coupon_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $coupon_amount;
 
@@ -121,37 +121,37 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $deferred_period;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="installment_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="installment_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $installment_amount;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="installments", type="bigint")
+     * @ORM\Column(name="installments", type="bigint", nullable=true)
      */
     protected $installments;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="issuer_id", type="bigint")
+     * @ORM\Column(name="issuer_id", type="bigint", nullable=true)
      */
     protected $issuer_id;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="marketplace_fee", type="float", precision=10, scale=2)
+     * @ORM\Column(name="marketplace_fee", type="float", precision=10, scale=2, nullable=true)
      */
     protected $marketplace_fee;
 
@@ -163,9 +163,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $operation_type;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="overpaid_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="overpaid_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $overpaid_amount;
 
@@ -177,9 +177,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $payment_method_id;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="payment_number", type="bigint")
+     * @ORM\Column(name="payment_number", type="bigint", nullable=true)
      */
     protected $payment_number;
 
@@ -198,9 +198,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $reason;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="shipping_cost", type="float", precision=10, scale=2)
+     * @ORM\Column(name="shipping_cost", type="float", precision=10, scale=2, nullable=true)
      */
     protected $shipping_cost;
 
@@ -226,30 +226,30 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $status_detail;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="tags", type="array")
+     * @ORM\Column(name="tags", type="array", nullable=true)
      */
     protected $tags;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="total_paid_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="total_paid_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $total_paid_amount;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="transaction_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="transaction_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $transaction_amount;
 
     /**
-     * @var float
+     * @var null|float
      *
-     * @ORM\Column(name="transaction_net_amount", type="float", precision=10, scale=2)
+     * @ORM\Column(name="transaction_net_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $transaction_net_amount;
 
@@ -270,9 +270,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="payment")
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="payments", cascade={"persist"})
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id", unique=true)
+     *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
      * })
      */
     protected $shipping;
@@ -338,11 +338,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set availableActions.
      *
-     * @param array $availableActions
+     * @param null|array $availableActions
      *
      * @return Payment
      */
-    public function setAvailableActions($availableActions)
+    public function setAvailableActions($availableActions = null)
     {
         $this->available_actions = $availableActions;
 
@@ -352,7 +352,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get availableActions.
      *
-     * @return array
+     * @return null|array
      */
     public function getAvailableActions()
     {
@@ -410,11 +410,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set couponAmount.
      *
-     * @param float $couponAmount
+     * @param null|float $couponAmount
      *
      * @return Payment
      */
-    public function setCouponAmount($couponAmount)
+    public function setCouponAmount($couponAmount = null)
     {
         $this->coupon_amount = $couponAmount;
 
@@ -424,7 +424,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get couponAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getCouponAmount()
     {
@@ -578,11 +578,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return Payment
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -592,7 +592,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -602,11 +602,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set installmentAmount.
      *
-     * @param float $installmentAmount
+     * @param null|float $installmentAmount
      *
      * @return Payment
      */
-    public function setInstallmentAmount($installmentAmount)
+    public function setInstallmentAmount($installmentAmount = null)
     {
         $this->installment_amount = $installmentAmount;
 
@@ -616,7 +616,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get installmentAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getInstallmentAmount()
     {
@@ -626,11 +626,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set installments.
      *
-     * @param int $installments
+     * @param null|int $installments
      *
      * @return Payment
      */
-    public function setInstallments($installments)
+    public function setInstallments($installments = null)
     {
         $this->installments = $installments;
 
@@ -640,7 +640,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get installments.
      *
-     * @return int
+     * @return null|int
      */
     public function getInstallments()
     {
@@ -650,11 +650,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set issuerId.
      *
-     * @param int $issuerId
+     * @param null|int $issuerId
      *
      * @return Payment
      */
-    public function setIssuerId($issuerId)
+    public function setIssuerId($issuerId = null)
     {
         $this->issuer_id = $issuerId;
 
@@ -664,7 +664,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get issuerId.
      *
-     * @return int
+     * @return null|int
      */
     public function getIssuerId()
     {
@@ -674,11 +674,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set marketplaceFee.
      *
-     * @param float $marketplaceFee
+     * @param null|float $marketplaceFee
      *
      * @return Payment
      */
-    public function setMarketplaceFee($marketplaceFee)
+    public function setMarketplaceFee($marketplaceFee = null)
     {
         $this->marketplace_fee = $marketplaceFee;
 
@@ -688,7 +688,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get marketplaceFee.
      *
-     * @return float
+     * @return null|float
      */
     public function getMarketplaceFee()
     {
@@ -722,11 +722,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set overpaidAmount.
      *
-     * @param float $overpaidAmount
+     * @param null|float $overpaidAmount
      *
      * @return Payment
      */
-    public function setOverpaidAmount($overpaidAmount)
+    public function setOverpaidAmount($overpaidAmount = null)
     {
         $this->overpaid_amount = $overpaidAmount;
 
@@ -736,7 +736,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get overpaidAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getOverpaidAmount()
     {
@@ -770,11 +770,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set paymentNumber.
      *
-     * @param int $paymentNumber
+     * @param null|int $paymentNumber
      *
      * @return Payment
      */
-    public function setPaymentNumber($paymentNumber)
+    public function setPaymentNumber($paymentNumber = null)
     {
         $this->payment_number = $paymentNumber;
 
@@ -784,7 +784,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get paymentNumber.
      *
-     * @return int
+     * @return null|int
      */
     public function getPaymentNumber()
     {
@@ -842,11 +842,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set shippingCost.
      *
-     * @param float $shippingCost
+     * @param null|float $shippingCost
      *
      * @return Payment
      */
-    public function setShippingCost($shippingCost)
+    public function setShippingCost($shippingCost = null)
     {
         $this->shipping_cost = $shippingCost;
 
@@ -856,7 +856,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get shippingCost.
      *
-     * @return float
+     * @return null|float
      */
     public function getShippingCost()
     {
@@ -938,11 +938,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set tags.
      *
-     * @param array $tags
+     * @param null|array $tags
      *
      * @return Payment
      */
-    public function setTags($tags)
+    public function setTags($tags = null)
     {
         $this->tags = $tags;
 
@@ -952,7 +952,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get tags.
      *
-     * @return array
+     * @return null|array
      */
     public function getTags()
     {
@@ -962,11 +962,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set totalPaidAmount.
      *
-     * @param float $totalPaidAmount
+     * @param null|float $totalPaidAmount
      *
      * @return Payment
      */
-    public function setTotalPaidAmount($totalPaidAmount)
+    public function setTotalPaidAmount($totalPaidAmount = null)
     {
         $this->total_paid_amount = $totalPaidAmount;
 
@@ -976,7 +976,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get totalPaidAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getTotalPaidAmount()
     {
@@ -986,11 +986,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set transactionAmount.
      *
-     * @param float $transactionAmount
+     * @param null|float $transactionAmount
      *
      * @return Payment
      */
-    public function setTransactionAmount($transactionAmount)
+    public function setTransactionAmount($transactionAmount = null)
     {
         $this->transaction_amount = $transactionAmount;
 
@@ -1000,7 +1000,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get transactionAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getTransactionAmount()
     {
@@ -1010,11 +1010,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set transactionNetAmount.
      *
-     * @param float $transactionNetAmount
+     * @param null|float $transactionNetAmount
      *
      * @return Payment
      */
-    public function setTransactionNetAmount($transactionNetAmount)
+    public function setTransactionNetAmount($transactionNetAmount = null)
     {
         $this->transaction_net_amount = $transactionNetAmount;
 
@@ -1024,7 +1024,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get transactionNetAmount.
      *
-     * @return float
+     * @return null|float
      */
     public function getTransactionNetAmount()
     {

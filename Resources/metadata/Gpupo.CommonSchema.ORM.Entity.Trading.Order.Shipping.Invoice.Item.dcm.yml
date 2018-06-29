@@ -16,6 +16,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item:
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
     invoice_date:
       type: datetime
@@ -37,10 +38,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item:
       options: {  }
     tags:
       type: array
+      nullable: true
       options: {  }
   uniqueConstraints: {  }
   manyToOne:
     shipping:
+      cascade:
+        - persist
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
       inversedBy: invoices
       joinColumn:

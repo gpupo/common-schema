@@ -72,9 +72,9 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $end_date;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="external_id", type="bigint")
+     * @ORM\Column(name="external_id", type="bigint", nullable=true)
      */
     protected $external_id;
 
@@ -240,11 +240,11 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set externalId.
      *
-     * @param int $externalId
+     * @param null|int $externalId
      *
      * @return Report
      */
-    public function setExternalId($externalId)
+    public function setExternalId($externalId = null)
     {
         $this->external_id = $externalId;
 
@@ -254,7 +254,7 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get externalId.
      *
-     * @return int
+     * @return null|int
      */
     public function getExternalId()
     {

@@ -11,9 +11,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReferenc
   fields:
     company_id:
       type: bigint
+      nullable: true
       options: {  }
     transaction_id:
       type: bigint
+      nullable: true
       options: {  }
   uniqueConstraints: {  }
   oneToOne:

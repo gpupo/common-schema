@@ -32,6 +32,7 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
       options: {  }
     external_id:
       type: bigint
+      nullable: true
       options: {  }
     file_name:
       type: string

@@ -44,16 +44,16 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $currency_id;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="payment_number", type="bigint")
+     * @ORM\Column(name="payment_number", type="bigint", nullable=true)
      */
     protected $payment_number;
 
@@ -65,18 +65,18 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $status;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="tags", type="array")
+     * @ORM\Column(name="tags", type="array", nullable=true)
      */
     protected $tags;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Trading
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Trading", inversedBy="payment")
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Trading", inversedBy="payments", cascade={"persist"})
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="trading_id", referencedColumnName="id", unique=true)
+     *   @ORM\JoinColumn(name="trading_id", referencedColumnName="id")
      * })
      */
     protected $trading;
@@ -118,11 +118,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return Payment
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -132,7 +132,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -142,11 +142,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set paymentNumber.
      *
-     * @param int $paymentNumber
+     * @param null|int $paymentNumber
      *
      * @return Payment
      */
-    public function setPaymentNumber($paymentNumber)
+    public function setPaymentNumber($paymentNumber = null)
     {
         $this->payment_number = $paymentNumber;
 
@@ -156,7 +156,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get paymentNumber.
      *
-     * @return int
+     * @return null|int
      */
     public function getPaymentNumber()
     {
@@ -190,11 +190,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set tags.
      *
-     * @param array $tags
+     * @param null|array $tags
      *
      * @return Payment
      */
-    public function setTags($tags)
+    public function setTags($tags = null)
     {
         $this->tags = $tags;
 
@@ -204,7 +204,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get tags.
      *
-     * @return array
+     * @return null|array
      */
     public function getTags()
     {

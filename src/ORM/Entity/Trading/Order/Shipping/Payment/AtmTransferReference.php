@@ -37,16 +37,16 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="company_id", type="bigint")
+     * @ORM\Column(name="company_id", type="bigint", nullable=true)
      */
     protected $company_id;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="transaction_id", type="bigint")
+     * @ORM\Column(name="transaction_id", type="bigint", nullable=true)
      */
     protected $transaction_id;
 
@@ -73,11 +73,11 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set companyId.
      *
-     * @param int $companyId
+     * @param null|int $companyId
      *
      * @return AtmTransferReference
      */
-    public function setCompanyId($companyId)
+    public function setCompanyId($companyId = null)
     {
         $this->company_id = $companyId;
 
@@ -87,7 +87,7 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get companyId.
      *
-     * @return int
+     * @return null|int
      */
     public function getCompanyId()
     {
@@ -97,11 +97,11 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set transactionId.
      *
-     * @param int $transactionId
+     * @param null|int $transactionId
      *
      * @return AtmTransferReference
      */
-    public function setTransactionId($transactionId)
+    public function setTransactionId($transactionId = null)
     {
         $this->transaction_id = $transactionId;
 
@@ -111,7 +111,7 @@ class AtmTransferReference extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get transactionId.
      *
-     * @return int
+     * @return null|int
      */
     public function getTransactionId()
     {

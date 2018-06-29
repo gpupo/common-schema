@@ -15,30 +15,28 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Products;
+namespace Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class Product extends AbstractEntity
+class AccessToken extends AbstractEntity
 {
-    protected $tableName = 'trading_order_shipping_product';
+    protected $tableName = 'application_API_OAuth_access_token';
 
     /**
      * @codeCoverageIgnore
      */
     public function getSchema()
     {
-        return array_merge(
-            parent::getSchema(),
-            [
-                'seller_product_id' => 'string',
-                'title' => 'string',
-                'gtin' => 'string',
-                'variation_attributes' => 'array',
-                'sale_fee' => 'number',
-                'quantity' => 'integer',
-                'unit_price' => 'number',
-            ]
-        );
+        return [
+            'access_token' => 'string',
+            'refresh_token' => 'string',
+            'live_mode' => 'boolean',
+            'user_id' => 'integer',
+            'token_type' => 'string',
+            'expires_in' => 'integer',
+            'scope' => 'string',
+            'created_at' => 'datetime',
+        ];
     }
 }

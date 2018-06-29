@@ -15,15 +15,15 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comments;
+namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Item.
  *
- * @ORM\Table(name="cs_trading_order_shipping_comment")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Comments\ItemRepository")
+ * @ORM\Table(name="cs_trading_order_shipping_conciliation")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Conciliation\ItemRepository")
  */
 class Item extends \Gpupo\CommonSchema\AbstractORMEntity
 {
@@ -37,30 +37,44 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var array
+     * @var null|float
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="amount", type="float", precision=10, scale=2, nullable=true)
+     */
+    protected $amount;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", unique=false)
+     */
+    protected $description;
+
+    /**
+     * @var null|array
+     *
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
     /**
-     * @var string
+     * @var null|array
      *
-     * @ORM\Column(name="key", type="string", unique=false)
+     * @ORM\Column(name="tags", type="array", nullable=true)
      */
-    protected $key;
+    protected $tags;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="value", type="string", unique=false)
+     * @ORM\Column(name="type", type="string", unique=false)
      */
-    protected $value;
+    protected $type;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
      *
-     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="conciliations", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shipping_id", referencedColumnName="id")
      * })
@@ -78,13 +92,61 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set expands.
+     * Set amount.
      *
-     * @param array $expands
+     * @param null|float $amount
      *
      * @return Item
      */
-    public function setExpands($expands)
+    public function setAmount($amount = null)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Get amount.
+     *
+     * @return null|float
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * Set description.
+     *
+     * @param string $description
+     *
+     * @return Item
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description.
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set expands.
+     *
+     * @param null|array $expands
+     *
+     * @return Item
+     */
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -94,7 +156,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -102,51 +164,51 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set key.
+     * Set tags.
      *
-     * @param string $key
+     * @param null|array $tags
      *
      * @return Item
      */
-    public function setKey($key)
+    public function setTags($tags = null)
     {
-        $this->key = $key;
+        $this->tags = $tags;
 
         return $this;
     }
 
     /**
-     * Get key.
+     * Get tags.
      *
-     * @return string
+     * @return null|array
      */
-    public function getKey()
+    public function getTags()
     {
-        return $this->key;
+        return $this->tags;
     }
 
     /**
-     * Set value.
+     * Set type.
      *
-     * @param string $value
+     * @param string $type
      *
      * @return Item
      */
-    public function setValue($value)
+    public function setType($type)
     {
-        $this->value = $value;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * Get value.
+     * Get type.
      *
      * @return string
      */
-    public function getValue()
+    public function getType()
     {
-        return $this->value;
+        return $this->type;
     }
 
     /**

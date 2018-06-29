@@ -1,0 +1,135 @@
+institution: mercadopago
+external_id: 75046323112
+begin_date: '2016-02-08T14:40:43.000-04:00'
+end_date: '2018-02-08T14:40:43.000-04:00'
+file_name: bank-report-75046323112.csv
+description: 'Foo bar Zeta James'
+records:
+    -
+        source_id: 71722719562
+        external_id: 0
+        record_type: release
+        date: '2017-02-08T14:40:43.000-04:00'
+        description: withdrawal
+        net_credit_amount: !!float 0
+        net_debit_amount: 55223.63
+        gross_amount: -55220.63
+        fee_amount: !!float -3
+        financing_fee_amount: !!float 0
+        shipping_fee_amount: !!float 0
+        taxes_amount: !!float 0
+        coupon_amount: !!float 0
+        installments: 1
+        payment_method: ''
+        date_created: ''
+        date_last_modified: ''
+    -
+        source_id: 73524506738
+        external_id: 1657955112
+        record_type: release
+        date: '2017-02-08T23:47:24.000-04:00'
+        description: payment
+        net_credit_amount: 289.32
+        net_debit_amount: !!float 0
+        gross_amount: 354.05
+        fee_amount: -55.57
+        financing_fee_amount: !!float 0
+        shipping_fee_amount: -9.16
+        taxes_amount: !!float 0
+        coupon_amount: !!float 0
+        installments: 1
+        payment_method: bolfender
+        date_created: ''
+        date_last_modified: ''
+    -
+        source_id: 73524506738
+        external_id: 1657955112
+        record_type: release
+        date: '2017-02-08T23:47:25.000-04:00'
+        description: mediation
+        net_credit_amount: !!float 0
+        net_debit_amount: 289.32
+        gross_amount: -354.05
+        fee_amount: 55.57
+        financing_fee_amount: !!float 0
+        shipping_fee_amount: 9.16
+        taxes_amount: !!float 0
+        coupon_amount: !!float 0
+        installments: 1
+        payment_method: bolfender
+        date_created: ''
+        date_last_modified: ''
+    -
+        source_id: 73683986130
+        external_id: 1698739593
+        record_type: release
+        date: '2017-02-09T09:24:00.000-04:00'
+        description: payment
+        net_credit_amount: 98.78
+        net_debit_amount: !!float 0
+        gross_amount: 117.6
+        fee_amount: -18.82
+        financing_fee_amount: !!float 0
+        shipping_fee_amount: !!float 0
+        taxes_amount: !!float 0
+        coupon_amount: !!float 0
+        installments: 1
+        payment_method: visa
+        date_created: ''
+        date_last_modified: ''
+    -
+        source_id: 73678548074
+        external_id: 1697389841
+        record_type: release
+        date: '2017-02-09T16:24:02.000-04:00'
+        description: payment
+        net_credit_amount: 96.51
+        net_debit_amount: !!float 0
+        gross_amount: 180.9
+        fee_amount: -28.94
+        financing_fee_amount: !!float 0
+        shipping_fee_amount: -55.45
+        taxes_amount: !!float 0
+        coupon_amount: !!float 0
+        installments: 10
+        payment_method: visa
+        date_created: ''
+        date_last_modified: ''
+    -
+        source_id: 73586724596
+        external_id: 1674076321
+        record_type: release
+        date: '2017-02-09T16:32:01.000-04:00'
+        description: payment
+        net_credit_amount: 107.6
+        net_debit_amount: !!float 0
+        gross_amount: 120.9
+        fee_amount: -13.3
+        financing_fee_amount: !!float 0
+        shipping_fee_amount: !!float 0
+        taxes_amount: !!float 0
+        coupon_amount: !!float 0
+        installments: 1
+        payment_method: account_money
+        date_created: ''
+        date_last_modified: ''
+    -
+        source_id: 73628220487
+        external_id: 1684847823
+        record_type: release
+        date: '2017-02-09T17:08:21.000-04:00'
+        description: mediation
+        net_credit_amount: !!float 0
+        net_debit_amount: 188.5
+        gross_amount: -211.8
+        fee_amount: 23.3
+        financing_fee_amount: !!float 0
+        shipping_fee_amount: !!float 0
+        taxes_amount: !!float 0
+        coupon_amount: !!float 0
+        installments: 1
+        payment_method: account_money
+        date_created: ''
+        date_last_modified: ''
+date_created: '2018-02-08T14:40:43.000-04:00'
+date_last_modified: '2018-02-08T14:40:43.000-04:00'

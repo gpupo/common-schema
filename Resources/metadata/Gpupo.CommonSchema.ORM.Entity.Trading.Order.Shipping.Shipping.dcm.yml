@@ -28,48 +28,59 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
       options: {  }
     expands:
       type: array
+      nullable: true
       options: {  }
     fulfilled:
       type: boolean
+      nullable: true
       options: {  }
     hidden_for_seller:
       type: boolean
+      nullable: true
       options: {  }
     shipping_number:
       type: bigint
+      nullable: true
       options: {  }
     tags:
       type: array
+      nullable: true
       options: {  }
     total_commission:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_discount:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_freight:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_gross:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_net:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
     total_quantity:
       type: float
       precision: 10
       scale: 2
+      nullable: true
       options: {  }
   oneToOne:
     seller:
@@ -79,29 +90,9 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
         - remove
       options: {  }
       mappedBy: shipping
-    payment:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment
-      cascade:
-        - persist
-        - remove
-      options: {  }
-      mappedBy: shipping
-    conciliation:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation
-      cascade:
-        - persist
-        - remove
-      options: {  }
-      mappedBy: shipping
-    order:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
-      inversedBy: shipping
-      joinColumn:
-        name: order_id
-        referencedColumnName: id
   oneToMany:
     products:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Products\Product
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Product\Product
       cascade:
         - persist
         - remove
@@ -122,7 +113,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
       options: {  }
       mappedBy: shipping
     comments:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comments\Item
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item
       cascade:
         - persist
         - remove
@@ -135,7 +126,30 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
         - remove
       options: {  }
       mappedBy: shipping
+    payments:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
+    conciliations:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item
+      cascade:
+        - persist
+        - remove
+      options: {  }
+      mappedBy: shipping
   uniqueConstraints: {  }
+  manyToOne:
+    order:
+      cascade:
+        - persist
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+      inversedBy: shippings
+      joinColumn:
+        name: order_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

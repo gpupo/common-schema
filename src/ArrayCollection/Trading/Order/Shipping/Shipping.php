@@ -45,14 +45,14 @@ class Shipping extends AbstractEntity
             'total_net' => 'number',
             'total_quantity' => 'number',
             //object
-            'seller' => 'object',
-            'products' => 'object',
-            'transport' => 'object',
-            'invoice' => 'object',
-            'comments' => 'object',
-            'feedback' => 'object',
-            'payment' => 'object',
-            'conciliation' => 'object',
+            'seller' => 'oneToOne',
+            'product' => 'oneToMany',
+            'transport' => 'oneToMany',
+            'invoice' => 'oneToMany',
+            'comment' => 'oneToMany',
+            'feedback' => 'oneToMany',
+            'payment' => 'oneToMany',
+            'conciliation' => 'oneToMany',
 
             //extra
             'tags' => 'array',

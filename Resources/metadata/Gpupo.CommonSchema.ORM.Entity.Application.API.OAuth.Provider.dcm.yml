@@ -1,0 +1,32 @@
+# version metadata
+Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
+  type: entity
+  table: cs_application_API_OAuth_provider
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\ProviderRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+    version:
+      type: string
+      lenght: 50
+      unique: false
+      options: {  }
+  uniqueConstraints: {  }
+  oneToOne:
+    client:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client
+      inversedBy: provider
+      joinColumn:
+        name: client_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

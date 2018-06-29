@@ -37,9 +37,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $id;
 
     /**
-     * @var array
+     * @var null|array
      *
-     * @ORM\Column(name="expands", type="array")
+     * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
 
@@ -51,9 +51,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $message;
 
     /**
-     * @var int
+     * @var null|int
      *
-     * @ORM\Column(name="rating", type="bigint")
+     * @ORM\Column(name="rating", type="bigint", nullable=true)
      */
     protected $rating;
 
@@ -74,7 +74,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
      *
-     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", inversedBy="feedbacks")
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", inversedBy="feedbacks", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="order_id", referencedColumnName="id")
      * })
@@ -94,11 +94,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set expands.
      *
-     * @param array $expands
+     * @param null|array $expands
      *
      * @return Item
      */
-    public function setExpands($expands)
+    public function setExpands($expands = null)
     {
         $this->expands = $expands;
 
@@ -108,7 +108,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get expands.
      *
-     * @return array
+     * @return null|array
      */
     public function getExpands()
     {
@@ -142,11 +142,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set rating.
      *
-     * @param int $rating
+     * @param null|int $rating
      *
      * @return Item
      */
-    public function setRating($rating)
+    public function setRating($rating = null)
     {
         $this->rating = $rating;
 
@@ -156,7 +156,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get rating.
      *
-     * @return int
+     * @return null|int
      */
     public function getRating()
     {

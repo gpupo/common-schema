@@ -15,11 +15,8 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Comments;
+namespace Gpupo\CommonSchema\ORM\Decorator;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractKeyValue;
-
-class Item extends AbstractKeyValue
+interface CollectionDecoratorInterface
 {
-    protected $tableName = 'trading_order_shipping_comment';
 }

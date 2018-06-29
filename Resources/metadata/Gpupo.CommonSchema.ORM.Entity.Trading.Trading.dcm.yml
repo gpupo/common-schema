@@ -11,6 +11,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
   fields:
     expands:
       type: array
+      nullable: true
       options: {  }
   oneToOne:
     order:
@@ -20,7 +21,8 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
         - remove
       options: {  }
       mappedBy: trading
-    payment:
+  oneToMany:
+    payments:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment
       cascade:
         - persist

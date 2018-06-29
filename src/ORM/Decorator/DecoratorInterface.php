@@ -19,5 +19,4 @@ namespace Gpupo\CommonSchema\ORM\Decorator;
 
 interface DecoratorInterface
 {
-    
 }

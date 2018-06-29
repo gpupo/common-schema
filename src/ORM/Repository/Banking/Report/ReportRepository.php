@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\ORM\Repository\Banking\Report;
 
 use Gpupo\CommonSchema\AbstractORMRepository;
+use Gpupo\CommonSchema\ORMEntityInterface;
 
 /**
  * ReportRepository.
@@ -28,5 +29,10 @@ class ReportRepository extends AbstractORMRepository
     public function findByFileName($file_name)
     {
         return $this->findOneBy(['file_name' => $file_name]);
+    }
+
+    protected function defaultFindByParameters(ORMEntityInterface $entity): array
+    {
+        return ['file_name' => $entity->getFileName()];
     }
 }
