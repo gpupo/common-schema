@@ -20,7 +20,7 @@ use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
 use Gpupo\CommonSchema\ArrayCollection\People\People;
 use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
-use Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Client;
+use Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Provider;
 use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
 
@@ -34,14 +34,8 @@ if(in_array('-v',$argv)) {
 
 $generator = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
 
-$trading = new Trading();
-$people = new People();
-$company = new Company();
-$report = new Report();
-$client = new Client();
-
 try {
-    foreach([$trading, $people, $company, $report, $client] as $object) {
+    foreach([new Trading(), new People(), new Company(), new Report(), new Provider()] as $object) {
         $generator->recursiveSave($object);
     }
 

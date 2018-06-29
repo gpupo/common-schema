@@ -34,13 +34,6 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client:
       unique: false
       options: {  }
   oneToOne:
-    provider:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
-      cascade:
-        - persist
-        - remove
-      options: {  }
-      mappedBy: client
     access_token:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken
       cascade:
@@ -48,10 +41,15 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client:
         - remove
       options: {  }
       mappedBy: client
+    provider:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
+      inversedBy: client
+      joinColumn:
+        name: provider_id
+        referencedColumnName: id
   uniqueConstraints:
-    provider_client_id_idx:
+    client_id_idx:
       columns:
-        - provider
         - client_id
   lifecycleCallbacks:
     prePersist: {  }

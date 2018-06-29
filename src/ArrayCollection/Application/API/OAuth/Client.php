@@ -24,7 +24,7 @@ class Client extends AbstractEntity
     protected $tableName = 'application_API_OAuth_client';
 
     protected $uniqueConstraints = [
-        ['provider', 'client_id'],
+        ['client_id'],
     ];
 
     /**
@@ -38,7 +38,6 @@ class Client extends AbstractEntity
             'client_id' => 'string',
             'client_secret' => 'string',
             'description' => 'string',
-            'provider' => 'manyToOne',
             'access_token' => 'oneToOne',
         ];
     }

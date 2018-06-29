@@ -1,11 +1,7 @@
 #!/bin/bash
-rm -fv Resources/metadata/* > /dev/null;
-./bin/common-schema;
 mkdir -p var/doctrine;
-rm -rf var/doctrine/*  src/ORM/Entity/* > /dev/null;
-
-
-printf "\n ========= Build ORM objects =========\n";
+rm -rf var/doctrine/*  src/ORM/Entity/* Resources/metadata/* > /dev/null;
+./bin/common-schema;
 
 ./vendor/bin/doctrine orm:generate-entities var/doctrine \
  --num-spaces=4 \
@@ -28,6 +24,6 @@ find src/ORM/Repository/ -type f -print0 | xargs -0 sed -i 's~Doctrine\\ORM\\Ent
 
 COMPOSE_HTTP_TIMEOUT=2 docker-compose run php-dev /root/.composer/vendor/bin/php-cs-fixer fix -q --using-cache=false;
 
-printf "\n DONE!\n";
+printf "DONE!\n";
 
 # ./vendor/bin/doctrine orm:schema-tool:update --force

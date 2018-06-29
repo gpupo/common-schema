@@ -31,6 +31,10 @@ class Provider extends AbstractEntity
         return [
             'name' => 'string',
             'version' => 'string',
+            'environment' => 'string',
+            'endpoint' => 'string',
+            'description' => 'string',
+            'client' => 'oneToMany',
         ];
     }
 }

@@ -30,6 +30,27 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="string", unique=false)
+     */
+    protected $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="endpoint", type="string", unique=false)
+     */
+    protected $endpoint;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="environment", type="string", unique=false)
+     */
+    protected $environment;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="name", type="string", unique=false)
      */
     protected $name;
@@ -44,10 +65,7 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client", inversedBy="provider")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="client_id", referencedColumnName="id", unique=true)
-     * })
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client", mappedBy="provider", cascade={"persist","remove"})
      */
     protected $client;
 
@@ -59,6 +77,78 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set description.
+     *
+     * @param string $description
+     *
+     * @return Provider
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description.
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set endpoint.
+     *
+     * @param string $endpoint
+     *
+     * @return Provider
+     */
+    public function setEndpoint($endpoint)
+    {
+        $this->endpoint = $endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Get endpoint.
+     *
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        return $this->endpoint;
+    }
+
+    /**
+     * Set environment.
+     *
+     * @param string $environment
+     *
+     * @return Provider
+     */
+    public function setEnvironment($environment)
+    {
+        $this->environment = $environment;
+
+        return $this;
+    }
+
+    /**
+     * Get environment.
+     *
+     * @return string
+     */
+    public function getEnvironment()
+    {
+        return $this->environment;
     }
 
     /**

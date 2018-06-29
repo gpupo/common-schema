@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Client.
  *
- * @ORM\Table(name="cs_application_API_OAuth_client", uniqueConstraints={@ORM\UniqueConstraint(name="provider_client_id_idx", columns={"provider", "client_id"})})
+ * @ORM\Table(name="cs_application_API_OAuth_client", uniqueConstraints={@ORM\UniqueConstraint(name="client_id_idx", columns={"client_id"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\ClientRepository")
  */
 class Client extends \Gpupo\CommonSchema\AbstractORMEntity
@@ -63,18 +63,21 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $name;
 
     /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
-     *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider", mappedBy="client", cascade={"persist","remove"})
-     */
-    protected $provider;
-
-    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken
      *
      * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken", mappedBy="client", cascade={"persist","remove"})
      */
     protected $access_token;
+
+    /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
+     *
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider", inversedBy="client")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provider_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    protected $provider;
 
     /**
      * Get id.
@@ -207,30 +210,6 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set provider.
-     *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider $provider
-     *
-     * @return Client
-     */
-    public function setProvider(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider $provider = null)
-    {
-        $this->provider = $provider;
-
-        return $this;
-    }
-
-    /**
-     * Get provider.
-     *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
-     */
-    public function getProvider()
-    {
-        return $this->provider;
-    }
-
-    /**
      * Set accessToken.
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken $accessToken
@@ -252,5 +231,29 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getAccessToken()
     {
         return $this->access_token;
+    }
+
+    /**
+     * Set provider.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider $provider
+     *
+     * @return Client
+     */
+    public function setProvider(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider $provider = null)
+    {
+        $this->provider = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Get provider.
+     *
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
+     */
+    public function getProvider()
+    {
+        return $this->provider;
     }
 }
