@@ -30,6 +30,15 @@ use Gedmo\Mapping\Annotation as Gedmo;
 abstract class AbstractORMEntity implements ORMEntityInterface
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    protected $id;
+    
+    /**
      * @var DateTime (Record creation timestamp)
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
