@@ -24,6 +24,12 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item:
       type: array
       nullable: true
       options: {  }
+    net_amount:
+      type: float
+      precision: 10
+      scale: 2
+      nullable: true
+      options: {  }
     tags:
       type: array
       nullable: true

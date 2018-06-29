@@ -31,6 +31,7 @@ class Item extends AbstractEntity
         return [
             'type' => 'string',
             'amount' => 'number',
+            'net_amount' => 'number',
             'description' => 'string',
             'tags' => 'array',
             'expands' => 'array',
