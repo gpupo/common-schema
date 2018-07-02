@@ -34,9 +34,9 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
       lenght: 50
       unique: false
       options: {  }
-  oneToOne:
-    client:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client
+  oneToMany:
+    clients:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item
       cascade:
         - persist
         - remove

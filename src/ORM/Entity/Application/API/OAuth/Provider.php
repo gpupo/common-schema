@@ -63,11 +63,19 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $version;
 
     /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client", mappedBy="provider", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item", mappedBy="provider", cascade={"persist","remove"})
      */
-    protected $client;
+    protected $clients;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -200,26 +208,38 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set client.
+     * Add client.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client $client
+     * @param \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $client
      *
      * @return Provider
      */
-    public function setClient(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client $client = null)
+    public function addClient(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $client)
     {
-        $this->client = $client;
+        $this->clients[] = $client;
 
         return $this;
     }
 
     /**
-     * Get client.
+     * Remove client.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client
+     * @param \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $client
+     *
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function getClient()
+    public function removeClient(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $client)
     {
-        return $this->client;
+        return $this->clients->removeElement($client);
+    }
+
+    /**
+     * Get clients.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getClients()
+    {
+        return $this->clients;
     }
 }

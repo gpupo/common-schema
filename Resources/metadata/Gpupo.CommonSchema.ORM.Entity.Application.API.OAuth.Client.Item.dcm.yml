@@ -1,8 +1,8 @@
 # access_token metadata
-Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client:
+Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item:
   type: entity
   table: cs_application_API_OAuth_client
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\ClientRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\ItemRepository
   id:
     id:
       type: integer
@@ -35,22 +35,25 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client:
       options: {  }
   oneToOne:
     access_token:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken
       cascade:
         - persist
         - remove
       options: {  }
-      mappedBy: client
-    provider:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
-      inversedBy: client
-      joinColumn:
-        name: provider_id
-        referencedColumnName: id
+      mappedBy: item
   uniqueConstraints:
     client_id_idx:
       columns:
         - client_id
+  manyToOne:
+    provider:
+      cascade:
+        - persist
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
+      inversedBy: clients
+      joinColumn:
+        name: provider_id
+        referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
     postPersist: {  }

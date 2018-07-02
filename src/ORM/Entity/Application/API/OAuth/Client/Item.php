@@ -15,17 +15,17 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth;
+namespace Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Client.
+ * Item.
  *
  * @ORM\Table(name="cs_application_API_OAuth_client", uniqueConstraints={@ORM\UniqueConstraint(name="client_id_idx", columns={"client_id"})})
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\ClientRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\ItemRepository")
  */
-class Client extends \Gpupo\CommonSchema\AbstractORMEntity
+class Item extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
      * @var string
@@ -63,18 +63,18 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $name;
 
     /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken
+     * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken", mappedBy="client", cascade={"persist","remove"})
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken", mappedBy="item", cascade={"persist","remove"})
      */
     protected $access_token;
 
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider", inversedBy="client")
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider", inversedBy="clients", cascade={"persist"})
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provider_id", referencedColumnName="id", unique=true)
+     *   @ORM\JoinColumn(name="provider_id", referencedColumnName="id")
      * })
      */
     protected $provider;
@@ -94,7 +94,7 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param string $clientId
      *
-     * @return Client
+     * @return Item
      */
     public function setClientId($clientId)
     {
@@ -118,7 +118,7 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param string $clientSecret
      *
-     * @return Client
+     * @return Item
      */
     public function setClientSecret($clientSecret)
     {
@@ -142,7 +142,7 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param string $description
      *
-     * @return Client
+     * @return Item
      */
     public function setDescription($description)
     {
@@ -166,7 +166,7 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|int $internalId
      *
-     * @return Client
+     * @return Item
      */
     public function setInternalId($internalId = null)
     {
@@ -190,7 +190,7 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param string $name
      *
-     * @return Client
+     * @return Item
      */
     public function setName($name)
     {
@@ -212,11 +212,11 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set accessToken.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken $accessToken
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken $accessToken
      *
-     * @return Client
+     * @return Item
      */
-    public function setAccessToken(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken $accessToken = null)
+    public function setAccessToken(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken $accessToken = null)
     {
         $this->access_token = $accessToken;
 
@@ -226,7 +226,7 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get accessToken.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\AccessToken
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken
      */
     public function getAccessToken()
     {
@@ -238,7 +238,7 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider $provider
      *
-     * @return Client
+     * @return Item
      */
     public function setProvider(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider $provider = null)
     {

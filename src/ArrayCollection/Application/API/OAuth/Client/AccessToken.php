@@ -15,17 +15,13 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth;
+namespace Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Client;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class Client extends AbstractEntity
+class AccessToken extends AbstractEntity
 {
-    protected $tableName = 'application_API_OAuth_client';
-
-    protected $uniqueConstraints = [
-        ['client_id'],
-    ];
+    protected $tableName = 'application_API_OAuth_access_token';
 
     /**
      * @codeCoverageIgnore
@@ -33,12 +29,13 @@ class Client extends AbstractEntity
     public function getSchema()
     {
         return [
-            'internal_id' => 'integer',
-            'name' => 'string',
-            'client_id' => 'string',
-            'client_secret' => 'string',
-            'description' => 'string',
-            'access_token' => 'oneToOne',
+            'access_token' => 'string',
+            'refresh_token' => 'string',
+            'live_mode' => 'boolean',
+            'user_id' => 'integer',
+            'token_type' => 'string',
+            'expires_in' => 'integer',
+            'scope' => 'string',
         ];
     }
 }

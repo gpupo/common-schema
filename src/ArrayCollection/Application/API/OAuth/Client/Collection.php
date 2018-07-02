@@ -15,27 +15,16 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth;
+namespace Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Client;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
 
-class AccessToken extends AbstractEntity
+class Collection extends AbstractCollection
 {
-    protected $tableName = 'application_API_OAuth_access_token';
+    protected $type = 'oneToMany';
 
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getSchema()
+    public function factoryElement($data)
     {
-        return [
-            'access_token' => 'string',
-            'refresh_token' => 'string',
-            'live_mode' => 'boolean',
-            'user_id' => 'integer',
-            'token_type' => 'string',
-            'expires_in' => 'integer',
-            'scope' => 'string',
-        ];
+        return new Item($data);
     }
 }

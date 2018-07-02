@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth;
+namespace Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
  * AccessToken.
  *
  * @ORM\Table(name="cs_application_API_OAuth_access_token")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\AccessTokenRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\AccessTokenRepository")
  */
 class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
 {
@@ -77,14 +77,14 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $user_id;
 
     /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client
+     * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client", inversedBy="access_token")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item", inversedBy="access_token")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="client_id", referencedColumnName="id", unique=true)
+     *   @ORM\JoinColumn(name="item_id", referencedColumnName="id", unique=true)
      * })
      */
-    protected $client;
+    protected $item;
 
     /**
      * Get id.
@@ -265,26 +265,26 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set client.
+     * Set item.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client $client
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $item
      *
      * @return AccessToken
      */
-    public function setClient(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client $client = null)
+    public function setItem(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $item = null)
     {
-        $this->client = $client;
+        $this->item = $item;
 
         return $this;
     }
 
     /**
-     * Get client.
+     * Get item.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item
      */
-    public function getClient()
+    public function getItem()
     {
-        return $this->client;
+        return $this->item;
     }
 }
