@@ -135,6 +135,13 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var null|float
      *
+     * @ORM\Column(name="total_payments_fee_amount", type="float", precision=10, scale=2, nullable=true)
+     */
+    protected $total_payments_fee_amount;
+
+    /**
+     * @var null|float
+     *
      * @ORM\Column(name="total_payments_net_amount", type="float", precision=10, scale=2, nullable=true)
      */
     protected $total_payments_net_amount;
@@ -594,6 +601,30 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getTotalPaymentsAmount()
     {
         return $this->total_payments_amount;
+    }
+
+    /**
+     * Set totalPaymentsFeeAmount.
+     *
+     * @param null|float $totalPaymentsFeeAmount
+     *
+     * @return Shipping
+     */
+    public function setTotalPaymentsFeeAmount($totalPaymentsFeeAmount = null)
+    {
+        $this->total_payments_fee_amount = $totalPaymentsFeeAmount;
+
+        return $this;
+    }
+
+    /**
+     * Get totalPaymentsFeeAmount.
+     *
+     * @return null|float
+     */
+    public function getTotalPaymentsFeeAmount()
+    {
+        return $this->total_payments_fee_amount;
     }
 
     /**

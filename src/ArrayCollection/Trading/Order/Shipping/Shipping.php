@@ -49,6 +49,7 @@ class Shipping extends AbstractEntity
             'total_net' => 'number',
             'total_quantity' => 'number',
             'total_payments_amount' => 'number',
+            'total_payments_fee_amount' => 'number',
             'total_payments_net_amount' => 'number',
             //object
             'seller' => 'oneToOne',
