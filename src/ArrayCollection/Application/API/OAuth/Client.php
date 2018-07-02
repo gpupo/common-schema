@@ -33,7 +33,7 @@ class Client extends AbstractEntity
     public function getSchema()
     {
         return [
-            'external_id' => 'integer',
+            'internal_id' => 'integer',
             'name' => 'string',
             'client_id' => 'string',
             'client_secret' => 'string',

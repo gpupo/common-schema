@@ -21,6 +21,20 @@ use PHPUnit\Framework\TestCase;
 
 abstract class AbstractTestCase extends TestCase
 {
+    public function truncate($className)
+    {
+        $em = $this->getDoctrineEntityManager();
+        $cmd = $em->getClassMetadata($className);
+        $connection = $em->getConnection();
+        $dbPlatform = $connection->getDatabasePlatform();
+        $connection->query('SET FOREIGN_KEY_CHECKS=0');
+        $q = $dbPlatform->getTruncateTableSql($cmd->getTableName());
+        $connection->executeUpdate($q);
+        $connection->query('SET FOREIGN_KEY_CHECKS=1');
+
+        return true;
+    }
+
     protected function getResourcesDirectory()
     {
         return __DIR__.'/../Resources';

@@ -17,7 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Decorator;
 
-use  Gpupo\Common\Tools\Absorbed\AbsorbedAware;
+use Gpupo\Common\Entity\ArrayCollection;
+use Gpupo\Common\Tools\Absorbed\AbsorbedAware;
 
 abstract class AbstractCollectionDecorator extends AbstractDecorator implements CollectionDecoratorInterface
 {
@@ -26,6 +27,16 @@ abstract class AbstractCollectionDecorator extends AbstractDecorator implements 
     public function __call($method, $args)
     {
         return $this->accessAbsorbed()->{$method}();
+    }
+
+    public function add($value)
+    {
+        return $this->accessAbsorbed()->add($value);
+    }
+
+    public function toArray()
+    {
+        return $this->accessAbsorbed();
     }
 
     public function getTotalOf($key, $convertToPositiveValue = false)
@@ -39,6 +50,11 @@ abstract class AbstractCollectionDecorator extends AbstractDecorator implements 
         }
 
         return $value;
+    }
+
+    protected function factoryEmptyAbsorbed()
+    {
+        return new ArrayCollection();
     }
 
     protected function accessObjectGetter($object, $getter)

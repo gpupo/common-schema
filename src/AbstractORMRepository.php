@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Gpupo\Common\Entity\ArrayCollection;
 
 abstract class AbstractORMRepository extends EntityRepository
@@ -37,17 +38,35 @@ abstract class AbstractORMRepository extends EntityRepository
         return $this->decorateResultCollection($this->findBy($this->defaultFindByParameters($entity)));
     }
 
+    public function applyToQueryBuilderCollection(QueryBuilder $queryBuilder)
+    {
+        return $queryBuilder;
+    }
+
+    public function getCollectionFromQueryBuilder(QueryBuilder $queryBuilder)
+    {
+        $decorated = $this->applyToQueryBuilderCollection($queryBuilder);
+        $query = $decorated->getQuery();
+
+        return $this->decorateResultCollection($query->getResult());
+    }
+
     protected function defaultFindByParameters(ORMEntityInterface $entity): array
     {
         return ['id' => $entity->getId()];
     }
 
-    protected function decorateResultCollection($result): ?ArrayCollection
+    protected function factoryCollection($result)
+    {
+        return new ArrayCollection($result);
+    }
+
+    protected function decorateResultCollection($result)
     {
         if (empty($result)) {
             return null;
         }
 
-        return new ArrayCollection($result);
+        return $this->factoryCollection($result);
     }
 }

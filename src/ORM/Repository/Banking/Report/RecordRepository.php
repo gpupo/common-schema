@@ -28,6 +28,10 @@ use Gpupo\CommonSchema\ORM\Decorator\Banking\Report\Records;
  */
 class RecordRepository extends AbstractORMRepository
 {
+    public function findCreatedAfter($datetime)
+    {
+    }
+
     public function findByExternalId($external_id): ?Records
     {
         $array = $this->findBy(['external_id' => $external_id]);
@@ -40,8 +44,13 @@ class RecordRepository extends AbstractORMRepository
             $array = new ArrayCollection($array);
         }
 
+        return $this->factoryCollection($array);
+    }
+
+    protected function factoryCollection($result)
+    {
         $decorator = new Records();
-        $decorator->absorb($array);
+        $decorator->absorb($result);
 
         return $decorator;
     }

@@ -24,7 +24,7 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client:
       lenght: 50
       unique: false
       options: {  }
-    external_id:
+    internal_id:
       type: bigint
       nullable: true
       options: {  }

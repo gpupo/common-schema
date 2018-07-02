@@ -51,9 +51,9 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var null|int
      *
-     * @ORM\Column(name="external_id", type="bigint", nullable=true)
+     * @ORM\Column(name="internal_id", type="bigint", nullable=true)
      */
-    protected $external_id;
+    protected $internal_id;
 
     /**
      * @var string
@@ -162,27 +162,27 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set externalId.
+     * Set internalId.
      *
-     * @param null|int $externalId
+     * @param null|int $internalId
      *
      * @return Client
      */
-    public function setExternalId($externalId = null)
+    public function setInternalId($internalId = null)
     {
-        $this->external_id = $externalId;
+        $this->internal_id = $internalId;
 
         return $this;
     }
 
     /**
-     * Get externalId.
+     * Get internalId.
      *
      * @return null|int
      */
-    public function getExternalId()
+    public function getInternalId()
     {
-        return $this->external_id;
+        return $this->internal_id;
     }
 
     /**

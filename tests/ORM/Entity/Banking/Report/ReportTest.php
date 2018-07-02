@@ -17,30 +17,18 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests\ORM\Entity\Banking\Report;
 
-use Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report;
-use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
 use Gpupo\CommonSchema\ORM\Decorator\Banking\Report\Records;
 use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record;
 use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report as ReportORM;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
-use Gpupo\CommonSdk\Traits\ResourcesTrait;
+use Gpupo\CommonSchema\Tests\DataProvider\DataProviderBankingTrait;
 
 /**
  * @coversDefaultClass \Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report
  */
 class ReportTest extends AbstractTestCase
 {
-    use ResourcesTrait;
-
-    public function dataProviderReport()
-    {
-        $data = $this->getResourceYaml('/fixtures/banking/report/report.yaml');
-        $arrayCollection = new Report($data);
-        $converter = new ArrayCollectionConverter();
-        $orm = $converter->convertToOrm($arrayCollection);
-
-        return [[$orm, $data]];
-    }
+    use DataProviderBankingTrait;
 
     /**
      * @dataProvider dataProviderReport
@@ -55,14 +43,9 @@ class ReportTest extends AbstractTestCase
      */
     public function testPersist(ReportORM $report, array $expected)
     {
+        $this->persistIfNotExist($report);
         $em = $this->getDoctrineEntityManager();
         $repository = $em->getRepository(ReportORM::class);
-
-        if (!$repository->exists($report)) {
-            $em->persist($report);
-            $em->flush();
-        }
-
         $id = (int) $expected['external_id'];
         $row = $repository->findOneByObject($report);
 
