@@ -28,16 +28,16 @@ use Doctrine\ORM\Mapping as ORM;
 class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="city", type="string", unique=false)
+     * @ORM\Column(name="city", type="string", nullable=true, unique=false)
      */
     protected $city;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="comments", type="string", unique=false)
+     * @ORM\Column(name="comments", type="string", nullable=true, unique=false)
      */
     protected $comments;
 
@@ -49,44 +49,44 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $expands;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="neighborhood", type="string", unique=false)
+     * @ORM\Column(name="neighborhood", type="string", nullable=true, unique=false)
      */
     protected $neighborhood;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="number", type="string", unique=false)
+     * @ORM\Column(name="number", type="string", nullable=true, unique=false)
      */
     protected $number;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="postalCode", type="string", unique=false)
+     * @ORM\Column(name="postalCode", type="string", nullable=true, unique=false)
      */
     protected $postalCode;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="reference", type="string", unique=false)
+     * @ORM\Column(name="reference", type="string", nullable=true, unique=false)
      */
     protected $reference;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="state", type="string", unique=false)
+     * @ORM\Column(name="state", type="string", nullable=true, unique=false)
      */
     protected $state;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="street", type="string", unique=false)
+     * @ORM\Column(name="street", type="string", nullable=true, unique=false)
      */
     protected $street;
 
@@ -113,11 +113,11 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set city.
      *
-     * @param string $city
+     * @param null|string $city
      *
      * @return AddressDelivery
      */
-    public function setCity($city)
+    public function setCity($city = null)
     {
         $this->city = $city;
 
@@ -127,7 +127,7 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get city.
      *
-     * @return string
+     * @return null|string
      */
     public function getCity()
     {
@@ -137,11 +137,11 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set comments.
      *
-     * @param string $comments
+     * @param null|string $comments
      *
      * @return AddressDelivery
      */
-    public function setComments($comments)
+    public function setComments($comments = null)
     {
         $this->comments = $comments;
 
@@ -151,7 +151,7 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get comments.
      *
-     * @return string
+     * @return null|string
      */
     public function getComments()
     {
@@ -185,11 +185,11 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set neighborhood.
      *
-     * @param string $neighborhood
+     * @param null|string $neighborhood
      *
      * @return AddressDelivery
      */
-    public function setNeighborhood($neighborhood)
+    public function setNeighborhood($neighborhood = null)
     {
         $this->neighborhood = $neighborhood;
 
@@ -199,7 +199,7 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get neighborhood.
      *
-     * @return string
+     * @return null|string
      */
     public function getNeighborhood()
     {
@@ -209,11 +209,11 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set number.
      *
-     * @param string $number
+     * @param null|string $number
      *
      * @return AddressDelivery
      */
-    public function setNumber($number)
+    public function setNumber($number = null)
     {
         $this->number = $number;
 
@@ -223,7 +223,7 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get number.
      *
-     * @return string
+     * @return null|string
      */
     public function getNumber()
     {
@@ -233,11 +233,11 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set postalCode.
      *
-     * @param string $postalCode
+     * @param null|string $postalCode
      *
      * @return AddressDelivery
      */
-    public function setPostalCode($postalCode)
+    public function setPostalCode($postalCode = null)
     {
         $this->postalCode = $postalCode;
 
@@ -247,7 +247,7 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get postalCode.
      *
-     * @return string
+     * @return null|string
      */
     public function getPostalCode()
     {
@@ -257,11 +257,11 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set reference.
      *
-     * @param string $reference
+     * @param null|string $reference
      *
      * @return AddressDelivery
      */
-    public function setReference($reference)
+    public function setReference($reference = null)
     {
         $this->reference = $reference;
 
@@ -271,7 +271,7 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get reference.
      *
-     * @return string
+     * @return null|string
      */
     public function getReference()
     {
@@ -281,11 +281,11 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set state.
      *
-     * @param string $state
+     * @param null|string $state
      *
      * @return AddressDelivery
      */
-    public function setState($state)
+    public function setState($state = null)
     {
         $this->state = $state;
 
@@ -295,7 +295,7 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get state.
      *
-     * @return string
+     * @return null|string
      */
     public function getState()
     {
@@ -305,11 +305,11 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set street.
      *
-     * @param string $street
+     * @param null|string $street
      *
      * @return AddressDelivery
      */
-    public function setStreet($street)
+    public function setStreet($street = null)
     {
         $this->street = $street;
 
@@ -319,7 +319,7 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get street.
      *
-     * @return string
+     * @return null|string
      */
     public function getStreet()
     {

@@ -42,16 +42,16 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $expands;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="extension", type="string", unique=false)
+     * @ORM\Column(name="extension", type="string", nullable=true, unique=false)
      */
     protected $extension;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="number", type="string", unique=false)
+     * @ORM\Column(name="number", type="string", nullable=true, unique=false)
      */
     protected $number;
 
@@ -123,11 +123,11 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set extension.
      *
-     * @param string $extension
+     * @param null|string $extension
      *
      * @return Phone
      */
-    public function setExtension($extension)
+    public function setExtension($extension = null)
     {
         $this->extension = $extension;
 
@@ -137,7 +137,7 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get extension.
      *
-     * @return string
+     * @return null|string
      */
     public function getExtension()
     {
@@ -147,11 +147,11 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set number.
      *
-     * @param string $number
+     * @param null|string $number
      *
      * @return Phone
      */
-    public function setNumber($number)
+    public function setNumber($number = null)
     {
         $this->number = $number;
 
@@ -161,7 +161,7 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get number.
      *
-     * @return string
+     * @return null|string
      */
     public function getNumber()
     {

@@ -28,9 +28,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Item extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="carrier", type="string", unique=false)
+     * @ORM\Column(name="carrier", type="string", nullable=true, unique=false)
      */
     protected $carrier;
 
@@ -49,9 +49,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $date_tracking_ship;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="delivery_service", type="string", unique=false)
+     * @ORM\Column(name="delivery_service", type="string", nullable=true, unique=false)
      */
     protected $delivery_service;
 
@@ -70,16 +70,16 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $tags;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="tracking_link", type="string", unique=false)
+     * @ORM\Column(name="tracking_link", type="string", nullable=true, unique=false)
      */
     protected $tracking_link;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="tracking_number", type="string", unique=false)
+     * @ORM\Column(name="tracking_number", type="string", nullable=true, unique=false)
      */
     protected $tracking_number;
 
@@ -106,11 +106,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set carrier.
      *
-     * @param string $carrier
+     * @param null|string $carrier
      *
      * @return Item
      */
-    public function setCarrier($carrier)
+    public function setCarrier($carrier = null)
     {
         $this->carrier = $carrier;
 
@@ -120,7 +120,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get carrier.
      *
-     * @return string
+     * @return null|string
      */
     public function getCarrier()
     {
@@ -178,11 +178,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set deliveryService.
      *
-     * @param string $deliveryService
+     * @param null|string $deliveryService
      *
      * @return Item
      */
-    public function setDeliveryService($deliveryService)
+    public function setDeliveryService($deliveryService = null)
     {
         $this->delivery_service = $deliveryService;
 
@@ -192,7 +192,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get deliveryService.
      *
-     * @return string
+     * @return null|string
      */
     public function getDeliveryService()
     {
@@ -250,11 +250,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set trackingLink.
      *
-     * @param string $trackingLink
+     * @param null|string $trackingLink
      *
      * @return Item
      */
-    public function setTrackingLink($trackingLink)
+    public function setTrackingLink($trackingLink = null)
     {
         $this->tracking_link = $trackingLink;
 
@@ -264,7 +264,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get trackingLink.
      *
-     * @return string
+     * @return null|string
      */
     public function getTrackingLink()
     {
@@ -274,11 +274,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set trackingNumber.
      *
-     * @param string $trackingNumber
+     * @param null|string $trackingNumber
      *
      * @return Item
      */
-    public function setTrackingNumber($trackingNumber)
+    public function setTrackingNumber($trackingNumber = null)
     {
         $this->tracking_number = $trackingNumber;
 
@@ -288,7 +288,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get trackingNumber.
      *
-     * @return string
+     * @return null|string
      */
     public function getTrackingNumber()
     {

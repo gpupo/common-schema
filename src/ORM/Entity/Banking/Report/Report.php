@@ -49,9 +49,9 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $date_last_modified;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="description", type="string", unique=false)
+     * @ORM\Column(name="description", type="string", nullable=true, unique=false)
      */
     protected $description;
 
@@ -70,16 +70,16 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $external_id;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="file_name", type="string", unique=false)
+     * @ORM\Column(name="file_name", type="string", nullable=true, unique=false)
      */
     protected $file_name;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="institution", type="string", unique=false)
+     * @ORM\Column(name="institution", type="string", nullable=true, unique=false)
      */
     protected $institution;
 
@@ -183,11 +183,11 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set description.
      *
-     * @param string $description
+     * @param null|string $description
      *
      * @return Report
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->description = $description;
 
@@ -197,7 +197,7 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get description.
      *
-     * @return string
+     * @return null|string
      */
     public function getDescription()
     {
@@ -255,11 +255,11 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set fileName.
      *
-     * @param string $fileName
+     * @param null|string $fileName
      *
      * @return Report
      */
-    public function setFileName($fileName)
+    public function setFileName($fileName = null)
     {
         $this->file_name = $fileName;
 
@@ -269,7 +269,7 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get fileName.
      *
-     * @return string
+     * @return null|string
      */
     public function getFileName()
     {
@@ -279,11 +279,11 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set institution.
      *
-     * @param string $institution
+     * @param null|string $institution
      *
      * @return Report
      */
-    public function setInstitution($institution)
+    public function setInstitution($institution = null)
     {
         $this->institution = $institution;
 
@@ -293,7 +293,7 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get institution.
      *
-     * @return string
+     * @return null|string
      */
     public function getInstitution()
     {

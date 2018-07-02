@@ -13,6 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     date_ship:
       type: datetime
@@ -26,6 +27,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     expands:
       type: array
@@ -39,11 +41,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     tracking_number:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
   uniqueConstraints: {  }
   manyToOne:

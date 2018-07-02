@@ -35,9 +35,9 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $coupon_amount;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="date", type="string", unique=false)
+     * @ORM\Column(name="date", type="string", nullable=true, unique=false)
      */
     protected $date;
 
@@ -56,9 +56,9 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $date_last_modified;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="description", type="string", unique=false)
+     * @ORM\Column(name="description", type="string", nullable=true, unique=false)
      */
     protected $description;
 
@@ -112,16 +112,16 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $net_debit_amount;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="payment_method", type="string", unique=false)
+     * @ORM\Column(name="payment_method", type="string", nullable=true, unique=false)
      */
     protected $payment_method;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="record_type", type="string", unique=false)
+     * @ORM\Column(name="record_type", type="string", nullable=true, unique=false)
      */
     protected $record_type;
 
@@ -193,11 +193,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set date.
      *
-     * @param string $date
+     * @param null|string $date
      *
      * @return Record
      */
-    public function setDate($date)
+    public function setDate($date = null)
     {
         $this->date = $date;
 
@@ -207,7 +207,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get date.
      *
-     * @return string
+     * @return null|string
      */
     public function getDate()
     {
@@ -265,11 +265,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set description.
      *
-     * @param string $description
+     * @param null|string $description
      *
      * @return Record
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->description = $description;
 
@@ -279,7 +279,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get description.
      *
-     * @return string
+     * @return null|string
      */
     public function getDescription()
     {
@@ -457,11 +457,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set paymentMethod.
      *
-     * @param string $paymentMethod
+     * @param null|string $paymentMethod
      *
      * @return Record
      */
-    public function setPaymentMethod($paymentMethod)
+    public function setPaymentMethod($paymentMethod = null)
     {
         $this->payment_method = $paymentMethod;
 
@@ -471,7 +471,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get paymentMethod.
      *
-     * @return string
+     * @return null|string
      */
     public function getPaymentMethod()
     {
@@ -481,11 +481,11 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set recordType.
      *
-     * @param string $recordType
+     * @param null|string $recordType
      *
      * @return Record
      */
-    public function setRecordType($recordType)
+    public function setRecordType($recordType = null)
     {
         $this->record_type = $recordType;
 
@@ -495,7 +495,7 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get recordType.
      *
-     * @return string
+     * @return null|string
      */
     public function getRecordType()
     {

@@ -28,9 +28,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Order extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="currency_id", type="string", unique=false)
+     * @ORM\Column(name="currency_id", type="string", nullable=true, unique=false)
      */
     protected $currency_id;
 
@@ -70,44 +70,44 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $expands;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="order_number", type="string", unique=false)
+     * @ORM\Column(name="order_number", type="string", nullable=true, unique=false)
      */
     protected $order_number;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="order_status", type="string", unique=false)
+     * @ORM\Column(name="order_status", type="string", nullable=true, unique=false)
      */
     protected $order_status;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="order_type", type="string", unique=false)
+     * @ORM\Column(name="order_type", type="string", nullable=true, unique=false)
      */
     protected $order_type;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="origin_business_unit", type="string", unique=false)
+     * @ORM\Column(name="origin_business_unit", type="string", nullable=true, unique=false)
      */
     protected $origin_business_unit;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="origin_number", type="string", unique=false)
+     * @ORM\Column(name="origin_number", type="string", nullable=true, unique=false)
      */
     protected $origin_number;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="origin_site", type="string", unique=false)
+     * @ORM\Column(name="origin_site", type="string", nullable=true, unique=false)
      */
     protected $origin_site;
 
@@ -234,11 +234,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set currencyId.
      *
-     * @param string $currencyId
+     * @param null|string $currencyId
      *
      * @return Order
      */
-    public function setCurrencyId($currencyId)
+    public function setCurrencyId($currencyId = null)
     {
         $this->currency_id = $currencyId;
 
@@ -248,7 +248,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get currencyId.
      *
-     * @return string
+     * @return null|string
      */
     public function getCurrencyId()
     {
@@ -378,11 +378,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set orderNumber.
      *
-     * @param string $orderNumber
+     * @param null|string $orderNumber
      *
      * @return Order
      */
-    public function setOrderNumber($orderNumber)
+    public function setOrderNumber($orderNumber = null)
     {
         $this->order_number = $orderNumber;
 
@@ -392,7 +392,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get orderNumber.
      *
-     * @return string
+     * @return null|string
      */
     public function getOrderNumber()
     {
@@ -402,11 +402,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set orderStatus.
      *
-     * @param string $orderStatus
+     * @param null|string $orderStatus
      *
      * @return Order
      */
-    public function setOrderStatus($orderStatus)
+    public function setOrderStatus($orderStatus = null)
     {
         $this->order_status = $orderStatus;
 
@@ -416,7 +416,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get orderStatus.
      *
-     * @return string
+     * @return null|string
      */
     public function getOrderStatus()
     {
@@ -426,11 +426,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set orderType.
      *
-     * @param string $orderType
+     * @param null|string $orderType
      *
      * @return Order
      */
-    public function setOrderType($orderType)
+    public function setOrderType($orderType = null)
     {
         $this->order_type = $orderType;
 
@@ -440,7 +440,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get orderType.
      *
-     * @return string
+     * @return null|string
      */
     public function getOrderType()
     {
@@ -450,11 +450,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set originBusinessUnit.
      *
-     * @param string $originBusinessUnit
+     * @param null|string $originBusinessUnit
      *
      * @return Order
      */
-    public function setOriginBusinessUnit($originBusinessUnit)
+    public function setOriginBusinessUnit($originBusinessUnit = null)
     {
         $this->origin_business_unit = $originBusinessUnit;
 
@@ -464,7 +464,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get originBusinessUnit.
      *
-     * @return string
+     * @return null|string
      */
     public function getOriginBusinessUnit()
     {
@@ -474,11 +474,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set originNumber.
      *
-     * @param string $originNumber
+     * @param null|string $originNumber
      *
      * @return Order
      */
-    public function setOriginNumber($originNumber)
+    public function setOriginNumber($originNumber = null)
     {
         $this->origin_number = $originNumber;
 
@@ -488,7 +488,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get originNumber.
      *
-     * @return string
+     * @return null|string
      */
     public function getOriginNumber()
     {
@@ -498,11 +498,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set originSite.
      *
-     * @param string $originSite
+     * @param null|string $originSite
      *
      * @return Order
      */
-    public function setOriginSite($originSite)
+    public function setOriginSite($originSite = null)
     {
         $this->origin_site = $originSite;
 
@@ -512,7 +512,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get originSite.
      *
-     * @return string
+     * @return null|string
      */
     public function getOriginSite()
     {

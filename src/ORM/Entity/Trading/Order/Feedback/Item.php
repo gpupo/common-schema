@@ -35,9 +35,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $expands;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="message", type="string", unique=false)
+     * @ORM\Column(name="message", type="string", nullable=true, unique=false)
      */
     protected $message;
 
@@ -49,16 +49,16 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $rating;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="reason", type="string", unique=false)
+     * @ORM\Column(name="reason", type="string", nullable=true, unique=false)
      */
     protected $reason;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="status", type="string", unique=false)
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
      */
     protected $status;
 
@@ -109,11 +109,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set message.
      *
-     * @param string $message
+     * @param null|string $message
      *
      * @return Item
      */
-    public function setMessage($message)
+    public function setMessage($message = null)
     {
         $this->message = $message;
 
@@ -123,7 +123,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get message.
      *
-     * @return string
+     * @return null|string
      */
     public function getMessage()
     {
@@ -157,11 +157,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set reason.
      *
-     * @param string $reason
+     * @param null|string $reason
      *
      * @return Item
      */
-    public function setReason($reason)
+    public function setReason($reason = null)
     {
         $this->reason = $reason;
 
@@ -171,7 +171,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get reason.
      *
-     * @return string
+     * @return null|string
      */
     public function getReason()
     {
@@ -181,11 +181,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set status.
      *
-     * @param string $status
+     * @param null|string $status
      *
      * @return Item
      */
-    public function setStatus($status)
+    public function setStatus($status = null)
     {
         $this->status = $status;
 
@@ -195,7 +195,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get status.
      *
-     * @return string
+     * @return null|string
      */
     public function getStatus()
     {

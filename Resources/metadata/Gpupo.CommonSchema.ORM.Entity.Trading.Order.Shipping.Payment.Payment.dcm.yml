@@ -13,11 +13,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     authorization_code:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     available_actions:
       type: array
@@ -27,11 +29,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     collector:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     coupon_amount:
       type: float
@@ -43,11 +47,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     currency_id:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     date_approved:
       type: datetime
@@ -65,6 +71,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     expands:
       type: array
@@ -94,6 +101,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     overpaid_amount:
       type: float
@@ -105,6 +113,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     payment_number:
       type: bigint
@@ -114,11 +123,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     reason:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     shipping_cost:
       type: float
@@ -130,16 +141,19 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     status_code:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     status_detail:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     tags:
       type: array
@@ -167,6 +181,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
   oneToOne:
     atm_transfer_reference:

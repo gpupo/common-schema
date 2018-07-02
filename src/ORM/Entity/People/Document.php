@@ -28,16 +28,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Document extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="doc_number", type="string", unique=false)
+     * @ORM\Column(name="doc_number", type="string", nullable=true, unique=false)
      */
     protected $doc_number;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="doc_type", type="string", unique=false)
+     * @ORM\Column(name="doc_type", type="string", nullable=true, unique=false)
      */
     protected $doc_type;
 
@@ -61,11 +61,11 @@ class Document extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set docNumber.
      *
-     * @param string $docNumber
+     * @param null|string $docNumber
      *
      * @return Document
      */
-    public function setDocNumber($docNumber)
+    public function setDocNumber($docNumber = null)
     {
         $this->doc_number = $docNumber;
 
@@ -75,7 +75,7 @@ class Document extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get docNumber.
      *
-     * @return string
+     * @return null|string
      */
     public function getDocNumber()
     {
@@ -85,11 +85,11 @@ class Document extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set docType.
      *
-     * @param string $docType
+     * @param null|string $docType
      *
      * @return Document
      */
-    public function setDocType($docType)
+    public function setDocType($docType = null)
     {
         $this->doc_type = $docType;
 
@@ -99,7 +99,7 @@ class Document extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get docType.
      *
-     * @return string
+     * @return null|string
      */
     public function getDocType()
     {

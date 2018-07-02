@@ -28,9 +28,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="email", type="string", unique=false)
+     * @ORM\Column(name="email", type="string", nullable=true, unique=false)
      */
     protected $email;
 
@@ -42,9 +42,9 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $expands;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="first_name", type="string", unique=false)
+     * @ORM\Column(name="first_name", type="string", nullable=true, unique=false)
      */
     protected $first_name;
 
@@ -56,16 +56,16 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $internal_id;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="last_name", type="string", unique=false)
+     * @ORM\Column(name="last_name", type="string", nullable=true, unique=false)
      */
     protected $last_name;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="nickname", type="string", unique=false)
+     * @ORM\Column(name="nickname", type="string", nullable=true, unique=false)
      */
     protected $nickname;
 
@@ -136,11 +136,11 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set email.
      *
-     * @param string $email
+     * @param null|string $email
      *
      * @return Customer
      */
-    public function setEmail($email)
+    public function setEmail($email = null)
     {
         $this->email = $email;
 
@@ -150,7 +150,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get email.
      *
-     * @return string
+     * @return null|string
      */
     public function getEmail()
     {
@@ -184,11 +184,11 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set firstName.
      *
-     * @param string $firstName
+     * @param null|string $firstName
      *
      * @return Customer
      */
-    public function setFirstName($firstName)
+    public function setFirstName($firstName = null)
     {
         $this->first_name = $firstName;
 
@@ -198,7 +198,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get firstName.
      *
-     * @return string
+     * @return null|string
      */
     public function getFirstName()
     {
@@ -232,11 +232,11 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set lastName.
      *
-     * @param string $lastName
+     * @param null|string $lastName
      *
      * @return Customer
      */
-    public function setLastName($lastName)
+    public function setLastName($lastName = null)
     {
         $this->last_name = $lastName;
 
@@ -246,7 +246,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get lastName.
      *
-     * @return string
+     * @return null|string
      */
     public function getLastName()
     {
@@ -256,11 +256,11 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set nickname.
      *
-     * @param string $nickname
+     * @param null|string $nickname
      *
      * @return Customer
      */
-    public function setNickname($nickname)
+    public function setNickname($nickname = null)
     {
         $this->nickname = $nickname;
 
@@ -270,7 +270,7 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get nickname.
      *
-     * @return string
+     * @return null|string
      */
     public function getNickname()
     {

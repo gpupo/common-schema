@@ -13,6 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     date_created:
       type: datetime

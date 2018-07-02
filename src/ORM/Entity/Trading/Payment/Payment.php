@@ -28,9 +28,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="currency_id", type="string", unique=false)
+     * @ORM\Column(name="currency_id", type="string", nullable=true, unique=false)
      */
     protected $currency_id;
 
@@ -49,9 +49,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $payment_number;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="status", type="string", unique=false)
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
      */
     protected $status;
 
@@ -85,11 +85,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set currencyId.
      *
-     * @param string $currencyId
+     * @param null|string $currencyId
      *
      * @return Payment
      */
-    public function setCurrencyId($currencyId)
+    public function setCurrencyId($currencyId = null)
     {
         $this->currency_id = $currencyId;
 
@@ -99,7 +99,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get currencyId.
      *
-     * @return string
+     * @return null|string
      */
     public function getCurrencyId()
     {
@@ -157,11 +157,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set status.
      *
-     * @param string $status
+     * @param null|string $status
      *
      * @return Payment
      */
-    public function setStatus($status)
+    public function setStatus($status = null)
     {
         $this->status = $status;
 
@@ -171,7 +171,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get status.
      *
-     * @return string
+     * @return null|string
      */
     public function getStatus()
     {

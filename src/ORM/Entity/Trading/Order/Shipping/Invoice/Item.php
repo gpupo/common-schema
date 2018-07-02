@@ -28,9 +28,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Item extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="accessKey", type="string", unique=false)
+     * @ORM\Column(name="accessKey", type="string", nullable=true, unique=false)
      */
     protected $accessKey;
 
@@ -49,16 +49,16 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $invoice_date;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="invoice_link", type="string", unique=false)
+     * @ORM\Column(name="invoice_link", type="string", nullable=true, unique=false)
      */
     protected $invoice_link;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="invoice_number", type="string", unique=false)
+     * @ORM\Column(name="invoice_number", type="string", nullable=true, unique=false)
      */
     protected $invoice_number;
 
@@ -99,11 +99,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set accessKey.
      *
-     * @param string $accessKey
+     * @param null|string $accessKey
      *
      * @return Item
      */
-    public function setAccessKey($accessKey)
+    public function setAccessKey($accessKey = null)
     {
         $this->accessKey = $accessKey;
 
@@ -113,7 +113,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get accessKey.
      *
-     * @return string
+     * @return null|string
      */
     public function getAccessKey()
     {
@@ -171,11 +171,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set invoiceLink.
      *
-     * @param string $invoiceLink
+     * @param null|string $invoiceLink
      *
      * @return Item
      */
-    public function setInvoiceLink($invoiceLink)
+    public function setInvoiceLink($invoiceLink = null)
     {
         $this->invoice_link = $invoiceLink;
 
@@ -185,7 +185,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get invoiceLink.
      *
-     * @return string
+     * @return null|string
      */
     public function getInvoiceLink()
     {
@@ -195,11 +195,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set invoiceNumber.
      *
-     * @param string $invoiceNumber
+     * @param null|string $invoiceNumber
      *
      * @return Item
      */
-    public function setInvoiceNumber($invoiceNumber)
+    public function setInvoiceNumber($invoiceNumber = null)
     {
         $this->invoice_number = $invoiceNumber;
 
@@ -209,7 +209,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get invoiceNumber.
      *
-     * @return string
+     * @return null|string
      */
     public function getInvoiceNumber()
     {

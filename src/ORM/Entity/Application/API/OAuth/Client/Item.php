@@ -28,23 +28,23 @@ use Doctrine\ORM\Mapping as ORM;
 class Item extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="client_id", type="string", unique=false)
+     * @ORM\Column(name="client_id", type="string", nullable=true, unique=false)
      */
     protected $client_id;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="client_secret", type="string", unique=false)
+     * @ORM\Column(name="client_secret", type="string", nullable=true, unique=false)
      */
     protected $client_secret;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="description", type="string", unique=false)
+     * @ORM\Column(name="description", type="string", nullable=true, unique=false)
      */
     protected $description;
 
@@ -56,9 +56,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $internal_id;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="name", type="string", unique=false)
+     * @ORM\Column(name="name", type="string", nullable=true, unique=false)
      */
     protected $name;
 
@@ -92,11 +92,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set clientId.
      *
-     * @param string $clientId
+     * @param null|string $clientId
      *
      * @return Item
      */
-    public function setClientId($clientId)
+    public function setClientId($clientId = null)
     {
         $this->client_id = $clientId;
 
@@ -106,7 +106,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get clientId.
      *
-     * @return string
+     * @return null|string
      */
     public function getClientId()
     {
@@ -116,11 +116,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set clientSecret.
      *
-     * @param string $clientSecret
+     * @param null|string $clientSecret
      *
      * @return Item
      */
-    public function setClientSecret($clientSecret)
+    public function setClientSecret($clientSecret = null)
     {
         $this->client_secret = $clientSecret;
 
@@ -130,7 +130,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get clientSecret.
      *
-     * @return string
+     * @return null|string
      */
     public function getClientSecret()
     {
@@ -140,11 +140,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set description.
      *
-     * @param string $description
+     * @param null|string $description
      *
      * @return Item
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->description = $description;
 
@@ -154,7 +154,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get description.
      *
-     * @return string
+     * @return null|string
      */
     public function getDescription()
     {
@@ -188,11 +188,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set name.
      *
-     * @param string $name
+     * @param null|string $name
      *
      * @return Item
      */
-    public function setName($name)
+    public function setName($name = null)
     {
         $this->name = $name;
 
@@ -202,7 +202,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get name.
      *
-     * @return string
+     * @return null|string
      */
     public function getName()
     {

@@ -13,26 +13,31 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     endpoint:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     environment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     name:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     version:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
   oneToMany:
     clients:

@@ -28,9 +28,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="currency_id", type="string", unique=false)
+     * @ORM\Column(name="currency_id", type="string", nullable=true, unique=false)
      */
     protected $currency_id;
 
@@ -246,11 +246,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set currencyId.
      *
-     * @param string $currencyId
+     * @param null|string $currencyId
      *
      * @return Shipping
      */
-    public function setCurrencyId($currencyId)
+    public function setCurrencyId($currencyId = null)
     {
         $this->currency_id = $currencyId;
 
@@ -260,7 +260,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get currencyId.
      *
-     * @return string
+     * @return null|string
      */
     public function getCurrencyId()
     {

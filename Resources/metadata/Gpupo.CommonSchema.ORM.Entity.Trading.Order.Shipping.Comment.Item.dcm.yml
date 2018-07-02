@@ -17,11 +17,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     value:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
   uniqueConstraints: {  }
   manyToOne:

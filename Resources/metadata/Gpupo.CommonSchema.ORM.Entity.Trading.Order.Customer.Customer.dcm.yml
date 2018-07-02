@@ -13,6 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     expands:
       type: array
@@ -22,6 +23,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     internal_id:
       type: bigint
@@ -31,11 +33,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     nickname:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
   oneToOne:
     phone:

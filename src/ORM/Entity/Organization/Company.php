@@ -28,9 +28,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Company extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="email", type="string", unique=false)
+     * @ORM\Column(name="email", type="string", nullable=true, unique=false)
      */
     protected $email;
 
@@ -42,9 +42,9 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $expands;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="first_name", type="string", unique=false)
+     * @ORM\Column(name="first_name", type="string", nullable=true, unique=false)
      */
     protected $first_name;
 
@@ -56,16 +56,16 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $internal_id;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="last_name", type="string", unique=false)
+     * @ORM\Column(name="last_name", type="string", nullable=true, unique=false)
      */
     protected $last_name;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="nickname", type="string", unique=false)
+     * @ORM\Column(name="nickname", type="string", nullable=true, unique=false)
      */
     protected $nickname;
 
@@ -112,11 +112,11 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set email.
      *
-     * @param string $email
+     * @param null|string $email
      *
      * @return Company
      */
-    public function setEmail($email)
+    public function setEmail($email = null)
     {
         $this->email = $email;
 
@@ -126,7 +126,7 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get email.
      *
-     * @return string
+     * @return null|string
      */
     public function getEmail()
     {
@@ -160,11 +160,11 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set firstName.
      *
-     * @param string $firstName
+     * @param null|string $firstName
      *
      * @return Company
      */
-    public function setFirstName($firstName)
+    public function setFirstName($firstName = null)
     {
         $this->first_name = $firstName;
 
@@ -174,7 +174,7 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get firstName.
      *
-     * @return string
+     * @return null|string
      */
     public function getFirstName()
     {
@@ -208,11 +208,11 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set lastName.
      *
-     * @param string $lastName
+     * @param null|string $lastName
      *
      * @return Company
      */
-    public function setLastName($lastName)
+    public function setLastName($lastName = null)
     {
         $this->last_name = $lastName;
 
@@ -222,7 +222,7 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get lastName.
      *
-     * @return string
+     * @return null|string
      */
     public function getLastName()
     {
@@ -232,11 +232,11 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set nickname.
      *
-     * @param string $nickname
+     * @param null|string $nickname
      *
      * @return Company
      */
-    public function setNickname($nickname)
+    public function setNickname($nickname = null)
     {
         $this->nickname = $nickname;
 
@@ -246,7 +246,7 @@ class Company extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get nickname.
      *
-     * @return string
+     * @return null|string
      */
     public function getNickname()
     {

@@ -35,9 +35,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $amount;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="description", type="string", unique=false)
+     * @ORM\Column(name="description", type="string", nullable=true, unique=false)
      */
     protected $description;
 
@@ -63,9 +63,9 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $tags;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="type", type="string", unique=false)
+     * @ORM\Column(name="type", type="string", nullable=true, unique=false)
      */
     protected $type;
 
@@ -116,11 +116,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set description.
      *
-     * @param string $description
+     * @param null|string $description
      *
      * @return Item
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->description = $description;
 
@@ -130,7 +130,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get description.
      *
-     * @return string
+     * @return null|string
      */
     public function getDescription()
     {
@@ -212,11 +212,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set type.
      *
-     * @param string $type
+     * @param null|string $type
      *
      * @return Item
      */
-    public function setType($type)
+    public function setType($type = null)
     {
         $this->type = $type;
 
@@ -226,7 +226,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get type.
      *
-     * @return string
+     * @return null|string
      */
     public function getType()
     {

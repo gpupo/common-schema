@@ -13,11 +13,13 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Document:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     doc_type:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     expands:
       type: array

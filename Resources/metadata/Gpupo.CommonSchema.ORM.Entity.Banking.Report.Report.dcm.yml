@@ -25,6 +25,7 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     end_date:
       type: datetime
@@ -38,11 +39,13 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     institution:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
   oneToMany:
     records:

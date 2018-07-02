@@ -28,37 +28,37 @@ use Doctrine\ORM\Mapping as ORM;
 class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="description", type="string", unique=false)
+     * @ORM\Column(name="description", type="string", nullable=true, unique=false)
      */
     protected $description;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="endpoint", type="string", unique=false)
+     * @ORM\Column(name="endpoint", type="string", nullable=true, unique=false)
      */
     protected $endpoint;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="environment", type="string", unique=false)
+     * @ORM\Column(name="environment", type="string", nullable=true, unique=false)
      */
     protected $environment;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="name", type="string", unique=false)
+     * @ORM\Column(name="name", type="string", nullable=true, unique=false)
      */
     protected $name;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="version", type="string", unique=false)
+     * @ORM\Column(name="version", type="string", nullable=true, unique=false)
      */
     protected $version;
 
@@ -90,11 +90,11 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set description.
      *
-     * @param string $description
+     * @param null|string $description
      *
      * @return Provider
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->description = $description;
 
@@ -104,7 +104,7 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get description.
      *
-     * @return string
+     * @return null|string
      */
     public function getDescription()
     {
@@ -114,11 +114,11 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set endpoint.
      *
-     * @param string $endpoint
+     * @param null|string $endpoint
      *
      * @return Provider
      */
-    public function setEndpoint($endpoint)
+    public function setEndpoint($endpoint = null)
     {
         $this->endpoint = $endpoint;
 
@@ -128,7 +128,7 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get endpoint.
      *
-     * @return string
+     * @return null|string
      */
     public function getEndpoint()
     {
@@ -138,11 +138,11 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set environment.
      *
-     * @param string $environment
+     * @param null|string $environment
      *
      * @return Provider
      */
-    public function setEnvironment($environment)
+    public function setEnvironment($environment = null)
     {
         $this->environment = $environment;
 
@@ -152,7 +152,7 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get environment.
      *
-     * @return string
+     * @return null|string
      */
     public function getEnvironment()
     {
@@ -162,11 +162,11 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set name.
      *
-     * @param string $name
+     * @param null|string $name
      *
      * @return Provider
      */
-    public function setName($name)
+    public function setName($name = null)
     {
         $this->name = $name;
 
@@ -176,7 +176,7 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get name.
      *
-     * @return string
+     * @return null|string
      */
     public function getName()
     {
@@ -186,11 +186,11 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set version.
      *
-     * @param string $version
+     * @param null|string $version
      *
      * @return Provider
      */
-    public function setVersion($version)
+    public function setVersion($version = null)
     {
         $this->version = $version;
 
@@ -200,7 +200,7 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get version.
      *
-     * @return string
+     * @return null|string
      */
     public function getVersion()
     {

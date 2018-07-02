@@ -13,6 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     date_agreed:
       type: datetime
@@ -38,31 +39,37 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     order_status:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     order_type:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     origin_business_unit:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     origin_number:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     origin_site:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     requested_devolution:
       type: boolean

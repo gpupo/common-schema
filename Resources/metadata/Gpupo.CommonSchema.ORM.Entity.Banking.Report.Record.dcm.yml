@@ -19,6 +19,7 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     date_created:
       type: datetime
@@ -32,6 +33,7 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     external_id:
       type: bigint
@@ -75,11 +77,13 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     record_type:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     shipping_fee_amount:
       type: float

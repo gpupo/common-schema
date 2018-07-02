@@ -13,11 +13,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     comments:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     expands:
       type: array
@@ -27,31 +29,37 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     number:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     postalCode:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     reference:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     state:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     street:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
   uniqueConstraints: {  }
   oneToOne:

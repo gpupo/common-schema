@@ -13,6 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     expires_in:
       type: bigint
@@ -26,16 +27,19 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     scope:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     token_type:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     user_id:
       type: bigint

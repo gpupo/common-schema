@@ -35,9 +35,9 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $expands;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="gtin", type="string", unique=false)
+     * @ORM\Column(name="gtin", type="string", nullable=true, unique=false)
      */
     protected $gtin;
 
@@ -56,16 +56,16 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $sale_fee;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="seller_product_id", type="string", unique=false)
+     * @ORM\Column(name="seller_product_id", type="string", nullable=true, unique=false)
      */
     protected $seller_product_id;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="title", type="string", unique=false)
+     * @ORM\Column(name="title", type="string", nullable=true, unique=false)
      */
     protected $title;
 
@@ -130,11 +130,11 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set gtin.
      *
-     * @param string $gtin
+     * @param null|string $gtin
      *
      * @return Product
      */
-    public function setGtin($gtin)
+    public function setGtin($gtin = null)
     {
         $this->gtin = $gtin;
 
@@ -144,7 +144,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get gtin.
      *
-     * @return string
+     * @return null|string
      */
     public function getGtin()
     {
@@ -202,11 +202,11 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set sellerProductId.
      *
-     * @param string $sellerProductId
+     * @param null|string $sellerProductId
      *
      * @return Product
      */
-    public function setSellerProductId($sellerProductId)
+    public function setSellerProductId($sellerProductId = null)
     {
         $this->seller_product_id = $sellerProductId;
 
@@ -216,7 +216,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get sellerProductId.
      *
-     * @return string
+     * @return null|string
      */
     public function getSellerProductId()
     {
@@ -226,11 +226,11 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set title.
      *
-     * @param string $title
+     * @param null|string $title
      *
      * @return Product
      */
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
         $this->title = $title;
 
@@ -240,7 +240,7 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get title.
      *
-     * @return string
+     * @return null|string
      */
     public function getTitle()
     {

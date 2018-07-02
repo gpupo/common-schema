@@ -28,16 +28,16 @@ use Doctrine\ORM\Mapping as ORM;
 class OrderStatusDetail extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="code", type="string", unique=false)
+     * @ORM\Column(name="code", type="string", nullable=true, unique=false)
      */
     protected $code;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="description", type="string", unique=false)
+     * @ORM\Column(name="description", type="string", nullable=true, unique=false)
      */
     protected $description;
 
@@ -64,11 +64,11 @@ class OrderStatusDetail extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set code.
      *
-     * @param string $code
+     * @param null|string $code
      *
      * @return OrderStatusDetail
      */
-    public function setCode($code)
+    public function setCode($code = null)
     {
         $this->code = $code;
 
@@ -78,7 +78,7 @@ class OrderStatusDetail extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get code.
      *
-     * @return string
+     * @return null|string
      */
     public function getCode()
     {
@@ -88,11 +88,11 @@ class OrderStatusDetail extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set description.
      *
-     * @param string $description
+     * @param null|string $description
      *
      * @return OrderStatusDetail
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->description = $description;
 
@@ -102,7 +102,7 @@ class OrderStatusDetail extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get description.
      *
-     * @return string
+     * @return null|string
      */
     public function getDescription()
     {

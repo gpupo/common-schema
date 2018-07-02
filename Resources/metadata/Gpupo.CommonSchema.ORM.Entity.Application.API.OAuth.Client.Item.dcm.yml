@@ -13,16 +13,19 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     client_secret:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     description:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     internal_id:
       type: bigint
@@ -32,6 +35,7 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
   oneToOne:
     access_token:

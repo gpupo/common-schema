@@ -35,16 +35,16 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $expands;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="key", type="string", unique=false)
+     * @ORM\Column(name="key", type="string", nullable=true, unique=false)
      */
     protected $key;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="value", type="string", unique=false)
+     * @ORM\Column(name="value", type="string", nullable=true, unique=false)
      */
     protected $value;
 
@@ -95,11 +95,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set key.
      *
-     * @param string $key
+     * @param null|string $key
      *
      * @return Item
      */
-    public function setKey($key)
+    public function setKey($key = null)
     {
         $this->key = $key;
 
@@ -109,7 +109,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get key.
      *
-     * @return string
+     * @return null|string
      */
     public function getKey()
     {
@@ -119,11 +119,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set value.
      *
-     * @param string $value
+     * @param null|string $value
      *
      * @return Item
      */
-    public function setValue($value)
+    public function setValue($value = null)
     {
         $this->value = $value;
 
@@ -133,7 +133,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get value.
      *
-     * @return string
+     * @return null|string
      */
     public function getValue()
     {

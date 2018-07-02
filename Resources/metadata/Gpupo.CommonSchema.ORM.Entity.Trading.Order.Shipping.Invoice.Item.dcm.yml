@@ -13,6 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     expands:
       type: array
@@ -26,11 +27,13 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     invoice_number:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     ship_date:
       type: datetime

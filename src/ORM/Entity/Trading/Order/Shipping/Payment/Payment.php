@@ -28,16 +28,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="activation_uri", type="string", unique=false)
+     * @ORM\Column(name="activation_uri", type="string", nullable=true, unique=false)
      */
     protected $activation_uri;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="authorization_code", type="string", unique=false)
+     * @ORM\Column(name="authorization_code", type="string", nullable=true, unique=false)
      */
     protected $authorization_code;
 
@@ -49,16 +49,16 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $available_actions;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="card_id", type="string", unique=false)
+     * @ORM\Column(name="card_id", type="string", nullable=true, unique=false)
      */
     protected $card_id;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="collector", type="string", unique=false)
+     * @ORM\Column(name="collector", type="string", nullable=true, unique=false)
      */
     protected $collector;
 
@@ -70,16 +70,16 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $coupon_amount;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="coupon_id", type="string", unique=false)
+     * @ORM\Column(name="coupon_id", type="string", nullable=true, unique=false)
      */
     protected $coupon_id;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="currency_id", type="string", unique=false)
+     * @ORM\Column(name="currency_id", type="string", nullable=true, unique=false)
      */
     protected $currency_id;
 
@@ -105,9 +105,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $date_last_modified;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="deferred_period", type="string", unique=false)
+     * @ORM\Column(name="deferred_period", type="string", nullable=true, unique=false)
      */
     protected $deferred_period;
 
@@ -147,9 +147,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $marketplace_fee;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="operation_type", type="string", unique=false)
+     * @ORM\Column(name="operation_type", type="string", nullable=true, unique=false)
      */
     protected $operation_type;
 
@@ -161,9 +161,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $overpaid_amount;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="payment_method_id", type="string", unique=false)
+     * @ORM\Column(name="payment_method_id", type="string", nullable=true, unique=false)
      */
     protected $payment_method_id;
 
@@ -175,16 +175,16 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $payment_number;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="payment_type", type="string", unique=false)
+     * @ORM\Column(name="payment_type", type="string", nullable=true, unique=false)
      */
     protected $payment_type;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="reason", type="string", unique=false)
+     * @ORM\Column(name="reason", type="string", nullable=true, unique=false)
      */
     protected $reason;
 
@@ -196,23 +196,23 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $shipping_cost;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="status", type="string", unique=false)
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
      */
     protected $status;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="status_code", type="string", unique=false)
+     * @ORM\Column(name="status_code", type="string", nullable=true, unique=false)
      */
     protected $status_code;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="status_detail", type="string", unique=false)
+     * @ORM\Column(name="status_detail", type="string", nullable=true, unique=false)
      */
     protected $status_detail;
 
@@ -245,9 +245,9 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $transaction_net_amount;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="transaction_order_id", type="string", unique=false)
+     * @ORM\Column(name="transaction_order_id", type="string", nullable=true, unique=false)
      */
     protected $transaction_order_id;
 
@@ -281,11 +281,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set activationUri.
      *
-     * @param string $activationUri
+     * @param null|string $activationUri
      *
      * @return Payment
      */
-    public function setActivationUri($activationUri)
+    public function setActivationUri($activationUri = null)
     {
         $this->activation_uri = $activationUri;
 
@@ -295,7 +295,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get activationUri.
      *
-     * @return string
+     * @return null|string
      */
     public function getActivationUri()
     {
@@ -305,11 +305,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set authorizationCode.
      *
-     * @param string $authorizationCode
+     * @param null|string $authorizationCode
      *
      * @return Payment
      */
-    public function setAuthorizationCode($authorizationCode)
+    public function setAuthorizationCode($authorizationCode = null)
     {
         $this->authorization_code = $authorizationCode;
 
@@ -319,7 +319,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get authorizationCode.
      *
-     * @return string
+     * @return null|string
      */
     public function getAuthorizationCode()
     {
@@ -353,11 +353,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set cardId.
      *
-     * @param string $cardId
+     * @param null|string $cardId
      *
      * @return Payment
      */
-    public function setCardId($cardId)
+    public function setCardId($cardId = null)
     {
         $this->card_id = $cardId;
 
@@ -367,7 +367,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get cardId.
      *
-     * @return string
+     * @return null|string
      */
     public function getCardId()
     {
@@ -377,11 +377,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set collector.
      *
-     * @param string $collector
+     * @param null|string $collector
      *
      * @return Payment
      */
-    public function setCollector($collector)
+    public function setCollector($collector = null)
     {
         $this->collector = $collector;
 
@@ -391,7 +391,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get collector.
      *
-     * @return string
+     * @return null|string
      */
     public function getCollector()
     {
@@ -425,11 +425,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set couponId.
      *
-     * @param string $couponId
+     * @param null|string $couponId
      *
      * @return Payment
      */
-    public function setCouponId($couponId)
+    public function setCouponId($couponId = null)
     {
         $this->coupon_id = $couponId;
 
@@ -439,7 +439,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get couponId.
      *
-     * @return string
+     * @return null|string
      */
     public function getCouponId()
     {
@@ -449,11 +449,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set currencyId.
      *
-     * @param string $currencyId
+     * @param null|string $currencyId
      *
      * @return Payment
      */
-    public function setCurrencyId($currencyId)
+    public function setCurrencyId($currencyId = null)
     {
         $this->currency_id = $currencyId;
 
@@ -463,7 +463,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get currencyId.
      *
-     * @return string
+     * @return null|string
      */
     public function getCurrencyId()
     {
@@ -545,11 +545,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set deferredPeriod.
      *
-     * @param string $deferredPeriod
+     * @param null|string $deferredPeriod
      *
      * @return Payment
      */
-    public function setDeferredPeriod($deferredPeriod)
+    public function setDeferredPeriod($deferredPeriod = null)
     {
         $this->deferred_period = $deferredPeriod;
 
@@ -559,7 +559,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get deferredPeriod.
      *
-     * @return string
+     * @return null|string
      */
     public function getDeferredPeriod()
     {
@@ -689,11 +689,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set operationType.
      *
-     * @param string $operationType
+     * @param null|string $operationType
      *
      * @return Payment
      */
-    public function setOperationType($operationType)
+    public function setOperationType($operationType = null)
     {
         $this->operation_type = $operationType;
 
@@ -703,7 +703,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get operationType.
      *
-     * @return string
+     * @return null|string
      */
     public function getOperationType()
     {
@@ -737,11 +737,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set paymentMethodId.
      *
-     * @param string $paymentMethodId
+     * @param null|string $paymentMethodId
      *
      * @return Payment
      */
-    public function setPaymentMethodId($paymentMethodId)
+    public function setPaymentMethodId($paymentMethodId = null)
     {
         $this->payment_method_id = $paymentMethodId;
 
@@ -751,7 +751,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get paymentMethodId.
      *
-     * @return string
+     * @return null|string
      */
     public function getPaymentMethodId()
     {
@@ -785,11 +785,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set paymentType.
      *
-     * @param string $paymentType
+     * @param null|string $paymentType
      *
      * @return Payment
      */
-    public function setPaymentType($paymentType)
+    public function setPaymentType($paymentType = null)
     {
         $this->payment_type = $paymentType;
 
@@ -799,7 +799,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get paymentType.
      *
-     * @return string
+     * @return null|string
      */
     public function getPaymentType()
     {
@@ -809,11 +809,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set reason.
      *
-     * @param string $reason
+     * @param null|string $reason
      *
      * @return Payment
      */
-    public function setReason($reason)
+    public function setReason($reason = null)
     {
         $this->reason = $reason;
 
@@ -823,7 +823,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get reason.
      *
-     * @return string
+     * @return null|string
      */
     public function getReason()
     {
@@ -857,11 +857,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set status.
      *
-     * @param string $status
+     * @param null|string $status
      *
      * @return Payment
      */
-    public function setStatus($status)
+    public function setStatus($status = null)
     {
         $this->status = $status;
 
@@ -871,7 +871,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get status.
      *
-     * @return string
+     * @return null|string
      */
     public function getStatus()
     {
@@ -881,11 +881,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set statusCode.
      *
-     * @param string $statusCode
+     * @param null|string $statusCode
      *
      * @return Payment
      */
-    public function setStatusCode($statusCode)
+    public function setStatusCode($statusCode = null)
     {
         $this->status_code = $statusCode;
 
@@ -895,7 +895,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get statusCode.
      *
-     * @return string
+     * @return null|string
      */
     public function getStatusCode()
     {
@@ -905,11 +905,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set statusDetail.
      *
-     * @param string $statusDetail
+     * @param null|string $statusDetail
      *
      * @return Payment
      */
-    public function setStatusDetail($statusDetail)
+    public function setStatusDetail($statusDetail = null)
     {
         $this->status_detail = $statusDetail;
 
@@ -919,7 +919,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get statusDetail.
      *
-     * @return string
+     * @return null|string
      */
     public function getStatusDetail()
     {
@@ -1025,11 +1025,11 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set transactionOrderId.
      *
-     * @param string $transactionOrderId
+     * @param null|string $transactionOrderId
      *
      * @return Payment
      */
-    public function setTransactionOrderId($transactionOrderId)
+    public function setTransactionOrderId($transactionOrderId = null)
     {
         $this->transaction_order_id = $transactionOrderId;
 
@@ -1039,7 +1039,7 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get transactionOrderId.
      *
-     * @return string
+     * @return null|string
      */
     public function getTransactionOrderId()
     {

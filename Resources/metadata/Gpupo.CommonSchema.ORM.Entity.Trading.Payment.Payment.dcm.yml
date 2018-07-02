@@ -13,6 +13,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     expands:
       type: array
@@ -26,6 +27,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     tags:
       type: array

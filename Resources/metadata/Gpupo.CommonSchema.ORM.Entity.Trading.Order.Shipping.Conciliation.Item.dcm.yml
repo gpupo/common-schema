@@ -19,6 +19,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     expands:
       type: array
@@ -38,6 +39,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
   uniqueConstraints: {  }
   manyToOne:

@@ -21,11 +21,13 @@ Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     number:
       type: string
       lenght: 50
       unique: false
+      nullable: true
       options: {  }
     verified:
       type: boolean

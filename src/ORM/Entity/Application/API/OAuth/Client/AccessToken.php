@@ -28,9 +28,9 @@ use Doctrine\ORM\Mapping as ORM;
 class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="access_token", type="string", unique=false)
+     * @ORM\Column(name="access_token", type="string", nullable=true, unique=false)
      */
     protected $access_token;
 
@@ -49,23 +49,23 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $live_mode;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="refresh_token", type="string", unique=false)
+     * @ORM\Column(name="refresh_token", type="string", nullable=true, unique=false)
      */
     protected $refresh_token;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="scope", type="string", unique=false)
+     * @ORM\Column(name="scope", type="string", nullable=true, unique=false)
      */
     protected $scope;
 
     /**
-     * @var string
+     * @var null|string
      *
-     * @ORM\Column(name="token_type", type="string", unique=false)
+     * @ORM\Column(name="token_type", type="string", nullable=true, unique=false)
      */
     protected $token_type;
 
@@ -99,11 +99,11 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set accessToken.
      *
-     * @param string $accessToken
+     * @param null|string $accessToken
      *
      * @return AccessToken
      */
-    public function setAccessToken($accessToken)
+    public function setAccessToken($accessToken = null)
     {
         $this->access_token = $accessToken;
 
@@ -113,7 +113,7 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get accessToken.
      *
-     * @return string
+     * @return null|string
      */
     public function getAccessToken()
     {
@@ -171,11 +171,11 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set refreshToken.
      *
-     * @param string $refreshToken
+     * @param null|string $refreshToken
      *
      * @return AccessToken
      */
-    public function setRefreshToken($refreshToken)
+    public function setRefreshToken($refreshToken = null)
     {
         $this->refresh_token = $refreshToken;
 
@@ -185,7 +185,7 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get refreshToken.
      *
-     * @return string
+     * @return null|string
      */
     public function getRefreshToken()
     {
@@ -195,11 +195,11 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set scope.
      *
-     * @param string $scope
+     * @param null|string $scope
      *
      * @return AccessToken
      */
-    public function setScope($scope)
+    public function setScope($scope = null)
     {
         $this->scope = $scope;
 
@@ -209,7 +209,7 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get scope.
      *
-     * @return string
+     * @return null|string
      */
     public function getScope()
     {
@@ -219,11 +219,11 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Set tokenType.
      *
-     * @param string $tokenType
+     * @param null|string $tokenType
      *
      * @return AccessToken
      */
-    public function setTokenType($tokenType)
+    public function setTokenType($tokenType = null)
     {
         $this->token_type = $tokenType;
 
@@ -233,7 +233,7 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Get tokenType.
      *
-     * @return string
+     * @return null|string
      */
     public function getTokenType()
     {
