@@ -18,9 +18,9 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\ArrayCollection\Thing;
 
 use Gpupo\Common\Entity\CollectionInterface;
-use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
 use Gpupo\CommonSchema\ORMEntityInterface;
+use Gpupo\CommonSdk\Entity\EntityAbstract;
 
 abstract class AbstractEntity extends EntityAbstract implements EntityInterface, CollectionInterface
 {

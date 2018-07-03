@@ -17,7 +17,7 @@ use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
-use Gpupo\CommonSchema\ArrayCollection\People\People;
+use Gpupo\CommonSchema\ArrayCollection\People\Person;
 use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
 use Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Provider;
@@ -35,7 +35,7 @@ if(in_array('-v',$argv)) {
 $generator = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
 
 try {
-    foreach([new Trading(), new People(), new Company(), new Report(), new Provider()] as $object) {
+    foreach([new Trading(), new Person(), new Company(), new Report(), new Provider()] as $object) {
         $generator->recursiveSave($object);
     }
 

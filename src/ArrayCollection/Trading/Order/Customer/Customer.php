@@ -17,9 +17,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Customer;
 
-use Gpupo\CommonSchema\ArrayCollection\People\AbstractPeople;
+use Gpupo\CommonSchema\ArrayCollection\People\AbstractPerson;
 
-class Customer extends AbstractPeople
+class Customer extends AbstractPerson
 {
     protected $tableName = 'trading_order_customer';
 

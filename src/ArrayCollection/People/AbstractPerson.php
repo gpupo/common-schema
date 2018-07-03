@@ -19,7 +19,7 @@ namespace Gpupo\CommonSchema\ArrayCollection\People;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-abstract class AbstractPeople extends AbstractEntity
+abstract class AbstractPerson extends AbstractEntity
 {
     /**
      * @codeCoverageIgnore

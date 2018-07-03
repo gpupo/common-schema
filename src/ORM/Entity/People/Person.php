@@ -20,12 +20,12 @@ namespace Gpupo\CommonSchema\ORM\Entity\People;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * People.
+ * Person.
  *
  * @ORM\Table(name="cs_people")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\People\PeopleRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\People\PersonRepository")
  */
-class People extends \Gpupo\CommonSchema\AbstractORMEntity
+class Person extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
      * @var null|string
@@ -114,7 +114,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $email
      *
-     * @return People
+     * @return Person
      */
     public function setEmail($email = null)
     {
@@ -138,7 +138,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|array $expands
      *
-     * @return People
+     * @return Person
      */
     public function setExpands($expands = null)
     {
@@ -162,7 +162,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $firstName
      *
-     * @return People
+     * @return Person
      */
     public function setFirstName($firstName = null)
     {
@@ -186,7 +186,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|int $internalId
      *
-     * @return People
+     * @return Person
      */
     public function setInternalId($internalId = null)
     {
@@ -210,7 +210,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $lastName
      *
-     * @return People
+     * @return Person
      */
     public function setLastName($lastName = null)
     {
@@ -234,7 +234,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $nickname
      *
-     * @return People
+     * @return Person
      */
     public function setNickname($nickname = null)
     {
@@ -258,7 +258,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Phone $phone
      *
-     * @return People
+     * @return Person
      */
     public function setPhone(\Gpupo\CommonSchema\ORM\Entity\People\Phone $phone = null)
     {
@@ -282,7 +282,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone
      *
-     * @return People
+     * @return Person
      */
     public function setAlternativePhone(\Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone $alternativePhone = null)
     {
@@ -306,7 +306,7 @@ class People extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\People\Document $document
      *
-     * @return People
+     * @return Person
      */
     public function setDocument(\Gpupo\CommonSchema\ORM\Entity\People\Document $document = null)
     {

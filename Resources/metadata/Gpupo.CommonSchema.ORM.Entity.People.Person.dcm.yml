@@ -1,8 +1,8 @@
 # expands metadata
-Gpupo\CommonSchema\ORM\Entity\People\People:
+Gpupo\CommonSchema\ORM\Entity\People\Person:
   type: entity
   table: cs_people
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\PeopleRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\PersonRepository
   id:
     id:
       type: integer
