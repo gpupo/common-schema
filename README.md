@@ -11,7 +11,7 @@
 
 ## Requisitos para uso
 
-* PHP >= *7.1*
+* PHP >= *7.2*
 * [Composer Dependency Manager](http://getcomposer.org)
 
 Este componente **não é uma aplicação Stand Alone** e seu objetivo é ser utilizado como biblioteca.

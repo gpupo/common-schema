@@ -135,4 +135,9 @@ abstract class AbstractORMEntity implements ORMEntityInterface
     {
         return $this->id = $id;
     }
+
+    public function addTag($tag)
+    {
+        return $this->setTags(array_merge((array) $this->getTags(), [$tag]));
+    }
 }

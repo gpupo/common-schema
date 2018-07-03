@@ -48,9 +48,7 @@ class Record extends AbstractEntity
             'coupon_amount' => 'number',
             'installments' => 'integer',
             'payment_method' => 'string',
-            //dates
-            'date_created' => 'datetime',
-            'date_last_modified' => 'datetime',
+            'expands' => 'array',
         ];
     }
 }

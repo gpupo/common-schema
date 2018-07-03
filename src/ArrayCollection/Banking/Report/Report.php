@@ -40,6 +40,7 @@ class Report extends AbstractEntity
             'file_name' => 'string',
             'description' => 'string',
             'records' => 'object',
+            'expands' => 'array',
             //dates
             'date_created' => 'datetime',
             'date_last_modified' => 'datetime',

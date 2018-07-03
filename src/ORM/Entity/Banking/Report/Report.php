@@ -63,6 +63,13 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $end_date;
 
     /**
+     * @var null|array
+     *
+     * @ORM\Column(name="expands", type="array", nullable=true)
+     */
+    protected $expands;
+
+    /**
      * @var null|int
      *
      * @ORM\Column(name="external_id", type="bigint", nullable=true)
@@ -226,6 +233,30 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getEndDate()
     {
         return $this->end_date;
+    }
+
+    /**
+     * Set expands.
+     *
+     * @param null|array $expands
+     *
+     * @return Report
+     */
+    public function setExpands($expands = null)
+    {
+        $this->expands = $expands;
+
+        return $this;
+    }
+
+    /**
+     * Get expands.
+     *
+     * @return null|array
+     */
+    public function getExpands()
+    {
+        return $this->expands;
     }
 
     /**

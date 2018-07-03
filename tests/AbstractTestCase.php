@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests;
 
+use Gpupo\CommonSchema\ORMEntityInterface;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractTestCase extends TestCase
@@ -43,5 +44,20 @@ abstract class AbstractTestCase extends TestCase
     protected function getDoctrineEntityManager()
     {
         return Bootstrap::factoryDoctrineEntityManager();
+    }
+
+    protected function persistIfNotExist(ORMEntityInterface $report)
+    {
+        $em = $this->getDoctrineEntityManager();
+        $repository = $em->getRepository(get_class($report));
+
+        if (!$repository->exists($report)) {
+            $em->persist($report);
+            $em->flush();
+
+            return true;
+        }
+
+        return false;
     }
 }

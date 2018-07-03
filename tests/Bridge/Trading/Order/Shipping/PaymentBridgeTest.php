@@ -37,6 +37,7 @@ class PaymentBridgeTest extends AbstractTestCase
      */
     public function testAccessNewBankingRecords(Report $report, array $expected)
     {
+        $this->truncate(Payment::class);
         $this->persistIfNotExist($report);
         $bridge = new PaymentBridge($this->getDoctrineEntityManager());
         $records = $bridge->getNewReportRecords();

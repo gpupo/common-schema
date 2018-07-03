@@ -19,6 +19,8 @@ namespace Gpupo\CommonSchema\ArrayCollection\Thing;
 
 use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\CommonSdk\Entity\EntityAbstract;
+use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
+use Gpupo\CommonSchema\ORMEntityInterface;
 
 abstract class AbstractEntity extends EntityAbstract implements EntityInterface, CollectionInterface
 {
@@ -61,5 +63,12 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface,
         return [
             'expands' => 'array',
         ];
+    }
+
+    public function toOrm(): ORMEntityInterface
+    {
+        $converter = new ArrayCollectionConverter();
+
+        return $converter->convertToOrm($this);
     }
 }

@@ -34,5 +34,6 @@
         "gpupo/common-sdk": "^4.4|dev-master",
         "doctrine/orm": "^2.6",
         "gedmo/doctrine-extensions": "^2.4"
+        
     }
 }

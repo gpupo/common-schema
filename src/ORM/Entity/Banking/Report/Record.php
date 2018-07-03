@@ -42,25 +42,18 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $date;
 
     /**
-     * @var null|\DateTime
-     *
-     * @ORM\Column(name="date_created", type="datetime", nullable=true)
-     */
-    protected $date_created;
-
-    /**
-     * @var null|\DateTime
-     *
-     * @ORM\Column(name="date_last_modified", type="datetime", nullable=true)
-     */
-    protected $date_last_modified;
-
-    /**
      * @var null|string
      *
      * @ORM\Column(name="description", type="string", nullable=true, unique=false)
      */
     protected $description;
+
+    /**
+     * @var null|array
+     *
+     * @ORM\Column(name="expands", type="array", nullable=true)
+     */
+    protected $expands;
 
     /**
      * @var null|int
@@ -215,54 +208,6 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set dateCreated.
-     *
-     * @param null|\DateTime $dateCreated
-     *
-     * @return Record
-     */
-    public function setDateCreated($dateCreated = null)
-    {
-        $this->date_created = $dateCreated;
-
-        return $this;
-    }
-
-    /**
-     * Get dateCreated.
-     *
-     * @return null|\DateTime
-     */
-    public function getDateCreated()
-    {
-        return $this->date_created;
-    }
-
-    /**
-     * Set dateLastModified.
-     *
-     * @param null|\DateTime $dateLastModified
-     *
-     * @return Record
-     */
-    public function setDateLastModified($dateLastModified = null)
-    {
-        $this->date_last_modified = $dateLastModified;
-
-        return $this;
-    }
-
-    /**
-     * Get dateLastModified.
-     *
-     * @return null|\DateTime
-     */
-    public function getDateLastModified()
-    {
-        return $this->date_last_modified;
-    }
-
-    /**
      * Set description.
      *
      * @param null|string $description
@@ -284,6 +229,30 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set expands.
+     *
+     * @param null|array $expands
+     *
+     * @return Record
+     */
+    public function setExpands($expands = null)
+    {
+        $this->expands = $expands;
+
+        return $this;
+    }
+
+    /**
+     * Get expands.
+     *
+     * @return null|array
+     */
+    public function getExpands()
+    {
+        return $this->expands;
     }
 
     /**

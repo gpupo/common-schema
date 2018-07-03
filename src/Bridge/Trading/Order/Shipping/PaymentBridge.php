@@ -38,7 +38,7 @@ class PaymentBridge
         $repository = $em->getRepository(Record::class);
         $queryBuilder = $repository->createQueryBuilder('u');
         $queryBuilder
-            ->leftJoin(Payment::class, 'p', 'WITH', 'p.payment_number = u.source_id')
+            ->leftJoin(Payment::class, 'p', 'WITH', 'p.payment_number = u.source_id AND p.operation_type = u.record_type')
             ->where($queryBuilder->expr()->in('u.description', ['payment', 'mediation']))
             ->andWhere($queryBuilder->expr()->gte('u.createdAt', ':created_at'))
             ->andWhere($queryBuilder->expr()->isNull('p.id'))
@@ -54,78 +54,37 @@ class PaymentBridge
 
         $collection = new Payments();
         foreach ($records->toArray() as $record) {
-            $payment = $this->convertRecordIntoPayment($record);
+            $payment = $this->convertRecordIntoPayment($record, $em);
             $em->persist($payment);
+            $em->flush();
             $collection->add($payment);
         }
-
-        $em->flush();
 
         return $collection;
     }
 
-    public function convertRecordIntoPayment(Record $record)
+    public function convertRecordIntoPayment(Record $record, EntityManagerInterface $em)
     {
         $payment = new Payment();
+        $fee_amount = ($record->getFeeAmount() + $record->getShippingFeeAmount() + $record->getFinancingFeeAmount());
+        $total_net_amount = $record->getGrossAmount() + $fee_amount;
         $payment->setPaymentNumber($record->getSourceId())
             ->setCurrencyId('BRL')
             ->setStatus($record->getDescription())
             ->setTransactionAmount($record->getGrossAmount())
-            ->setTransactionNetAmount($record->getGrossAmount())
-                 //->setExpands($record);
-                 ;
+            ->setTransactionNetAmount($total_net_amount)
+            ->setDateCreated($record->getDate())
+            ->setPaymentMethodId($record->getPaymentMethod())
+            ->setTransactionOrderId($record->getExternalId())
+            ->setPaymentType($record->getRecordType())
+            ->setOperationType($record->getDescription())
+            ->setInstallments($record->getInstallments())
+            ->setShippingCost($record->getShippingFeeAmount())
+            ->setMarketplaceFee($fee_amount)
+            ->setCollector('mercadopago')
+            ->addTag('bridge')
+            ;
 
         return $payment;
     }
 }
-//
-// 'collector' => 'string',
-// 'status' => 'string',
-// 'status_code' => 'string',
-// 'status_detail' => 'string',
-// 'transaction_amount' => 'number',
-// 'transaction_net_amount' => 'number',
-// 'shipping_cost' => 'number',
-// 'overpaid_amount' => 'number',
-// 'total_paid_amount' => 'number',
-// 'marketplace_fee' => 'number',
-// 'coupon_amount' => 'number',
-// 'date_created' => 'datetime',
-// 'date_last_modified' => 'datetime',
-// 'card_id' => 'string',
-// 'reason' => 'string',
-// 'activation_uri' => 'string',
-// 'payment_method_id' => 'string',
-// 'installments' => 'integer',
-// 'issuer_id' => 'integer',
-// 'atm_transfer_reference' => 'oneToOneBidirectional',
-// 'coupon_id' => 'string',
-// 'operation_type' => 'string',
-// 'payment_type' => 'string',
-// 'available_actions' => 'array',
-// 'installment_amount' => 'number',
-// 'deferred_period' => 'string',
-// 'date_approved' => 'datetime',
-// 'authorization_code' => 'string',
-// 'transaction_order_id' => 'string',
-// 'tags' => 'array',
-// 'expands' => 'array',
-
-//date: "2017-02-09T17:08:21.000-04:00"
-   //date_created: null
-   //date_last_modified: null
-   //description: "mediation"
-   //external_id: 1684847823
-   //fee_amount: 23.3
-   //financing_fee_amount: 0.0
-   //gross_amount: -211.8
-   //installments: 1
-   //net_credit_amount: 0.0
-   //net_debit_amount: 188.5
-   //payment_method: "account_money"
-   //record_type: "release"
-   //shipping_fee_amount: 0.0
-   //source_id: 73628220487
-   //taxes_amount: 0.0
-   //report: DoctrineProxies\__CG__\Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report {#806 …2}
-   //id: 7

@@ -31,6 +31,10 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
       type: datetime
       nullable: true
       options: {  }
+    expands:
+      type: array
+      nullable: true
+      options: {  }
     external_id:
       type: bigint
       nullable: true

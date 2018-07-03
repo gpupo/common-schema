@@ -19,7 +19,6 @@ namespace Gpupo\CommonSchema\Tests\DataProvider;
 
 use Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
-use Gpupo\CommonSchema\ORMEntityInterface;
 use Gpupo\CommonSdk\Traits\ResourcesTrait;
 
 trait DataProviderBankingTrait
@@ -36,18 +35,8 @@ trait DataProviderBankingTrait
         return [[$orm, $data]];
     }
 
-    public function persistIfNotExist(ORMEntityInterface $report)
+    protected function addFixtureReport()
     {
-        $em = $this->getDoctrineEntityManager();
-        $repository = $em->getRepository(get_class($report));
-
-        if (!$repository->exists($report)) {
-            $em->persist($report);
-            $em->flush();
-
-            return true;
-        }
-
-        return false;
+        $this->persistIfNotExist($this->dataProviderReport()[0][0]);
     }
 }
