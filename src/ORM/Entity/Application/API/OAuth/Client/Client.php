@@ -20,12 +20,12 @@ namespace Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item.
+ * Client.
  *
  * @ORM\Table(name="cs_application_API_OAuth_client", uniqueConstraints={@ORM\UniqueConstraint(name="client_id_idx", columns={"client_id"})})
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\ItemRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\ClientRepository")
  */
-class Item extends \Gpupo\CommonSchema\AbstractORMEntity
+class Client extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
      * @var null|string
@@ -65,7 +65,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken", mappedBy="item", cascade={"persist","remove"})
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken", mappedBy="client", cascade={"persist","remove"})
      */
     protected $access_token;
 
@@ -94,7 +94,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $clientId
      *
-     * @return Item
+     * @return Client
      */
     public function setClientId($clientId = null)
     {
@@ -118,7 +118,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $clientSecret
      *
-     * @return Item
+     * @return Client
      */
     public function setClientSecret($clientSecret = null)
     {
@@ -142,7 +142,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $description
      *
-     * @return Item
+     * @return Client
      */
     public function setDescription($description = null)
     {
@@ -166,7 +166,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|int $internalId
      *
-     * @return Item
+     * @return Client
      */
     public function setInternalId($internalId = null)
     {
@@ -190,7 +190,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $name
      *
-     * @return Item
+     * @return Client
      */
     public function setName($name = null)
     {
@@ -214,7 +214,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken $accessToken
      *
-     * @return Item
+     * @return Client
      */
     public function setAccessToken(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken $accessToken = null)
     {
@@ -238,7 +238,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider $provider
      *
-     * @return Item
+     * @return Client
      */
     public function setProvider(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider $provider = null)
     {

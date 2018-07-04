@@ -1,8 +1,8 @@
 # access_token metadata
-Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item:
+Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client:
   type: entity
   table: cs_application_API_OAuth_client
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\ItemRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\ClientRepository
   id:
     id:
       type: integer
@@ -44,7 +44,7 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item:
         - persist
         - remove
       options: {  }
-      mappedBy: item
+      mappedBy: client
   uniqueConstraints:
     client_id_idx:
       columns:

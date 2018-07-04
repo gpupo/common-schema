@@ -41,7 +41,7 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
       options: {  }
   oneToMany:
     clients:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client
       cascade:
         - persist
         - remove

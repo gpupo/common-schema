@@ -51,11 +51,4 @@ class PaymentBridgeTest extends AbstractTestCase
 
         return $bridge;
     }
-
-    public function testCreateNewPayments()
-    {
-        $bridge = new PaymentBridge($this->getDoctrineEntityManager());
-
-        $this->assertInstanceOf(Payments::class, $bridge->createNewPayments());
-    }
 }

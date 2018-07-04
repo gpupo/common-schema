@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AccessToken.
  *
- * @ORM\Table(name="cs_application_API_OAuth_access_token")
+ * @ORM\Table(name="cs_application_API_OAuth_client_access_token")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\AccessTokenRepository")
  */
 class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
@@ -77,14 +77,14 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $user_id;
 
     /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item
+     * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client
      *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item", inversedBy="access_token")
+     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client", inversedBy="access_token")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="item_id", referencedColumnName="id", unique=true)
+     *   @ORM\JoinColumn(name="client_id", referencedColumnName="id", unique=true)
      * })
      */
-    protected $item;
+    protected $client;
 
     /**
      * Get id.
@@ -265,26 +265,26 @@ class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set item.
+     * Set client.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $item
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client $client
      *
      * @return AccessToken
      */
-    public function setItem(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $item = null)
+    public function setClient(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client $client = null)
     {
-        $this->item = $item;
+        $this->client = $client;
 
         return $this;
     }
 
     /**
-     * Get item.
+     * Get client.
      *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item
+     * @return null|\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client
      */
-    public function getItem()
+    public function getClient()
     {
-        return $this->item;
+        return $this->client;
     }
 }

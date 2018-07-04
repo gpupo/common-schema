@@ -21,7 +21,7 @@ use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
 class AccessToken extends AbstractEntity
 {
-    protected $tableName = 'application_API_OAuth_access_token';
+    protected $tableName = 'application_API_OAuth_client_access_token';
 
     /**
      * @codeCoverageIgnore

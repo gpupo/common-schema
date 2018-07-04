@@ -65,7 +65,7 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item", mappedBy="provider", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client", mappedBy="provider", cascade={"persist","remove"})
      */
     protected $clients;
 
@@ -210,11 +210,11 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add client.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $client
+     * @param \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client $client
      *
      * @return Provider
      */
-    public function addClient(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $client)
+    public function addClient(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client $client)
     {
         $this->clients[] = $client;
 
@@ -224,11 +224,11 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove client.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $client
+     * @param \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client $client
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeClient(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item $client)
+    public function removeClient(\Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client $client)
     {
         return $this->clients->removeElement($client);
     }

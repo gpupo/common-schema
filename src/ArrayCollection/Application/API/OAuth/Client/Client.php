@@ -19,7 +19,7 @@ namespace Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Client;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class Item extends AbstractEntity
+class Client extends AbstractEntity
 {
     protected $tableName = 'application_API_OAuth_client';
 

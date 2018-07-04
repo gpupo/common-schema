@@ -1,7 +1,7 @@
 # scope metadata
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken:
   type: entity
-  table: cs_application_API_OAuth_access_token
+  table: cs_application_API_OAuth_client_access_token
   repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\AccessTokenRepository
   id:
     id:
@@ -47,11 +47,11 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken:
       options: {  }
   uniqueConstraints: {  }
   oneToOne:
-    item:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Item
+    client:
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client
       inversedBy: access_token
       joinColumn:
-        name: item_id
+        name: client_id
         referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }
