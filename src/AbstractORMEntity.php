@@ -45,21 +45,21 @@ abstract class AbstractORMEntity implements ORMEntityInterface
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
-    protected $createdAt;
+    protected $created_at;
 
     /**
      * @var DateTime (Record update timestamp)
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
-    protected $updatedAt;
+    protected $updated_at;
 
     /**
      * @var DateTime
      * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Versioned
      */
-    protected $deletedAt;
+    protected $deleted_at;
 
     /**
      * Returns createdAt.
@@ -68,7 +68,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
      */
     public function getCreatedAt(): ?DateTime
     {
-        return $this->createdAt;
+        return $this->created_at;
     }
 
     /**
@@ -78,37 +78,37 @@ abstract class AbstractORMEntity implements ORMEntityInterface
      */
     public function getUpdatedAt(): ?DateTime
     {
-        return $this->updatedAt;
+        return $this->updated_at;
     }
 
     /**
      * Sets createdAt.
      *
-     * @param DateTime $createdAt
+     * @param DateTime $created_at
      */
-    public function setCreatedAt(DateTime $createdAt): void
+    public function setCreatedAt(DateTime $created_at): void
     {
-        $this->createdAt = $createdAt;
+        $this->created_at = $created_at;
     }
 
     /**
      * Sets updatedAt.
      *
-     * @param DateTime $updatedAt
+     * @param DateTime $updated_at
      */
-    public function setUpdatedAt(DateTime $updatedAt): void
+    public function setUpdatedAt(DateTime $updated_at): void
     {
-        $this->updatedAt = $updatedAt;
+        $this->updated_at = $updated_at;
     }
 
     /**
      * Sets deletedAt.
      *
-     * @param null|Datetime $deletedAt
+     * @param null|Datetime $deleted_at
      */
-    public function setDeletedAt(\DateTime $deletedAt = null): void
+    public function setDeletedAt(\DateTime $deleted_at = null): void
     {
-        $this->deletedAt = $deletedAt;
+        $this->deleted_at = $deleted_at;
     }
 
     /**
@@ -118,7 +118,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
      */
     public function getDeletedAt(): ?DateTime
     {
-        return $this->deletedAt;
+        return $this->deleted_at;
     }
 
     /**
@@ -128,7 +128,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
      */
     public function isDeleted(): bool
     {
-        return null !== $this->deletedAt;
+        return null !== $this->deleted_at;
     }
 
     public function setId($id)
