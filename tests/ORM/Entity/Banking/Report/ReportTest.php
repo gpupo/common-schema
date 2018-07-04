@@ -59,7 +59,7 @@ class ReportTest extends AbstractTestCase
         $list = $repository->findByExternalId(1657955112);
         $this->assertNotNull($list);
 
-        $this->assertSame(2, $list->count());
+        $this->assertGreaterThanOrEqual(2, $list->count());
 
         foreach ($list as $record) {
             $this->assertInstanceOf(Record::class, $record);

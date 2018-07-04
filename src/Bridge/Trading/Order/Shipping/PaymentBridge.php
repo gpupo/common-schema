@@ -40,7 +40,7 @@ class PaymentBridge
         $queryBuilder
             ->leftJoin(Payment::class, 'p', 'WITH', 'p.payment_number = u.source_id AND p.operation_type = u.record_type')
             ->where($queryBuilder->expr()->in('u.description', ['payment', 'mediation']))
-            ->andWhere($queryBuilder->expr()->gte('u.createdAt', ':created_at'))
+            ->andWhere($queryBuilder->expr()->gte('u.created_at', ':created_at'))
             ->andWhere($queryBuilder->expr()->isNull('p.id'))
             ->setParameter('created_at', '2017-02-09T09:24:00.000-04:00');
 
