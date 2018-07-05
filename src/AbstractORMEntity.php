@@ -25,7 +25,7 @@ use Gpupo\CommonSchema\ORM\Decorator\CollectionContainerTrait;
 /**
  * @ORM\MappedSuperclass
  * @Gedmo\Loggable(logEntryClass="\Gpupo\CommonSchema\LogModel")
- * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
+ * @Gedmo\SoftDeleteable(fieldName="deleted_at", timeAware=false)
  */
 abstract class AbstractORMEntity implements ORMEntityInterface
 {
@@ -62,7 +62,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
     protected $deleted_at;
 
     /**
-     * Returns createdAt.
+     * Returns created_at.
      *
      * @return DateTime
      */
@@ -72,7 +72,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
     }
 
     /**
-     * Returns updatedAt.
+     * Returns updated_at.
      *
      * @return DateTime
      */
@@ -82,7 +82,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
     }
 
     /**
-     * Sets createdAt.
+     * Sets created_at.
      *
      * @param DateTime $created_at
      */
@@ -92,7 +92,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
     }
 
     /**
-     * Sets updatedAt.
+     * Sets updated_at.
      *
      * @param DateTime $updated_at
      */
@@ -102,7 +102,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
     }
 
     /**
-     * Sets deletedAt.
+     * Sets deleted_at.
      *
      * @param null|Datetime $deleted_at
      */
@@ -112,7 +112,7 @@ abstract class AbstractORMEntity implements ORMEntityInterface
     }
 
     /**
-     * Returns deletedAt.
+     * Returns deleted_at.
      *
      * @return DateTime
      */
