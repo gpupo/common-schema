@@ -59,4 +59,14 @@ class ShippingTest extends AbstractTestCase
         $this->assertSame(243.9, $decorator->getTotalAmount(), 'transaction_amount');
         $this->assertSame(204.88, $decorator->getTotalNetAmount(), 'transaction_net_amount');
     }
+
+    public function testAddExpand()
+    {
+        $shipping = new Shipping();
+        $shipping->addExpand('mode', 'test');
+        $this->assertSame(['mode'=>'test'], $shipping->getExpands());
+
+        $shipping->addExpand('function', 'quality assurance');
+        $this->assertSame(['mode'=>'test', 'function' => 'quality assurance'], $shipping->getExpands());
+    }
 }

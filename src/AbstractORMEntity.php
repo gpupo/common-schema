@@ -143,4 +143,21 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
     {
         return $this->setTags(array_merge((array) $this->getTags(), [$tag]));
     }
+
+    public function setExpands($expands = null)
+    {
+    }
+
+    public function getExpands()
+    {
+        return [];
+    }
+
+    public function addExpand($key, $value)
+    {
+        $array = $this->getExpands();
+        $array[$key] = $value;
+
+        return $this->setExpands($array);
+    }
 }
