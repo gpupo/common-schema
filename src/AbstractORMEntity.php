@@ -21,15 +21,18 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gpupo\CommonSchema\ORM\Decorator\CollectionContainerTrait;
+use Gpupo\Common\Entity\AbstractORMEntity as Core;
 
 /**
  * @ORM\MappedSuperclass
  * @Gedmo\Loggable(logEntryClass="\Gpupo\CommonSchema\LogModel")
  * @Gedmo\SoftDeleteable(fieldName="deleted_at", timeAware=false)
  */
-abstract class AbstractORMEntity implements ORMEntityInterface
+abstract class AbstractORMEntity extends Core implements ORMEntityInterface
 {
     use CollectionContainerTrait;
+
+    protected $propertyNamingMode = 'snake_case';
 
     /**
      * @var int
