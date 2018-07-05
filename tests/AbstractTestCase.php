@@ -19,9 +19,15 @@ namespace Gpupo\CommonSchema\Tests;
 
 use Gpupo\CommonSchema\ORMEntityInterface;
 use PHPUnit\Framework\TestCase;
+use Gpupo\Common\Tools\Reflected;
 
 abstract class AbstractTestCase extends TestCase
 {
+    protected function proxy($object)
+    {
+        return new Reflected($object);
+    }
+
     public function truncate($className)
     {
         $em = $this->getDoctrineEntityManager();

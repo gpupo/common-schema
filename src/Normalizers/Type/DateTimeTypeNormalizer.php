@@ -27,7 +27,8 @@ class DateTimeTypeNormalizer extends DateTimeType
     {
         $normalizer = new Normalizer();
         if ($value instanceof \DateTime) {
-            $value = $normalizer->normalizeTimeZone($value);
+            // If need conversion to UTC
+            // $value = $normalizer->normalizeTimeZone($value);
         } elseif (!empty($value)) {
             $value = $normalizer->factoryDateTimeByString($normalizer->normalizeFormat($value));
         } else {
