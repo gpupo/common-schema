@@ -2,6 +2,36 @@
 VERSION 4  MAJOR VERSION 4
 ==========================
 
+   Version 4.2 - Add Report Schema
+      05/07/2018 17:04  4.2.0  initial release
+         efbcd20 update dependency version
+         0c004d9 Add date normalizer test
+         2649a90 extend AbstractORMEntity
+         204ef39 Fix deletedAt
+         0410c63 fix date
+         5ac770d Fix snake case dates
+         beecbe8 Rename Client Item to Client Client
+         8d5df06 Rename People to Person
+         83ec70a To ORM feature
+         05f81c8 add nullable true to strings
+         fdc735c add total_payments_fee_amount
+         cfc968d Refactory Client
+         d5dd763 Add Payment Bridge
+         071735f Add net amount to conciliation
+         a935700 Add total_payments
+         17cbcdd Add factory decorator, payment totals
+         84e19be Refactory Provider
+         461996a Remove created time
+         78f48f2 Add Id to ORM Entity Abstract
+         55ac704 Refactory plural names, Add Application namespace, init Collection decorator
+         bf00a16 Add ORM decorator
+         8ce88b5 Fix Typo
+         a3d319d Rename Shippings to Shipping
+         233a388 remove codeclimate
+         1ebfb5d fix tests
+         ebaf264 Refactory Payment
+         bcedb11 Add Banking Report
+
    Version 4.1 - Improve associations
       26/06/2018 11:23  4.1.0  initial release
          a8bfafd add owner embed
