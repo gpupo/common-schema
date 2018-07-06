@@ -64,9 +64,9 @@ class ShippingTest extends AbstractTestCase
     {
         $shipping = new Shipping();
         $shipping->addExpand('mode', 'test');
-        $this->assertSame(['mode'=>'test'], $shipping->getExpands());
+        $this->assertSame(['mode' => 'test'], $shipping->getExpands());
 
         $shipping->addExpand('function', 'quality assurance');
-        $this->assertSame(['mode'=>'test', 'function' => 'quality assurance'], $shipping->getExpands());
+        $this->assertSame(['mode' => 'test', 'function' => 'quality assurance'], $shipping->getExpands());
     }
 }

@@ -20,8 +20,8 @@ namespace Gpupo\CommonSchema;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Gpupo\CommonSchema\ORM\Decorator\CollectionContainerTrait;
 use Gpupo\Common\Entity\AbstractORMEntity as Core;
+use Gpupo\CommonSchema\ORM\Decorator\CollectionContainerTrait;
 
 /**
  * @ORM\MappedSuperclass
@@ -63,6 +63,13 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
      * @Gedmo\Versioned
      */
     protected $deleted_at;
+
+    /**
+     * @var null|array
+     *
+     * @ORM\Column(name="expands", type="array", nullable=true)
+     */
+    protected $expands;
 
     /**
      * Returns created_at.
@@ -144,18 +151,31 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
         return $this->setTags(array_merge((array) $this->getTags(), [$tag]));
     }
 
+    /**
+     * Set expands.
+     *
+     * @param null|array $expands
+     */
     public function setExpands($expands = null)
     {
+        $this->expands = $expands;
+
+        return $this;
     }
 
+    /**
+     * Get expands.
+     *
+     * @return null|array
+     */
     public function getExpands()
     {
-        return [];
+        return $this->expands;
     }
 
     public function addExpand($key, $value)
     {
-        $array = $this->getExpands();
+        $array = (array) $this->getExpands();
         $array[$key] = $value;
 
         return $this->setExpands($array);

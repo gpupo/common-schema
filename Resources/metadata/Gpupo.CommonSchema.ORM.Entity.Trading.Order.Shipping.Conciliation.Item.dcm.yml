@@ -1,4 +1,4 @@
-# expands metadata
+# tags metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item:
   type: entity
   table: cs_trading_order_shipping_conciliation
@@ -19,10 +19,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item:
       type: string
       lenght: 50
       unique: false
-      nullable: true
-      options: {  }
-    expands:
-      type: array
       nullable: true
       options: {  }
     net_amount:

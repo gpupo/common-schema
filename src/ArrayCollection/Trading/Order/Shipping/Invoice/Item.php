@@ -37,7 +37,6 @@ class Item extends AbstractEntity
             'ship_date' => 'datetime',
             'accessKey' => 'string',
             'tags' => 'array',
-            'expands' => 'array',
         ];
     }
 }

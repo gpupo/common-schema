@@ -9,10 +9,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Item:
       generator:
         strategy: AUTO
   fields:
-    expands:
-      type: array
-      nullable: true
-      options: {  }
     key:
       type: string
       lenght: 50

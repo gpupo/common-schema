@@ -1,4 +1,4 @@
-# expands metadata
+# verified metadata
 Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
   type: entity
   table: cs_organization_company_phone
@@ -11,10 +11,6 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
   fields:
     area_code:
       type: bigint
-      nullable: true
-      options: {  }
-    expands:
-      type: array
       nullable: true
       options: {  }
     extension:

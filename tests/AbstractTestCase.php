@@ -17,17 +17,12 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests;
 
+use Gpupo\Common\Tools\Reflected;
 use Gpupo\CommonSchema\ORMEntityInterface;
 use PHPUnit\Framework\TestCase;
-use Gpupo\Common\Tools\Reflected;
 
 abstract class AbstractTestCase extends TestCase
 {
-    protected function proxy($object)
-    {
-        return new Reflected($object);
-    }
-
     public function truncate($className)
     {
         $em = $this->getDoctrineEntityManager();
@@ -40,6 +35,11 @@ abstract class AbstractTestCase extends TestCase
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
 
         return true;
+    }
+
+    protected function proxy($object)
+    {
+        return new Reflected($object);
     }
 
     protected function getResourcesDirectory()

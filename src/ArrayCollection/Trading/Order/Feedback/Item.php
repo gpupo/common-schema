@@ -34,7 +34,6 @@ class Item extends AbstractEntity
             'reason' => 'string',
             'message' => 'string',
             'rating' => 'integer',
-            'expands' => 'array',
         ];
     }
 }

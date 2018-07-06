@@ -35,13 +35,6 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $area_code;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|string
      *
      * @ORM\Column(name="extension", type="string", nullable=true, unique=false)
@@ -94,30 +87,6 @@ class AlternativePhone extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getAreaCode()
     {
         return $this->area_code;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return AlternativePhone
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

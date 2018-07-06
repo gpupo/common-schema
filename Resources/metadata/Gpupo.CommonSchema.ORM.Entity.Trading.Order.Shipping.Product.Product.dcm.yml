@@ -9,10 +9,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Product\Product:
       generator:
         strategy: AUTO
   fields:
-    expands:
-      type: array
-      nullable: true
-      options: {  }
     gtin:
       type: string
       lenght: 50

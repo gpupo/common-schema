@@ -1,4 +1,4 @@
-# expands metadata
+# internal_id metadata
 Gpupo\CommonSchema\ORM\Entity\Organization\Company:
   type: entity
   table: cs_organization_company
@@ -13,10 +13,6 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Company:
       type: string
       lenght: 50
       unique: false
-      nullable: true
-      options: {  }
-    expands:
-      type: array
       nullable: true
       options: {  }
     first_name:

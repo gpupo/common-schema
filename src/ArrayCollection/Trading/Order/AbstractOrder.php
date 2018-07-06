@@ -58,7 +58,6 @@ abstract class AbstractOrder extends AbstractEntity
             'requested_devolution' => 'boolean',
             'requested_exchange' => 'boolean',
             'tags' => 'array',
-            'expands' => 'array',
         ];
     }
 }

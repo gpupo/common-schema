@@ -34,7 +34,6 @@ class Item extends AbstractEntity
             'net_amount' => 'number',
             'description' => 'string',
             'tags' => 'array',
-            'expands' => 'array',
         ];
     }
 }

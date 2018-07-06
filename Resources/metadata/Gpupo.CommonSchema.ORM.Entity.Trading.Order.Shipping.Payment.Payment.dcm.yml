@@ -1,4 +1,4 @@
-# expands metadata
+# tags metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
   type: entity
   table: cs_trading_order_shipping_payment
@@ -73,10 +73,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       unique: false
       nullable: true
       options: {  }
-    expands:
-      type: array
-      nullable: true
-      options: {  }
     installment_amount:
       type: float
       precision: 10
@@ -97,10 +93,18 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       scale: 2
       nullable: true
       options: {  }
+    move_id:
+      type: bigint
+      nullable: true
+      options: {  }
     operation_type:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    original_move_id:
+      type: bigint
       nullable: true
       options: {  }
     overpaid_amount:
@@ -192,11 +196,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       options: {  }
       mappedBy: payment
   uniqueConstraints:
-    collector_payment_number_operation_type_idx:
+    collector_move_id_idx:
       columns:
         - collector
-        - payment_number
-        - operation_type
+        - move_id
   manyToOne:
     shipping:
       cascade:

@@ -8,11 +8,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
       type: integer
       generator:
         strategy: AUTO
-  fields:
-    expands:
-      type: array
-      nullable: true
-      options: {  }
+  fields: {  }
   oneToOne:
     order:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order

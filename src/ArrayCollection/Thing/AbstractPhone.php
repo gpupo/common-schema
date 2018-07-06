@@ -29,7 +29,6 @@ abstract class AbstractPhone extends AbstractEntity
             'extension' => 'string',
             'number' => 'string',
             'verified' => 'boolean',
-            'expands' => 'array',
         ];
     }
 }

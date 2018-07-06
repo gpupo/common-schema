@@ -61,7 +61,6 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface,
     public function getSchema()
     {
         return [
-            'expands' => 'array',
         ];
     }
 

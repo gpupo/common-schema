@@ -35,13 +35,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $currency_id;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|int
      *
      * @ORM\Column(name="payment_number", type="bigint", nullable=true)
@@ -104,30 +97,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getCurrencyId()
     {
         return $this->currency_id;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Payment
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

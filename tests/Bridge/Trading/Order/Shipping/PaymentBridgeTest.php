@@ -19,7 +19,6 @@ namespace Gpupo\CommonSchema\Tests\Bridge\Trading\Order\Shipping;
 
 use Gpupo\CommonSchema\Bridge\Trading\Order\Shipping\PaymentBridge;
 use Gpupo\CommonSchema\ORM\Decorator\Banking\Report\Records;
-use Gpupo\CommonSchema\ORM\Decorator\Trading\Order\Shipping\Payments;
 use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;

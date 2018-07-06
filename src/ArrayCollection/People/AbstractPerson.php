@@ -36,7 +36,6 @@ abstract class AbstractPerson extends AbstractEntity
             'last_name' => 'string',
             'document' => 'oneToOneUnidirectional',
             'internal_id' => 'integer',
-            'expands' => 'array',
         ];
     }
 }

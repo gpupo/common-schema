@@ -1,4 +1,4 @@
-# expands metadata
+# postalCode metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
   type: entity
   table: cs_trading_order_customer_address_billing
@@ -19,10 +19,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressBilling:
       type: string
       lenght: 50
       unique: false
-      nullable: true
-      options: {  }
-    expands:
-      type: array
       nullable: true
       options: {  }
     neighborhood:

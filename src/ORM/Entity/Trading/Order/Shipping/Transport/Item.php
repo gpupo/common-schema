@@ -58,13 +58,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var null|array
      *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
-     * @var null|array
-     *
      * @ORM\Column(name="tags", type="array", nullable=true)
      */
     protected $tags;
@@ -197,30 +190,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getDeliveryService()
     {
         return $this->delivery_service;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Item
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

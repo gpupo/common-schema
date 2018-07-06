@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Payment.
  *
- * @ORM\Table(name="cs_trading_order_shipping_payment", uniqueConstraints={@ORM\UniqueConstraint(name="collector_payment_number_operation_type_idx", columns={"collector", "payment_number", "operation_type"})})
+ * @ORM\Table(name="cs_trading_order_shipping_payment", uniqueConstraints={@ORM\UniqueConstraint(name="collector_move_id_idx", columns={"collector", "move_id"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Payment\PaymentRepository")
  */
 class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
@@ -112,13 +112,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $deferred_period;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|float
      *
      * @ORM\Column(name="installment_amount", type="float", precision=10, scale=2, nullable=true)
@@ -147,11 +140,25 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $marketplace_fee;
 
     /**
+     * @var null|int
+     *
+     * @ORM\Column(name="move_id", type="bigint", nullable=true)
+     */
+    protected $move_id;
+
+    /**
      * @var null|string
      *
      * @ORM\Column(name="operation_type", type="string", nullable=true, unique=false)
      */
     protected $operation_type;
+
+    /**
+     * @var null|int
+     *
+     * @ORM\Column(name="original_move_id", type="bigint", nullable=true)
+     */
+    protected $original_move_id;
 
     /**
      * @var null|float
@@ -567,30 +574,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Payment
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
-    }
-
-    /**
      * Set installmentAmount.
      *
      * @param null|float $installmentAmount
@@ -687,6 +670,30 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set moveId.
+     *
+     * @param null|int $moveId
+     *
+     * @return Payment
+     */
+    public function setMoveId($moveId = null)
+    {
+        $this->move_id = $moveId;
+
+        return $this;
+    }
+
+    /**
+     * Get moveId.
+     *
+     * @return null|int
+     */
+    public function getMoveId()
+    {
+        return $this->move_id;
+    }
+
+    /**
      * Set operationType.
      *
      * @param null|string $operationType
@@ -708,6 +715,30 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getOperationType()
     {
         return $this->operation_type;
+    }
+
+    /**
+     * Set originalMoveId.
+     *
+     * @param null|int $originalMoveId
+     *
+     * @return Payment
+     */
+    public function setOriginalMoveId($originalMoveId = null)
+    {
+        $this->original_move_id = $originalMoveId;
+
+        return $this;
+    }
+
+    /**
+     * Get originalMoveId.
+     *
+     * @return null|int
+     */
+    public function getOriginalMoveId()
+    {
+        return $this->original_move_id;
     }
 
     /**

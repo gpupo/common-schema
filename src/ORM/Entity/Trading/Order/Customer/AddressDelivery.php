@@ -42,13 +42,6 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $comments;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|string
      *
      * @ORM\Column(name="neighborhood", type="string", nullable=true, unique=false)
@@ -156,30 +149,6 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getComments()
     {
         return $this->comments;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return AddressDelivery
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

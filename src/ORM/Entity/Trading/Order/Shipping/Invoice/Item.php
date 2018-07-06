@@ -35,13 +35,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $accessKey;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|\DateTime
      *
      * @ORM\Column(name="invoice_date", type="datetime", nullable=true)
@@ -118,30 +111,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getAccessKey()
     {
         return $this->accessKey;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Item
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

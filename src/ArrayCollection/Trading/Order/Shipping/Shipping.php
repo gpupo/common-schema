@@ -63,7 +63,6 @@ class Shipping extends AbstractEntity
 
             //extra
             'tags' => 'array',
-            'expands' => 'array',
         ];
     }
 }

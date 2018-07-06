@@ -28,13 +28,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
      *
      * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", mappedBy="trading", cascade={"persist","remove"})
@@ -64,30 +57,6 @@ class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Trading
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

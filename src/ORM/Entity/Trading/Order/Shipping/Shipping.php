@@ -56,13 +56,6 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $date_last_modified;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|bool
      *
      * @ORM\Column(name="fulfilled", type="boolean", nullable=true)
@@ -337,30 +330,6 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getDateLastModified()
     {
         return $this->date_last_modified;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Shipping
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

@@ -38,7 +38,6 @@ class Payment extends AbstractEntity
             'currency_id' => 'string',
             'status' => 'string',
             'tags' => 'array',
-            'expands' => 'array',
         ];
     }
 }

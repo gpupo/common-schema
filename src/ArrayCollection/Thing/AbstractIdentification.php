@@ -27,7 +27,6 @@ abstract class AbstractIdentification extends AbstractEntity
         return [
             'doc_type' => 'string',
             'doc_number' => 'string',
-            'expands' => 'array',
         ];
     }
 }

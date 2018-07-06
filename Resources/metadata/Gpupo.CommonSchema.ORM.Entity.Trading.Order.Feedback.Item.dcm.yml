@@ -1,4 +1,4 @@
-# expands metadata
+# rating metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
   type: entity
   table: cs_trading_order_feedback
@@ -9,10 +9,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
       generator:
         strategy: AUTO
   fields:
-    expands:
-      type: array
-      nullable: true
-      options: {  }
     message:
       type: string
       lenght: 50

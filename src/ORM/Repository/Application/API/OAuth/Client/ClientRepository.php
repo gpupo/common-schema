@@ -17,6 +17,11 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client;
 
+use Doctrine\ORM\Query\Expr\Join;
+use Doctrine\ORM\QueryBuilder;
+use Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken;
+use Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider;
+
 /**
  * ClientRepository.
  *
@@ -25,4 +30,21 @@ namespace Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client;
  */
 class ClientRepository extends \Gpupo\CommonSchema\AbstractORMRepository
 {
+    public function getFindByProviderNameQueryBuilder(): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('u');
+        $queryBuilder
+            ->leftJoin(AccessToken::class, 'token', Join::WITH, $queryBuilder->expr()->eq('token.client', 'u'))
+            ->innerJoin(
+            Provider::class,
+            'provider',
+            Join::WITH,
+         $queryBuilder->expr()->andX(
+            $queryBuilder->expr()->eq('provider.name', ':providerName'),
+            $queryBuilder->expr()->eq('provider', 'u.provider')
+            )
+        );
+
+        return $queryBuilder;
+    }
 }

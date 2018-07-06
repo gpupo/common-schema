@@ -45,7 +45,6 @@ abstract class AbstractProduct extends EntityAbstract implements EntityInterface
             'variation_attributes' => 'array',
             //extra
             'tags' => 'array',
-            'expands' => 'array',
         ];
     }
 }

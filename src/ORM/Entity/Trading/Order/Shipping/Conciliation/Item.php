@@ -42,13 +42,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $description;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|float
      *
      * @ORM\Column(name="net_amount", type="float", precision=10, scale=2, nullable=true)
@@ -135,30 +128,6 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Item
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

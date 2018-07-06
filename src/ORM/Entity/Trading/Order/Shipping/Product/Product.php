@@ -28,13 +28,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Product extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|string
      *
      * @ORM\Column(name="gtin", type="string", nullable=true, unique=false)
@@ -101,30 +94,6 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Product
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

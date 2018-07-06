@@ -38,7 +38,6 @@ class Item extends AbstractEntity
             'delivery_service' => 'string',
             'carrier' => 'string',
             'tags' => 'array',
-            'expands' => 'array',
         ];
     }
 }

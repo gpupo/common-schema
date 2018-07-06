@@ -42,13 +42,6 @@ class Document extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $doc_type;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * Get id.
      *
      * @return int
@@ -104,29 +97,5 @@ class Document extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getDocType()
     {
         return $this->doc_type;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Document
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 }

@@ -17,27 +17,18 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests\Normalizers\Type;
 
-use Gpupo\CommonSchema\Tests\AbstractTestCase;
-use Doctrine\Tests\DBAL\Mocks\MockPlatform;
-use Gpupo\CommonSchema\Normalizers\Type\DateTimeTypeNormalizer;
-use Doctrine\DBAL\Types\Type;
 use DateTime;
+use Doctrine\DBAL\Types\Type;
+use Gpupo\CommonSchema\Normalizers\Type\DateTimeTypeNormalizer;
+use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
+/**
+ * @coversNothing
+ */
 class DateTimeTypeNormalizerTest extends AbstractTestCase
 {
     private $platform;
     private $typeNormalizer;
-
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
-    private function getPlatformMock()
-    {
-        return $this->getMockBuilder('Doctrine\DBAL\Platforms\AbstractPlatform')
-            // ->setMethods(array('getBinaryTypeDeclarationSQLSnippet'))
-            ->getMockForAbstractClass();
-    }
 
     public static function setUpBeforeClass()
     {
@@ -95,5 +86,15 @@ class DateTimeTypeNormalizerTest extends AbstractTestCase
     {
         $datetime = $this->typeNormalizer->convertToDatabaseValue($string, $this->platform);
         $this->assertSame($expected, $datetime, sprintf('Input string=%s', $string));
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject
+     */
+    private function getPlatformMock()
+    {
+        return $this->getMockBuilder('Doctrine\DBAL\Platforms\AbstractPlatform')
+            // ->setMethods(array('getBinaryTypeDeclarationSQLSnippet'))
+            ->getMockForAbstractClass();
     }
 }

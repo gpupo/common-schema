@@ -35,13 +35,6 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $email;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|string
      *
      * @ORM\Column(name="first_name", type="string", nullable=true, unique=false)
@@ -141,30 +134,6 @@ class Seller extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Seller
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

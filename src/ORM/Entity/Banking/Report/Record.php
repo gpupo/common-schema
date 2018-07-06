@@ -49,13 +49,6 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $description;
 
     /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
-
-    /**
      * @var null|int
      *
      * @ORM\Column(name="external_id", type="bigint", nullable=true)
@@ -229,30 +222,6 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set expands.
-     *
-     * @param null|array $expands
-     *
-     * @return Record
-     */
-    public function setExpands($expands = null)
-    {
-        $this->expands = $expands;
-
-        return $this;
-    }
-
-    /**
-     * Get expands.
-     *
-     * @return null|array
-     */
-    public function getExpands()
-    {
-        return $this->expands;
     }
 
     /**

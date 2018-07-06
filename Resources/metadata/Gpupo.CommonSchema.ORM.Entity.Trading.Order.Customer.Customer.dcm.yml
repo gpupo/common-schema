@@ -15,10 +15,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
       unique: false
       nullable: true
       options: {  }
-    expands:
-      type: array
-      nullable: true
-      options: {  }
     first_name:
       type: string
       lenght: 50
