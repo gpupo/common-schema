@@ -1,4 +1,4 @@
-# tags metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item:
   type: entity
   table: cs_trading_order_shipping_transport
@@ -27,6 +27,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     tags:

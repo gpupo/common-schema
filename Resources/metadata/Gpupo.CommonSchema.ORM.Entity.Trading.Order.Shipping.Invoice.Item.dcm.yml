@@ -1,4 +1,4 @@
-# tags metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item:
   type: entity
   table: cs_trading_order_invoice
@@ -13,6 +13,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     invoice_date:

@@ -30,7 +30,7 @@ class Shipping extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return [
             'shipping_number' => 'integer',

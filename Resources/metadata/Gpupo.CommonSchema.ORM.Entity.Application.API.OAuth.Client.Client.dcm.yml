@@ -1,4 +1,4 @@
-# access_token metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client:
   type: entity
   table: cs_application_API_OAuth_client
@@ -25,6 +25,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     internal_id:

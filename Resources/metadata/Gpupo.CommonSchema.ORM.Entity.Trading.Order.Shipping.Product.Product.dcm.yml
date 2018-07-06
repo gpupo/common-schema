@@ -1,4 +1,4 @@
-# unit_price metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Product\Product:
   type: entity
   table: cs_trading_order_shipping_product
@@ -9,6 +9,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Product\Product:
       generator:
         strategy: AUTO
   fields:
+    expands:
+      type: array
+      nullable: true
+      options: {  }
     gtin:
       type: string
       lenght: 50

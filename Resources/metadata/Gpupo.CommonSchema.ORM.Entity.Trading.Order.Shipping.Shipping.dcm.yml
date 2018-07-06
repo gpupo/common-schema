@@ -1,4 +1,4 @@
-# tags metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
   type: entity
   table: cs_trading_order_shipping
@@ -25,6 +25,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
       options: {  }
     date_last_modified:
       type: datetime
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     fulfilled:

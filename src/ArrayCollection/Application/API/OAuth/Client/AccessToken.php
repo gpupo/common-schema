@@ -26,7 +26,7 @@ class AccessToken extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return [
             'access_token' => 'string',

@@ -1,4 +1,4 @@
-# tags metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
   type: entity
   table: cs_trading_payment
@@ -13,6 +13,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     payment_number:

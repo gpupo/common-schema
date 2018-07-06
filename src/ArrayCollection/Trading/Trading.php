@@ -29,10 +29,10 @@ class Trading extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return array_merge(
-            parent::getSchema(),
+            parent::schema(),
             [
                 'order' => 'oneToOneBidirectional',
                 'payment' => 'oneToMany',

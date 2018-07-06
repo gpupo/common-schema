@@ -1,4 +1,4 @@
-# internal_id metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\People\Person:
   type: entity
   table: cs_people
@@ -13,6 +13,10 @@ Gpupo\CommonSchema\ORM\Entity\People\Person:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     first_name:

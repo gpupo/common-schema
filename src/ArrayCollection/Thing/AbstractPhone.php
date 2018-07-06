@@ -22,7 +22,7 @@ abstract class AbstractPhone extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return [
             'area_code' => 'integer',

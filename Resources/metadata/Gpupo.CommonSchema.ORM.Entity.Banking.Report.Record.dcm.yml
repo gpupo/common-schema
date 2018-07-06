@@ -1,4 +1,4 @@
-# payment_method metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
   type: entity
   table: cs_banking_report_record
@@ -25,6 +25,10 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     external_id:

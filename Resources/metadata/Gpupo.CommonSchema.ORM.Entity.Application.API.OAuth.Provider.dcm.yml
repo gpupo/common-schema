@@ -1,4 +1,4 @@
-# client metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
   type: entity
   table: cs_application_API_OAuth_provider
@@ -25,6 +25,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     name:

@@ -1,4 +1,4 @@
-# scope metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken:
   type: entity
   table: cs_application_API_OAuth_client_access_token
@@ -13,6 +13,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     expires_in:

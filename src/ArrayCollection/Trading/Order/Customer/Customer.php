@@ -26,10 +26,10 @@ class Customer extends AbstractPerson
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return array_merge(
-            parent::getSchema(),
+            parent::schema(),
             [
                 'address_billing' => 'object',
                 'address_delivery' => 'object',

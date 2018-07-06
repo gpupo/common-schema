@@ -1,4 +1,4 @@
-# date_last_modified metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
   type: entity
   table: cs_banking_report
@@ -29,6 +29,10 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
       options: {  }
     end_date:
       type: datetime
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     external_id:

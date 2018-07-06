@@ -30,7 +30,7 @@ class Client extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return [
             'internal_id' => 'integer',

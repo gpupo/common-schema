@@ -55,13 +55,14 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface,
         return $ucs;
     }
 
-    /**
-     * @codeCoverageIgnore
-     */
     public function getSchema()
     {
-        return [
-        ];
+        return array_merge(
+            $this->schema(),
+            [
+                'expands' => 'array',
+            ]
+        );
     }
 
     public function toOrm(): ORMEntityInterface
@@ -69,5 +70,14 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface,
         $converter = new ArrayCollectionConverter();
 
         return $converter->convertToOrm($this);
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    protected function schema()
+    {
+        return [
+        ];
     }
 }

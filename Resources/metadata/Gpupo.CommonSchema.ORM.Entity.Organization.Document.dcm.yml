@@ -1,4 +1,4 @@
-# doc_number metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Organization\Document:
   type: entity
   table: cs_organization_company_document
@@ -19,6 +19,10 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Document:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
   uniqueConstraints: {  }

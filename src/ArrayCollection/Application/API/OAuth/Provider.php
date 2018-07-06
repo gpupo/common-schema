@@ -26,7 +26,7 @@ class Provider extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return [
             'name' => 'string',

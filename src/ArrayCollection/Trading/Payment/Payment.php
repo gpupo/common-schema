@@ -31,7 +31,7 @@ class Payment extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return [
             'payment_number' => 'integer',

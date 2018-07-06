@@ -1,4 +1,4 @@
-# description metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
   type: entity
   table: cs_trading_order_status_detail
@@ -19,6 +19,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
   uniqueConstraints: {  }

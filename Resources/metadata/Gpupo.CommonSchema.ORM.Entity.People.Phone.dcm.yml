@@ -1,4 +1,4 @@
-# verified metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\People\Phone:
   type: entity
   table: cs_people_phone
@@ -11,6 +11,10 @@ Gpupo\CommonSchema\ORM\Entity\People\Phone:
   fields:
     area_code:
       type: bigint
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     extension:

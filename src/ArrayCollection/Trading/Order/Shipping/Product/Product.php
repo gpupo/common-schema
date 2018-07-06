@@ -26,10 +26,10 @@ class Product extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return array_merge(
-            parent::getSchema(),
+            parent::schema(),
             [
                 'seller_product_id' => 'string',
                 'title' => 'string',

@@ -28,7 +28,7 @@ class Item extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return [
             'invoice_number' => 'string',

@@ -1,4 +1,4 @@
-# payment metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
   type: entity
   table: cs_trading
@@ -8,7 +8,11 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
       type: integer
       generator:
         strategy: AUTO
-  fields: {  }
+  fields:
+    expands:
+      type: array
+      nullable: true
+      options: {  }
   oneToOne:
     order:
       targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order

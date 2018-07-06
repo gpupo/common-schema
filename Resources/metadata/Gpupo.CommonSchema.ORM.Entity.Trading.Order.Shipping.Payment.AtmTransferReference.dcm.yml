@@ -1,4 +1,4 @@
-# transaction_id metadata
+# expands metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReference:
   type: entity
   table: cs_trading_order_shipping_payment_atm_transfer_reference
@@ -11,6 +11,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReferenc
   fields:
     company_id:
       type: bigint
+      nullable: true
+      options: {  }
+    expands:
+      type: array
       nullable: true
       options: {  }
     transaction_id:

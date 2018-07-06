@@ -24,18 +24,16 @@ class Payment extends AbstractEntity
     protected $tableName = 'trading_order_shipping_payment';
 
     protected $uniqueConstraints = [
-      ['collector', 'move_id'],
+      ['collector', 'payment_number', 'operation_type'],
     ];
 
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+    protected function schema()
     {
         return [
             'payment_number' => 'integer',
-            'move_id' => 'integer',
-            'original_move_id' => 'integer',
             'collector' => 'string',
             'currency_id' => 'string',
             'status' => 'string',
@@ -67,6 +65,7 @@ class Payment extends AbstractEntity
             'authorization_code' => 'string',
             'transaction_order_id' => 'string',
             'tags' => 'array',
+            'expands' => 'array',
         ];
     }
 }
