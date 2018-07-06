@@ -50,9 +50,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client:
       options: {  }
       mappedBy: client
   uniqueConstraints:
-    client_id_idx:
+    client_id_internal_id_idx:
       columns:
         - client_id
+        - internal_id
   manyToOne:
     provider:
       cascade:

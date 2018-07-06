@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Client.
  *
- * @ORM\Table(name="cs_application_API_OAuth_client", uniqueConstraints={@ORM\UniqueConstraint(name="client_id_idx", columns={"client_id"})})
+ * @ORM\Table(name="cs_application_API_OAuth_client", uniqueConstraints={@ORM\UniqueConstraint(name="client_id_internal_id_idx", columns={"client_id", "internal_id"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\ClientRepository")
  */
 class Client extends \Gpupo\CommonSchema\AbstractORMEntity
