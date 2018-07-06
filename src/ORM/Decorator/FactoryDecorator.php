@@ -24,7 +24,7 @@ class FactoryDecorator
     public static function createCollectionDecorator($class, $value, $key): ?CollectionDecoratorInterface
     {
         $decoratorClassName = sprintf('\%s\%s', str_replace('Entity', 'Decorator', substr($class, 0, strrpos($class, '\\'))), ucfirst($key));
-
+        $decoratorClassName = str_replace('\\Proxies\\__CG__\\', '', $decoratorClassName); //Fix doctrine proxies
         if (!class_exists($decoratorClassName)) {
             throw new DecoratorException(sprintf('Decorator [%s] not found', $decoratorClassName));
         }
