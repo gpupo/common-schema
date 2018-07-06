@@ -61,6 +61,9 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface,
             $this->schema(),
             [
                 'expands' => 'array',
+                'created_at' => 'datetime',
+                'updated_at' => 'datetime',
+                'deleted_at' => 'datetime',
             ]
         );
     }

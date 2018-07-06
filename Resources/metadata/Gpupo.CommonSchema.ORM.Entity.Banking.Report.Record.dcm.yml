@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
   type: entity
   table: cs_banking_report_record
@@ -15,10 +15,18 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       scale: 2
       nullable: true
       options: {  }
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
     date:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
       nullable: true
       options: {  }
     description:
@@ -95,6 +103,10 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       type: float
       precision: 10
       scale: 2
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   uniqueConstraints:

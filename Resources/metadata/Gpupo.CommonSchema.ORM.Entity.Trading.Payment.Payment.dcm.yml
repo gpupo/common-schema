@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
   type: entity
   table: cs_trading_payment
@@ -9,10 +9,18 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       generator:
         strategy: AUTO
   fields:
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
     currency_id:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
       nullable: true
       options: {  }
     expands:
@@ -31,6 +39,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment:
       options: {  }
     tags:
       type: array
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   uniqueConstraints:

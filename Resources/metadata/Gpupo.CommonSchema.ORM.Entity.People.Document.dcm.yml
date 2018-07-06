@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\People\Document:
   type: entity
   table: cs_people_document
@@ -9,6 +9,14 @@ Gpupo\CommonSchema\ORM\Entity\People\Document:
       generator:
         strategy: AUTO
   fields:
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
+      nullable: true
+      options: {  }
     doc_number:
       type: string
       lenght: 50
@@ -23,6 +31,10 @@ Gpupo\CommonSchema\ORM\Entity\People\Document:
       options: {  }
     expands:
       type: array
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   uniqueConstraints: {  }

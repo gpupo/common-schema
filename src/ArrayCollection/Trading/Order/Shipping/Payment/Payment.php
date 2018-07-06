@@ -34,6 +34,8 @@ class Payment extends AbstractEntity
     {
         return [
             'payment_number' => 'integer',
+            'move_id' => 'integer',
+            'original_move_id' => 'integer',
             'collector' => 'string',
             'currency_id' => 'string',
             'status' => 'string',
@@ -65,7 +67,6 @@ class Payment extends AbstractEntity
             'authorization_code' => 'string',
             'transaction_order_id' => 'string',
             'tags' => 'array',
-            'expands' => 'array',
         ];
     }
 }

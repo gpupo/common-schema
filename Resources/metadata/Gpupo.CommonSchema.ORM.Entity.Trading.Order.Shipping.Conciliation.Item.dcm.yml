@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item:
   type: entity
   table: cs_trading_order_shipping_conciliation
@@ -13,6 +13,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item:
       type: float
       precision: 10
       scale: 2
+      nullable: true
+      options: {  }
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
       nullable: true
       options: {  }
     description:
@@ -39,6 +47,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   uniqueConstraints: {  }

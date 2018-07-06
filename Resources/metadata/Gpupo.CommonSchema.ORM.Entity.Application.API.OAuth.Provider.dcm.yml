@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
   type: entity
   table: cs_application_API_OAuth_provider
@@ -9,6 +9,14 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
       generator:
         strategy: AUTO
   fields:
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
+      nullable: true
+      options: {  }
     description:
       type: string
       lenght: 50
@@ -35,6 +43,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
     version:

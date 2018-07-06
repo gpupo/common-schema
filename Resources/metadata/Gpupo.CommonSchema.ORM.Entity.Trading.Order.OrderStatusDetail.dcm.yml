@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
   type: entity
   table: cs_trading_order_status_detail
@@ -15,6 +15,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
       unique: false
       nullable: true
       options: {  }
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
+      nullable: true
+      options: {  }
     description:
       type: string
       lenght: 50
@@ -23,6 +31,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
       options: {  }
     expands:
       type: array
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   uniqueConstraints: {  }

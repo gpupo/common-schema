@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Seller:
   type: entity
   table: cs_trading_order_shipping_seller
@@ -9,6 +9,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Seller:
       generator:
         strategy: AUTO
   fields:
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
+      nullable: true
+      options: {  }
     email:
       type: string
       lenght: 50
@@ -39,6 +47,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Seller:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   oneToOne:

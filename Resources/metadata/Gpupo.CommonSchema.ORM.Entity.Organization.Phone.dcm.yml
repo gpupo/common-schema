@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
   type: entity
   table: cs_organization_company_phone
@@ -11,6 +11,14 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
   fields:
     area_code:
       type: bigint
+      nullable: true
+      options: {  }
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
       nullable: true
       options: {  }
     expands:
@@ -27,6 +35,10 @@ Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
     verified:

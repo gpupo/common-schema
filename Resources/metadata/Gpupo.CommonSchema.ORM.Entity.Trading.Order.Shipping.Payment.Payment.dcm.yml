@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
   type: entity
   table: cs_trading_order_shipping_payment
@@ -49,6 +49,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       unique: false
       nullable: true
       options: {  }
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
     currency_id:
       type: string
       lenght: 50
@@ -71,6 +75,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
       nullable: true
       options: {  }
     expands:
@@ -97,10 +105,18 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       scale: 2
       nullable: true
       options: {  }
+    move_id:
+      type: bigint
+      nullable: true
+      options: {  }
     operation_type:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    original_move_id:
+      type: bigint
       nullable: true
       options: {  }
     overpaid_amount:
@@ -181,6 +197,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   oneToOne:

@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
   type: entity
   table: cs_trading_order_feedback
@@ -9,6 +9,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
       generator:
         strategy: AUTO
   fields:
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
+      nullable: true
+      options: {  }
     expands:
       type: array
       nullable: true
@@ -33,6 +41,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   uniqueConstraints: {  }

@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
   type: entity
   table: cs_trading_order
@@ -9,6 +9,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       generator:
         strategy: AUTO
   fields:
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
     currency_id:
       type: string
       lenght: 50
@@ -28,6 +32,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       nullable: true
       options: {  }
     date_last_modified:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
       type: datetime
       nullable: true
       options: {  }
@@ -117,6 +125,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       type: float
       precision: 10
       scale: 2
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   oneToOne:

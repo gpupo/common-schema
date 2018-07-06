@@ -1,4 +1,4 @@
-# expands metadata
+# deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client:
   type: entity
   table: cs_application_API_OAuth_client
@@ -21,6 +21,14 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client:
       unique: false
       nullable: true
       options: {  }
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
+      nullable: true
+      options: {  }
     description:
       type: string
       lenght: 50
@@ -39,6 +47,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
       nullable: true
       options: {  }
   oneToOne:
