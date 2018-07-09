@@ -28,6 +28,9 @@ use Gpupo\CommonSchema\Tests\AbstractTestCase;
  */
 class ShippingTest extends AbstractTestCase
 {
+    /**
+     * @large
+     */
     public function testDecorator()
     {
         $id = 6485856515;

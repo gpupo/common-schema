@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Converters;
 
+use DateTime;
 use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\Common\Tools\StringTool;
 use Gpupo\CommonSchema\ORMEntityInterface;
@@ -41,12 +42,14 @@ class ArrayCollectionConverter
 
             if ($value instanceof CollectionInterface) {
                 if (method_exists($orm, $adder)) {
+                    //add to collection
                     foreach ($value as $item) {
                         if ($item->hasValues()) {
                             $orm->{$adder}($this->embed($orm, $this->convertToOrm($item)));
                         }
                     }
                 } else {
+                    //new object to property
                     if ($value->hasValues()) {
                         $child = $this->convertToOrm($value);
 
@@ -54,11 +57,29 @@ class ArrayCollectionConverter
                     }
                 }
             } else {
-                $orm->{$setter}($value);
+                $orm->{$setter}($this->normalizeByType($key, $type, $value));
             }
         }
 
         return $orm;
+    }
+
+    protected function normalizeByType($key, $type, $value)
+    {
+        switch ($type) {
+            case 'datetime':
+                if (empty($value)) {
+                    $value = null;
+                } elseif (!$value instanceof DateTime) {
+                    $value = new DateTime($value);
+                }
+
+                break;
+            default:
+                break;
+        }
+
+        return $value;
     }
 
     protected function embed(ORMEntityInterface $owner, ORMEntityInterface $object)

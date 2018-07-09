@@ -16,6 +16,9 @@
         <testsuite name="Main Test Suite">
             <directory>tests</directory>
         </testsuite>
+        <testsuite name="Converters">
+            <directory>tests/Converters</directory>
+        </testsuite>
     </testsuites>
 
     <filter>
@@ -23,4 +26,10 @@
             <directory>src/</directory>
         </whitelist>
     </filter>
+
+    <groups>
+      <exclude>
+       <group>large</group>
+      </exclude>
+     </groups>
 </phpunit>

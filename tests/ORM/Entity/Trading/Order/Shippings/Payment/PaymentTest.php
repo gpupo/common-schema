@@ -77,6 +77,7 @@ class PaymentTest extends AbstractTestCase
 
     /**
      * @dataProvider dataProviderPayment
+     * @large
      */
     public function testPersist(PaymentORM $payment, array $expected)
     {

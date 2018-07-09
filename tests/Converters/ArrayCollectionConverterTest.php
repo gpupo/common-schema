@@ -32,12 +32,18 @@ class ArrayCollectionConverterTest extends AbstractTestCase
         $arrayCollection = new ArrayCollectionOrder([
           'order_number' => 123321,
           'date_created' => '2018-05-01T00:00:00Z',
+          'created_at' => '2018-05-01T00:00:00Z',
+          'updated_at' => '2018-05-01T00:00:01Z',
+          'deleted_at' => false,
         ]);
         $converter = new ArrayCollectionConverter();
         $orm = $converter->convertToOrm($arrayCollection);
         $this->assertInstanceof(ORMOrder::class, $orm);
 
         $this->assertSame(123321, $orm->getOrderNumber());
-        $this->assertSame('2018-05-01T00:00:00Z', $orm->getDateCreated());
+        $this->assertSame('2018-05-01 00:00:00', $orm->getDateCreated()->format('Y-m-d H:i:s'));
+        $this->assertSame('2018-05-01 00:00:00', $orm->getCreatedAt()->format('Y-m-d H:i:s'));
+        $this->assertSame('2018-05-01 00:00:01', $orm->getUpdatedAt()->format('Y-m-d H:i:s'));
+        $this->assertNull($orm->getDeletedAt());
     }
 }

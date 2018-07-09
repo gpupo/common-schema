@@ -96,7 +96,7 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
      *
      * @param DateTime $created_at
      */
-    public function setCreatedAt(DateTime $created_at): void
+    public function setCreatedAt(?DateTime $created_at): void
     {
         $this->created_at = $created_at;
     }
@@ -106,7 +106,7 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
      *
      * @param DateTime $updated_at
      */
-    public function setUpdatedAt(DateTime $updated_at): void
+    public function setUpdatedAt(?DateTime $updated_at): void
     {
         $this->updated_at = $updated_at;
     }
@@ -116,7 +116,7 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
      *
      * @param null|Datetime $deleted_at
      */
-    public function setDeletedAt(\DateTime $deleted_at = null): void
+    public function setDeletedAt(?DateTime $deleted_at = null): void
     {
         $this->deleted_at = $deleted_at;
     }
