@@ -23,6 +23,6 @@ trait CollectionContainerTrait
     {
         $getter = sprintf('get%s', ucfirst($key));
 
-        return FactoryDecorator::createCollectionDecorator(get_called_class(), $this->{$getter}(), $key);
+        return FactoryDecorator::createCollectionDecorator(get_called_class(), $this, $getter, $key);
     }
 }

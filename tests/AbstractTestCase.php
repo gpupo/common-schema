@@ -19,10 +19,13 @@ namespace Gpupo\CommonSchema\Tests;
 
 use Gpupo\Common\Tools\Reflected;
 use Gpupo\CommonSchema\ORMEntityInterface;
+use Gpupo\CommonSdk\Traits\ResourcesTrait;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractTestCase extends TestCase
 {
+    use ResourcesTrait;
+
     public function truncate($className)
     {
         $em = $this->getDoctrineEntityManager();

@@ -17,23 +17,35 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Decorator;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\PersistentCollection;
 
 class FactoryDecorator
 {
-    public static function createCollectionDecorator($class, $value, $key): ?CollectionDecoratorInterface
+    public static function createCollectionDecorator($class, $object, $getter, $key): ?CollectionDecoratorInterface
     {
         $decoratorClassName = sprintf('\%s\%s', str_replace('Entity', 'Decorator', substr($class, 0, strrpos($class, '\\'))), ucfirst($key));
         $decoratorClassName = str_replace('\\Proxies\\__CG__\\', '', $decoratorClassName); //Fix doctrine proxies
+
+        try {
+            $value = $object->{$getter}();
+        } catch (\Exception $exception) {
+            throw new DecoratorException(sprintf('Object [%s] dont have a decorator [%s] (%s)', $class, $decoratorClassName, $exception->getMessage()));
+        }
+
         if (!class_exists($decoratorClassName)) {
             throw new DecoratorException(sprintf('Decorator [%s] not found', $decoratorClassName));
         }
 
         $decorator = new $decoratorClassName();
 
-        if ($value instanceof PersistentCollection) {
+        if ($value instanceof ArrayCollection) {
             if (1 > $value->count()) {
-                throw new DecoratorException(sprintf('PersistentCollection [%s::%s] has empty result', $class, $key));
+                throw new DecoratorException(sprintf('Collection [%s::%s] has empty result', $class, $key));
+            }
+
+            if ($value instanceof PersistentCollection) {
+                //normalize
             }
 
             $decorator->absorb($value);
