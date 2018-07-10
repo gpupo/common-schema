@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Payment.
  *
- * @ORM\Table(name="cs_trading_order_shipping_payment", uniqueConstraints={@ORM\UniqueConstraint(name="collector_payment_number_operation_type_idx", columns={"collector", "payment_number", "operation_type"})})
+ * @ORM\Table(name="cs_trading_order_shipping_payment", uniqueConstraints={@ORM\UniqueConstraint(name="collector_move_id_idx", columns={"collector", "move_id"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Payment\PaymentRepository")
  */
 class Payment extends \Gpupo\CommonSchema\AbstractORMEntity

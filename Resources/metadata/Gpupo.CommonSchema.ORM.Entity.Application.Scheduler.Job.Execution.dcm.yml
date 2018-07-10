@@ -25,6 +25,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\Scheduler\Job\Execution:
       type: array
       nullable: true
       options: {  }
+    finished_at:
+      type: datetime
+      nullable: true
+      options: {  }
     name:
       type: string
       lenght: 50
@@ -41,6 +45,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\Scheduler\Job\Execution:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    started_at:
+      type: datetime
       nullable: true
       options: {  }
     status:

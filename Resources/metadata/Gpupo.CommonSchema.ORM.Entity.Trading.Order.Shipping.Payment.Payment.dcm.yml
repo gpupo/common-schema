@@ -212,11 +212,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       options: {  }
       mappedBy: payment
   uniqueConstraints:
-    collector_payment_number_operation_type_idx:
+    collector_move_id_idx:
       columns:
         - collector
-        - payment_number
-        - operation_type
+        - move_id
   manyToOne:
     shipping:
       cascade:
