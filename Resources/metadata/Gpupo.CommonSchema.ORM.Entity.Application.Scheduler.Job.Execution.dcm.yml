@@ -1,0 +1,57 @@
+# deleted_at metadata
+Gpupo\CommonSchema\ORM\Entity\Application\Scheduler\Job\Execution:
+  type: entity
+  table: cs_application_scheduler_job_execution
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\Scheduler\Job\ExecutionRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    errors:
+      type: array
+      nullable: true
+      options: {  }
+    expands:
+      type: array
+      nullable: true
+      options: {  }
+    name:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
+    output:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
+    script:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
+    status:
+      type: bigint
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
+      nullable: true
+      options: {  }
+  uniqueConstraints: {  }
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

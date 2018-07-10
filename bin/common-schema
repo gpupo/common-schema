@@ -21,6 +21,7 @@ use Gpupo\CommonSchema\ArrayCollection\People\Person;
 use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
 use Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Provider;
+use Gpupo\CommonSchema\ArrayCollection\Application\Scheduler\Job\Execution;
 use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
 use Gpupo\CommonSdk\Entity\Schema\Tools;
 
@@ -35,7 +36,7 @@ if(in_array('-v',$argv)) {
 $generator = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
 
 try {
-    foreach([new Trading(), new Person(), new Company(), new Report(), new Provider()] as $object) {
+    foreach([new Trading(), new Person(), new Company(), new Report(), new Provider(), new Execution()] as $object) {
         $generator->recursiveSave($object);
     }
 
