@@ -31,6 +31,8 @@ class Execution extends AbstractEntity
         return [
             'name' => 'string',
             'script' => 'string',
+            'started_at' => 'datetime',
+            'finished_at' => 'datetime',
             'status' => 'integer',
             'output' => 'string',
             'errors' => 'array',

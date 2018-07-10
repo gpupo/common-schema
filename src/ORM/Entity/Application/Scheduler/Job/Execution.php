@@ -35,6 +35,13 @@ class Execution extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $errors;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="finished_at", type="datetime", nullable=true)
+     */
+    protected $finished_at;
+
+    /**
      * @var null|string
      *
      * @ORM\Column(name="name", type="string", nullable=true, unique=false)
@@ -54,6 +61,13 @@ class Execution extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Column(name="script", type="string", nullable=true, unique=false)
      */
     protected $script;
+
+    /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="started_at", type="datetime", nullable=true)
+     */
+    protected $started_at;
 
     /**
      * @var null|int
@@ -94,6 +108,30 @@ class Execution extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getErrors()
     {
         return $this->errors;
+    }
+
+    /**
+     * Set finishedAt.
+     *
+     * @param null|\DateTime $finishedAt
+     *
+     * @return Execution
+     */
+    public function setFinishedAt($finishedAt = null)
+    {
+        $this->finished_at = $finishedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get finishedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getFinishedAt()
+    {
+        return $this->finished_at;
     }
 
     /**
@@ -166,6 +204,30 @@ class Execution extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getScript()
     {
         return $this->script;
+    }
+
+    /**
+     * Set startedAt.
+     *
+     * @param null|\DateTime $startedAt
+     *
+     * @return Execution
+     */
+    public function setStartedAt($startedAt = null)
+    {
+        $this->started_at = $startedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get startedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getStartedAt()
+    {
+        return $this->started_at;
     }
 
     /**
