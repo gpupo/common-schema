@@ -24,7 +24,7 @@ class Record extends AbstractEntity
     protected $tableName = 'banking_report_record';
 
     protected $uniqueConstraints = [
-        ['source_id', 'record_type', 'description'],
+        ['source_id', 'record_type', 'description', 'gross_amount'],
     ];
 
     /**
@@ -48,6 +48,8 @@ class Record extends AbstractEntity
             'coupon_amount' => 'number',
             'installments' => 'integer',
             'payment_method' => 'string',
+            //extra
+            'tags' => 'array',
         ];
     }
 }

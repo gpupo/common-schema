@@ -34,16 +34,17 @@ class Report extends AbstractEntity
     {
         return [
             'institution' => 'string',
-            'external_id' => 'integer',
-            'begin_date' => 'datetime',
-            'end_date' => 'datetime',
             'file_name' => 'string',
             'description' => 'string',
             'records' => 'object',
-
+            'external_id' => 'integer',
+            'internal_id' => 'integer',
             //dates
-            'date_created' => 'datetime',
-            'date_last_modified' => 'datetime',
+            'begin_date' => 'datetime',
+            'end_date' => 'datetime',
+            'generated_date' => 'datetime',
+            //extra
+            'tags' => 'array',
         ];
     }
 }

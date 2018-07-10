@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Record.
  *
- * @ORM\Table(name="cs_banking_report_record", uniqueConstraints={@ORM\UniqueConstraint(name="source_id_record_type_description_idx", columns={"source_id", "record_type", "description"})})
+ * @ORM\Table(name="cs_banking_report_record", uniqueConstraints={@ORM\UniqueConstraint(name="source_id_record_type_description_gross_amount_idx", columns={"source_id", "record_type", "description", "gross_amount"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Banking\Report\RecordRepository")
  */
 class Record extends \Gpupo\CommonSchema\AbstractORMEntity
@@ -124,6 +124,13 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\Column(name="source_id", type="bigint", nullable=true)
      */
     protected $source_id;
+
+    /**
+     * @var null|array
+     *
+     * @ORM\Column(name="tags", type="array", nullable=true)
+     */
+    protected $tags;
 
     /**
      * @var null|float
@@ -486,6 +493,30 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getSourceId()
     {
         return $this->source_id;
+    }
+
+    /**
+     * Set tags.
+     *
+     * @param null|array $tags
+     *
+     * @return Record
+     */
+    public function setTags($tags = null)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Get tags.
+     *
+     * @return null|array
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 
     /**

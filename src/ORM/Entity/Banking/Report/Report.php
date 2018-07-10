@@ -35,20 +35,6 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $begin_date;
 
     /**
-     * @var null|\DateTime
-     *
-     * @ORM\Column(name="date_created", type="datetime", nullable=true)
-     */
-    protected $date_created;
-
-    /**
-     * @var null|\DateTime
-     *
-     * @ORM\Column(name="date_last_modified", type="datetime", nullable=true)
-     */
-    protected $date_last_modified;
-
-    /**
      * @var null|string
      *
      * @ORM\Column(name="description", type="string", nullable=true, unique=false)
@@ -77,11 +63,32 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $file_name;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="generated_date", type="datetime", nullable=true)
+     */
+    protected $generated_date;
+
+    /**
      * @var null|string
      *
      * @ORM\Column(name="institution", type="string", nullable=true, unique=false)
      */
     protected $institution;
+
+    /**
+     * @var null|int
+     *
+     * @ORM\Column(name="internal_id", type="bigint", nullable=true)
+     */
+    protected $internal_id;
+
+    /**
+     * @var null|array
+     *
+     * @ORM\Column(name="tags", type="array", nullable=true)
+     */
+    protected $tags;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -130,54 +137,6 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getBeginDate()
     {
         return $this->begin_date;
-    }
-
-    /**
-     * Set dateCreated.
-     *
-     * @param null|\DateTime $dateCreated
-     *
-     * @return Report
-     */
-    public function setDateCreated($dateCreated = null)
-    {
-        $this->date_created = $dateCreated;
-
-        return $this;
-    }
-
-    /**
-     * Get dateCreated.
-     *
-     * @return null|\DateTime
-     */
-    public function getDateCreated()
-    {
-        return $this->date_created;
-    }
-
-    /**
-     * Set dateLastModified.
-     *
-     * @param null|\DateTime $dateLastModified
-     *
-     * @return Report
-     */
-    public function setDateLastModified($dateLastModified = null)
-    {
-        $this->date_last_modified = $dateLastModified;
-
-        return $this;
-    }
-
-    /**
-     * Get dateLastModified.
-     *
-     * @return null|\DateTime
-     */
-    public function getDateLastModified()
-    {
-        return $this->date_last_modified;
     }
 
     /**
@@ -277,6 +236,30 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set generatedDate.
+     *
+     * @param null|\DateTime $generatedDate
+     *
+     * @return Report
+     */
+    public function setGeneratedDate($generatedDate = null)
+    {
+        $this->generated_date = $generatedDate;
+
+        return $this;
+    }
+
+    /**
+     * Get generatedDate.
+     *
+     * @return null|\DateTime
+     */
+    public function getGeneratedDate()
+    {
+        return $this->generated_date;
+    }
+
+    /**
      * Set institution.
      *
      * @param null|string $institution
@@ -298,6 +281,54 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getInstitution()
     {
         return $this->institution;
+    }
+
+    /**
+     * Set internalId.
+     *
+     * @param null|int $internalId
+     *
+     * @return Report
+     */
+    public function setInternalId($internalId = null)
+    {
+        $this->internal_id = $internalId;
+
+        return $this;
+    }
+
+    /**
+     * Get internalId.
+     *
+     * @return null|int
+     */
+    public function getInternalId()
+    {
+        return $this->internal_id;
+    }
+
+    /**
+     * Set tags.
+     *
+     * @param null|array $tags
+     *
+     * @return Report
+     */
+    public function setTags($tags = null)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Get tags.
+     *
+     * @return null|array
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 
     /**

@@ -99,6 +99,10 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       type: bigint
       nullable: true
       options: {  }
+    tags:
+      type: array
+      nullable: true
+      options: {  }
     taxes_amount:
       type: float
       precision: 10
@@ -110,11 +114,12 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       nullable: true
       options: {  }
   uniqueConstraints:
-    source_id_record_type_description_idx:
+    source_id_record_type_description_gross_amount_idx:
       columns:
         - source_id
         - record_type
         - description
+        - gross_amount
   manyToOne:
     report:
       cascade:

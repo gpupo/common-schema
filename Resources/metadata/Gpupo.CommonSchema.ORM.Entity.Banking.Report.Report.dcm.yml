@@ -17,14 +17,6 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
       type: datetime
       nullable: true
       options: {  }
-    date_created:
-      type: datetime
-      nullable: true
-      options: {  }
-    date_last_modified:
-      type: datetime
-      nullable: true
-      options: {  }
     deleted_at:
       type: datetime
       nullable: true
@@ -53,10 +45,22 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
       unique: false
       nullable: true
       options: {  }
+    generated_date:
+      type: datetime
+      nullable: true
+      options: {  }
     institution:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    internal_id:
+      type: bigint
+      nullable: true
+      options: {  }
+    tags:
+      type: array
       nullable: true
       options: {  }
     updated_at:
