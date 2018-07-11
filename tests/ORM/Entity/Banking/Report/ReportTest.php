@@ -40,6 +40,7 @@ class ReportTest extends AbstractTestCase
 
     /**
      * @dataProvider dataProviderReport
+     * @large
      */
     public function testPersist(ReportORM $report, array $expected)
     {
@@ -53,6 +54,9 @@ class ReportTest extends AbstractTestCase
         $this->assertSame($id, $row->getExternalId(), 'external_id');
     }
 
+    /**
+     * @large
+     */
     public function testFindTradingRecords()
     {
         $repository = $this->getDoctrineEntityManager()->getRepository(Record::class);
@@ -71,6 +75,7 @@ class ReportTest extends AbstractTestCase
 
     /**
      * @depends testFindTradingRecords
+     * @large
      */
     public function testSumOfRecordsWithMediation(Records $records)
     {
@@ -88,6 +93,9 @@ class ReportTest extends AbstractTestCase
         $this->assertSame(289.32, $records->getTotalOf('net_debit_amount'), 'debit');
     }
 
+    /**
+     * @large
+     */
     public function testSumOfRecordsWithoutMediation()
     {
         $records = $this->getDoctrineEntityManager()->getRepository(Record::class)

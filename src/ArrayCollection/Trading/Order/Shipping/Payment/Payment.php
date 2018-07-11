@@ -24,7 +24,7 @@ class Payment extends AbstractEntity
     protected $tableName = 'trading_order_shipping_payment';
 
     protected $uniqueConstraints = [
-      ['collector', 'move_id'],
+      ['collector', 'payment_number'],
     ];
 
     /**
@@ -34,8 +34,6 @@ class Payment extends AbstractEntity
     {
         return [
             'payment_number' => 'integer',
-            'move_id' => 'integer',
-            'original_move_id' => 'integer',
             'collector' => 'string',
             'currency_id' => 'string',
             'status' => 'string',

@@ -16,7 +16,6 @@ declare(strict_types=1);
  */
 
 namespace Gpupo\CommonSchema\ORM\Decorator;
-use Gpupo\CommonSchema\ORM\Decorator\CollectionDecoratorInterface;
 
 trait CollectionContainerTrait
 {

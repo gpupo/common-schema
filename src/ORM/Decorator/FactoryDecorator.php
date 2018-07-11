@@ -17,10 +17,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Decorator;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Countable;
 use Doctrine\ORM\PersistentCollection;
 use IteratorAggregate;
-use Countable;
 
 class FactoryDecorator
 {

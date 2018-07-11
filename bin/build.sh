@@ -22,7 +22,8 @@ find src/ORM/Repository/ -type f -print0 | xargs -0 sed -i 's~Doctrine\\ORM\\Ent
 ./vendor/bin/doctrine orm:validate-schema --skip-sync
 
 
-COMPOSE_HTTP_TIMEOUT=2 docker-compose run php-dev /root/.composer/vendor/bin/php-cs-fixer fix -q --using-cache=false;
+#COMPOSE_HTTP_TIMEOUT=2 
+docker-compose run php-dev /root/.composer/vendor/bin/php-cs-fixer fix -q --using-cache=false;
 
 printf "DONE!\n";
 
