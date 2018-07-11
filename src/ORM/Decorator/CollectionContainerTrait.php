@@ -16,10 +16,11 @@ declare(strict_types=1);
  */
 
 namespace Gpupo\CommonSchema\ORM\Decorator;
+use Gpupo\CommonSchema\ORM\Decorator\CollectionDecoratorInterface;
 
 trait CollectionContainerTrait
 {
-    public function getDecorator($key)
+    public function getDecorator($key): ?CollectionDecoratorInterface
     {
         $getter = sprintf('get%s', ucfirst($key));
 

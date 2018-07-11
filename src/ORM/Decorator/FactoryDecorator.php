@@ -19,6 +19,8 @@ namespace Gpupo\CommonSchema\ORM\Decorator;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\PersistentCollection;
+use IteratorAggregate;
+use Countable;
 
 class FactoryDecorator
 {
@@ -39,7 +41,7 @@ class FactoryDecorator
 
         $decorator = new $decoratorClassName();
 
-        if ($value instanceof ArrayCollection) {
+        if ($value instanceof IteratorAggregate && $value instanceof Countable) {
             if (1 > $value->count()) {
                 throw new DecoratorException(sprintf('Collection [%s::%s] has empty result', $class, $key));
             }
