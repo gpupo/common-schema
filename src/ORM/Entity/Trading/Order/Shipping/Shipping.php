@@ -163,14 +163,14 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item", mappedBy="shipping", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport", mappedBy="shipping", cascade={"persist","remove"})
      */
     protected $transports;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item", mappedBy="shipping", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice", mappedBy="shipping", cascade={"persist","remove"})
      */
     protected $invoices;
 
@@ -707,11 +707,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add transport.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item $transport
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport $transport
      *
      * @return Shipping
      */
-    public function addTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item $transport)
+    public function addTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport $transport)
     {
         $this->transports[] = $transport;
 
@@ -721,11 +721,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove transport.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item $transport
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport $transport
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item $transport)
+    public function removeTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport $transport)
     {
         return $this->transports->removeElement($transport);
     }
@@ -743,11 +743,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add invoice.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item $invoice
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice $invoice
      *
      * @return Shipping
      */
-    public function addInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item $invoice)
+    public function addInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice $invoice)
     {
         $this->invoices[] = $invoice;
 
@@ -757,11 +757,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove invoice.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item $invoice
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice $invoice
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item $invoice)
+    public function removeInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice $invoice)
     {
         return $this->invoices->removeElement($invoice);
     }

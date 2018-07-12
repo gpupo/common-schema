@@ -195,14 +195,6 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       type: datetime
       nullable: true
       options: {  }
-  oneToOne:
-    atm_transfer_reference:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReference
-      cascade:
-        - persist
-        - remove
-      options: {  }
-      mappedBy: payment
   uniqueConstraints:
     collector_payment_number_idx:
       columns:

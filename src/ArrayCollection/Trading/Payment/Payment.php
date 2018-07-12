@@ -22,7 +22,6 @@ use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 class Payment extends AbstractEntity
 {
     protected $tableName = 'trading_payment';
-    protected $primaryKey = 'payment_number';
 
     protected $uniqueConstraints = [
       ['payment_number'],

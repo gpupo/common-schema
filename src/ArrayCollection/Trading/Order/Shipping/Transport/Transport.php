@@ -15,15 +15,15 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Invoice;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Transport;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class Item extends AbstractEntity
+class Transport extends AbstractEntity
 {
-    protected $tableName = 'trading_order_invoice';
+    protected $tableName = 'trading_order_shipping_transport';
 
-    protected $primaryKey = 'invoice_number';
+    protected $primaryKey = 'tracking_number';
 
     /**
      * @codeCoverageIgnore
@@ -31,11 +31,12 @@ class Item extends AbstractEntity
     protected function schema()
     {
         return [
-            'invoice_number' => 'string',
-            'invoice_link' => 'string',
-            'invoice_date' => 'datetime',
-            'ship_date' => 'datetime',
-            'accessKey' => 'string',
+            'tracking_number' => 'string',
+            'link' => 'string',
+            'date_ship' => 'datetime',
+            'date_tracking_ship' => 'datetime',
+            'delivery_service' => 'string',
+            'carrier' => 'string',
             'tags' => 'array',
         ];
     }

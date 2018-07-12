@@ -54,7 +54,6 @@ class Payment extends AbstractEntity
             'payment_method_id' => 'string',
             'installments' => 'integer',
             'issuer_id' => 'integer',
-            'atm_transfer_reference' => 'oneToOneBidirectional',
             'coupon_id' => 'string',
             'operation_type' => 'string',
             'payment_type' => 'string',

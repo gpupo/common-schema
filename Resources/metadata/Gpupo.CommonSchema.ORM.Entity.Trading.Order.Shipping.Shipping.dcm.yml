@@ -130,14 +130,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
       options: {  }
       mappedBy: shipping
     transports:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport
       cascade:
         - persist
         - remove
       options: {  }
       mappedBy: shipping
     invoices:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Item
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice
       cascade:
         - persist
         - remove

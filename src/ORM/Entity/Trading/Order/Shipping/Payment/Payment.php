@@ -245,13 +245,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $transaction_order_id;
 
     /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReference
-     *
-     * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReference", mappedBy="payment", cascade={"persist","remove"})
-     */
-    protected $atm_transfer_reference;
-
-    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
      *
      * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping", inversedBy="payments", cascade={"persist"})
@@ -1013,30 +1006,6 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getTransactionOrderId()
     {
         return $this->transaction_order_id;
-    }
-
-    /**
-     * Set atmTransferReference.
-     *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReference $atmTransferReference
-     *
-     * @return Payment
-     */
-    public function setAtmTransferReference(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReference $atmTransferReference = null)
-    {
-        $this->atm_transfer_reference = $atmTransferReference;
-
-        return $this;
-    }
-
-    /**
-     * Get atmTransferReference.
-     *
-     * @return null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\AtmTransferReference
-     */
-    public function getAtmTransferReference()
-    {
-        return $this->atm_transfer_reference;
     }
 
     /**

@@ -20,12 +20,12 @@ namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item.
+ * Transport.
  *
  * @ORM\Table(name="cs_trading_order_shipping_transport")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Transport\ItemRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Transport\TransportRepository")
  */
-class Item extends \Gpupo\CommonSchema\AbstractORMEntity
+class Transport extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
      * @var null|string
@@ -56,18 +56,18 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $delivery_service;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="link", type="string", nullable=true, unique=false)
+     */
+    protected $link;
+
+    /**
      * @var null|array
      *
      * @ORM\Column(name="tags", type="array", nullable=true)
      */
     protected $tags;
-
-    /**
-     * @var null|string
-     *
-     * @ORM\Column(name="tracking_link", type="string", nullable=true, unique=false)
-     */
-    protected $tracking_link;
 
     /**
      * @var null|string
@@ -101,7 +101,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $carrier
      *
-     * @return Item
+     * @return Transport
      */
     public function setCarrier($carrier = null)
     {
@@ -125,7 +125,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\DateTime $dateShip
      *
-     * @return Item
+     * @return Transport
      */
     public function setDateShip($dateShip = null)
     {
@@ -149,7 +149,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\DateTime $dateTrackingShip
      *
-     * @return Item
+     * @return Transport
      */
     public function setDateTrackingShip($dateTrackingShip = null)
     {
@@ -173,7 +173,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $deliveryService
      *
-     * @return Item
+     * @return Transport
      */
     public function setDeliveryService($deliveryService = null)
     {
@@ -193,11 +193,35 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * Set link.
+     *
+     * @param null|string $link
+     *
+     * @return Transport
+     */
+    public function setLink($link = null)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link.
+     *
+     * @return null|string
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
      * Set tags.
      *
      * @param null|array $tags
      *
-     * @return Item
+     * @return Transport
      */
     public function setTags($tags = null)
     {
@@ -217,35 +241,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
-     * Set trackingLink.
-     *
-     * @param null|string $trackingLink
-     *
-     * @return Item
-     */
-    public function setTrackingLink($trackingLink = null)
-    {
-        $this->tracking_link = $trackingLink;
-
-        return $this;
-    }
-
-    /**
-     * Get trackingLink.
-     *
-     * @return null|string
-     */
-    public function getTrackingLink()
-    {
-        return $this->tracking_link;
-    }
-
-    /**
      * Set trackingNumber.
      *
      * @param null|string $trackingNumber
      *
-     * @return Item
+     * @return Transport
      */
     public function setTrackingNumber($trackingNumber = null)
     {
@@ -269,7 +269,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping
      *
-     * @return Item
+     * @return Transport
      */
     public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping = null)
     {

@@ -1,8 +1,8 @@
 # deleted_at metadata
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item:
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport:
   type: entity
   table: cs_trading_order_shipping_transport
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Transport\ItemRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Transport\TransportRepository
   id:
     id:
       type: integer
@@ -41,14 +41,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Item:
       type: array
       nullable: true
       options: {  }
-    tags:
-      type: array
-      nullable: true
-      options: {  }
-    tracking_link:
+    link:
       type: string
       lenght: 50
       unique: false
+      nullable: true
+      options: {  }
+    tags:
+      type: array
       nullable: true
       options: {  }
     tracking_number:

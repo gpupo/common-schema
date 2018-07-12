@@ -25,6 +25,6 @@ class Collection extends AbstractCollection
 
     public function factoryElement($data)
     {
-        return new Item($data);
+        return new Transport($data);
     }
 }

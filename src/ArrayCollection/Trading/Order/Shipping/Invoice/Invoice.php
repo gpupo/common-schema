@@ -15,13 +15,13 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Payment;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Invoice;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class AtmTransferReference extends AbstractEntity
+class Invoice extends AbstractEntity
 {
-    protected $tableName = 'trading_order_shipping_payment_atm_transfer_reference';
+    protected $tableName = 'trading_order_invoice';
 
     /**
      * @codeCoverageIgnore
@@ -29,8 +29,15 @@ class AtmTransferReference extends AbstractEntity
     protected function schema()
     {
         return [
-            'company_id' => 'integer',
-            'transaction_id' => 'integer',
+            'invoice_number' => 'string',
+            'type' => 'string',
+            'amount' => 'number',
+            'description' => 'string',
+            'link' => 'string',
+            'date_created' => 'datetime',
+            'date_ship' => 'datetime',
+            'accessKey' => 'string',
+            'tags' => 'array',
         ];
     }
 }
