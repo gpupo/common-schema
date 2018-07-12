@@ -17,6 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Repository\Banking\Movement;
 
+use Gpupo\CommonSchema\ORMEntityInterface;
+
 /**
  * MovementRepository.
  *
