@@ -20,12 +20,12 @@ namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item.
+ * Conciliation.
  *
  * @ORM\Table(name="cs_trading_order_shipping_conciliation")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Conciliation\ItemRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Conciliation\ConciliationRepository")
  */
-class Item extends \Gpupo\CommonSchema\AbstractORMEntity
+class Conciliation extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
      * @var null|float
@@ -87,7 +87,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|float $amount
      *
-     * @return Item
+     * @return Conciliation
      */
     public function setAmount($amount = null)
     {
@@ -111,7 +111,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $description
      *
-     * @return Item
+     * @return Conciliation
      */
     public function setDescription($description = null)
     {
@@ -135,7 +135,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|float $netAmount
      *
-     * @return Item
+     * @return Conciliation
      */
     public function setNetAmount($netAmount = null)
     {
@@ -159,7 +159,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|array $tags
      *
-     * @return Item
+     * @return Conciliation
      */
     public function setTags($tags = null)
     {
@@ -183,7 +183,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $type
      *
-     * @return Item
+     * @return Conciliation
      */
     public function setType($type = null)
     {
@@ -207,7 +207,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping
      *
-     * @return Item
+     * @return Conciliation
      */
     public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping = null)
     {

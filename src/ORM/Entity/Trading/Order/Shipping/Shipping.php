@@ -177,14 +177,14 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item", mappedBy="shipping", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment", mappedBy="shipping", cascade={"persist","remove"})
      */
     protected $comments;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Item", mappedBy="shipping", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback", mappedBy="shipping", cascade={"persist","remove"})
      */
     protected $feedbacks;
 
@@ -198,7 +198,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item", mappedBy="shipping", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation", mappedBy="shipping", cascade={"persist","remove"})
      */
     protected $conciliations;
 
@@ -779,11 +779,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add comment.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item $comment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment $comment
      *
      * @return Shipping
      */
-    public function addComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item $comment)
+    public function addComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment $comment)
     {
         $this->comments[] = $comment;
 
@@ -793,11 +793,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove comment.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item $comment
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment $comment
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item $comment)
+    public function removeComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment $comment)
     {
         return $this->comments->removeElement($comment);
     }
@@ -815,11 +815,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add feedback.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Item $feedback
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback $feedback
      *
      * @return Shipping
      */
-    public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Item $feedback)
+    public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback $feedback)
     {
         $this->feedbacks[] = $feedback;
 
@@ -829,11 +829,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove feedback.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Item $feedback
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback $feedback
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Item $feedback)
+    public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback $feedback)
     {
         return $this->feedbacks->removeElement($feedback);
     }
@@ -887,11 +887,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add conciliation.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item $conciliation
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation $conciliation
      *
      * @return Shipping
      */
-    public function addConciliation(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item $conciliation)
+    public function addConciliation(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation $conciliation)
     {
         $this->conciliations[] = $conciliation;
 
@@ -901,11 +901,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove conciliation.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item $conciliation
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation $conciliation
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeConciliation(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item $conciliation)
+    public function removeConciliation(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation $conciliation)
     {
         return $this->conciliations->removeElement($conciliation);
     }

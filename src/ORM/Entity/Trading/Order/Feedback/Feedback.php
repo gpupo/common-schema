@@ -20,12 +20,12 @@ namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item.
+ * Feedback.
  *
  * @ORM\Table(name="cs_trading_order_feedback")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Feedback\ItemRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Feedback\FeedbackRepository")
  */
-class Item extends \Gpupo\CommonSchema\AbstractORMEntity
+class Feedback extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
      * @var null|string
@@ -80,7 +80,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $message
      *
-     * @return Item
+     * @return Feedback
      */
     public function setMessage($message = null)
     {
@@ -104,7 +104,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|int $rating
      *
-     * @return Item
+     * @return Feedback
      */
     public function setRating($rating = null)
     {
@@ -128,7 +128,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $reason
      *
-     * @return Item
+     * @return Feedback
      */
     public function setReason($reason = null)
     {
@@ -152,7 +152,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $status
      *
-     * @return Item
+     * @return Feedback
      */
     public function setStatus($status = null)
     {
@@ -176,7 +176,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
      *
-     * @return Item
+     * @return Feedback
      */
     public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order = null)
     {

@@ -63,6 +63,9 @@ class Payment extends AbstractEntity
             'date_approved' => 'datetime',
             'authorization_code' => 'string',
             'transaction_order_id' => 'string',
+            //dates
+            'processed_at' => 'datetime',
+            //extras
             'tags' => 'array',
         ];
     }

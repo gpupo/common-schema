@@ -175,6 +175,13 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $payment_type;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="processed_at", type="datetime", nullable=true)
+     */
+    protected $processed_at;
+
+    /**
      * @var null|string
      *
      * @ORM\Column(name="reason", type="string", nullable=true, unique=false)
@@ -766,6 +773,30 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getPaymentType()
     {
         return $this->payment_type;
+    }
+
+    /**
+     * Set processedAt.
+     *
+     * @param null|\DateTime $processedAt
+     *
+     * @return Payment
+     */
+    public function setProcessedAt($processedAt = null)
+    {
+        $this->processed_at = $processedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get processedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getProcessedAt()
+    {
+        return $this->processed_at;
     }
 
     /**

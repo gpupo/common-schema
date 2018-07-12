@@ -37,6 +37,9 @@ class Invoice extends AbstractEntity
             'date_created' => 'datetime',
             'date_ship' => 'datetime',
             'accessKey' => 'string',
+            //dates
+            'processed_at' => 'datetime',
+            //extras
             'tags' => 'array',
         ];
     }

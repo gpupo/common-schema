@@ -20,12 +20,12 @@ namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item.
+ * Comment.
  *
  * @ORM\Table(name="cs_trading_order_shipping_comment")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Comment\ItemRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Comment\CommentRepository")
  */
-class Item extends \Gpupo\CommonSchema\AbstractORMEntity
+class Comment extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
      * @var null|string
@@ -66,7 +66,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $key
      *
-     * @return Item
+     * @return Comment
      */
     public function setKey($key = null)
     {
@@ -90,7 +90,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $value
      *
-     * @return Item
+     * @return Comment
      */
     public function setValue($value = null)
     {
@@ -114,7 +114,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping
      *
-     * @return Item
+     * @return Comment
      */
     public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping = null)
     {

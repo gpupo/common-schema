@@ -77,6 +77,13 @@ class Invoice extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $link;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="processed_at", type="datetime", nullable=true)
+     */
+    protected $processed_at;
+
+    /**
      * @var null|array
      *
      * @ORM\Column(name="tags", type="array", nullable=true)
@@ -276,6 +283,30 @@ class Invoice extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getLink()
     {
         return $this->link;
+    }
+
+    /**
+     * Set processedAt.
+     *
+     * @param null|\DateTime $processedAt
+     *
+     * @return Invoice
+     */
+    public function setProcessedAt($processedAt = null)
+    {
+        $this->processed_at = $processedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get processedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getProcessedAt()
+    {
+        return $this->processed_at;
     }
 
     /**

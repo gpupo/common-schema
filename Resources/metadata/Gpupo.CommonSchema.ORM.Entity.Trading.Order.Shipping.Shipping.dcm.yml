@@ -144,14 +144,14 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
       options: {  }
       mappedBy: shipping
     comments:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment
       cascade:
         - persist
         - remove
       options: {  }
       mappedBy: shipping
     feedbacks:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Item
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback
       cascade:
         - persist
         - remove
@@ -165,7 +165,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
       options: {  }
       mappedBy: shipping
     conciliations:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Item
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation
       cascade:
         - persist
         - remove

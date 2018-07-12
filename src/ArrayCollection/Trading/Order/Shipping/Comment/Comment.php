@@ -15,25 +15,11 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Feedback;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Comment;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractKeyValue;
 
-class Item extends AbstractEntity
+class Comment extends AbstractKeyValue
 {
-    protected $tableName = 'trading_order_feedback';
-
-    /**
-     * @codeCoverageIgnore
-     */
-    protected function schema()
-    {
-        return [
-            'id' => 'integer',
-            'status' => 'string',
-            'reason' => 'string',
-            'message' => 'string',
-            'rating' => 'integer',
-        ];
-    }
+    protected $tableName = 'trading_order_shipping_comment';
 }

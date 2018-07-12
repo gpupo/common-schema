@@ -59,6 +59,10 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
       type: bigint
       nullable: true
       options: {  }
+    processed_at:
+      type: datetime
+      nullable: true
+      options: {  }
     tags:
       type: array
       nullable: true

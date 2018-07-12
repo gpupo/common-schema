@@ -83,6 +83,10 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       unique: false
       nullable: true
       options: {  }
+    processed_at:
+      type: datetime
+      nullable: true
+      options: {  }
     record_type:
       type: string
       lenght: 50

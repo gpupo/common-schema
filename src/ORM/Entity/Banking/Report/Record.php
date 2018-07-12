@@ -105,6 +105,13 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $payment_method;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="processed_at", type="datetime", nullable=true)
+     */
+    protected $processed_at;
+
+    /**
      * @var null|string
      *
      * @ORM\Column(name="record_type", type="string", nullable=true, unique=false)
@@ -421,6 +428,30 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getPaymentMethod()
     {
         return $this->payment_method;
+    }
+
+    /**
+     * Set processedAt.
+     *
+     * @param null|\DateTime $processedAt
+     *
+     * @return Record
+     */
+    public function setProcessedAt($processedAt = null)
+    {
+        $this->processed_at = $processedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get processedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getProcessedAt()
+    {
+        return $this->processed_at;
     }
 
     /**

@@ -161,7 +161,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order:
       options: {  }
       mappedBy: order
     feedbacks:
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Feedback
       cascade:
         - persist
         - remove

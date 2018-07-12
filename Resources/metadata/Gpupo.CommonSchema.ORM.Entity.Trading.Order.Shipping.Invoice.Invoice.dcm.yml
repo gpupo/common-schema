@@ -59,6 +59,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice:
       unique: false
       nullable: true
       options: {  }
+    processed_at:
+      type: datetime
+      nullable: true
+      options: {  }
     tags:
       type: array
       nullable: true

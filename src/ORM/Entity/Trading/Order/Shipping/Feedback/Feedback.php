@@ -20,12 +20,12 @@ namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item.
+ * Feedback.
  *
  * @ORM\Table(name="cs_trading_order_shipping_feedback")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Feedback\ItemRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Feedback\FeedbackRepository")
  */
-class Item extends \Gpupo\CommonSchema\AbstractORMEntity
+class Feedback extends \Gpupo\CommonSchema\AbstractORMEntity
 {
     /**
      * @var null|string
@@ -66,7 +66,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $key
      *
-     * @return Item
+     * @return Feedback
      */
     public function setKey($key = null)
     {
@@ -90,7 +90,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|string $value
      *
-     * @return Item
+     * @return Feedback
      */
     public function setValue($value = null)
     {
@@ -114,7 +114,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping
      *
-     * @return Item
+     * @return Feedback
      */
     public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping = null)
     {

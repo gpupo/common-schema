@@ -201,7 +201,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item", mappedBy="order", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Feedback", mappedBy="order", cascade={"persist","remove"})
      */
     protected $feedbacks;
 
@@ -815,11 +815,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Add feedback.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Feedback $feedback
      *
      * @return Order
      */
-    public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
+    public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Feedback $feedback)
     {
         $this->feedbacks[] = $feedback;
 
@@ -829,11 +829,11 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove feedback.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Feedback $feedback
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item $feedback)
+    public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Feedback $feedback)
     {
         return $this->feedbacks->removeElement($feedback);
     }

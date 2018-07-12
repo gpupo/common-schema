@@ -84,6 +84,13 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $internal_id;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(name="processed_at", type="datetime", nullable=true)
+     */
+    protected $processed_at;
+
+    /**
      * @var null|array
      *
      * @ORM\Column(name="tags", type="array", nullable=true)
@@ -305,6 +312,30 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getInternalId()
     {
         return $this->internal_id;
+    }
+
+    /**
+     * Set processedAt.
+     *
+     * @param null|\DateTime $processedAt
+     *
+     * @return Report
+     */
+    public function setProcessedAt($processedAt = null)
+    {
+        $this->processed_at = $processedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get processedAt.
+     *
+     * @return null|\DateTime
+     */
+    public function getProcessedAt()
+    {
+        return $this->processed_at;
     }
 
     /**

@@ -43,6 +43,7 @@ class Report extends AbstractEntity
             'begin_date' => 'datetime',
             'end_date' => 'datetime',
             'generated_date' => 'datetime',
+            'processed_at' => 'datetime',
             //extra
             'tags' => 'array',
         ];

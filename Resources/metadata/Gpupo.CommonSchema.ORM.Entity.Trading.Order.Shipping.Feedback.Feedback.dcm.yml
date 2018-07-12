@@ -1,8 +1,8 @@
 # deleted_at metadata
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback:
   type: entity
-  table: cs_trading_order_feedback
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Feedback\ItemRepository
+  table: cs_trading_order_shipping_feedback
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Feedback\FeedbackRepository
   id:
     id:
       type: integer
@@ -21,23 +21,7 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
       type: array
       nullable: true
       options: {  }
-    message:
-      type: string
-      lenght: 50
-      unique: false
-      nullable: true
-      options: {  }
-    rating:
-      type: bigint
-      nullable: true
-      options: {  }
-    reason:
-      type: string
-      lenght: 50
-      unique: false
-      nullable: true
-      options: {  }
-    status:
+    key:
       type: string
       lenght: 50
       unique: false
@@ -47,15 +31,21 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Item:
       type: datetime
       nullable: true
       options: {  }
+    value:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
   uniqueConstraints: {  }
   manyToOne:
-    order:
+    shipping:
       cascade:
         - persist
-      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order
+      targetEntity: Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping
       inversedBy: feedbacks
       joinColumn:
-        name: order_id
+        name: shipping_id
         referencedColumnName: id
   lifecycleCallbacks:
     prePersist: {  }

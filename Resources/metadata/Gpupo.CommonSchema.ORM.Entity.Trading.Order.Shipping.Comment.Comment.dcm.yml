@@ -1,8 +1,8 @@
 # deleted_at metadata
-Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Item:
+Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment:
   type: entity
   table: cs_trading_order_shipping_comment
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Comment\ItemRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Comment\CommentRepository
   id:
     id:
       type: integer

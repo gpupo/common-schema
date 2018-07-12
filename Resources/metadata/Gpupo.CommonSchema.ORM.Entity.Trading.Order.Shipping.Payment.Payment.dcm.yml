@@ -133,6 +133,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
       unique: false
       nullable: true
       options: {  }
+    processed_at:
+      type: datetime
+      nullable: true
+      options: {  }
     reason:
       type: string
       lenght: 50
