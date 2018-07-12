@@ -25,4 +25,8 @@ namespace Gpupo\CommonSchema\ORM\Repository\Banking\Movement;
  */
 class MovementRepository extends \Gpupo\CommonSchema\AbstractORMRepository
 {
+    protected function defaultFindByParameters(ORMEntityInterface $entity): array
+    {
+        return ['move_id' => $entity->getMoveId()];
+    }
 }
