@@ -2,6 +2,28 @@
 VERSION 4  MAJOR VERSION 4
 ==========================
 
+   Version 4.3 - Add Movement
+      13/07/2018 09:55  4.3.0  initial release
+         5012d8a Fix Repository
+         5390f1e bind++
+         fed369b Rename Items
+         135b164 Refactory Invoice
+         f7a3511 Add Orm Movement
+         7a934e6 Refactory Movement
+         6777abe Fix factory decorator
+         a2e0ab8 Fix indexes
+         3e66307 Add start an finished
+         7225fe0 Add job execution
+         45a73c6 Add report info
+         1a28179 Improve decorator Factory
+         03150ee Improve conversion
+         fbd548a Fix doctrine proxies
+         6a1eee3 Add move_id
+         0979922 Fix client idx
+         84076e0 add expands to metadata
+         34a0baa Add Payment:move_id and expands to all
+         de3366a Add addExpand()
+
    Version 4.2 - Add Report Schema
       05/07/2018 17:04  4.2.0  initial release
          efbcd20 update dependency version
