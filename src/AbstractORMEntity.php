@@ -46,14 +46,14 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
     /**
      * @var DateTime (Record creation timestamp)
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $created_at;
 
     /**
      * @var DateTime (Record update timestamp)
      * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $updated_at;
 
