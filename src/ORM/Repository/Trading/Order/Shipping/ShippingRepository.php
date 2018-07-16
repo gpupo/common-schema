@@ -18,6 +18,12 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping;
 
 use Gpupo\CommonSchema\ORMEntityInterface;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping;
+use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * ShippingRepository.
@@ -30,5 +36,64 @@ class ShippingRepository extends \Gpupo\CommonSchema\AbstractORMRepository
     protected function defaultFindByParameters(ORMEntityInterface $entity): array
     {
         return ['shipping_number' => $entity->getShippingNumber()];
+    }
+
+    public function findAllReadyForConciliation()
+    {
+        $queryBuilder = $this->createQueryBuilder('entity');
+        $queryBuilder = $this->findAllReadyForConciliationQueryBuilder($queryBuilder);
+
+        return $queryBuilder->getQuery()->execute();
+    }
+
+    public function findAllReadyForConciliationQueryBuilder($queryBuilder)
+    {
+        $queryBuilder
+            ->join(Payment::class, 'payment', Join::WITH, 'entity.id = payment.shipping')
+            ->join(Record::class, 'record', Join::WITH, 'payment.payment_number = record.source_id')
+            ->join(Invoice::class, 'invoice', Join::WITH, 'entity.id = invoice.shipping')
+            ->leftJoin(Conciliation::class, 'conciliation', Join::WITH, 'entity.id = conciliation.shipping');
+
+        $subQuery = $this->getEntityManager()->createQueryBuilder();
+        $subQuery->select($subQuery->expr()->max('co.id'))
+            ->from(Conciliation::class, 'co')
+            ->where($subQuery->expr()->eq('co.shipping', 'entity'));
+
+        $queryBuilder->andWhere(
+            $queryBuilder->expr()->orX(
+                $queryBuilder->expr()->isNull('conciliation'),
+                $queryBuilder->expr()->andX(
+                    $queryBuilder->expr()->isNotNull('conciliation'),
+                    $queryBuilder->expr()->orX(
+                        $queryBuilder->expr()->neq('entity.total_payments_amount', 'conciliation.amount'),
+                        $queryBuilder->expr()->neq('entity.total_payments_net_amount', 'conciliation.net_amount')
+                    ),
+                    $queryBuilder->expr()->eq('conciliation.id', sprintf('(%s)', $subQuery->getDql()))
+                )
+            )
+        );
+
+        return $queryBuilder;
+    }
+
+    public function findAllReadyForConciliationButWithoutInvoice()
+    {
+        $queryBuilder = $this->createQueryBuilder('entity');
+        $queryBuilder = $this->findAllReadyForConciliationButWithoutInvoiceQueryBuilder($queryBuilder);
+
+        return $queryBuilder->getQuery()->execute();
+    }
+
+    public function findAllReadyForConciliationButWithoutInvoiceQueryBuilder($queryBuilder)
+    {
+        $queryBuilder
+            ->join('entity.payments', 'payment')
+            ->join(Record::class, 'record', Join::WITH, 'payment.payment_number = record.source_id')
+            ->leftJoin(Invoice::class, 'invoice', Join::WITH, 'entity.id = invoice.shipping')
+            ->leftJoin(Conciliation::class, 'conciliation', Join::WITH, 'entity.id = conciliation.shipping')
+            ->where('conciliation.id IS NULL')
+            ->andWhere('invoice.id IS NULL');
+
+        return $queryBuilder;
     }
 }
