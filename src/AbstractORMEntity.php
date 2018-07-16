@@ -96,7 +96,7 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
      *
      * @param DateTime $created_at
      */
-    public function setCreatedAt(?DateTime $created_at): void
+    public function setCreatedAt(?DateTime $created_at = null): void
     {
         $this->created_at = $created_at;
     }
@@ -106,7 +106,7 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
      *
      * @param DateTime $updated_at
      */
-    public function setUpdatedAt(?DateTime $updated_at): void
+    public function setUpdatedAt(?DateTime $updated_at = null): void
     {
         $this->updated_at = $updated_at;
     }
@@ -179,5 +179,16 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
         $array[$key] = $value;
 
         return $this->setExpands($array);
+    }
+
+    public function __toString()
+    {
+        foreach(['name', 'description', 'key', 'id'] as $k) {
+            if (property_exists($this, $k)) {
+                $getter = sprintf('get%s', ucfirst($k));
+
+                return (string) $this->{$getter}();
+            }
+        }
     }
 }
