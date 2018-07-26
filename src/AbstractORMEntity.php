@@ -65,6 +65,22 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
     protected $deleted_at;
 
     /**
+     * @var string $createdBy
+     *
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column
+     */
+    private $createdBy;
+
+    /**
+     * @var string $updatedBy
+     *
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column
+     */
+     private $updatedBy;
+
+    /**
      * @var null|array
      *
      * @ORM\Column(name="expands", type="array", nullable=true)
