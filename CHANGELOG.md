@@ -3,6 +3,14 @@ VERSION 4  MAJOR VERSION 4
 ==========================
 
    Version 4.3 - Add Movement
+      26/07/2018 10:26  4.3.1  Add Blameable behavior
+         34c5800 Fix snake case
+         214e5ee Add status
+         7ee3a44 Blameable behavior
+         385bd33 Add shipping_status
+         ef5a72d Squashed commit of the following:
+         f0317ac Add __toString to ORM entities
+         a4d3ab1 created and updated at = nullable
       13/07/2018 09:55  4.3.0  initial release
          5012d8a Fix Repository
          5390f1e bind++
