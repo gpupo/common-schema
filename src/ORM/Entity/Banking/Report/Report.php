@@ -91,6 +91,13 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $processed_at;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
      * @var null|array
      *
      * @ORM\Column(name="tags", type="array", nullable=true)
@@ -336,6 +343,30 @@ class Report extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getProcessedAt()
     {
         return $this->processed_at;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Report
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

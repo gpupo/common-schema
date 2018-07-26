@@ -51,6 +51,12 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping:
       type: bigint
       nullable: true
       options: {  }
+    status:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
     tags:
       type: array
       nullable: true

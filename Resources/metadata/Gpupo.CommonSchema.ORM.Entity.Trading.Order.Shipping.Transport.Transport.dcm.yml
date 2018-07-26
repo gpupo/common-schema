@@ -47,6 +47,12 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport:
       unique: false
       nullable: true
       options: {  }
+    status:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
     tags:
       type: array
       nullable: true

@@ -65,7 +65,14 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
     protected $deleted_at;
 
     /**
-     * @var string $createdBy
+     * @var null|array
+     *
+     * @ORM\Column(name="expands", type="array", nullable=true)
+     */
+    protected $expands;
+
+    /**
+     * @var string
      *
      * @Gedmo\Blameable(on="create")
      * @ORM\Column
@@ -73,19 +80,23 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
     private $createdBy;
 
     /**
-     * @var string $updatedBy
+     * @var string
      *
      * @Gedmo\Blameable(on="update")
      * @ORM\Column
      */
-     private $updatedBy;
+    private $updatedBy;
 
-    /**
-     * @var null|array
-     *
-     * @ORM\Column(name="expands", type="array", nullable=true)
-     */
-    protected $expands;
+    public function __toString()
+    {
+        foreach (['name', 'description', 'key', 'id'] as $k) {
+            if (property_exists($this, $k)) {
+                $getter = sprintf('get%s', ucfirst($k));
+
+                return (string) $this->{$getter}();
+            }
+        }
+    }
 
     /**
      * Returns created_at.
@@ -195,16 +206,5 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
         $array[$key] = $value;
 
         return $this->setExpands($array);
-    }
-
-    public function __toString()
-    {
-        foreach(['name', 'description', 'key', 'id'] as $k) {
-            if (property_exists($this, $k)) {
-                $getter = sprintf('get%s', ucfirst($k));
-
-                return (string) $this->{$getter}();
-            }
-        }
     }
 }

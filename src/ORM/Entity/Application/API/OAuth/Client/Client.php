@@ -63,6 +63,13 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $name;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken
      *
      * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken", mappedBy="client", cascade={"persist","remove"})
@@ -207,6 +214,30 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Client
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

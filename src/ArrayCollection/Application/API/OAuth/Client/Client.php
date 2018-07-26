@@ -35,6 +35,7 @@ class Client extends AbstractEntity
         return [
             'internal_id' => 'integer',
             'name' => 'string',
+            'status' => 'string',
             'client_id' => 'string',
             'client_secret' => 'string',
             'description' => 'string',

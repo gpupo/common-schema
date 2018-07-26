@@ -63,6 +63,13 @@ class Transport extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $link;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
      * @var null|array
      *
      * @ORM\Column(name="tags", type="array", nullable=true)
@@ -214,6 +221,30 @@ class Transport extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getLink()
     {
         return $this->link;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Transport
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

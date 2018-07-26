@@ -29,6 +29,7 @@ abstract class AbstractCompany extends AbstractEntity
         return [
             'id' => 'integer',
             'nickname' => 'string',
+            'status' => 'string',
             'email' => 'string',
             'phone' => 'oneToOneUnidirectional',
             'alternative_phone' => 'oneToOneUnidirectional',

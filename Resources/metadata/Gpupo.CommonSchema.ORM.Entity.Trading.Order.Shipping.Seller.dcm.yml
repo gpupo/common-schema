@@ -49,6 +49,12 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Seller:
       unique: false
       nullable: true
       options: {  }
+    status:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
     updated_at:
       type: datetime
       nullable: true

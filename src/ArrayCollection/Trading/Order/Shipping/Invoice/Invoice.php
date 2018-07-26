@@ -30,6 +30,7 @@ class Invoice extends AbstractEntity
     {
         return [
             'invoice_number' => 'string',
+            'status' => 'string',
             'type' => 'string',
             'amount' => 'number',
             'description' => 'string',

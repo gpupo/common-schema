@@ -133,6 +133,13 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $source_id;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
      * @var null|array
      *
      * @ORM\Column(name="tags", type="array", nullable=true)
@@ -524,6 +531,30 @@ class Record extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getSourceId()
     {
         return $this->source_id;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Record
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

@@ -49,6 +49,13 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $number;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
      * @var null|bool
      *
      * @ORM\Column(name="verified", type="boolean", nullable=true)
@@ -135,6 +142,30 @@ class Phone extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getNumber()
     {
         return $this->number;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Phone
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

@@ -77,6 +77,13 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $shipping_number;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
      * @var null|array
      *
      * @ORM\Column(name="tags", type="array", nullable=true)
@@ -402,6 +409,30 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getShippingNumber()
     {
         return $this->shipping_number;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Shipping
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

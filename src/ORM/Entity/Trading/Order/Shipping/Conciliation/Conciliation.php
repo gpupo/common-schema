@@ -49,6 +49,13 @@ class Conciliation extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $net_amount;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
      * @var null|array
      *
      * @ORM\Column(name="tags", type="array", nullable=true)
@@ -152,6 +159,30 @@ class Conciliation extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getNetAmount()
     {
         return $this->net_amount;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Conciliation
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

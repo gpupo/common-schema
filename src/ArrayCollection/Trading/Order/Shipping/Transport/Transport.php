@@ -32,6 +32,7 @@ class Transport extends AbstractEntity
     {
         return [
             'tracking_number' => 'string',
+            'status' => 'string',
             'link' => 'string',
             'date_ship' => 'datetime',
             'date_tracking_ship' => 'datetime',

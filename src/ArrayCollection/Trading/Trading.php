@@ -36,6 +36,7 @@ class Trading extends AbstractEntity
             [
                 'order' => 'oneToOneBidirectional',
                 'payment' => 'oneToMany',
+                'status' => 'string',
             ]
         );
     }

@@ -17,13 +17,12 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping;
 
-use Gpupo\CommonSchema\ORMEntityInterface;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation;
-use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping;
-use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record;
 use Doctrine\ORM\Query\Expr\Join;
+use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice;
+use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
+use Gpupo\CommonSchema\ORMEntityInterface;
 
 /**
  * ShippingRepository.
@@ -33,11 +32,6 @@ use Doctrine\ORM\Query\Expr\Join;
  */
 class ShippingRepository extends \Gpupo\CommonSchema\AbstractORMRepository
 {
-    protected function defaultFindByParameters(ORMEntityInterface $entity): array
-    {
-        return ['shipping_number' => $entity->getShippingNumber()];
-    }
-
     public function findAllReadyForConciliation()
     {
         $queryBuilder = $this->createQueryBuilder('entity');
@@ -95,5 +89,10 @@ class ShippingRepository extends \Gpupo\CommonSchema\AbstractORMRepository
             ->andWhere('invoice.id IS NULL');
 
         return $queryBuilder;
+    }
+
+    protected function defaultFindByParameters(ORMEntityInterface $entity): array
+    {
+        return ['shipping_number' => $entity->getShippingNumber()];
     }
 }

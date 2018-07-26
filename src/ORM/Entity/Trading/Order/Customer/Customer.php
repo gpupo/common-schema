@@ -63,6 +63,13 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $nickname;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
      * @var \Gpupo\CommonSchema\ORM\Entity\People\Phone
      *
      * @ORM\OneToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\People\Phone", cascade={"persist","remove"})
@@ -244,6 +251,30 @@ class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getNickname()
     {
         return $this->nickname;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Customer
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

@@ -33,6 +33,7 @@ abstract class AbstractAddress extends AbstractEntity
             'city' => 'string',
             'state' => 'string',
             'postalCode' => 'string',
+            'status' => 'string',
         ];
     }
 }

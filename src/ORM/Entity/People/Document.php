@@ -42,6 +42,13 @@ class Document extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $doc_type;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
      * Get id.
      *
      * @return int
@@ -97,5 +104,29 @@ class Document extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getDocType()
     {
         return $this->doc_type;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Document
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

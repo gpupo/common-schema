@@ -79,6 +79,13 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var null|string
      *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
+     * @var null|string
+     *
      * @ORM\Column(name="street", type="string", nullable=true, unique=false)
      */
     protected $street;
@@ -269,6 +276,30 @@ class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return AddressDelivery
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

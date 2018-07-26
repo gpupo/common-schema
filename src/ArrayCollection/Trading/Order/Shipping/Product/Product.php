@@ -32,6 +32,7 @@ class Product extends AbstractEntity
             parent::schema(),
             [
                 'seller_product_id' => 'string',
+                'status' => 'string',
                 'title' => 'string',
                 'gtin' => 'string',
                 'variation_attributes' => 'array',

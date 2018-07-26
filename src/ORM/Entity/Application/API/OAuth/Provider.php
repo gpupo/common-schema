@@ -58,6 +58,13 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var null|string
      *
+     * @ORM\Column(name="status", type="string", nullable=true, unique=false)
+     */
+    protected $status;
+
+    /**
+     * @var null|string
+     *
      * @ORM\Column(name="version", type="string", nullable=true, unique=false)
      */
     protected $version;
@@ -181,6 +188,30 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param null|string $status
+     *
+     * @return Provider
+     */
+    public function setStatus($status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**

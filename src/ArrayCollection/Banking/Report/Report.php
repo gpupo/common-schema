@@ -34,6 +34,7 @@ class Report extends AbstractEntity
     {
         return [
             'institution' => 'string',
+            'status' => 'string',
             'file_name' => 'string',
             'description' => 'string',
             'records' => 'object',

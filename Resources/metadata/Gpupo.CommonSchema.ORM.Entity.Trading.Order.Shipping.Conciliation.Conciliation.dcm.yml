@@ -39,6 +39,12 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation:
       scale: 2
       nullable: true
       options: {  }
+    status:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
     tags:
       type: array
       nullable: true

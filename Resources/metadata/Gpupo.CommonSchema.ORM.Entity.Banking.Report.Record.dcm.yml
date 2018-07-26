@@ -103,6 +103,12 @@ Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
       type: bigint
       nullable: true
       options: {  }
+    status:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
     tags:
       type: array
       nullable: true

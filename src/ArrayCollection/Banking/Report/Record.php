@@ -48,6 +48,7 @@ class Record extends AbstractEntity
             'coupon_amount' => 'number',
             'installments' => 'integer',
             'payment_method' => 'string',
+            'status' => 'string',
             //dates
             'processed_at' => 'datetime',
             //extra
