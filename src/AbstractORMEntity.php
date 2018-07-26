@@ -75,17 +75,17 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
      * @var string
      *
      * @Gedmo\Blameable(on="create")
-     * @ORM\Column
+     * @ORM\Column(type="string", nullable=true)
      */
-    private $createdBy;
+    protected $created_by;
 
     /**
      * @var string
      *
      * @Gedmo\Blameable(on="update")
-     * @ORM\Column
+     * @ORM\Column(type="string", nullable=true)
      */
-    private $updatedBy;
+    protected $updated_by;
 
     public function __toString()
     {
@@ -156,6 +156,26 @@ abstract class AbstractORMEntity extends Core implements ORMEntityInterface
     public function getDeletedAt(): ?DateTime
     {
         return $this->deleted_at;
+    }
+
+    /**
+     * Returns created_by.
+     *
+     * @return string
+     */
+    public function getCreatedBy()
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * Returns updated_by.
+     *
+     * @return string
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updated_by;
     }
 
     /**

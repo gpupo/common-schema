@@ -20,9 +20,19 @@ namespace Gpupo\CommonSchema\Tests;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Gpupo\CommonSchema\Normalizers\DoctrineTypesNormalizer;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 class Bootstrap
 {
+    public static function factoryMonologer()
+    {
+        $logger = new Logger('tests');
+        $logger->pushHandler(new StreamHandler('var/log/tests', Logger::DEBUG));
+
+        return $logger;
+    }
+
     public static function factoryDoctrineEntityManager()
     {
         DoctrineTypesNormalizer::overrideTypes();

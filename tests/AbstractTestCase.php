@@ -55,13 +55,24 @@ abstract class AbstractTestCase extends TestCase
         return Bootstrap::factoryDoctrineEntityManager();
     }
 
-    protected function persistIfNotExist(ORMEntityInterface $report)
+    protected function getMonologer()
+    {
+        return Bootstrap::factoryMonologer();
+    }
+
+    protected function persistIfNotExist(ORMEntityInterface $entity)
     {
         $em = $this->getDoctrineEntityManager();
-        $repository = $em->getRepository(get_class($report));
+        $repository = $em->getRepository(get_class($entity));
+        $exist = $repository->exists($entity);
+        $this->getMonologer()->addDebug('Persist if not exixt', [
+            'class' => get_class($entity),
+            'repository' => get_class($repository),
+            'exist' => $exist,
+        ]);
 
-        if (!$repository->exists($report)) {
-            $em->persist($report);
+        if (!$exist) {
+            $em->persist($entity);
             $em->flush();
 
             return true;
