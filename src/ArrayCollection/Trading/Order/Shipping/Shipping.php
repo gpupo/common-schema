@@ -34,6 +34,7 @@ class Shipping extends AbstractEntity
     {
         return [
             'shipping_number' => 'integer',
+            'shipping_status' => 'string',
             'fulfilled' => 'boolean',
             'hidden_for_seller' => 'boolean',
             //date
