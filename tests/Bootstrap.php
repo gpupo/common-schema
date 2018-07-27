@@ -20,8 +20,8 @@ namespace Gpupo\CommonSchema\Tests;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Gpupo\CommonSchema\Normalizers\DoctrineTypesNormalizer;
-use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 
 class Bootstrap
 {

@@ -34,14 +34,15 @@ class ClientRepository extends \Gpupo\CommonSchema\AbstractORMRepository
     {
         $queryBuilder = $this->createQueryBuilder('u');
         $queryBuilder
+            ->andWhere('u.enabled=1')
             ->leftJoin(AccessToken::class, 'token', Join::WITH, $queryBuilder->expr()->eq('token.client', 'u'))
             ->innerJoin(
             Provider::class,
             'provider',
             Join::WITH,
-         $queryBuilder->expr()->andX(
-            $queryBuilder->expr()->eq('provider.name', ':providerName'),
-            $queryBuilder->expr()->eq('provider', 'u.provider')
+            $queryBuilder->expr()->andX(
+                $queryBuilder->expr()->eq('provider.name', ':providerName'),
+                $queryBuilder->expr()->eq('provider', 'u.provider')
             )
         );
 

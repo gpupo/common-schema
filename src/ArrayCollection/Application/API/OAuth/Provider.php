@@ -36,6 +36,7 @@ class Provider extends AbstractEntity
             'endpoint' => 'string',
             'description' => 'string',
             'client' => 'oneToMany',
+            'enabled' => 'boolean',
         ];
     }
 }

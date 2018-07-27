@@ -49,6 +49,13 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $description;
 
     /**
+     * @var null|bool
+     *
+     * @ORM\Column(name="enabled", type="boolean", nullable=true)
+     */
+    protected $enabled;
+
+    /**
      * @var null|int
      *
      * @ORM\Column(name="internal_id", type="bigint", nullable=true)
@@ -166,6 +173,30 @@ class Client extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set enabled.
+     *
+     * @param null|bool $enabled
+     *
+     * @return Client
+     */
+    public function setEnabled($enabled = null)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled.
+     *
+     * @return null|bool
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 
     /**

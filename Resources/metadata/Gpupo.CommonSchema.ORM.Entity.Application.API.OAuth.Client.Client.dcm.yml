@@ -35,6 +35,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client:
       unique: false
       nullable: true
       options: {  }
+    enabled:
+      type: boolean
+      nullable: true
+      options: {  }
     expands:
       type: array
       nullable: true

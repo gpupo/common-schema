@@ -23,6 +23,10 @@ Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
       unique: false
       nullable: true
       options: {  }
+    enabled:
+      type: boolean
+      nullable: true
+      options: {  }
     endpoint:
       type: string
       lenght: 50

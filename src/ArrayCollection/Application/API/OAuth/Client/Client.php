@@ -40,6 +40,7 @@ class Client extends AbstractEntity
             'client_secret' => 'string',
             'description' => 'string',
             'access_token' => 'oneToOne',
+            'enabled' => 'boolean',
         ];
     }
 }

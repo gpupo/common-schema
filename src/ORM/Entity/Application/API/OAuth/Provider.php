@@ -35,6 +35,13 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     protected $description;
 
     /**
+     * @var null|bool
+     *
+     * @ORM\Column(name="enabled", type="boolean", nullable=true)
+     */
+    protected $enabled;
+
+    /**
      * @var null|string
      *
      * @ORM\Column(name="endpoint", type="string", nullable=true, unique=false)
@@ -116,6 +123,30 @@ class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set enabled.
+     *
+     * @param null|bool $enabled
+     *
+     * @return Provider
+     */
+    public function setEnabled($enabled = null)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled.
+     *
+     * @return null|bool
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 
     /**
