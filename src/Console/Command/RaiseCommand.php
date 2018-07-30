@@ -152,7 +152,8 @@ EOF;
     protected function find($path)
     {
         $finder = new Finder();
-        $finder->sortByName()->files()->name('*.php')->in($path);
+        $finder->sortByName()->files()->name('*.php')->notName('Abstract*')->notName('Factory*')
+            ->notName('*Exception*')->notName('*Interface*')->in($path);
 
         $list = [];
 
