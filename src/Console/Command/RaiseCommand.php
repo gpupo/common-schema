@@ -51,6 +51,8 @@ class RaiseCommand extends Command
     {
         $fileSystem = new Filesystem();
 
+        $this->buildSuperclasses();
+
         foreach($this->find($this->getOptions()->get('libPath').'/build') as $origin){
             $target = $this->factoryTarget($origin);
             $this->save($input, $output, $target, $fileSystem);
@@ -94,14 +96,24 @@ class RaiseCommand extends Command
         $output->writeln(sprintf($string, $target['path'], 'blue', 'saved'));
     }
 
-    protected function factoryTarget(array $origin)
+    protected function buildSuperclasses(): void
+    {
+        shell_exec($this->getOptions()->get('libPath').'/bin/build.sh '. $this->getOptions()->get('namespace'));
+    }
+
+    protected function getDestPath()
+    {
+        return $this->getOptions()->get('rootPath').'/'.$this->getOptions()->get('path');
+    }
+
+    protected function factoryTarget(array $origin): array
     {
         $explode= explode('\\', $origin['class']);
         $name = end($explode);
         $class = str_replace($this->originNamespace, $this->getOptions()->get('namespace'), $origin['class']);
         $target = [
             'class' => $class,
-            'path'  => str_replace($this->getOptions()->get('libPath').'/'.$this->originPath, $this->getOptions()->get('rootPath').'/'.$this->getOptions()->get('path'), $origin['path']),
+            'path'  => str_replace($this->getOptions()->get('libPath').'/'.$this->originPath, $this->getDestPath(), $origin['path']),
             'name'  => $name,
             'namespace' => str_replace(sprintf('\%s', $name), '', $class),
             'origin' => $origin,
@@ -167,6 +179,8 @@ EOF;
                 }
             }
         }
+
+        dump($list); exit;
 
         return $list;
     }
