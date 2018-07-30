@@ -180,8 +180,6 @@ EOF;
             }
         }
 
-        dump($list); exit;
-
         return $list;
     }
 }

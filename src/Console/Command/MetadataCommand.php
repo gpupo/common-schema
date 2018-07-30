@@ -17,18 +17,16 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Console\Command;
 
-use Gpupo\CommonSchema\ArrayCollection\Banking\Movement\Movement;
-use Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
-use Gpupo\CommonSchema\ArrayCollection\People\Person;
-use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
 use Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Provider;
 use Gpupo\CommonSchema\ArrayCollection\Application\Scheduler\Job\Execution;
+use Gpupo\CommonSchema\ArrayCollection\Banking\Movement\Movement;
+use Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report;
+use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
+use Gpupo\CommonSchema\ArrayCollection\People\Person;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
 use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
-use Gpupo\CommonSdk\Entity\Schema\Tools;
-use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -44,10 +42,9 @@ class MetadataCommand extends Command
         $generator = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
 
         try {
-            foreach([new Trading(), new Person(), new Company(), new Report(), new Provider(), new Execution(), new Movement()] as $object) {
+            foreach ([new Trading(), new Person(), new Company(), new Report(), new Provider(), new Execution(), new Movement()] as $object) {
                 $generator->recursiveSave($object);
             }
-
         } catch (\Exception $exception) {
             $output->writeln(sprintf('<error>%s</>', $exception->getMessage()));
         }

@@ -17,10 +17,13 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests\Console\Command;
 
-use Gpupo\CommonSchema\Tests\AbstractTestCase;
-use Gpupo\CommonSchema\Build\Entity\Application\API\OAuth\Provider;
 use App\Entity\Application\API\OAuth\Client\AccessToken;
+use Gpupo\CommonSchema\Build\Entity\Application\API\OAuth\Provider;
+use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
+/**
+ * @coversNothing
+ */
 class RaiseCommandTest extends AbstractTestCase
 {
     public function testAutoloading()
