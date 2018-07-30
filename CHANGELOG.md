@@ -2,6 +2,13 @@
 VERSION 4  MAJOR VERSION 4
 ==========================
 
+   Version 4.4 - Raise Entities
+      30/07/2018 14:56  4.4.0  initial release
+         7c9caf2 Apply CS rules
+         e45002d Add build method
+         b94d3c0 Add Raise Command
+         5c2fd48 Add enabled feature
+
    Version 4.3 - Add Movement
       26/07/2018 10:26  4.3.1  Add Blameable behavior
          34c5800 Fix snake case
