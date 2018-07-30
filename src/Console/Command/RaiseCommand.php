@@ -53,8 +53,21 @@ class RaiseCommand extends Command
 
         $this->buildSuperclasses();
 
-        foreach($this->find($this->getOptions()->get('libPath').'/build') as $origin){
+
+        $list = $this->find($this->getOptions()->get('libPath').'/build');
+
+        $output->writeln(sprintf('Files to generate: <info>%d</>', count($list)));
+
+        foreach($list as $origin){
             $target = $this->factoryTarget($origin);
+
+            if ($output->isVerbose()) {
+                $output->writeln([
+                    "\n-----------",
+                    $target['class'],
+                ]);
+            }
+
             $this->save($input, $output, $target, $fileSystem);
         }
 
@@ -173,8 +186,15 @@ EOF;
                 }
                 if (T_CLASS === $tokens[$index][0]) {
                     $index += 2;
-                    $list[] = [
-                        'class' => $namespace.'\\'.$tokens[$index][1],
+
+                    $classname = trim($namespace.'\\'.$tokens[$index][1]);
+
+                    if ('\\' === substr($classname, -1) || array_key_exists($file->getPathName(), $list)) {
+                        continue;
+                    }
+
+                    $list[$file->getPathName()] = [
+                        'class' => $classname,
                         'path' => $file->getPathName(),
                     ];
                 }
