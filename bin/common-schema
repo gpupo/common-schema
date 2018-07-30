@@ -9,39 +9,38 @@
  * For more information, see <https://opensource.gpupo.com/>.
  */
 
-namespace Gpupo\CommonSchema\Console\Command;
+namespace Gpupo\CommonSchema\Console;
 
 require 'vendor/autoload.php';
 
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Gpupo\CommonSchema\ArrayCollection\Banking\Movement\Movement;
-use Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
-use Gpupo\CommonSchema\ArrayCollection\People\Person;
-use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
-use Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Provider;
-use Gpupo\CommonSchema\ArrayCollection\Application\Scheduler\Job\Execution;
-use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
-use Gpupo\CommonSdk\Entity\Schema\Tools;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
-$output = new ConsoleOutput();
+$fileSystem = new Filesystem();
 
-if(in_array('-v',$argv)) {
-    $output->setVerbosity(ConsoleOutput::VERBOSITY_VERBOSE);
-} elseif(in_array('-vv',$argv)) {
-    $output->setVerbosity(ConsoleOutput::VERBOSITY_VERY_VERBOSE);
+$root = getcwd();
+$lib = dirname(dirname( __FILE__ ));
+
+$options = [
+    'rootPath'  => $root,
+    'libPath' => $lib,
+    'env' => $lib.'/.env.dist',
+    'customEnv' => $root.'/.env',
+];
+
+if(!$fileSystem->exists($options['customEnv'])) {
+    $fileSystem->copy($options['env'], $options['customEnv']);
 }
 
-$generator = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
+$dotenv = new Dotenv();
+$dotenv->load($options['env'], $options['customEnv']);
 
-try {
-    foreach([new Trading(), new Person(), new Company(), new Report(), new Provider(), new Execution(), new Movement()] as $object) {
-        $generator->recursiveSave($object);
-    }
+$raiseCommand = new \Gpupo\CommonSchema\Console\Command\RaiseCommand();
+$raiseCommand->setOptions($options);
 
-} catch (\Exception $exception) {
-    $output->writeln(sprintf('<error>%s</>', $exception->getMessage()));
-}
-$generator->debug();
+$application = new Application('common-schema');
+$application->add(new \Gpupo\CommonSchema\Console\Command\MetadataCommand());
+$application->add($raiseCommand);
+$application->run();

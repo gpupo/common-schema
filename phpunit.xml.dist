@@ -19,6 +19,9 @@
         <testsuite name="Converters">
             <directory>tests/Converters</directory>
         </testsuite>
+        <testsuite name="Console">
+            <directory>tests/Console</directory>
+        </testsuite>
     </testsuites>
 
     <filter>

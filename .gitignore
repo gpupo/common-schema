@@ -4,3 +4,5 @@ composer.lock
 *.cache
 .php_cs
 var
+.env
+build/*
