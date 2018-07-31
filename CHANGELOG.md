@@ -2,6 +2,12 @@
 VERSION 4  MAJOR VERSION 4
 ==========================
 
+   Version 4.5 - Independent namespaces
+      31/07/2018 11:53  4.5.0  initial release
+         e25044f Independency
+         6584c64 sed test
+         8e4ebaa Skip Abstract
+
    Version 4.4 - Raise Entities
       30/07/2018 14:56  4.4.0  initial release
          7c9caf2 Apply CS rules
