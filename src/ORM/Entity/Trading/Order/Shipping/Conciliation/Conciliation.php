@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Conciliation.
  *
  * @ORM\Table(name="cs_trading_order_shipping_conciliation")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Conciliation\ConciliationRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Conciliation\ConciliationRepository")
  */
-class Conciliation extends \Gpupo\CommonSchema\AbstractORMEntity
+class Conciliation extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|float

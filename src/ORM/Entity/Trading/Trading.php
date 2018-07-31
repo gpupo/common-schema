@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Trading.
  *
  * @ORM\Table(name="cs_trading")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\TradingRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\TradingRepository")
  */
-class Trading extends \Gpupo\CommonSchema\AbstractORMEntity
+class Trading extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

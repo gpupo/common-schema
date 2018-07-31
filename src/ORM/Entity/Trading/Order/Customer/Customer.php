@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Customer.
  *
  * @ORM\Table(name="cs_trading_order_customer")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\CustomerRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Customer\CustomerRepository")
  */
-class Customer extends \Gpupo\CommonSchema\AbstractORMEntity
+class Customer extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

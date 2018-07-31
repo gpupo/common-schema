@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record:
   type: entity
   table: cs_banking_report_record
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Banking\Report\RecordRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Banking\Report\RecordRepository
   id:
     id:
       type: integer

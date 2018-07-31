@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation:
   type: entity
   table: cs_trading_order_shipping_conciliation
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Conciliation\ConciliationRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Conciliation\ConciliationRepository
   id:
     id:
       type: integer

@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
   type: entity
   table: cs_trading
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\TradingRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\TradingRepository
   id:
     id:
       type: integer

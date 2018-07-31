@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone:
   type: entity
   table: cs_people_alternative_phone
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\AlternativePhoneRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\People\AlternativePhoneRepository
   id:
     id:
       type: integer

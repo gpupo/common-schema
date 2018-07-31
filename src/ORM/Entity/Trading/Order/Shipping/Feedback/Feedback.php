@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Feedback.
  *
  * @ORM\Table(name="cs_trading_order_shipping_feedback")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Feedback\FeedbackRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Feedback\FeedbackRepository")
  */
-class Feedback extends \Gpupo\CommonSchema\AbstractORMEntity
+class Feedback extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

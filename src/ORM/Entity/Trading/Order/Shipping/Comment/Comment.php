@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Comment.
  *
  * @ORM\Table(name="cs_trading_order_shipping_comment")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Comment\CommentRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Comment\CommentRepository")
  */
-class Comment extends \Gpupo\CommonSchema\AbstractORMEntity
+class Comment extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

@@ -15,12 +15,12 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Tests\ORM\Decorator;
+namespace Gpupo\CommonSchema\Tests\ORM\EntityDecorator;
 
-use Gpupo\CommonSchema\ORM\Decorator\DecoratorException;
-use Gpupo\CommonSchema\ORM\Decorator\Trading\Order\Shipping\Payments;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping;
+use Gpupo\CommonSchema\ORM\EntityDecorator\DecoratorException;
+use Gpupo\CommonSchema\ORM\EntityDecorator\Trading\Order\Shipping\Payments;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
 /**

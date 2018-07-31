@@ -19,10 +19,11 @@ namespace Gpupo\CommonSchema\ArrayCollection\Thing;
 
 use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
-use Gpupo\CommonSchema\ORMEntityInterface;
+use Gpupo\CommonSchema\ORM\Entity\EntityInterface as ORMInterface;
 use Gpupo\CommonSdk\Entity\EntityAbstract;
+use Gpupo\CommonSdk\Entity\EntityInterface as CoreInterface;
 
-abstract class AbstractEntity extends EntityAbstract implements EntityInterface, CollectionInterface
+abstract class AbstractEntity extends EntityAbstract implements CoreInterface, EntityInterface, CollectionInterface
 {
     protected $tablePrefix = 'cs_';
 
@@ -68,11 +69,12 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface,
         );
     }
 
-    public function toOrm(): ORMEntityInterface
+    public function toOrm(string $class = null): ORMInterface
     {
         $converter = new ArrayCollectionConverter();
+        $entity = $converter->convertToOrm($this, $class);
 
-        return $converter->convertToOrm($this);
+        return $entity;
     }
 
     /**

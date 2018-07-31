@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Report.
  *
  * @ORM\Table(name="cs_banking_report", uniqueConstraints={@ORM\UniqueConstraint(name="institution_file_name_idx", columns={"institution", "file_name"})})
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Banking\Report\ReportRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Banking\Report\ReportRepository")
  */
-class Report extends \Gpupo\CommonSchema\AbstractORMEntity
+class Report extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|\DateTime

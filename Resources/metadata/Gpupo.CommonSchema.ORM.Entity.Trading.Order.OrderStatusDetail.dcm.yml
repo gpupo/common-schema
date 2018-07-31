@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail:
   type: entity
   table: cs_trading_order_status_detail
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderStatusDetailRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\OrderStatusDetailRepository
   id:
     id:
       type: integer

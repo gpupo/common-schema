@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Provider.
  *
  * @ORM\Table(name="cs_application_API_OAuth_provider")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\ProviderRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Application\API\OAuth\ProviderRepository")
  */
-class Provider extends \Gpupo\CommonSchema\AbstractORMEntity
+class Provider extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

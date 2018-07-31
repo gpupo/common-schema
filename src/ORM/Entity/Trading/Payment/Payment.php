@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Payment.
  *
  * @ORM\Table(name="cs_trading_payment", uniqueConstraints={@ORM\UniqueConstraint(name="payment_number_idx", columns={"payment_number"})})
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Payment\PaymentRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Payment\PaymentRepository")
  */
-class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
+class Payment extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

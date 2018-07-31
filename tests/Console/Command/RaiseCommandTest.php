@@ -18,8 +18,8 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\Tests\Console\Command;
 
 use App\Entity\Application\API\OAuth\Client\AccessToken;
-use Gpupo\CommonSchema\Build\Entity\Application\API\OAuth\Provider;
-use Gpupo\CommonSchema\Build\Entity\Organization\Phone;
+use App\Entity\Application\API\OAuth\Provider;
+use App\Entity\Organization\Phone;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
 /**
@@ -34,7 +34,6 @@ class RaiseCommandTest extends AbstractTestCase
 
         $phone = new Phone();
         $this->assertInstanceof(Phone::class, $phone);
-
     }
 
     public function testRaisedEntity()

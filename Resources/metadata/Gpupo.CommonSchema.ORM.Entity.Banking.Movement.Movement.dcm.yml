@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Movement:
   type: entity
   table: cs_banking_movement
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Banking\Movement\MovementRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Banking\Movement\MovementRepository
   id:
     id:
       type: integer

@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * OrderStatusDetail.
  *
  * @ORM\Table(name="cs_trading_order_status_detail")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\OrderStatusDetailRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\OrderStatusDetailRepository")
  */
-class OrderStatusDetail extends \Gpupo\CommonSchema\AbstractORMEntity
+class OrderStatusDetail extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

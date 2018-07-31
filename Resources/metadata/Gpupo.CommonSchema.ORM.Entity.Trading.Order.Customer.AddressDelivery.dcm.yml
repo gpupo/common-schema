@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery:
   type: entity
   table: cs_trading_order_customer_address_delivery
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\AddressDeliveryRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Customer\AddressDeliveryRepository
   id:
     id:
       type: integer

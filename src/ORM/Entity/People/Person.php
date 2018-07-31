@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Person.
  *
  * @ORM\Table(name="cs_people")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\People\PersonRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\People\PersonRepository")
  */
-class Person extends \Gpupo\CommonSchema\AbstractORMEntity
+class Person extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

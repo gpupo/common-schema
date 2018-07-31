@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Organization\Phone:
   type: entity
   table: cs_organization_company_phone
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Organization\PhoneRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Organization\PhoneRepository
   id:
     id:
       type: integer

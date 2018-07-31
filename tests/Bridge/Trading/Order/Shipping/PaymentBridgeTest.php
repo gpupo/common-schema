@@ -18,9 +18,9 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\Tests\Bridge\Trading\Order\Shipping;
 
 use Gpupo\CommonSchema\Bridge\Trading\Order\Shipping\PaymentBridge;
-use Gpupo\CommonSchema\ORM\Decorator\Banking\Report\Records;
 use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
+use Gpupo\CommonSchema\ORM\EntityDecorator\Banking\Report\Records;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 use Gpupo\CommonSchema\Tests\DataProvider\DataProviderBankingTrait;
 

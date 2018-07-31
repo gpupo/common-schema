@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback:
   type: entity
   table: cs_trading_order_shipping_feedback
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Feedback\FeedbackRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Feedback\FeedbackRepository
   id:
     id:
       type: integer

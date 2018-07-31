@@ -19,9 +19,9 @@ namespace Gpupo\CommonSchema\Bridge\Trading\Order\Shipping;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Gpupo\Common\Tools\Doctrine\DoctrineManagerAwareTrait;
-use Gpupo\CommonSchema\ORM\Decorator\Trading\Order\Shipping\Payments;
 use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
+use Gpupo\CommonSchema\ORM\EntityDecorator\Trading\Order\Shipping\Payments;
 
 class PaymentBridge
 {

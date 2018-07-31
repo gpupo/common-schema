@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Company.
  *
  * @ORM\Table(name="cs_organization_company")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Organization\CompanyRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Organization\CompanyRepository")
  */
-class Company extends \Gpupo\CommonSchema\AbstractORMEntity
+class Company extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

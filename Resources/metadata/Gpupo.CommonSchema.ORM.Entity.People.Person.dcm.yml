@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\People\Person:
   type: entity
   table: cs_people
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\People\PersonRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\People\PersonRepository
   id:
     id:
       type: integer

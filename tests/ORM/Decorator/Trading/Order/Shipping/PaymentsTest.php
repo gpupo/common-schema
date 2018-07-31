@@ -15,13 +15,13 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\Tests\ORM\Decorator\Trading\Order\Shipping;
+namespace Gpupo\CommonSchema\Tests\ORM\EntityDecorator\Trading\Order\Shipping;
 
 use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Payment\Payment as PaymentArrayCollection;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
-use Gpupo\CommonSchema\ORM\Decorator\Trading\Order\Shipping\Payments;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping;
+use Gpupo\CommonSchema\ORM\EntityDecorator\Trading\Order\Shipping\Payments;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
 /**

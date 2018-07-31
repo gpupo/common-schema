@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * AddressDelivery.
  *
  * @ORM\Table(name="cs_trading_order_customer_address_delivery")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\AddressDeliveryRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Customer\AddressDeliveryRepository")
  */
-class AddressDelivery extends \Gpupo\CommonSchema\AbstractORMEntity
+class AddressDelivery extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

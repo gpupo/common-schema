@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
   type: entity
   table: cs_trading_order_shipping_payment
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Payment\PaymentRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Payment\PaymentRepository
   id:
     id:
       type: integer

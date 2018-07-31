@@ -18,9 +18,9 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\Tests\ORM\Entity\Trading\Order\Shipping;
 
 use Doctrine\ORM\PersistentCollection;
-use Gpupo\CommonSchema\ORM\Decorator\CollectionDecoratorInterface;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment;
 use Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping;
+use Gpupo\CommonSchema\ORM\EntityDecorator\CollectionDecoratorInterface;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
 /**

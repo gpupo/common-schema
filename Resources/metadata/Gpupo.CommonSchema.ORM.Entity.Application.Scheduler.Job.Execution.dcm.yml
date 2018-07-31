@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Application\Scheduler\Job\Execution:
   type: entity
   table: cs_application_scheduler_job_execution
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\Scheduler\Job\ExecutionRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Application\Scheduler\Job\ExecutionRepository
   id:
     id:
       type: integer

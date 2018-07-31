@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Execution.
  *
  * @ORM\Table(name="cs_application_scheduler_job_execution")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\Scheduler\Job\ExecutionRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Application\Scheduler\Job\ExecutionRepository")
  */
-class Execution extends \Gpupo\CommonSchema\AbstractORMEntity
+class Execution extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|array

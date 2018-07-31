@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\Tests;
 
 use Gpupo\Common\Tools\Reflected;
-use Gpupo\CommonSchema\ORMEntityInterface;
+use Gpupo\CommonSchema\ORM\Entity\EntityInterface;
 use Gpupo\CommonSdk\Traits\ResourcesTrait;
 use PHPUnit\Framework\TestCase;
 
@@ -60,7 +60,7 @@ abstract class AbstractTestCase extends TestCase
         return Bootstrap::factoryMonologer();
     }
 
-    protected function persistIfNotExist(ORMEntityInterface $entity)
+    protected function persistIfNotExist(EntityInterface $entity)
     {
         $em = $this->getDoctrineEntityManager();
         $repository = $em->getRepository(get_class($entity));

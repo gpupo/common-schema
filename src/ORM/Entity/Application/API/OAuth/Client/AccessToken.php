@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * AccessToken.
  *
  * @ORM\Table(name="cs_application_API_OAuth_client_access_token")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\Client\AccessTokenRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Application\API\OAuth\Client\AccessTokenRepository")
  */
-class AccessToken extends \Gpupo\CommonSchema\AbstractORMEntity
+class AccessToken extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

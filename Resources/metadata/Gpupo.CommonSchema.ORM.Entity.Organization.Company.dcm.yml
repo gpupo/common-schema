@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Organization\Company:
   type: entity
   table: cs_organization_company
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Organization\CompanyRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Organization\CompanyRepository
   id:
     id:
       type: integer

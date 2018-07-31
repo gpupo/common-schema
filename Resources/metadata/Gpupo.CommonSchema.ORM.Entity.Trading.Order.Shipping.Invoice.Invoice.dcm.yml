@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice:
   type: entity
   table: cs_trading_order_invoice
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Invoice\InvoiceRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Invoice\InvoiceRepository
   id:
     id:
       type: integer

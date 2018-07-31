@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Movement.
  *
  * @ORM\Table(name="cs_banking_movement")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Banking\Movement\MovementRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Banking\Movement\MovementRepository")
  */
-class Movement extends \Gpupo\CommonSchema\AbstractORMEntity
+class Movement extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|float

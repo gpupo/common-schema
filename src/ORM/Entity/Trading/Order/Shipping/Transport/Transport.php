@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Transport.
  *
  * @ORM\Table(name="cs_trading_order_shipping_transport")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Shipping\Transport\TransportRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Transport\TransportRepository")
  */
-class Transport extends \Gpupo\CommonSchema\AbstractORMEntity
+class Transport extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

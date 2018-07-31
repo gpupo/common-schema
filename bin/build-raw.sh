@@ -1,23 +1,23 @@
 #!/bin/bash
 mkdir -p var/doctrine;
-rm -rf var/doctrine/* src/ORM/Entity/* Resources/metadata/* > /dev/null;
-./bin/common-schema bin/common-schema metadata:build;
+rm -rf var/doctrine/* src/ORM/Entity/*/* Resources/metadata/* > /dev/null;
+./bin/common-schema metadata:build;
 
 ./vendor/bin/doctrine orm:generate-entities var/doctrine \
  --num-spaces=4 \
  --generate-annotations=true --regenerate-entities=false \
  --generate-methods=true \
  --no-backup \
- --extend='Gpupo\CommonSchema\AbstractORMEntity';
+ --extend='Gpupo\CommonSchema\ORM\Entity\AbstractEntity';
 
 rsync -aq var/doctrine/Gpupo/CommonSchema/ORM/Entity/ src/ORM/Entity/;
 
 ./vendor/bin/doctrine orm:generate-repositories var/doctrine/;
 
-rsync --ignore-existing -rq var/doctrine/Gpupo/CommonSchema/ORM/Repository/ src/ORM/Repository/;
+rsync --ignore-existing -rq var/doctrine/Gpupo/CommonSchema/ORM/EntityRepository/ src/ORM/EntityRepository/;
 
 find src/ORM/Entity/ -type f -print0 | xargs -0 sed -i 's/private/protected/g'
-find src/ORM/Repository/ -type f -print0 | xargs -0 sed -i 's~Doctrine\\ORM\\EntityRepository~Gpupo\\CommonSchema\\AbstractORMRepository~g'
+find src/ORM/EntityRepository/*/ -type f -print0 | xargs -0 sed -i 's~Doctrine\\ORM\\EntityRepository~Gpupo\\CommonSchema\\ORM\\EntityRepository\\AbstractEntityRepository~g'
 
 ./vendor/bin/doctrine orm:validate-schema --skip-sync
 

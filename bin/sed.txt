@@ -1,5 +1,1 @@
-s/Gpupo\\CommonSchema\\ORM/Gpupo\\CommonSchema\\Build/g
-s~repositoryClass=\"Gpupo\\CommonSchema\\Build~repositoryClass=\"CS_NAMESPACE\\Entity~g
-s~targetEntity=\"Gpupo\\CommonSchema\\Build~targetEntity=\"CS_NAMESPACE\\Entity~g
-s~(\\Gpupo\\CommonSchema\\Build~(\\CS_NAMESPACE~g
-s~@param \\Gpupo\\CommonSchema\\Build~@param \\CS_NAMESPACE~g
+s/Gpupo\\CommonSchema\\ORM/CS_NAMESPACE/g

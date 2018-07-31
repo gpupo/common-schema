@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * AddressBilling.
  *
  * @ORM\Table(name="cs_trading_order_customer_address_billing")
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\AddressBillingRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Customer\AddressBillingRepository")
  */
-class AddressBilling extends \Gpupo\CommonSchema\AbstractORMEntity
+class AddressBilling extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|string

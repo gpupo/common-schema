@@ -23,9 +23,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Record.
  *
  * @ORM\Table(name="cs_banking_report_record", uniqueConstraints={@ORM\UniqueConstraint(name="source_id_record_type_description_gross_amount_idx", columns={"source_id", "record_type", "description", "gross_amount"})})
- * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\Repository\Banking\Report\RecordRepository")
+ * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Banking\Report\RecordRepository")
  */
-class Record extends \Gpupo\CommonSchema\AbstractORMEntity
+class Record extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 {
     /**
      * @var null|float

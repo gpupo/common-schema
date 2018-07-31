@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer:
   type: entity
   table: cs_trading_order_customer
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Trading\Order\Customer\CustomerRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Customer\CustomerRepository
   id:
     id:
       type: integer

@@ -2,7 +2,7 @@
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
   type: entity
   table: cs_application_API_OAuth_provider
-  repositoryClass: Gpupo\CommonSchema\ORM\Repository\Application\API\OAuth\ProviderRepository
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Application\API\OAuth\ProviderRepository
   id:
     id:
       type: integer

@@ -20,13 +20,16 @@ namespace Gpupo\CommonSchema\Converters;
 use DateTime;
 use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\Common\Tools\StringTool;
-use Gpupo\CommonSchema\ORMEntityInterface;
+use Gpupo\CommonSchema\ORM\Entity\EntityInterface;
 
 class ArrayCollectionConverter
 {
-    public function convertToOrm(CollectionInterface $arrayCollection)
+    public function convertToOrm(CollectionInterface $arrayCollection, string $target = null)
     {
-        $target = '\\'.str_replace('ArrayCollection', 'ORM\Entity', get_class($arrayCollection));
+        if (empty($target)) {
+            $target = '\\'.str_replace('ArrayCollection', 'ORM\Entity', get_class($arrayCollection));
+        }
+
         $orm = new $target();
 
         foreach ($arrayCollection->getSchema() as $key => $type) {
@@ -82,7 +85,7 @@ class ArrayCollectionConverter
         return $value;
     }
 
-    protected function embed(ORMEntityInterface $owner, ORMEntityInterface $object)
+    protected function embed(EntityInterface $owner, EntityInterface $object)
     {
         $explode = explode('\\', get_class($owner));
         $sufix = StringTool::snakeCaseToCamelCase(end($explode), true);

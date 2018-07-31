@@ -17,9 +17,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests\ORM\Entity\Banking\Report;
 
-use Gpupo\CommonSchema\ORM\Decorator\Banking\Report\Records;
 use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record;
 use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report as ReportORM;
+use Gpupo\CommonSchema\ORM\EntityDecorator\Banking\Report\Records;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 use Gpupo\CommonSchema\Tests\DataProvider\DataProviderBankingTrait;
 
