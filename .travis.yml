@@ -20,7 +20,7 @@ before_script:
   - composer self-update
   - composer install --prefer-dist
   - vendor/bin/doctrine orm:schema-tool:update --force
-  - bin/common-schema raise:build  
+  - bin/common-schema raise:build -vv
 
 script: vendor/bin/phpunit
 notifications:
