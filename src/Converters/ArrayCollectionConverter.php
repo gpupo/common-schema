@@ -60,7 +60,8 @@ class ArrayCollectionConverter
                     }
                 }
             } else {
-                $orm->{$setter}($this->normalizeByType($key, $type, $value));
+                $value = $this->normalizeByType($key, $type, $value);
+                $orm->{$setter}($value);
             }
         }
 
