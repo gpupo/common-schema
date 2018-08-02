@@ -169,6 +169,26 @@ abstract class AbstractEntity extends Core implements EntityInterface
     }
 
     /**
+     * Set created_by.
+     *
+     * @param string
+     */
+    public function setCreatedBy(string $string)
+    {
+        $this->created_by = $string;
+    }
+
+    /**
+     * Set updated_by.
+     *
+     * @param string
+     */
+    public function setUpdatedBy(string $string)
+    {
+        $this->updated_by = $string;
+    }
+
+    /**
      * Returns updated_by.
      *
      * @return string
