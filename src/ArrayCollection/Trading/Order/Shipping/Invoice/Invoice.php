@@ -23,6 +23,10 @@ class Invoice extends AbstractEntity
 {
     protected $tableName = 'trading_order_invoice';
 
+    protected $uniqueConstraints = [
+      ['invoice_number'],
+    ];
+
     /**
      * @codeCoverageIgnore
      */

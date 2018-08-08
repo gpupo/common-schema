@@ -83,7 +83,10 @@ Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice:
       type: datetime
       nullable: true
       options: {  }
-  uniqueConstraints: {  }
+  uniqueConstraints:
+    invoice_number_idx:
+      columns:
+        - invoice_number
   manyToOne:
     shipping:
       cascade:
