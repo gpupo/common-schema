@@ -3,6 +3,12 @@ VERSION 4  MAJOR VERSION 4
 ==========================
 
    Version 4.5 - Independent namespaces
+      08/08/2018 17:01  4.5.1  Release new version from Makefile
+         8d2a416 Remove type
+         9fe8904 Add UniqueConstraint
+         620dffc settters
+         837ff33 Add verbose
+         b825371 Improve travis
       31/07/2018 11:53  4.5.0  initial release
          e25044f Independency
          6584c64 sed test
