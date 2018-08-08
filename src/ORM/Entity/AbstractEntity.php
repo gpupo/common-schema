@@ -173,7 +173,7 @@ abstract class AbstractEntity extends Core implements EntityInterface
      *
      * @param string
      */
-    public function setCreatedBy(string $string)
+    public function setCreatedBy($string)
     {
         $this->created_by = $string;
     }
@@ -183,7 +183,7 @@ abstract class AbstractEntity extends Core implements EntityInterface
      *
      * @param string
      */
-    public function setUpdatedBy(string $string)
+    public function setUpdatedBy($string)
     {
         $this->updated_by = $string;
     }
