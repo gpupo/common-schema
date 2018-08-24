@@ -3,6 +3,7 @@ VERSION 4  MAJOR VERSION 4
 ==========================
 
    Version 4.5 - Independent namespaces
+      24/08/2018 15:22  4.5.2  Remove dev-master
       08/08/2018 17:01  4.5.1  Release new version from Makefile
          8d2a416 Remove type
          9fe8904 Add UniqueConstraint
