@@ -32,15 +32,16 @@
     "minimum-stability": "dev",
     "prefer-stable": false,
     "require": {
-        "gpupo/common": "^4.2.1|dev-master",
-        "symfony/var-dumper": "^4.1",
+        "php": "^7.3",
+        "gpupo/common": "^4.6|dev-master",
+        "symfony/var-dumper": "^4.2.2",
         "gpupo/common-sdk": "^4.5|dev-master",
         "doctrine/orm": "^2.6",
         "gedmo/doctrine-extensions": "^2.4",
-        "symfony/yaml": "^4.1.2",
-        "symfony/dotenv": "^4.1.2",
-        "symfony/console": "^4.1.2",
-        "symfony/filesystem": "^4.1.2",
-        "symfony/finder": "^4.1.2"
+        "symfony/yaml": "^4.2.2",
+        "symfony/dotenv": "^4.2.2",
+        "symfony/console": "^4.2.2",
+        "symfony/filesystem": "^4.2.2",
+        "symfony/finder": "^4.2.2"
     }
 }
