@@ -17,6 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests;
 
+require dirname(__DIR__).'/config/bootstrap.php';
+
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Gpupo\CommonSchema\Normalizers\DoctrineTypesNormalizer;
@@ -65,15 +67,11 @@ class Bootstrap
         $evm->addEventSubscriber($timestampableListener);
         $config = Setup::createAnnotationMetadataConfiguration([__DIR__.'/../src/'], true, null, null, false);
 
-        //SQL log
-        // $logger = new \Doctrine\DBAL\Logging\EchoSQLLogger();
-        // $config->setSQLLogger($logger);
-
         $connectionParams = [
             'dbname' => 'app',
             'user' => 'app_db_user',
             'password' => 'app8as3',
-            'host' => '127.0.0.1',
+            'host' => getenv('dbhost'),
             'driver' => 'pdo_mysql',
         ];
         $entityManager = EntityManager::create($connectionParams, $config, $evm);

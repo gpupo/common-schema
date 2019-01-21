@@ -18,6 +18,7 @@ before_install:
 before_script:
   - composer self-update
   - composer install --prefer-dist
+  - rm -f .env.local
   - vendor/bin/doctrine orm:schema-tool:update --force
   - bin/common-schema raise:build -vv
 
