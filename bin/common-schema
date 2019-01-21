@@ -11,7 +11,7 @@
 
 namespace Gpupo\CommonSchema\Console;
 
-require 'vendor/autoload.php';
+require dirname(__DIR__).'/config/bootstrap.php';
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Dotenv\Dotenv;
@@ -22,20 +22,10 @@ $fileSystem = new Filesystem();
 
 $root = getcwd();
 $lib = dirname(dirname( __FILE__ ));
-
 $options = [
     'rootPath'  => $root,
     'libPath' => $lib,
-    'env' => $lib.'/.env.dist',
-    'customEnv' => $root.'/.env',
 ];
-
-if(!$fileSystem->exists($options['customEnv'])) {
-    $fileSystem->copy($options['env'], $options['customEnv']);
-}
-
-$dotenv = new Dotenv();
-$dotenv->load($options['env'], $options['customEnv']);
 
 $raiseCommand = new \Gpupo\CommonSchema\Console\Command\RaiseCommand();
 $raiseCommand->setOptions($options);
