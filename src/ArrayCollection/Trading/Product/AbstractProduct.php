@@ -28,7 +28,7 @@ abstract class AbstractProduct extends EntityAbstract implements EntityInterface
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return [
             'id' => 'integer',

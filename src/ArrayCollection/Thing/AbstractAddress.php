@@ -22,7 +22,7 @@ abstract class AbstractAddress extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return [
             'street' => 'string',

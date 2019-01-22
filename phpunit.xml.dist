@@ -10,7 +10,7 @@
          stopOnFailure="false"
          stopOnWarning="true"
 
-         bootstrap="vendor/autoload.php"
+         bootstrap="config/bootstrap.php"
 >
     <testsuites>
         <testsuite name="Main Test Suite">

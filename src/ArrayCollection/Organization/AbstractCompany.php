@@ -24,7 +24,7 @@ abstract class AbstractCompany extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return [
             'id' => 'integer',

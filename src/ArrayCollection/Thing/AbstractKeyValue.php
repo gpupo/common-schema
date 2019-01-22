@@ -22,7 +22,7 @@ abstract class AbstractKeyValue extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return array_merge(
             parent::schema(),

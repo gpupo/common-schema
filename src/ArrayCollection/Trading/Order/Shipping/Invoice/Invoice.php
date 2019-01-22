@@ -30,7 +30,7 @@ class Invoice extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return [
             'invoice_number' => 'string',

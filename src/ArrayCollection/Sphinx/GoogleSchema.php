@@ -70,7 +70,7 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
     {
         $tag = str_replace(array_keys($this->key_conversion), $this->key_conversion, $name);
 
-        if (in_array($tag, ['months', 'amount'], true)) {
+        if (\in_array($tag, ['months', 'amount'], true)) {
             $tag = 'installment_'.$tag;
         }
 

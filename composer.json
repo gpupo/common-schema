@@ -33,9 +33,9 @@
     "prefer-stable": false,
     "require": {
         "php": "^7.3",
-        "gpupo/common": "^4.6.1",
+        "gpupo/common": "^4.7",
         "symfony/var-dumper": "^4.2.2",
-        "gpupo/common-sdk": "^4.6|dev-master",
+        "gpupo/common-sdk": "^4.6.1|dev-master",
         "doctrine/orm": "^2.6",
         "gedmo/doctrine-extensions": "^2.4",
         "symfony/yaml": "^4.2.2",

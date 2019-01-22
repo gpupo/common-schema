@@ -15,9 +15,9 @@ declare(strict_types=1);
  *
  */
 
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
 use Doctrine\ORM\Tools\Setup;
-use Doctrine\ORM\EntityManager;
 use Gpupo\CommonSchema\Tests\Bootstrap;
 
 require __DIR__.'/bootstrap.php';
@@ -28,9 +28,9 @@ if (in_array($command, ['generate-entities', 'generate-repositories'], true)) {
     echo " - Using YAML/NO Connection config\n";
     $isDevMode = true;
     $evm = new Doctrine\Common\EventManager();
-    $config = Setup::createYAMLMetadataConfiguration([__DIR__."/../Resources/metadata/"], $isDevMode);
+    $config = Setup::createYAMLMetadataConfiguration([__DIR__.'/../Resources/metadata/'], $isDevMode);
     $entityManager = EntityManager::create([
-      'driver'  => 'pdo_sqlite',
+      'driver' => 'pdo_sqlite',
     ], $config, $evm);
 } else {
     echo " - Using main config\n";

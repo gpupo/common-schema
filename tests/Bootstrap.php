@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests;
 
-require dirname(__DIR__).'/config/bootstrap.php';
+require \dirname(__DIR__).'/config/bootstrap.php';
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;

@@ -40,7 +40,7 @@ class RecordRepository extends AbstractEntityRepository
             return null;
         }
 
-        if (is_array($array)) {
+        if (\is_array($array)) {
             $array = new ArrayCollection($array);
         }
 

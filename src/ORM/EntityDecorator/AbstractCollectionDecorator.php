@@ -60,7 +60,7 @@ abstract class AbstractCollectionDecorator extends AbstractDecorator implements 
     protected function accessObjectGetter($object, $getter)
     {
         if (!method_exists($object, $getter)) {
-            throw new DecoratorException(sprintf('Method [%s] not found in [%s]', $getter, get_class($object)));
+            throw new DecoratorException(sprintf('Method [%s] not found in [%s]', $getter, \get_class($object)));
         }
 
         return $object->{$getter}();

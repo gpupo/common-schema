@@ -30,10 +30,9 @@ class ReportTest extends AbstractTestCase
     /**
      * @return \Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report
      */
-    public function dataProviderReport()
+    public function dataProviderReport(): array
     {
-        $data =
-         [
+        $data = [
            'records' => [[
               'date' => '2017-02-09T17:08:21.000-04:00',
               'source_id' => '3628220487',
@@ -53,7 +52,10 @@ class ReportTest extends AbstractTestCase
             ]],
           ];
 
-        return [[new Report($data), $data]];
+          $report = new Report($data);
+          dump($report, $data);
+
+        return [[$report, $data]];
     }
 
     /**

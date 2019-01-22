@@ -77,7 +77,7 @@ abstract class SchemaAbstract
     {
         $array = array_merge($this->schema['field'], $this->schema['attr']);
 
-        if (in_array($tag, $array, true)) {
+        if (\in_array($tag, $array, true)) {
             return true;
         }
 

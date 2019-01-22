@@ -17,13 +17,11 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Thing;
 
-use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\CommonSchema\Converters\ArrayCollectionConverter;
 use Gpupo\CommonSchema\ORM\Entity\EntityInterface as ORMInterface;
 use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface as CoreInterface;
 
-abstract class AbstractEntity extends EntityAbstract implements CoreInterface, EntityInterface, CollectionInterface
+abstract class AbstractEntity extends EntityAbstract implements EntityInterface
 {
     protected $tablePrefix = 'cs_';
 
@@ -34,7 +32,7 @@ abstract class AbstractEntity extends EntityAbstract implements CoreInterface, E
     public function getTableName()
     {
         if (empty($this->tableName)) {
-            throw new \InvalidArgumentException(sprintf('Table name missing on %s', get_class($this)));
+            throw new \InvalidArgumentException(sprintf('Table name missing on %s', \get_class($this)));
         }
 
         return $this->tablePrefix.$this->tableName;
@@ -80,7 +78,7 @@ abstract class AbstractEntity extends EntityAbstract implements CoreInterface, E
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return [
         ];

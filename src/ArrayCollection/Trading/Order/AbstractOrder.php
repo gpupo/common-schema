@@ -26,7 +26,7 @@ abstract class AbstractOrder extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return [
             'order_number' => 'string',

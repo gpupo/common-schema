@@ -26,7 +26,7 @@ class Execution extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return [
             'name' => 'string',

@@ -27,7 +27,7 @@ abstract class AbstractCollection extends CollectionAbstract implements Collecti
     public function getAssociationMappingType()
     {
         if (empty($this->type)) {
-            throw new \InvalidArgumentException(sprintf('Collection Type missing on %s', get_class($this)));
+            throw new \InvalidArgumentException(sprintf('Collection Type missing on %s', \get_class($this)));
         }
 
         return $this->type;

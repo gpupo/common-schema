@@ -54,7 +54,7 @@ class RaiseSubclassesCommand extends Command
         $this->buildSuperclasses();
 
         $list = $this->find($this->getOptions()->get('libPath').'/build');
-        $output->writeln(sprintf('Files to generate: <info>%d</>', count($list)));
+        $output->writeln(sprintf('Files to generate: <info>%d</>', \count($list)));
 
         foreach ($list as $origin) {
             $target = $this->factoryTarget($origin);
@@ -97,11 +97,11 @@ class RaiseSubclassesCommand extends Command
 
             $choice = $this->getOptions()->get('choice') ?? $helper->ask($input, $output, $question);
 
-            if (in_array($choice, [$array[1], $array[3]], true)) {
+            if (\in_array($choice, [$array[1], $array[3]], true)) {
                 $this->getOptions()->set('choice', $choice);
             }
 
-            if (in_array($choice, [$array[0], $array[1]], true)) {
+            if (\in_array($choice, [$array[0], $array[1]], true)) {
                 $output->writeln(sprintf($string, $target['path'], 'red', 'skipped'));
 
                 return;
@@ -184,7 +184,7 @@ EOF;
                 }
                 if (T_NAMESPACE === $tokens[$index][0]) {
                     $index += 2;
-                    while (isset($tokens[$index]) && is_array($tokens[$index])) {
+                    while (isset($tokens[$index]) && \is_array($tokens[$index])) {
                         $namespace .= $tokens[$index++][1];
                     }
                 }

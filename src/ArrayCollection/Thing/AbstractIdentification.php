@@ -22,7 +22,7 @@ abstract class AbstractIdentification extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return [
             'doc_type' => 'string',

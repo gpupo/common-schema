@@ -80,7 +80,7 @@ abstract class AbstractSchema extends CollectionAbstract
                 continue;
             }
 
-            if (is_array($v)) {
+            if (\is_array($v)) {
                 $list[$k] = $this->node($v);
 
                 continue;
@@ -94,7 +94,7 @@ abstract class AbstractSchema extends CollectionAbstract
 
     protected function recursiveToTemplate($k, $v)
     {
-        if (is_array($v)) {
+        if (\is_array($v)) {
             $s = "\n";
 
             if (!empty($k)) {

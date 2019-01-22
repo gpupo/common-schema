@@ -26,7 +26,7 @@ class Customer extends AbstractPerson
     /**
      * @codeCoverageIgnore
      */
-    protected function schema()
+    protected function schema(): array
     {
         return array_merge(
             parent::schema(),

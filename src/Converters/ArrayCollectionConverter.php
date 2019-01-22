@@ -27,7 +27,7 @@ class ArrayCollectionConverter
     public function convertToOrm(CollectionInterface $arrayCollection, string $target = null)
     {
         if (empty($target)) {
-            $target = '\\'.str_replace('ArrayCollection', 'ORM\Entity', get_class($arrayCollection));
+            $target = '\\'.str_replace('ArrayCollection', 'ORM\Entity', \get_class($arrayCollection));
         }
 
         $orm = new $target();
@@ -88,7 +88,7 @@ class ArrayCollectionConverter
 
     protected function embed(EntityInterface $owner, EntityInterface $object)
     {
-        $explode = explode('\\', get_class($owner));
+        $explode = explode('\\', \get_class($owner));
         $sufix = StringTool::snakeCaseToCamelCase(end($explode), true);
         $setter = sprintf('set%s', $sufix);
         $object->{$setter}($owner);

@@ -172,6 +172,7 @@ abstract class AbstractEntity extends Core implements EntityInterface
      * Set created_by.
      *
      * @param string
+     * @param mixed $string
      */
     public function setCreatedBy($string)
     {
@@ -182,6 +183,7 @@ abstract class AbstractEntity extends Core implements EntityInterface
      * Set updated_by.
      *
      * @param string
+     * @param mixed $string
      */
     public function setUpdatedBy($string)
     {
