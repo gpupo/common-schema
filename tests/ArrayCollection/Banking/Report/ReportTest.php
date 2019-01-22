@@ -53,7 +53,6 @@ class ReportTest extends AbstractTestCase
           ];
 
           $report = new Report($data);
-          dump($report, $data);
 
         return [[$report, $data]];
     }

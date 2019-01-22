@@ -3,6 +3,15 @@ VERSION 4  MAJOR VERSION 4
 ==========================
 
    Version 4.5 - Independent namespaces
+      22/01/2019 14:06  4.5.3  Add hints
+         9a93008 Add phan config
+         23e3f40 Using bootstrap
+         ca0578e Update common
+         ba7706c Reuse bootstrap
+         c1bbe01 Refactory dotenv
+         7a9fc3e upgrade travis
+         265481a Update libs, and docker file
+         885e8cf Improve editor config
       24/08/2018 15:22  4.5.2  Remove dev-master
       08/08/2018 17:01  4.5.1  Release new version from Makefile
          8d2a416 Remove type
