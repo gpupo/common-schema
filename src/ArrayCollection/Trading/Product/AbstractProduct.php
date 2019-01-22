@@ -21,7 +21,7 @@ use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
 
-abstract class AbstractProduct extends EntityAbstract implements EntityInterface, CollectionInterface
+abstract class AbstractProduct extends EntityAbstract implements EntityInterface
 {
     protected $primaryKey = 'id';
 

@@ -54,7 +54,7 @@ abstract class AbstractEntity extends EntityAbstract implements EntityInterface
         return $ucs;
     }
 
-    public function getSchema()
+    public function getSchema(): array
     {
         return array_merge(
             $this->schema(),

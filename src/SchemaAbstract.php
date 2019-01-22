@@ -58,7 +58,7 @@ abstract class SchemaAbstract
         ];
     }
 
-    public function getSchema()
+    public function getSchema(): array
     {
         return $this->schema;
     }

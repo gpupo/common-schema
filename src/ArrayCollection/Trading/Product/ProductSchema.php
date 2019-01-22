@@ -21,7 +21,7 @@ use Gpupo\CommonSchema\AbstractSchema;
 
 class ProductSchema extends AbstractSchema
 {
-    public function getSchema()
+    public function getSchema(): array
     {
         return $this->loadSchemaFromFile(__DIR__.'/map/product.schema.php');
     }
