@@ -30,7 +30,7 @@
         "preferred-install": "dist"
     },
     "minimum-stability": "dev",
-    "prefer-stable": false,
+    "prefer-stable": true,
     "require": {
         "php": "^7.3",
         "gpupo/common-sdk": "^4.6.2|dev-master"
