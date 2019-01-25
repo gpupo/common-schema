@@ -17,6 +17,27 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Product;
 
-class Product extends ProductSchema
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
+
+class Product extends AbstractEntity
 {
+    protected $tableName = 'trading_product';
+
+    /**
+     * @codeCoverageIgnore
+     */
+    protected function schema(): array
+    {
+        return array_merge(
+            parent::schema(),
+            [
+                'status' => 'string',
+                'gtin' => 'string',
+                'variation_attributes' => 'array',
+                'sale_fee' => 'number',
+                'quantity' => 'integer',
+                'unit_price' => 'number',
+            ]
+        );
+    }
 }
