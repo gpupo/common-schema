@@ -1,0 +1,63 @@
+# deleted_at metadata
+Gpupo\CommonSchema\ORM\Entity\Catalog\Product\Product:
+  type: entity
+  table: cs_trading_product
+  repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Catalog\Product\ProductRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    created_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    deleted_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    expands:
+      type: array
+      nullable: true
+      options: {  }
+    gtin:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
+    quantity:
+      type: bigint
+      nullable: true
+      options: {  }
+    sale_fee:
+      type: float
+      precision: 10
+      scale: 2
+      nullable: true
+      options: {  }
+    status:
+      type: string
+      lenght: 50
+      unique: false
+      nullable: true
+      options: {  }
+    unit_price:
+      type: float
+      precision: 10
+      scale: 2
+      nullable: true
+      options: {  }
+    updated_at:
+      type: datetime
+      nullable: true
+      options: {  }
+    variation_attributes:
+      type: array
+      nullable: true
+      options: {  }
+  uniqueConstraints: {  }
+  lifecycleCallbacks:
+    prePersist: {  }
+    postPersist: {  }

@@ -21,6 +21,7 @@ use Gpupo\CommonSchema\ArrayCollection\Application\API\OAuth\Provider;
 use Gpupo\CommonSchema\ArrayCollection\Application\Scheduler\Job\Execution;
 use Gpupo\CommonSchema\ArrayCollection\Banking\Movement\Movement;
 use Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report;
+use Gpupo\CommonSchema\ArrayCollection\Catalog\Product\Product;
 use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
 use Gpupo\CommonSchema\ArrayCollection\People\Person;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
@@ -42,7 +43,7 @@ class MetadataCommand extends Core
         $generator = new DoctrineOrmEntityGenerator(new ArgvInput(), $output);
 
         try {
-            foreach ([new Trading(), new Person(), new Company(), new Report(), new Provider(), new Execution(), new Movement()] as $object) {
+            foreach ([new Product(), new Trading(), new Person(), new Company(), new Report(), new Provider(), new Execution(), new Movement()] as $object) {
                 $generator->recursiveSave($object);
             }
         } catch (\Exception $exception) {

@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Product;
+namespace Gpupo\CommonSchema\ArrayCollection\Catalog\Product;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
