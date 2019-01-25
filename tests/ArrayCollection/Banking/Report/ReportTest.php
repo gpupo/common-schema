@@ -52,7 +52,7 @@ class ReportTest extends AbstractTestCase
             ]],
           ];
 
-          $report = new Report($data);
+        $report = new Report($data);
 
         return [[$report, $data]];
     }

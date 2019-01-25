@@ -11,7 +11,7 @@
 
 namespace Gpupo\CommonSchema\Console;
 
-require dirname(__DIR__).'/config/bootstrap.php';
+require './config/bootstrap.php';
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Dotenv\Dotenv;
