@@ -18,14 +18,14 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\Console\Command;
 
 use Gpupo\Common\Traits\OptionsTrait;
-use Symfony\Component\Console\Command\Command;
+use Gpupo\CommonSdk\Console\Command\AbstractCommand as Core;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
-class RaiseSubclassesCommand extends Command
+class RaiseSubclassesCommand extends Core
 {
     use OptionsTrait;
 

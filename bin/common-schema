@@ -11,26 +11,9 @@
 
 namespace Gpupo\CommonSchema\Console;
 
-require './config/bootstrap.php';
+require dirname(__DIR__).'/config/bootstrap.php';
 
-use Symfony\Component\Console\Application;
-use Symfony\Component\Dotenv\Dotenv;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
+use Gpupo\CommonSchema\Console\Application;
 
-$fileSystem = new Filesystem();
-
-$root = getcwd();
-$lib = dirname(dirname( __FILE__ ));
-$options = [
-    'rootPath'  => $root,
-    'libPath' => $lib,
-];
-
-$raiseCommand = new \Gpupo\CommonSchema\Console\Command\RaiseCommand();
-$raiseCommand->setOptions($options);
-
-$application = new Application('common-schema');
-$application->add(new \Gpupo\CommonSchema\Console\Command\MetadataCommand());
-$application->add($raiseCommand);
-$application->run();
+$app = new Application("common-schema");
+$app->init(__NAMESPACE__, dirname(__DIR__));

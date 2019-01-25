@@ -18,11 +18,11 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\Console\Command;
 
 use Gpupo\Common\Traits\OptionsTrait;
-use Symfony\Component\Console\Command\Command;
+use Gpupo\CommonSdk\Console\Command\AbstractCommand as Core;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class RaiseCommand extends Command
+class RaiseCommand extends Core
 {
     use OptionsTrait;
 
@@ -46,6 +46,25 @@ class RaiseCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        //
+        // require './config/bootstrap.php';
+        //
+        // use Symfony\Component\Console\Application;
+        // use Symfony\Component\Dotenv\Dotenv;
+        // use Symfony\Component\Filesystem\Filesystem;
+        // use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
+        //
+        // $fileSystem = new Filesystem();
+        //
+        // $root = getcwd();
+        // $lib = dirname(dirname( __FILE__ ));
+        // $options = [
+        //     'rootPath'  => $root,
+        //     'libPath' => $lib,
+        // ];
+        //
+        //
+
         $output->writeln(sprintf('Check source file at <info>%s/build</>', $this->getOptions()->get('libPath')));
         $this->buildSuperclasses();
 

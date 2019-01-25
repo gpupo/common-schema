@@ -24,13 +24,13 @@ use Gpupo\CommonSchema\ArrayCollection\Banking\Report\Report;
 use Gpupo\CommonSchema\ArrayCollection\Organization\Company;
 use Gpupo\CommonSchema\ArrayCollection\People\Person;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Trading;
+use Gpupo\CommonSdk\Console\Command\AbstractCommand as Core;
 use Gpupo\CommonSdk\Console\DoctrineOrmEntityGenerator;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MetadataCommand extends Command
+class MetadataCommand extends Core
 {
     protected function configure()
     {
