@@ -46,25 +46,6 @@ class RaiseCommand extends Core
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        //
-        // require './config/bootstrap.php';
-        //
-        // use Symfony\Component\Console\Application;
-        // use Symfony\Component\Dotenv\Dotenv;
-        // use Symfony\Component\Filesystem\Filesystem;
-        // use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
-        //
-        // $fileSystem = new Filesystem();
-        //
-        // $root = getcwd();
-        // $lib = dirname(dirname( __FILE__ ));
-        // $options = [
-        //     'rootPath'  => $root,
-        //     'libPath' => $lib,
-        // ];
-        //
-        //
-
         $output->writeln(sprintf('Check source file at <info>%s/build</>', $this->getOptions()->get('libPath')));
         $this->buildSuperclasses();
 
@@ -73,7 +54,7 @@ class RaiseCommand extends Core
 
     protected function buildSuperclasses(): void
     {
-        shell_exec($this->getOptions()->get('libPath').'/bin/build.sh '.$this->getDestPath().' '.$this->getOptions()->get('namespace'));
+        shell_exec($this->getOptions()->get('libPath').'bin/build.sh '.$this->getDestPath().' '.$this->getOptions()->get('namespace'));
     }
 
     protected function getDestPath()
