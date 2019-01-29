@@ -8,8 +8,7 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         stopOnWarning="true"
-
+         stopOnWarning="false"
          bootstrap="config/bootstrap.php"
 >
     <testsuites>
