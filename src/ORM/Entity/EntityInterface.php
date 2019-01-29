@@ -17,6 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Entity;
 
-interface EntityInterface
+use Gpupo\CommonSdk\Entity\EntityInterface as Core;
+
+interface EntityInterface extends Core
 {
 }

@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\ORM\EntityDecorator;
 
 trait CollectionContainerTrait
-{
+{    
     public function getDecorator($key): ?CollectionDecoratorInterface
     {
         $getter = sprintf('get%s', ucfirst($key));

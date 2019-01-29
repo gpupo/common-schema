@@ -22,6 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gpupo\Common\Entity\AbstractORMEntity as Core;
 use Gpupo\CommonSchema\ORM\EntityDecorator\CollectionContainerTrait;
+use Gpupo\Common\Traits\PreviousAwareTrait;
 
 /**
  * @ORM\MappedSuperclass
@@ -31,6 +32,7 @@ use Gpupo\CommonSchema\ORM\EntityDecorator\CollectionContainerTrait;
 abstract class AbstractEntity extends Core implements EntityInterface
 {
     use CollectionContainerTrait;
+    use PreviousAwareTrait;
 
     protected $propertyNamingMode = 'snake_case';
 
@@ -249,4 +251,19 @@ abstract class AbstractEntity extends Core implements EntityInterface
 
         return $this->setExpands($array);
     }
+
+    public function get($key)
+    {
+        $method = sprintf('get%s', ucfirst($key));
+
+        return $this->{$method}();
+    }
+
+    public function getSchema(): array
+    {
+        return [
+
+        ];
+    }
+
 }

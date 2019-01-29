@@ -30,9 +30,6 @@ class PaymentTest extends AbstractTestCase
 {
     use ResourcesTrait;
 
-    /**
-     * @return \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment
-     */
     public function dataProviderPayment()
     {
         $data = $this->getResourceYaml('/fixtures/trading/payment/payment.yaml');
@@ -49,6 +46,7 @@ class PaymentTest extends AbstractTestCase
     public function testGetPaymentNumber(PaymentORM $payment, array $expected)
     {
         $this->assertSame($expected['payment_number'], $payment->getPaymentNumber());
+        $this->assertSame($expected['payment_number'], $payment->get('paymentNumber'));
     }
 
     /**
