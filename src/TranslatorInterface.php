@@ -19,7 +19,7 @@ namespace Gpupo\CommonSchema;
 
 interface TranslatorInterface
 {
-    public function translateTo();
+    public function export();
 
-    public function translateFrom();
+    public function import();
 }

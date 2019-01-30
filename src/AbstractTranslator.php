@@ -54,23 +54,23 @@ abstract class AbstractTranslator extends CollectionAbstract
         return $data;
     }
 
-    public function translateToForeign()
+    public function doExport()
     {
-        $object = $this->translateTo();
+        $object = $this->export();
 
         return $this->decorateByConversionType($object);
     }
 
-    public function translateFromForeign()
+    public function doImport()
     {
-        $object = $this->translateFrom();
+        $object = $this->import();
 
         return $object;
     }
 
-    abstract public function translateTo();
+    abstract public function export();
 
-    abstract public function translateFrom();
+    abstract public function import();
 
     protected function factoryOutputCollection(array $array)
     {
