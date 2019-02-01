@@ -14,7 +14,8 @@ before_install:
   - mysql -u root -e "GRANT ALL ON app.* TO 'app_db_user'@'localhost';"
 before_script:
   - composer self-update
-  - composer require gpupo/common-sdk:dev-master --prefer-dist
+  - composer require gpupo/common-sdk:dev-master
+  - composer info
   - rm -f .env.local
   - vendor/bin/doctrine orm:schema-tool:update --force
   - bin/common-schema raise:build -vv
