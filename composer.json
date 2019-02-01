@@ -36,5 +36,5 @@
     },
     "suggest": {
         "gpupo/common-sdk": "Allows use this pachage outside of one gpupo/*sdk"
-    },
+    }
 }
