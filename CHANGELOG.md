@@ -3,6 +3,9 @@ VERSION 4  MAJOR VERSION 4
 ==========================
 
    Version 4.6 - Dont require common-sdk
+      01/02/2019 13:31  4.6.1  Fix common version
+         d29fa26 Add info
+         c9cdca7 fix json
       01/02/2019 10:27  4.6.0  initial release
          e6c2439 Improve Make
          0f4a7b4 Rename Translator Methods
