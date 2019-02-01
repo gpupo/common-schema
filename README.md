@@ -1,17 +1,15 @@
-[![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/gpupo/common-sdk/blob/master/LICENSE)
-[![Build Status](https://secure.travis-ci.org/gpupo/common-schema.png?branch=master)](http://travis-ci.org/gpupo/common-schema)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gpupo/common-schema/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gpupo/common-schema/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/gpupo/common-schema/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/gpupo/common-schema/?branch=master)
-
 #common-schema
+
+[![Build Status](https://secure.travis-ci.org/gpupo/common-schema.png?branch=master)](http://travis-ci.org/gpupo/common-schema)
 
 ## Install
 
     composer require gpupo/common-schema
+    composer require gpupo/common-sdk
 
 ## Requisitos para uso
 
-* PHP >= *7.2*
+* PHP >= *7.3*
 * [Composer Dependency Manager](http://getcomposer.org)
 
 Este componente **não é uma aplicação Stand Alone** e seu objetivo é ser utilizado como biblioteca.
@@ -27,6 +25,8 @@ A documentação mais importante está nos testes unitários. Se você não cons
 <!-- license -->
 
 ## Direitos autorais e de licença
+
+This project is licensed under the terms of the MIT license.
 
 Este componente está sob a [licença MIT](https://github.com/gpupo/common-sdk/blob/master/LICENSE)
 

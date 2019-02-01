@@ -2,6 +2,25 @@
 VERSION 4  MAJOR VERSION 4
 ==========================
 
+   Version 4.6 - Dont require common-sdk
+      01/02/2019 10:27  4.6.0  initial release
+         e6c2439 Improve Make
+         0f4a7b4 Rename Translator Methods
+         7ae48d5 Improve Make file
+         ec457de Implement interfaces
+         62da045 Update make
+         d145564 remove factorySdk
+         750e582 Add Catalog
+         5f3327f Remove old code
+         ad893b8 Reuse Common App
+         0b24605 Apply cs fixer
+         b6707fe Add Product schema
+         db9585e Add ghpages
+         dd56f7f Add Product Entity
+         70fd8e4 Relax reqs
+         a35b78e Update libs
+         a1e6878 Add schema hint
+
    Version 4.5 - Independent namespaces
       22/01/2019 14:06  4.5.3  Add hints
          9a93008 Add phan config
