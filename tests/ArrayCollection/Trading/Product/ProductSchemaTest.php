@@ -40,7 +40,7 @@ class ProductSchemaTest extends AbstractTestCase
      */
     public function testGetSchema(ProductSchema $productSchema)
     {
-        $this->assertInternalType('array', $productSchema->getSchema());
+        $this->assertIsArray($productSchema->getSchema());
     }
 
     /**
