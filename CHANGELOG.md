@@ -3,6 +3,11 @@ VERSION 4  MAJOR VERSION 4
 ==========================
 
    Version 4.6 - Dont require common-sdk
+      05/02/2019 13:59  4.6.2  Update dot env
+         745f5f8 Apply CS
+         98aea07 Fix path
+         63733e9 Add mkdir to travis
+         bd050cf Update dot env
       01/02/2019 13:31  4.6.1  Fix common version
          d29fa26 Add info
          c9cdca7 fix json
