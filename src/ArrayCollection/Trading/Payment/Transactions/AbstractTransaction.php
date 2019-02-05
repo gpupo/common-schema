@@ -26,7 +26,7 @@ class AbstractTransaction extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+     public function getSchema(): array
     {
         return [
             'transaction_number' => 'integer',

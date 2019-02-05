@@ -3,6 +3,7 @@ VERSION 4  MAJOR VERSION 4
 ==========================
 
    Version 4.7 - Fix Raise path
+      05/02/2019 17:05  4.7.1  Fix ArrayCollections'
       05/02/2019 16:50  4.7.0  initial release
 
    Version 4.6 - Dont require common-sdk

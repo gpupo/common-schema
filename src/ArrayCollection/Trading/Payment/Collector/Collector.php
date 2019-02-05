@@ -26,7 +26,7 @@ class Collector extends AbstractEntity
     /**
      * @codeCoverageIgnore
      */
-    public function getSchema()
+     public function getSchema(): array
     {
         return [
             'identifier' => 'integer',

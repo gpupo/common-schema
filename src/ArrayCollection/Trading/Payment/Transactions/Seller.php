@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
 
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Seller as MainSeller;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shipping\Seller as MainSeller;
 
 class Seller extends MainSeller
 {
