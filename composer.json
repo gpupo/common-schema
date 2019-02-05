@@ -33,8 +33,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.3",
-        "gpupo/common-sdk": "dev-master"
+        "php": ">=7.3"
     },
     "suggest": {
         "gpupo/common-sdk": "Allows use this pachage outside of one gpupo/*sdk"
