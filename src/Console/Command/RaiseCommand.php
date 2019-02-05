@@ -32,7 +32,7 @@ class RaiseCommand extends Core
     public function getDefaultOptions()
     {
         return [
-            'rootPath' => false,
+            'rootPath' => '.',
             'libPath' => false,
             'namespace' => getenv('CS_RAISE_NAMESPACE'),
             'path' => getenv('CS_RAISE_PATH'),

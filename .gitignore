@@ -6,3 +6,4 @@ composer.lock
 var
 build/*
 /.phan
+/.env*.local
