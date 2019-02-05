@@ -27,7 +27,7 @@ class DoctrineTypesNormalizer
         'datetime' => 'DateTime',
         'datetimetz' => 'DateTime',
         'bigint' => 'BigInt',
-      ] as $type => $class) {
+        ] as $type => $class) {
             self::overrideType($type, $class);
         }
     }

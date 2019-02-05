@@ -37,14 +37,14 @@ class ClientRepository extends \Gpupo\CommonSchema\ORM\EntityRepository\Abstract
             ->andWhere('u.enabled=1')
             ->leftJoin(AccessToken::class, 'token', Join::WITH, $queryBuilder->expr()->eq('token.client', 'u'))
             ->innerJoin(
-            Provider::class,
-            'provider',
-            Join::WITH,
-            $queryBuilder->expr()->andX(
-                $queryBuilder->expr()->eq('provider.name', ':providerName'),
-                $queryBuilder->expr()->eq('provider', 'u.provider')
-            )
-        );
+                Provider::class,
+                'provider',
+                Join::WITH,
+                $queryBuilder->expr()->andX(
+                    $queryBuilder->expr()->eq('provider.name', ':providerName'),
+                    $queryBuilder->expr()->eq('provider', 'u.provider')
+                )
+            );
 
         return $queryBuilder;
     }

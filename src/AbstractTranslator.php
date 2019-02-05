@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema;
 
 use Gpupo\Common\Entity\CollectionAbstract;
-use  Gpupo\CommonSchema\Converters\ConverterContainerTrait;
+use Gpupo\CommonSchema\Converters\ConverterContainerTrait;
 
 abstract class AbstractTranslator extends CollectionAbstract
 {

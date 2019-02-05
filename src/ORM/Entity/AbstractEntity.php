@@ -21,8 +21,8 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gpupo\Common\Entity\AbstractORMEntity as Core;
-use Gpupo\CommonSchema\ORM\EntityDecorator\CollectionContainerTrait;
 use Gpupo\Common\Traits\PreviousAwareTrait;
+use Gpupo\CommonSchema\ORM\EntityDecorator\CollectionContainerTrait;
 
 /**
  * @ORM\MappedSuperclass
@@ -174,7 +174,7 @@ abstract class AbstractEntity extends Core implements EntityInterface
      * Set created_by.
      *
      * @param string
-     * @param mixed $string
+     * @param mixed  $string
      */
     public function setCreatedBy($string)
     {
@@ -185,7 +185,7 @@ abstract class AbstractEntity extends Core implements EntityInterface
      * Set updated_by.
      *
      * @param string
-     * @param mixed $string
+     * @param mixed  $string
      */
     public function setUpdatedBy($string)
     {
@@ -262,8 +262,6 @@ abstract class AbstractEntity extends Core implements EntityInterface
     public function getSchema(): array
     {
         return [
-
         ];
     }
-
 }
