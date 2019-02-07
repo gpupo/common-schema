@@ -16,11 +16,14 @@ before_script:
   - composer self-update
   - composer require gpupo/common-sdk:dev-master
   - composer info
-  - rm -f .env.local
   - mkdir -p build
-  - vendor/bin/doctrine orm:schema-tool:update --force
-  - bin/common-schema raise:build -vv
+  - APP_ENV=test vendor/bin/doctrine orm:schema-tool:update --force
+  - APP_ENV=test bin/common-schema raise:build -vv
+  - composer dumpautoload
 
 script: vendor/bin/phpunit
 notifications:
   email: false
+branches:
+  only:
+  - master
