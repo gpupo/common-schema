@@ -117,7 +117,7 @@ class RaiseSubclassesCommand extends Core
     {
         $command = './'.$this->getOptions()->get('libPath').'bin/build.sh '.$this->getDestPath().' '.$this->getOptions()->get('namespace');
         $output->writeln(sprintf('Excecuting [%s]', $command));
-        shell_exec($command)
+        shell_exec($command);
     }
 
     protected function getDestPath()
