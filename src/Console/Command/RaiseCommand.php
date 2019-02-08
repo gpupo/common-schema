@@ -47,17 +47,19 @@ class RaiseCommand extends Core
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln(sprintf('Check source file at <info>%sbuild</>', $this->getOptions()->get('libPath')));
-        $this->buildSuperclasses();
+        $this->buildSuperclasses($output);
 
         $output->writeln('Done');
     }
 
-    protected function buildSuperclasses(): void
+    protected function buildSuperclasses(OutputInterface $output): void
     {
-        shell_exec($this->getOptions()->get('libPath').'bin/build.sh '.$this->getDestPath().' '.$this->getOptions()->get('namespace'));
+        $command = $this->getOptions()->get('libPath').'bin/build.sh '.$this->getDestPath().' '.$this->getOptions()->get('namespace');
+        $output->writeln(sprintf('Excecuting [%s]', $command));
+        shell_exec($command);
     }
 
-    protected function getDestPath()
+    protected function getDestPath(): string
     {
         return $this->getOptions()->get('rootPath').'/'.$this->getOptions()->get('path');
     }
