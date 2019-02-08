@@ -15,4 +15,4 @@ export -f build_replace
 
 find build/ -type f -print0 | xargs -0  -I {} bash -c "build_replace {}"
 
-rsync -av --ignore-existing --exclude-from './bin/update-exclude.txt' build/ $DESTPATH/;
+rsync -av --ignore-existing --exclude-from './bin/update-exclude.txt' build/ ./$DESTPATH/;
