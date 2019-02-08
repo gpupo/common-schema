@@ -15,14 +15,17 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\EntityDecorator;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Payments;
 
-trait CollectionContainerTrait
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment;
+
+class Collection extends AbstractCollection
 {
-    public function getDecorator($key): ?CollectionDecoratorInterface
-    {
-        $getter = sprintf('get%s', ucfirst($key));
+    protected $type = 'oneToMany';
 
-        return FactoryDecorator::createCollectionDecorator(\get_called_class(), $this, $getter, $key);
+    public function factoryElement($data)
+    {
+        return new Payment($data);
     }
 }

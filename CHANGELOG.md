@@ -2,7 +2,19 @@
 VERSION 4  MAJOR VERSION 4
 ==========================
 
+   Version 4.7 - Fix Raise path
+      08/02/2019 10:07  4.7.3  Dot env
+      05/02/2019 17:05  4.7.1  Fix ArrayCollections'
+      05/02/2019 16:50  4.7.0  initial release
+
    Version 4.6 - Dont require common-sdk
+      05/02/2019 15:18  4.6.3  Fix tests
+         3dca730 Add dotenv test
+      05/02/2019 13:59  4.6.2  Update dot env
+         745f5f8 Apply CS
+         98aea07 Fix path
+         63733e9 Add mkdir to travis
+         bd050cf Update dot env
       01/02/2019 13:31  4.6.1  Fix common version
          d29fa26 Add info
          c9cdca7 fix json

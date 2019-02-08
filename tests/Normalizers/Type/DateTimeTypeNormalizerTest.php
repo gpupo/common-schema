@@ -30,14 +30,14 @@ class DateTimeTypeNormalizerTest extends AbstractTestCase
     private $platform;
     private $typeNormalizer;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         if (class_exists('Doctrine\\DBAL\\Types\\Type')) {
             Type::addType('currentTestType', DateTimeTypeNormalizer::class);
         }
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->platform = $this->getPlatformMock();
         $this->typeNormalizer = Type::getType('currentTestType');

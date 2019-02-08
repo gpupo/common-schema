@@ -89,10 +89,10 @@ class RaiseSubclassesCommand extends Core
             $array = ['skip', 'skip-all', 'replace', 'replace-all'];
             $helper = $this->getHelper('question');
             $question = new ChoiceQuestion(
-               'Replace file? (defaults to skip)',
-               $array,
-               0
-           );
+                'Replace file? (defaults to skip)',
+                $array,
+                0
+            );
             $question->setErrorMessage('Options %s is invalid.');
 
             $choice = $this->getOptions()->get('choice') ?? $helper->ask($input, $output, $question);

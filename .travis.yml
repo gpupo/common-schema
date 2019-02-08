@@ -6,20 +6,20 @@ services:
   - mysql
 php:
   - 7.3
-matrix:
-  fast_finish: true
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS app;'
   - mysql -u root -e "CREATE USER 'app_db_user'@'localhost' IDENTIFIED BY 'app8as3';"
   - mysql -u root -e "GRANT ALL ON app.* TO 'app_db_user'@'localhost';"
 before_script:
-  - composer self-update
-  - composer require gpupo/common-sdk:dev-master
-  - composer info
-  - rm -f .env.local
-  - vendor/bin/doctrine orm:schema-tool:update --force
-  - bin/common-schema raise:build -vv
+  - make install
+  - mkdir -p build
+  - APP_ENV=test vendor/bin/doctrine orm:schema-tool:update --force
+  - APP_ENV=test bin/common-schema raise:build -vv
+  - composer dumpautoload
 
 script: vendor/bin/phpunit
 notifications:
   email: false
+branches:
+  only:
+  - master

@@ -15,14 +15,21 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\EntityDecorator;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Collector;
 
-trait CollectionContainerTrait
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
+
+class Collector extends AbstractEntity
 {
-    public function getDecorator($key): ?CollectionDecoratorInterface
-    {
-        $getter = sprintf('get%s', ucfirst($key));
+    protected $tableName = 'trading_payment_collector';
 
-        return FactoryDecorator::createCollectionDecorator(\get_called_class(), $this, $getter, $key);
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getSchema(): array
+    {
+        return [
+            'identifier' => 'integer',
+        ];
     }
 }

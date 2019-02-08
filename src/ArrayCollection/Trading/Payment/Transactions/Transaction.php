@@ -15,14 +15,9 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ORM\EntityDecorator;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
 
-trait CollectionContainerTrait
+final class Transaction extends AbstractTransaction
 {
-    public function getDecorator($key): ?CollectionDecoratorInterface
-    {
-        $getter = sprintf('get%s', ucfirst($key));
-
-        return FactoryDecorator::createCollectionDecorator(\get_called_class(), $this, $getter, $key);
-    }
+    protected $tableName = 'trading_payment_transactions';
 }
