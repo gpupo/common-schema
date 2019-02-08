@@ -61,9 +61,11 @@ Preparando o banco de dados
     docker-compose up -d  mariadb;
     vendor/bin/doctrine orm:schema-tool:update --force
 
-Rodando os testes
+Rodando os testes localmente
 
-    vendor/bin/phpunit;
+	APP_ENV=test bin/common-schema raise:build -vv
+	source .env.test.local && make phpunit
+
 
 
 Rebuild database
