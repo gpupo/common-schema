@@ -51,7 +51,8 @@ class RaiseSubclassesCommand extends Core
     {
         $fileSystem = new Filesystem();
 
-        $this->buildSuperclasses();
+        $this->buildSuperclasses($output);
+        $output->writeln(sprintf('Check subclasses at <info>%s/build</>', $this->getOptions()->get('libPath')));
 
         $list = $this->find($this->getOptions()->get('libPath').'/build');
         $output->writeln(sprintf('Files to generate: <info>%d</>', \count($list)));
@@ -112,9 +113,11 @@ class RaiseSubclassesCommand extends Core
         $output->writeln(sprintf($string, $target['path'], 'blue', 'saved'));
     }
 
-    protected function buildSuperclasses(): void
+    protected function buildSuperclasses(OutputInterface $output): void
     {
-        shell_exec($this->getOptions()->get('libPath').'/bin/build.sh '.$this->getDestPath().' '.$this->getOptions()->get('namespace'));
+        $command = './'.$this->getOptions()->get('libPath').'bin/build.sh '.$this->getDestPath().' '.$this->getOptions()->get('namespace');
+        $output->writeln(sprintf('Excecuting [%s]', $command));
+        shell_exec($command)
     }
 
     protected function getDestPath()
