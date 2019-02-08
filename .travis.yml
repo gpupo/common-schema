@@ -14,10 +14,9 @@ before_script:
   - make install
   - mkdir -p build
   - rm -vf .env*local
+  - APP_ENV=test bin/common-schema setup:checklist
   - APP_ENV=test vendor/bin/doctrine orm:schema-tool:update --force
   - APP_ENV=test bin/common-schema raise:build -vv
-  - ls -R build/
-  - composer dumpautoload
 
 script: vendor/bin/phpunit
 notifications:

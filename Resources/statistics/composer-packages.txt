@@ -15,7 +15,7 @@ doctrine/persistence               v1.1.0  The Doctrine Persistence project is a
 doctrine/reflection                v1.0.0  Doctrine Reflection component
 felixfbecker/advanced-json-rpc     v3.0.3  A more advanced JSONRPC implementation
 gedmo/doctrine-extensions          v2.4.36 Doctrine2 behavioral extensions
-gpupo/common                       4.8.0   Common Objects
+gpupo/common                       4.8.1   Common Objects
 gpupo/common-sdk                   4.9.2   Componente de uso comum entre SDKs para integração a partir de aplicações PHP com Restful webservices
 microsoft/tolerant-php-parser      v0.0.16 Tolerant PHP-to-AST parser designed for IDE usage scenarios
 monolog/monolog                    1.24.0  Sends your logs to files, sockets, inboxes, databases and various web services
@@ -55,10 +55,10 @@ sebastian/version                  2.0.1   Library that helps with managing the 
 symfony/cache                      v4.2.3  Symfony Cache component with PSR-6, PSR-16, and tags
 symfony/console                    v4.2.3  Symfony Console Component
 symfony/contracts                  v1.0.2  A set of abstractions extracted out of the Symfony components
-symfony/dotenv                     v4.2.2  Registers environment variables from a .env file
+symfony/dotenv                     v4.2.3  Registers environment variables from a .env file
 symfony/filesystem                 v4.2.3  Symfony Filesystem Component
 symfony/finder                     v4.2.3  Symfony Finder Component
-symfony/lock                       v4.2.2  Symfony Lock Component
+symfony/lock                       v4.2.3  Symfony Lock Component
 symfony/polyfill-ctype             v1.10.0 Symfony polyfill for ctype functions
 symfony/polyfill-mbstring          v1.10.0 Symfony polyfill for the Mbstring extension
 symfony/polyfill-php72             v1.10.0 Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions

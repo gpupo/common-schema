@@ -54,7 +54,7 @@ class RaiseCommand extends Core
 
     protected function buildSuperclasses(OutputInterface $output): void
     {
-        $command = $this->getOptions()->get('libPath').'bin/build.sh '.$this->getDestPath().' '.$this->getOptions()->get('namespace');
+        $command = './'.$this->getOptions()->get('libPath').'bin/build.sh '.$this->getDestPath().' '.$this->getOptions()->get('namespace');
         $output->writeln(sprintf('Excecuting [%s]', $command));
         shell_exec($command);
     }

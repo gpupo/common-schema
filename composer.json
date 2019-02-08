@@ -34,7 +34,8 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.3",
-        "gpupo/common-sdk": "^4.6"
+        "gpupo/common": "^4.8.1|dev-master",
+        "gpupo/common-sdk": "^4.6|dev-master"
     },
     "replace": {
         "gpupo/common-schema": "5.0-dev"
