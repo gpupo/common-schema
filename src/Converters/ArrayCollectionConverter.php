@@ -91,7 +91,10 @@ class ArrayCollectionConverter
         $explode = explode('\\', \get_class($owner));
         $sufix = StringTool::snakeCaseToCamelCase(end($explode), true);
         $setter = sprintf('set%s', $sufix);
-        $object->{$setter}($owner);
+        
+        if (method_exists($object, $setter)) {
+            $object->{$setter}($owner);
+        }
 
         return $object;
     }
