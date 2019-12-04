@@ -5,7 +5,7 @@ os:
 services:
   - mysql
 php:
-  - 7.3
+  - 7.4
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS app;'
   - mysql -u root -e "CREATE USER 'app_db_user'@'localhost' IDENTIFIED BY 'app8as3';"
