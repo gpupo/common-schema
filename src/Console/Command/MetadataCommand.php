@@ -50,5 +50,7 @@ class MetadataCommand extends Core
             $output->writeln(sprintf('<error>%s</>', $exception->getMessage()));
         }
         $generator->debug();
+
+        return 0;
     }
 }

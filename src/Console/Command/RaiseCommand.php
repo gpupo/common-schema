@@ -50,6 +50,8 @@ class RaiseCommand extends Core
         $this->buildSuperclasses($output);
 
         $output->writeln('Done');
+
+        return 0;
     }
 
     protected function buildSuperclasses(OutputInterface $output): void

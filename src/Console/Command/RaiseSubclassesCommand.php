@@ -76,6 +76,8 @@ class RaiseSubclassesCommand extends Core
         }
 
         $output->writeln('Done');
+
+        return 0;
     }
 
     protected function save(InputInterface $input, OutputInterface $output, array $target, Filesystem $fileSystem)
