@@ -66,7 +66,7 @@ abstract class AbstractTestCase extends TestCase
         $em = $this->getDoctrineEntityManager();
         $repository = $em->getRepository(\get_class($entity));
         $exist = $repository->exists($entity);
-        $this->getMonologer()->addDebug('Persist if not exixt', [
+        $this->getMonologer()->debug('Persist if not exixt', [
             'class' => \get_class($entity),
             'repository' => \get_class($repository),
             'exist' => $exist,
