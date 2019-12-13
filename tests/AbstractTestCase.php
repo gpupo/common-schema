@@ -21,6 +21,7 @@ use Gpupo\Common\Tools\Reflected;
 use Gpupo\CommonSchema\ORM\Entity\EntityInterface;
 use Gpupo\CommonSdk\Traits\ResourcesTrait;
 use PHPUnit\Framework\TestCase;
+use Psr\Log\LoggerInterface;
 
 abstract class AbstractTestCase extends TestCase
 {
@@ -55,7 +56,7 @@ abstract class AbstractTestCase extends TestCase
         return Bootstrap::factoryDoctrineEntityManager();
     }
 
-    protected function getMonologer()
+    protected function getMonologer(): LoggerInterface
     {
         return Bootstrap::factoryMonologer();
     }

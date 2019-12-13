@@ -24,10 +24,11 @@ use Doctrine\ORM\Tools\Setup;
 use Gpupo\CommonSchema\Normalizers\DoctrineTypesNormalizer;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use Psr\Log\LoggerInterface;
 
 class Bootstrap
 {
-    public static function factoryMonologer()
+    public static function factoryMonologer(): LoggerInterface
     {
         $logger = new Logger('tests');
         $logger->pushHandler(new StreamHandler('var/log/tests', Logger::DEBUG));
