@@ -29,12 +29,15 @@
     "config": {
         "preferred-install": "dist"
     },
+    "scripts": {
+        "test": "phpunit"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=7.4",
         "gpupo/common": "^5.0|dev-master",
-        "gpupo/common-sdk": "^5.0.2|dev-master"
+        "gpupo/common-sdk": "*"
     },
     "replace": {
         "gpupo/common-schema": "6.0-dev"
@@ -45,6 +48,5 @@
         }
     },
     "suggest": {
-        "gpupo/common-sdk": "Allows use this pachage outside of one gpupo/*sdk"
     }
 }

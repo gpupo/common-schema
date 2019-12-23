@@ -18,7 +18,7 @@ before_script:
   - APP_ENV=test vendor/bin/doctrine orm:schema-tool:update --force
   - APP_ENV=test bin/common-schema raise:build -vv
 
-script: vendor/bin/phpunit
+script: composer run-script test
 notifications:
   email: false
 branches:
