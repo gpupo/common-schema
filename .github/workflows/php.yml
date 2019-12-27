@@ -51,9 +51,9 @@ jobs:
           done
 
       - name: Mysql Setup
-        run: mysql -u root -pmas7er -e 'CREATE DATABASE IF NOT EXISTS app' && \
-          mysql -u root -pmas7er -e "CREATE USER 'app_db_user'@'localhost' IDENTIFIED BY 'app8as3'" && \
-          mysql -u root -pmas7er -e "GRANT ALL ON app.* TO 'app_db_user'@'localhost';"
+        run: mysql -u root -e "CREATE DATABASE IF NOT EXISTS app;
+          CREATE USER 'app_db_user'@'localhost' IDENTIFIED BY 'app8as3';
+          GRANT ALL ON app.* TO 'app_db_user'@'localhost';"
 
       - name: Install
         run: make install
