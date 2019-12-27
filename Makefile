@@ -19,7 +19,7 @@ endif
 
 ## Install vendores
 install:
-	composer install --prefer-dist --ignore-platform-reqs --no-scripts
+	composer install --prefer-dist --ignore-platform-reqs --no-scripts --no-progress
 
 ## Include custom Targets:
 # include bin/make-file/functions/*.mk
