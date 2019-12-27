@@ -29,7 +29,7 @@ jobs:
           MYSQL_USER: app_db_user
           MYSQL_PASSWORD: app8as3
           MYSQL_DATABASE: app
-          # MYSQL_ROOT_PASSWORD: mas7er
+          MYSQL_ROOT_PASSWORD: mas7er
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     strategy:
       fail-fast: false
@@ -50,28 +50,5 @@ jobs:
             sleep 1
           done
 
-      - name: Mysql Setup
-        run: mysql -u root -e "CREATE DATABASE IF NOT EXISTS app;
-          CREATE USER 'app_db_user'@'localhost' IDENTIFIED BY 'app8as3';
-          GRANT ALL ON app.* TO 'app_db_user'@'localhost';"
-
       - name: Install
         run: make install
-
-      - name: Setup
-        run: mkdir -p build && rm -vf .env*local && APP_ENV=test bin/common-schema setup:checklist
-
-      - name: Schema
-        run: APP_ENV=test vendor/bin/doctrine orm:schema-tool:update --force
-
-      - name: Build
-        run: APP_ENV=test bin/common-schema raise:build -vv
-
-      - name: Validate composer.json and composer.lock
-        run: composer validate
-
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest --no-scripts --ignore-platform-reqs
-
-      - name: Run test suite
-        run: composer run-script test
