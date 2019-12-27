@@ -29,7 +29,7 @@ jobs:
           MYSQL_USER: app_db_user
           MYSQL_PASSWORD: app8as3
           MYSQL_DATABASE: app
-          MYSQL_ROOT_PASSWORD: mas7er
+          # MYSQL_ROOT_PASSWORD: mas7er
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     strategy:
       fail-fast: false
