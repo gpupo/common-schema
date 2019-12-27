@@ -50,8 +50,22 @@ jobs:
             sleep 1
           done
 
+      - name: Mysql Setup
+        run: mysql -e 'CREATE DATABASE IF NOT EXISTS app' && \
+          mysql -u root -e "CREATE USER 'app_db_user'@'localhost' IDENTIFIED BY 'app8as3'" && | \
+          mysql -u root -e "GRANT ALL ON app.* TO 'app_db_user'@'localhost';"
+
+      - name: Install
+        run: make install
+
       - name: Setup
-        run: make install && mkdir -p build && rm -vf .env*local && APP_ENV=test bin/common-schema setup:checklist && APP_ENV=test vendor/bin/doctrine orm:schema-tool:update --force && APP_ENV=test bin/common-schema raise:build -vv
+        run: mkdir -p build && rm -vf .env*local && APP_ENV=test bin/common-schema setup:checklist
+
+      - name: Schema
+        run: APP_ENV=test vendor/bin/doctrine orm:schema-tool:update --force
+
+      - name: Build
+        run: APP_ENV=test bin/common-schema raise:build -vv
 
       - name: Validate composer.json and composer.lock
         run: composer validate
