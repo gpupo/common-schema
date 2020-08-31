@@ -26,7 +26,7 @@ class DateTimeTypeNormalizer extends DateTimeType
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         $normalizer = new Normalizer();
-        if ($value instanceof \DateTime) {
+        if ($value instanceof \DateTimeInterface) {
             // If need conversion to UTC
             // $value = $normalizer->normalizeTimeZone($value);
         } elseif (!empty($value)) {
