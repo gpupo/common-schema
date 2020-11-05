@@ -35,7 +35,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.4",
+        "php": ">=7.4 || ^8.0",
         "gpupo/common": "^5.0",
         "gpupo/common-sdk": "*"
     },
