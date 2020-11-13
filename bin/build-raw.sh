@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 mkdir -p var/doctrine;
 rm -rf var/doctrine/* src/ORM/Entity/*/* Resources/metadata/* > /dev/null;
 ./bin/common-schema metadata:build;

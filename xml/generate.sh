@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Generate Schema Documents, with pipe2 (see https://github.com/gpupo/pipe2)
 ##
 

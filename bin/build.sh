@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 cd "$(dirname "$0")/..";
 DESTPATH="${1:-var/src}";
 NAMESPACE="${2:-App}";
