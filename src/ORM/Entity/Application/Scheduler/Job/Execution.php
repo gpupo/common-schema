@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Execution.
  *
- * @ORM\Table(name="cs_application_scheduler_job_execution")
+ * @ORM\Table(schema="public", name="cs_application_scheduler_job_execution")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Application\Scheduler\Job\ExecutionRepository")
  */
 class Execution extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -68,16 +68,6 @@ class Execution extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * @ORM\Column(name="status", type="bigint", nullable=true)
      */
     protected $status;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set errors.

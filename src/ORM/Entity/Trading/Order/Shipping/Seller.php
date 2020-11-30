@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Seller.
  *
- * @ORM\Table(name="cs_trading_order_shipping_seller")
+ * @ORM\Table(schema="public", name="cs_trading_order_shipping_seller")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\SellerRepository")
  */
 class Seller extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -101,16 +101,6 @@ class Seller extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $shipping;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set email.

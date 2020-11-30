@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Customer.
  *
- * @ORM\Table(name="cs_trading_order_customer")
+ * @ORM\Table(schema="public", name="cs_trading_order_customer")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Customer\CustomerRepository")
  */
 class Customer extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -115,16 +115,6 @@ class Customer extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $order;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set email.

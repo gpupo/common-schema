@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Trading.
  *
- * @ORM\Table(name="cs_trading")
+ * @ORM\Table(schema="public", name="cs_trading")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\TradingRepository")
  */
 class Trading extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -47,16 +47,6 @@ class Trading extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     public function __construct()
     {
         $this->payments = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

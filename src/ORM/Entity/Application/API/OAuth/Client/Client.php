@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Client.
  *
- * @ORM\Table(name="cs_application_API_OAuth_client", uniqueConstraints={@ORM\UniqueConstraint(name="client_id_internal_id_idx", columns={"client_id", "internal_id"})})
+ * @ORM\Table(schema="public", name="cs_application_API_OAuth_client", uniqueConstraints={@ORM\UniqueConstraint(name="client_id_internal_id_idx", columns={"client_id", "internal_id"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Application\API\OAuth\Client\ClientRepository")
  */
 class Client extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -85,16 +85,6 @@ class Client extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $provider;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set clientId.

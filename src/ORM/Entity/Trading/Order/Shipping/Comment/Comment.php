@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Comment.
  *
- * @ORM\Table(name="cs_trading_order_shipping_comment")
+ * @ORM\Table(schema="public", name="cs_trading_order_shipping_comment")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Comment\CommentRepository")
  */
 class Comment extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -43,16 +43,6 @@ class Comment extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $shipping;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set key.

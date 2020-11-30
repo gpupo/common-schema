@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Order.
  *
- * @ORM\Table(name="cs_trading_order")
+ * @ORM\Table(schema="public", name="cs_trading_order")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\OrderRepository")
  */
 class Order extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -205,16 +205,6 @@ class Order extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     {
         $this->shippings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

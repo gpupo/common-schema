@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Record.
  *
- * @ORM\Table(name="cs_banking_report_record", uniqueConstraints={@ORM\UniqueConstraint(name="source_id_record_type_description_gross_amount_idx", columns={"source_id", "record_type", "description", "gross_amount"})})
+ * @ORM\Table(schema="public", name="cs_banking_report_record", uniqueConstraints={@ORM\UniqueConstraint(name="source_id_record_type_description_gross_amount_idx", columns={"source_id", "record_type", "description", "gross_amount"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Banking\Report\RecordRepository")
  */
 class Record extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -155,16 +155,6 @@ class Record extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $report;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set couponAmount.

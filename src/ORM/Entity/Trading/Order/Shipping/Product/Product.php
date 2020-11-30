@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Product.
  *
- * @ORM\Table(name="cs_trading_order_shipping_product")
+ * @ORM\Table(schema="public", name="cs_trading_order_shipping_product")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Product\ProductRepository")
  */
 class Product extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -85,16 +85,6 @@ class Product extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $shipping;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set gtin.

@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Feedback.
  *
- * @ORM\Table(name="cs_trading_order_feedback")
+ * @ORM\Table(schema="public", name="cs_trading_order_feedback")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Feedback\FeedbackRepository")
  */
 class Feedback extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -57,16 +57,6 @@ class Feedback extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $order;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set message.

@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Document.
  *
- * @ORM\Table(name="cs_people_document")
+ * @ORM\Table(schema="public", name="cs_people_document")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\People\DocumentRepository")
  */
 class Document extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -40,16 +40,6 @@ class Document extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * @ORM\Column(name="status", type="string", nullable=true, unique=false)
      */
     protected $status;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set docNumber.

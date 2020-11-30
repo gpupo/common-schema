@@ -94,6 +94,16 @@ abstract class AbstractEntity extends Core implements EntityInterface
     }
 
     /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Returns created_at.
      *
      * @return DateTime

@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Product.
  *
- * @ORM\Table(name="cs_trading_product")
+ * @ORM\Table(schema="public", name="cs_trading_product")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Catalog\Product\ProductRepository")
  */
 class Product extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -61,16 +61,6 @@ class Product extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * @ORM\Column(name="variation_attributes", type="array", nullable=true)
      */
     protected $variation_attributes;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set gtin.

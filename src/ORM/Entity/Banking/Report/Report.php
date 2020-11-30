@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Report.
  *
- * @ORM\Table(name="cs_banking_report", uniqueConstraints={@ORM\UniqueConstraint(name="institution_file_name_idx", columns={"institution", "file_name"})})
+ * @ORM\Table(schema="public", name="cs_banking_report", uniqueConstraints={@ORM\UniqueConstraint(name="institution_file_name_idx", columns={"institution", "file_name"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Banking\Report\ReportRepository")
  */
 class Report extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -110,16 +110,6 @@ class Report extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     public function __construct()
     {
         $this->records = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

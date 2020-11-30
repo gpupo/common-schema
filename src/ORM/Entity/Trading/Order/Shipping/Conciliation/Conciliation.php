@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Conciliation.
  *
- * @ORM\Table(name="cs_trading_order_shipping_conciliation")
+ * @ORM\Table(schema="public", name="cs_trading_order_shipping_conciliation")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Conciliation\ConciliationRepository")
  */
 class Conciliation extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -71,16 +71,6 @@ class Conciliation extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $shipping;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set amount.

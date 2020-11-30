@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Movement.
  *
- * @ORM\Table(name="cs_banking_movement")
+ * @ORM\Table(schema="public", name="cs_banking_movement")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Banking\Movement\MovementRepository")
  */
 class Movement extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -124,16 +124,6 @@ class Movement extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * @ORM\Column(name="type", type="string", nullable=true, unique=false)
      */
     protected $type;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set amount.

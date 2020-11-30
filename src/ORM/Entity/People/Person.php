@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Person.
  *
- * @ORM\Table(name="cs_people")
+ * @ORM\Table(schema="public", name="cs_people")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\People\PersonRepository")
  */
 class Person extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -91,16 +91,6 @@ class Person extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $document;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set email.

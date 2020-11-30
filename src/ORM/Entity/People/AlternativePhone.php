@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AlternativePhone.
  *
- * @ORM\Table(name="cs_people_alternative_phone")
+ * @ORM\Table(schema="public", name="cs_people_alternative_phone")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\People\AlternativePhoneRepository")
  */
 class AlternativePhone extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -54,16 +54,6 @@ class AlternativePhone extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * @ORM\Column(name="verified", type="boolean", nullable=true)
      */
     protected $verified;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set areaCode.

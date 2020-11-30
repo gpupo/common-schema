@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AccessToken.
  *
- * @ORM\Table(name="cs_application_API_OAuth_client_access_token")
+ * @ORM\Table(schema="public", name="cs_application_API_OAuth_client_access_token")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Application\API\OAuth\Client\AccessTokenRepository")
  */
 class AccessToken extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -78,16 +78,6 @@ class AccessToken extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $client;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set accessToken.

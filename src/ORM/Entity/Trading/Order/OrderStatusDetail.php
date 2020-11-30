@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OrderStatusDetail.
  *
- * @ORM\Table(name="cs_trading_order_status_detail")
+ * @ORM\Table(schema="public", name="cs_trading_order_status_detail")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\OrderStatusDetailRepository")
  */
 class OrderStatusDetail extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -43,16 +43,6 @@ class OrderStatusDetail extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $order;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set code.

@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Shipping.
  *
- * @ORM\Table(name="cs_trading_order_shipping", uniqueConstraints={@ORM\UniqueConstraint(name="shipping_number_idx", columns={"shipping_number"})})
+ * @ORM\Table(schema="public", name="cs_trading_order_shipping", uniqueConstraints={@ORM\UniqueConstraint(name="shipping_number_idx", columns={"shipping_number"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\ShippingRepository")
  */
 class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -224,16 +224,6 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
         $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
         $this->payments = new \Doctrine\Common\Collections\ArrayCollection();
         $this->conciliations = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

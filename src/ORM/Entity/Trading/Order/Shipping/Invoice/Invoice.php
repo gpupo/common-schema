@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Invoice.
  *
- * @ORM\Table(name="cs_trading_order_invoice", uniqueConstraints={@ORM\UniqueConstraint(name="invoice_number_idx", columns={"invoice_number"})})
+ * @ORM\Table(schema="public", name="cs_trading_order_invoice", uniqueConstraints={@ORM\UniqueConstraint(name="invoice_number_idx", columns={"invoice_number"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Invoice\InvoiceRepository")
  */
 class Invoice extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -106,16 +106,6 @@ class Invoice extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $shipping;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set accessKey.

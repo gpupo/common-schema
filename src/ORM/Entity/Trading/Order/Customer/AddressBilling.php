@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AddressBilling.
  *
- * @ORM\Table(name="cs_trading_order_customer_address_billing")
+ * @ORM\Table(schema="public", name="cs_trading_order_customer_address_billing")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Customer\AddressBillingRepository")
  */
 class AddressBilling extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -92,16 +92,6 @@ class AddressBilling extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $customer;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set city.

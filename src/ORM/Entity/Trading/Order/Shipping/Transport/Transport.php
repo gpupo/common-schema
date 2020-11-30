@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Transport.
  *
- * @ORM\Table(name="cs_trading_order_shipping_transport")
+ * @ORM\Table(schema="public", name="cs_trading_order_shipping_transport")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Transport\TransportRepository")
  */
 class Transport extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -85,16 +85,6 @@ class Transport extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * })
      */
     protected $shipping;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set carrier.

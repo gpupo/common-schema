@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Provider.
  *
- * @ORM\Table(name="cs_application_API_OAuth_provider")
+ * @ORM\Table(schema="public", name="cs_application_API_OAuth_provider")
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Application\API\OAuth\ProviderRepository")
  */
 class Provider extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -82,16 +82,6 @@ class Provider extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     public function __construct()
     {
         $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
