@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice:
   type: entity
+  schema: public
   table: cs_trading_order_invoice
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Invoice\InvoiceRepository
   id:

@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport:
   type: entity
+  schema: public
   table: cs_trading_order_shipping_transport
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Transport\TransportRepository
   id:

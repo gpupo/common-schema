@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider:
   type: entity
+  schema: public
   table: cs_application_API_OAuth_provider
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Application\API\OAuth\ProviderRepository
   id:

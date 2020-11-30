@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment:
   type: entity
+  schema: public
   table: cs_trading_order_shipping_payment
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Payment\PaymentRepository
   id:

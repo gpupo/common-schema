@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Application\Scheduler\Job\Execution:
   type: entity
+  schema: public
   table: cs_application_scheduler_job_execution
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Application\Scheduler\Job\ExecutionRepository
   id:

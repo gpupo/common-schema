@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\Client:
   type: entity
+  schema: public
   table: cs_application_API_OAuth_client
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Application\API\OAuth\Client\ClientRepository
   id:

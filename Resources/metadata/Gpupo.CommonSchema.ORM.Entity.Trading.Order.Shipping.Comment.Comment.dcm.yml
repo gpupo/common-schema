@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment:
   type: entity
+  schema: public
   table: cs_trading_order_shipping_comment
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Comment\CommentRepository
   id:

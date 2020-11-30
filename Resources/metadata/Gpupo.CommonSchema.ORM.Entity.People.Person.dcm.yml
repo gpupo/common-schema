@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\People\Person:
   type: entity
+  schema: public
   table: cs_people
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\People\PersonRepository
   id:

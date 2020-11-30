@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\AddressDelivery:
   type: entity
+  schema: public
   table: cs_trading_order_customer_address_delivery
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Customer\AddressDeliveryRepository
   id:

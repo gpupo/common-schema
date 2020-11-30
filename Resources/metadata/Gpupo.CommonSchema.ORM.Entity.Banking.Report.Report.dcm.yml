@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report:
   type: entity
+  schema: public
   table: cs_banking_report
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Banking\Report\ReportRepository
   id:

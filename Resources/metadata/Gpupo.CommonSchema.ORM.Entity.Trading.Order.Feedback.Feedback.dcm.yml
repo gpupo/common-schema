@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Feedback:
   type: entity
+  schema: public
   table: cs_trading_order_feedback
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Feedback\FeedbackRepository
   id:

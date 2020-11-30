@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\People\AlternativePhone:
   type: entity
+  schema: public
   table: cs_people_alternative_phone
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\People\AlternativePhoneRepository
   id:

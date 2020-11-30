@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation:
   type: entity
+  schema: public
   table: cs_trading_order_shipping_conciliation
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\Order\Shipping\Conciliation\ConciliationRepository
   id:

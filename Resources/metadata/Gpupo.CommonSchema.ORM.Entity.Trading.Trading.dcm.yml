@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Trading\Trading:
   type: entity
+  schema: public
   table: cs_trading
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Trading\TradingRepository
   id:

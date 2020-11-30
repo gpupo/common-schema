@@ -1,6 +1,7 @@
 # deleted_at metadata
 Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Movement:
   type: entity
+  schema: public
   table: cs_banking_movement
   repositoryClass: Gpupo\CommonSchema\ORM\EntityRepository\Banking\Movement\MovementRepository
   id:
