@@ -3,16 +3,9 @@
 declare(strict_types=1);
 
 /*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
+ * This file is part of gpupo/common-schema created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file LICENSE which is
+ * distributed with this source code. For more information, see <https://opensource.gpupo.com/>
  */
 
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping;
@@ -682,7 +675,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Shipping
      */
-    public function setSeller(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Seller $seller = null)
+    public function setSeller(Seller $seller = null)
     {
         $this->seller = $seller;
 
@@ -706,7 +699,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Shipping
      */
-    public function addProduct(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Product\Product $product)
+    public function addProduct(Product\Product $product)
     {
         $this->products[] = $product;
 
@@ -720,7 +713,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeProduct(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Product\Product $product)
+    public function removeProduct(Product\Product $product)
     {
         return $this->products->removeElement($product);
     }
@@ -742,7 +735,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Shipping
      */
-    public function addTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport $transport)
+    public function addTransport(Transport\Transport $transport)
     {
         $this->transports[] = $transport;
 
@@ -756,7 +749,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Transport\Transport $transport)
+    public function removeTransport(Transport\Transport $transport)
     {
         return $this->transports->removeElement($transport);
     }
@@ -778,7 +771,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Shipping
      */
-    public function addInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice $invoice)
+    public function addInvoice(Invoice\Invoice $invoice)
     {
         $this->invoices[] = $invoice;
 
@@ -792,7 +785,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Invoice\Invoice $invoice)
+    public function removeInvoice(Invoice\Invoice $invoice)
     {
         return $this->invoices->removeElement($invoice);
     }
@@ -814,7 +807,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Shipping
      */
-    public function addComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment $comment)
+    public function addComment(Comment\Comment $comment)
     {
         $this->comments[] = $comment;
 
@@ -828,7 +821,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Comment\Comment $comment)
+    public function removeComment(Comment\Comment $comment)
     {
         return $this->comments->removeElement($comment);
     }
@@ -850,7 +843,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Shipping
      */
-    public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback $feedback)
+    public function addFeedback(Feedback\Feedback $feedback)
     {
         $this->feedbacks[] = $feedback;
 
@@ -864,7 +857,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Feedback\Feedback $feedback)
+    public function removeFeedback(Feedback\Feedback $feedback)
     {
         return $this->feedbacks->removeElement($feedback);
     }
@@ -886,7 +879,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Shipping
      */
-    public function addPayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment $payment)
+    public function addPayment(Payment\Payment $payment)
     {
         $this->payments[] = $payment;
 
@@ -900,7 +893,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removePayment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Payment\Payment $payment)
+    public function removePayment(Payment\Payment $payment)
     {
         return $this->payments->removeElement($payment);
     }
@@ -922,7 +915,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Shipping
      */
-    public function addConciliation(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation $conciliation)
+    public function addConciliation(Conciliation\Conciliation $conciliation)
     {
         $this->conciliations[] = $conciliation;
 
@@ -936,7 +929,7 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeConciliation(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Conciliation\Conciliation $conciliation)
+    public function removeConciliation(Conciliation\Conciliation $conciliation)
     {
         return $this->conciliations->removeElement($conciliation);
     }
@@ -953,8 +946,6 @@ class Shipping extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 
     /**
      * Set order.
-     *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
      *
      * @return Shipping
      */

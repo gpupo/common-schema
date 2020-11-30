@@ -3,16 +3,9 @@
 declare(strict_types=1);
 
 /*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
+ * This file is part of gpupo/common-schema created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file LICENSE which is
+ * distributed with this source code. For more information, see <https://opensource.gpupo.com/>
  */
 
 namespace Gpupo\CommonSchema\ORM\EntityDecorator;
@@ -25,7 +18,7 @@ class FactoryDecorator
 {
     public static function createCollectionDecorator($class, $object, $getter, $key): ?CollectionDecoratorInterface
     {
-        $decoratorClassName = sprintf('\%s\%s', str_replace('Entity', 'EntityDecorator', substr($class, 0, strrpos($class, '\\'))), ucfirst($key));
+        $decoratorClassName = sprintf('\%s\%s', str_replace('Entity', 'EntityDecorator', mb_substr($class, 0, mb_strrpos($class, '\\'))), ucfirst($key));
         $decoratorClassName = str_replace('\\Proxies\\__CG__\\', '', $decoratorClassName); //Fix doctrine proxies
 
         try {

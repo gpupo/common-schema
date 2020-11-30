@@ -3,16 +3,9 @@
 declare(strict_types=1);
 
 /*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
+ * This file is part of gpupo/common-schema created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file LICENSE which is
+ * distributed with this source code. For more information, see <https://opensource.gpupo.com/>
  */
 
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping;
@@ -266,8 +259,6 @@ class Seller extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     /**
      * Set phone.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Organization\Phone $phone
-     *
      * @return Seller
      */
     public function setPhone(\Gpupo\CommonSchema\ORM\Entity\Organization\Phone $phone = null)
@@ -290,8 +281,6 @@ class Seller extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     /**
      * Set alternativePhone.
      *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone $alternativePhone
-     *
      * @return Seller
      */
     public function setAlternativePhone(\Gpupo\CommonSchema\ORM\Entity\Organization\AlternativePhone $alternativePhone = null)
@@ -313,8 +302,6 @@ class Seller extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 
     /**
      * Set document.
-     *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Organization\Document $document
      *
      * @return Seller
      */
@@ -342,7 +329,7 @@ class Seller extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Seller
      */
-    public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping = null)
+    public function setShipping(Shipping $shipping = null)
     {
         $this->shipping = $shipping;
 

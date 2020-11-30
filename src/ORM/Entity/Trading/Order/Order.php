@@ -3,16 +3,9 @@
 declare(strict_types=1);
 
 /*
- * This file is part of gpupo/common-schema
- * Created by Gilmar Pupo <contact@gpupo.com>
- * For the information of copyright and license you should read the file
- * LICENSE which is distributed with this source code.
- * Para a informação dos direitos autorais e de licença você deve ler o arquivo
- * LICENSE que é distribuído com este código-fonte.
- * Para obtener la información de los derechos de autor y la licencia debe leer
- * el archivo LICENSE que se distribuye con el código fuente.
- * For more information, see <https://opensource.gpupo.com/>.
- *
+ * This file is part of gpupo/common-schema created by Gilmar Pupo <contact@gpupo.com>
+ * For the information of copyright and license you should read the file LICENSE which is
+ * distributed with this source code. For more information, see <https://opensource.gpupo.com/>
  */
 
 namespace Gpupo\CommonSchema\ORM\Entity\Trading\Order;
@@ -711,7 +704,7 @@ class Order extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Order
      */
-    public function setOrderStatusDetail(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\OrderStatusDetail $orderStatusDetail = null)
+    public function setOrderStatusDetail(OrderStatusDetail $orderStatusDetail = null)
     {
         $this->order_status_detail = $orderStatusDetail;
 
@@ -735,7 +728,7 @@ class Order extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Order
      */
-    public function setCustomer(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Customer\Customer $customer = null)
+    public function setCustomer(Customer\Customer $customer = null)
     {
         $this->customer = $customer;
 
@@ -754,8 +747,6 @@ class Order extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
 
     /**
      * Set trading.
-     *
-     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Trading $trading
      *
      * @return Order
      */
@@ -783,7 +774,7 @@ class Order extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Order
      */
-    public function addShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping)
+    public function addShipping(Shipping\Shipping $shipping)
     {
         $this->shippings[] = $shipping;
 
@@ -797,7 +788,7 @@ class Order extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shipping\Shipping $shipping)
+    public function removeShipping(Shipping\Shipping $shipping)
     {
         return $this->shippings->removeElement($shipping);
     }
@@ -819,7 +810,7 @@ class Order extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return Order
      */
-    public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Feedback $feedback)
+    public function addFeedback(Feedback\Feedback $feedback)
     {
         $this->feedbacks[] = $feedback;
 
@@ -833,7 +824,7 @@ class Order extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Feedback\Feedback $feedback)
+    public function removeFeedback(Feedback\Feedback $feedback)
     {
         return $this->feedbacks->removeElement($feedback);
     }
