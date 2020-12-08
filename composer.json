@@ -35,9 +35,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        ="php": "^8.0",
-        "gpupo/common": "^5.0",
-        "gpupo/common-sdk": "*"
+        "php": "^8.0",
+        "gpupo/common": "^5.4",
+        "gpupo/common-sdk": "^6.2 || dev-master"
     },
     "replace": {
         "gpupo/common-schema": "6.0-dev"
