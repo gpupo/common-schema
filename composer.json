@@ -23,7 +23,7 @@
         }
     },
     "require-dev": {
-        "gpupo/common-dev": "*"
+        "gpupo/common-dev": "dev-master"
     },
     "bin": ["bin/common-schema"],
     "config": {
@@ -36,15 +36,16 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.0",
-        "gpupo/common": "^5.4",
-        "gpupo/common-sdk": "^6.3 || dev-master"
+        "gpupo/common": "^5.6 || dev-master",
+        "gpupo/common-sdk": "^6.3 || dev-master",
+        "gedmo/doctrine-extensions": "^3.0 || dev-master"
     },
     "replace": {
-        "gpupo/common-schema": "6.0-dev"
+        "gpupo/common-schema": "7.0-dev"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "6.0-dev"
+            "dev-master": "7.0-dev"
         }
     },
     "suggest": {

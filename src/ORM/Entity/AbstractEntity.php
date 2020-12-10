@@ -231,9 +231,21 @@ abstract class AbstractEntity extends Core implements EntityInterface
      *
      * @param null|array $expands
      */
-    public function setExpands($expands = null)
+    public function setExpands(array $expands = null)
     {
         $this->expands = $expands;
+
+        return $this;
+    }
+
+    /**
+     * Set expandb.
+     *
+     * @param null|array $expandb
+     */
+    public function setExpandb(array $array = null)
+    {
+        $this->expandb = $array;
 
         return $this;
     }
@@ -246,6 +258,16 @@ abstract class AbstractEntity extends Core implements EntityInterface
     public function getExpands()
     {
         return $this->expands;
+    }
+
+    /**
+     * Get Jsonb expands.
+     *
+     * @return null|array
+     */
+    public function getExpandb()
+    {
+        return $this->expandb;
     }
 
     public function addExpand($key, $value)
