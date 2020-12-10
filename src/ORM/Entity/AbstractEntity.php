@@ -20,7 +20,6 @@ use Gpupo\CommonSchema\ORM\EntityDecorator\CollectionContainerTrait;
 /**
  * @ORM\MappedSuperclass
  * @Gedmo\Loggable(logEntryClass="\Gpupo\CommonSchema\ORM\Entity\LogModel")
- * @Gedmo\SoftDeleteable(fieldName="deleted_at", timeAware=false)
  */
 abstract class AbstractEntity extends Core implements EntityInterface
 {
@@ -55,7 +54,6 @@ abstract class AbstractEntity extends Core implements EntityInterface
     /**
      * @var DateTime
      * @ORM\Column(type="datetime", nullable=true)
-     * @Gedmo\Versioned
      */
     protected $deleted_at;
 
@@ -65,6 +63,13 @@ abstract class AbstractEntity extends Core implements EntityInterface
      * @ORM\Column(name="expands", type="array", nullable=true)
      */
     protected $expands;
+
+    /**
+     * @var null|array
+     *
+     * @ORM\Column(type="json_array",nullable=true,options={"jsonb"=true})
+     */
+    protected $expandb;
 
     /**
      * @var string
