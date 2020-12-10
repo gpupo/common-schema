@@ -12,14 +12,12 @@ namespace Gpupo\CommonSchema\ORM\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Gpupo\Common\Entity\AbstractORMEntity as Core;
 use Gpupo\Common\Traits\PreviousAwareTrait;
 use Gpupo\CommonSchema\ORM\EntityDecorator\CollectionContainerTrait;
 
 /**
  * @ORM\MappedSuperclass
- * @Gedmo\Loggable(logEntryClass="\Gpupo\CommonSchema\ORM\Entity\LogModel")
  */
 abstract class AbstractEntity extends Core implements EntityInterface
 {
@@ -39,14 +37,12 @@ abstract class AbstractEntity extends Core implements EntityInterface
 
     /**
      * @var DateTime (Record creation timestamp)
-     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", nullable=true)
      */
     protected $created_at;
 
     /**
      * @var DateTime (Record update timestamp)
-     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     protected $updated_at;
@@ -74,7 +70,6 @@ abstract class AbstractEntity extends Core implements EntityInterface
     /**
      * @var string
      *
-     * @Gedmo\Blameable(on="create")
      * @ORM\Column(type="string", nullable=true)
      */
     protected $created_by;
@@ -82,7 +77,6 @@ abstract class AbstractEntity extends Core implements EntityInterface
     /**
      * @var string
      *
-     * @Gedmo\Blameable(on="update")
      * @ORM\Column(type="string", nullable=true)
      */
     protected $updated_by;
