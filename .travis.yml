@@ -15,7 +15,7 @@ before_install:
   - mysql -u root -e "CREATE USER 'app_db_user'@'localhost' IDENTIFIED BY 'app8as3';"
   - mysql -u root -e "GRANT ALL ON app.* TO 'app_db_user'@'localhost';"
 before_script:
-  - install@force
+  - make install@force
   - mkdir -p build
   - rm -vf .env*local
   - APP_ENV=test bin/common-schema setup:checklist
