@@ -6,6 +6,10 @@ services:
   - mysql
 php:
   - 8.0
+  - nightly
+jobs:
+  allow_failures:
+  - php: nightly
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS app;'
   - mysql -u root -e "CREATE USER 'app_db_user'@'localhost' IDENTIFIED BY 'app8as3';"
