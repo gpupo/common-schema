@@ -1,6 +1,6 @@
 #common-schema
 
-[![Build Status](https://secure.travis-ci.org/gpupo/common-schema.png?branch=master)](http://travis-ci.org/gpupo/common-schema)
+[![Build Status](https://secure.travis-ci.org/gpupo/common-schema.png?branch=main)](http://travis-ci.org/gpupo/common-schema)
 [![Actions Status](https://github.com/gpupo/common-schema/workflows/CI/badge.svg)](https://github.com/gpupo/common-schema/actions)
 
 ## Install

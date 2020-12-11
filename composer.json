@@ -48,6 +48,6 @@
         }
     },
     "suggest": {
-        "gedmo/doctrine-extensions": "^2.4 || ^3.0 || dev-master"
+        "gedmo/doctrine-extensions": "^2.4 || ^3.0 || dev-main"
     }
 }
