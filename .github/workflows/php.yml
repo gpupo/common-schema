@@ -2,46 +2,45 @@ name: CI
 on:
   pull_request:
     branches:
-      - master
       - develop
-      - verbose
-    paths-ignore:
-      - '**.md'
-      - 'examples/**'
-
+  push:
+    branches:
+      - "main"
+  create:
+      tags: '*'
 jobs:
   run:
-    name: Run
+    name: Test with PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }}
     runs-on: ${{ matrix.operating-system }}
-    services:
-      mariadb:
-        image: mariadb:latest
-        ports:
-          - 3306
-        env:
-          MYSQL_USER: app_db_user
-          MYSQL_PASSWORD: app8as3
-          MYSQL_DATABASE: app
-          MYSQL_ROOT_PASSWORD: mas7er
-        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     strategy:
       fail-fast: false
       matrix:
-        operating-system: [ubuntu-latest]
-        php-versions: ['7.4']
+        operating-system: ['ubuntu-latest', 'ubuntu-20.04']
+        php-versions: ['8.0']
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           fetch-depth: 1
 
-      - name: Verify MariaDB connection
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
         env:
-          PORT: ${{ job.services.mariadb.ports[3306] }}
-        run: |
-          while ! mysqladmin ping -h"127.0.0.1" -P"$PORT" --silent; do
-            sleep 1
-          done
+          runner: self-hosted
 
-      - name: Install
+      - name: Validate composer.json
+        run: composer validate
+
+      - name: Install dependencies
         run: make install
+      
+      - name: PHP info
+        run: php -i
+      
+      - name: Composer info
+        run: composer info
+
+      - name: Run test suite
+        run: composer run-script test
