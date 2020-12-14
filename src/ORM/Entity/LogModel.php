@@ -25,7 +25,7 @@ use Doctrine\ORM\Mapping as ORM;
  * )
  * disabled: Entity(repositoryClass="Gedmo\Loggable\Entity\Repository\LogEntryRepository")
  */
-class LogModel extends MappedSuperclass\AbstractLogEntry
+class LogModel
 {
     /**
      * @var integer $id
