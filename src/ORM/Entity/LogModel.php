@@ -28,7 +28,7 @@ use Doctrine\ORM\Mapping as ORM;
 class LogModel
 {
     /**
-     * @var integer $id
+     * @var int
      *
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -37,58 +37,58 @@ class LogModel
     protected $id;
 
     /**
-     * @var string $action
+     * @var string
      *
      * @ORM\Column(type="string", length=8)
      */
     protected $action;
 
     /**
-     * @var \DateTime $loggedAt
+     * @var \DateTime
      *
      * @ORM\Column(name="logged_at", type="datetime")
      */
     protected $loggedAt;
 
     /**
-     * @var string $objectId
+     * @var string
      *
      * @ORM\Column(name="object_id", length=64, nullable=true)
      */
     protected $objectId;
 
     /**
-     * @var string $objectClass
+     * @var string
      *
      * @ORM\Column(name="object_class", type="string", length=255)
      */
     protected $objectClass;
 
     /**
-     * @var integer $version
+     * @var int
      *
      * @ORM\Column(type="integer")
      */
     protected $version;
 
     /**
-     * @var array $data
+     * @var array
      *
      * @ORM\Column(type="array", nullable=true)
      */
     protected $data;
 
     /**
-     * @var string $data
+     * @var string
      *
      * @ORM\Column(length=255, nullable=true)
      */
     protected $username;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -96,7 +96,7 @@ class LogModel
     }
 
     /**
-     * Get action
+     * Get action.
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class LogModel
     }
 
     /**
-     * Set action
+     * Set action.
      *
      * @param string $action
      */
@@ -116,7 +116,7 @@ class LogModel
     }
 
     /**
-     * Get object class
+     * Get object class.
      *
      * @return string
      */
@@ -126,7 +126,7 @@ class LogModel
     }
 
     /**
-     * Set object class
+     * Set object class.
      *
      * @param string $objectClass
      */
@@ -136,7 +136,7 @@ class LogModel
     }
 
     /**
-     * Get object id
+     * Get object id.
      *
      * @return string
      */
@@ -146,7 +146,7 @@ class LogModel
     }
 
     /**
-     * Set object id
+     * Set object id.
      *
      * @param string $objectId
      */
@@ -156,7 +156,7 @@ class LogModel
     }
 
     /**
-     * Get username
+     * Get username.
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class LogModel
     }
 
     /**
-     * Set username
+     * Set username.
      *
      * @param string $username
      */
@@ -176,7 +176,7 @@ class LogModel
     }
 
     /**
-     * Get loggedAt
+     * Get loggedAt.
      *
      * @return \DateTime
      */
@@ -186,7 +186,7 @@ class LogModel
     }
 
     /**
-     * Set loggedAt to "now"
+     * Set loggedAt to "now".
      */
     public function setLoggedAt()
     {
@@ -194,7 +194,7 @@ class LogModel
     }
 
     /**
-     * Get data
+     * Get data.
      *
      * @return array
      */
@@ -204,7 +204,7 @@ class LogModel
     }
 
     /**
-     * Set data
+     * Set data.
      *
      * @param array $data
      */
@@ -214,9 +214,9 @@ class LogModel
     }
 
     /**
-     * Set current version
+     * Set current version.
      *
-     * @param integer $version
+     * @param int $version
      */
     public function setVersion($version)
     {
@@ -224,9 +224,9 @@ class LogModel
     }
 
     /**
-     * Get current version
+     * Get current version.
      *
-     * @return integer
+     * @return int
      */
     public function getVersion()
     {

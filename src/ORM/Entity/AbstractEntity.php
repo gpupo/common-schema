@@ -222,8 +222,6 @@ abstract class AbstractEntity extends Core implements EntityInterface
 
     /**
      * Set expands.
-     *
-     * @param null|array $expands
      */
     public function setExpands(array $expands = null)
     {

@@ -72,7 +72,7 @@ class GoogleSchema extends SchemaAbstract implements SchemaInterface
 
     public function getSluggables()
     {
-        return  [
+        return [
             'title',
             'category',
             'brand',

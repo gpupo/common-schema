@@ -98,7 +98,7 @@ abstract class AbstractSchema extends CollectionAbstract
                 $s .= '    '.$this->recursiveToTemplate($y, $z);
             }
 
-            return  $s."\n],";
+            return $s."\n],";
         }
 
         return "\n'".$k."' => '".$v."',";
