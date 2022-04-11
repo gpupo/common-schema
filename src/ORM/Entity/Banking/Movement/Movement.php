@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\ORM\Entity\Banking\Movement;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report;
 
 /**
  * Movement.
@@ -124,6 +125,16 @@ class Movement extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
      * @ORM\Column(name="type", type="string", nullable=true, unique=false)
      */
     protected $type;
+
+    /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report
+     *
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report", inversedBy="records", cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="report_id", referencedColumnName="id", nullable=true)
+     * })
+     */
+    protected $report;
 
     /**
      * Set amount.
@@ -483,5 +494,17 @@ class Movement extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     public function getType()
     {
         return $this->type;
+    }
+
+    public function setReport(?Report $report): self
+    {
+        $this->report = $report;
+
+        return $this;
+    }
+
+    public function getReport(): ?Report
+    {
+        return $this->report;
     }
 }

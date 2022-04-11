@@ -10,7 +10,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ORM\Entity\Banking\Report;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Movement;
 
 /**
  * Report.
@@ -105,11 +107,19 @@ class Report extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     protected $records;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Movement", mappedBy="report", cascade={"persist","remove"})
+     */
+    protected $movements;
+
+    /**
      * Constructor.
      */
     public function __construct()
     {
         $this->records = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->movements = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -410,5 +420,41 @@ class Report extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     public function getRecords()
     {
         return $this->records;
+    }
+
+    /**
+     * Add Movement.
+     *
+     * @param Movement $movement
+     *
+     * @return self
+     */
+    public function addMovement(Movement $movement): self
+    {
+        $this->movements[] = $movement;
+
+        return $this;
+    }
+
+    /**
+     * Remove movement.
+     *
+     * @param Movement $movement
+     *
+     * @return bool
+     */
+    public function removeMovement(Movement $movement): self
+    {
+        return $this->movements->removeElement($movement);
+    }
+
+    /**
+     * Gets all Movements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMovements(): Collection
+    {
+        return $this->movements;
     }
 }
