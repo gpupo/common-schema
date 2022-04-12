@@ -8,7 +8,7 @@ declare(strict_types=1);
  * distributed with this source code. For more information, see <https://opensource.gpupo.com/>
  */
 
-namespace Gpupo\CommonSchema\ORM\Entity\Banking\Report;
+namespace Gpupo\CommonSchema\ORM\Entity\Banking\Movement;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
