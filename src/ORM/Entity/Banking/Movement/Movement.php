@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\ORM\Entity\Banking\Movement;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report;
 
 /**
  * Movement.
