@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\Tests\Console\Command;
 
-use App\Entity\Application\API\OAuth\Client\AccessToken;
-use App\Entity\Application\API\OAuth\Provider;
-use App\Entity\Organization\Phone;
+use Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Client\AccessToken;
+use Gpupo\CommonSchema\ORM\Entity\Application\API\OAuth\Provider;
+use Gpupo\CommonSchema\ORM\Entity\Organization\Phone;
 use Gpupo\CommonSchema\Tests\AbstractTestCase;
 
 /**
