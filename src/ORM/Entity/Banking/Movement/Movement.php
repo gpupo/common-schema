@@ -126,7 +126,7 @@ class Movement extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     protected $type;
 
     /**
-     * @var \Gpupo\CommonSchema\ORM\Entity\Banking\Report\Report
+     * @var \Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Report
      *
      * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Report", inversedBy="movements", cascade={"persist"})
      * @ORM\JoinColumns({
