@@ -126,6 +126,16 @@ class Movement extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     protected $type;
 
     /**
+     * @var \Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Report
+     *
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Report", inversedBy="movements", cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="report_id", referencedColumnName="id", nullable=true)
+     * })
+     */
+    protected $report;
+
+    /**
      * Set amount.
      *
      * @param null|float $amount
@@ -483,5 +493,17 @@ class Movement extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     public function getType()
     {
         return $this->type;
+    }
+
+    public function setReport(?Report $report): self
+    {
+        $this->report = $report;
+
+        return $this;
+    }
+
+    public function getReport(): ?Report
+    {
+        return $this->report;
     }
 }

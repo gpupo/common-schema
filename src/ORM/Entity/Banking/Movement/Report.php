@@ -8,7 +8,7 @@ declare(strict_types=1);
  * distributed with this source code. For more information, see <https://opensource.gpupo.com/>
  */
 
-namespace Gpupo\CommonSchema\ORM\Entity\Banking\Report;
+namespace Gpupo\CommonSchema\ORM\Entity\Banking\Movement;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,7 +18,7 @@ use Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Movement;
 /**
  * Report.
  *
- * @ORM\Table(schema="public", name="cs_banking_report", uniqueConstraints={@ORM\UniqueConstraint(name="institution_file_name_idx", columns={"institution", "file_name"})})
+ * @ORM\Table(schema="public", name="cs_banking_movement_report", uniqueConstraints={@ORM\UniqueConstraint(name="institution_file_name_idx", columns={"institution", "file_name"})})
  * @ORM\Entity(repositoryClass="Gpupo\CommonSchema\ORM\EntityRepository\Banking\Report\ReportRepository")
  */
 class Report extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
@@ -28,51 +28,51 @@ class Report extends \Gpupo\CommonSchema\ORM\Entity\AbstractEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record", mappedBy="report", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Banking\Movement\Movement", mappedBy="report", cascade={"persist","remove"})
      */
-    protected $records;
+    protected $movements;
 
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $this->records = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->movements = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add record.
+     * Add Movement.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record $record
+     * @param Movement $movement
      *
-     * @return Report
+     * @return self
      */
-    public function addRecord(Record $record)
+    public function addMovement(Movement $movement): self
     {
-        $this->records[] = $record;
+        $this->movements[] = $movement;
 
         return $this;
     }
 
     /**
-     * Remove record.
+     * Remove movement.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Banking\Report\Record $record
+     * @param Movement $movement
      *
-     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
+     * @return bool
      */
-    public function removeRecord(Record $record)
+    public function removeMovement(Movement $movement): self
     {
-        return $this->records->removeElement($record);
+        return $this->movements->removeElement($movement);
     }
 
     /**
-     * Get records.
+     * Gets all Movements
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getRecords()
+    public function getMovements(): Collection
     {
-        return $this->records;
+        return $this->movements;
     }
 }
