@@ -40,7 +40,6 @@
         "gpupo/common-sdk": "*"
     },
     "replace": {
-        "gpupo/common-schema": "6.0-dev"
     },
     "extra": {
         "branch-alias": {
