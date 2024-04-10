@@ -12,15 +12,12 @@ namespace Gpupo\CommonSchema\ORM\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Gpupo\Common\Entity\AbstractORMEntity as Core;
 use Gpupo\Common\Traits\PreviousAwareTrait;
 use Gpupo\CommonSchema\ORM\EntityDecorator\CollectionContainerTrait;
 
 /**
  * @ORM\MappedSuperclass
- * @Gedmo\Loggable(logEntryClass="\Gpupo\CommonSchema\ORM\Entity\LogModel")
- * @Gedmo\SoftDeleteable(fieldName="deleted_at", timeAware=false)
  */
 abstract class AbstractEntity extends Core implements EntityInterface
 {
@@ -40,14 +37,12 @@ abstract class AbstractEntity extends Core implements EntityInterface
 
     /**
      * @var DateTime (Record creation timestamp)
-     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", nullable=true)
      */
     protected $created_at;
 
     /**
      * @var DateTime (Record update timestamp)
-     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     protected $updated_at;
@@ -55,7 +50,6 @@ abstract class AbstractEntity extends Core implements EntityInterface
     /**
      * @var DateTime
      * @ORM\Column(type="datetime", nullable=true)
-     * @Gedmo\Versioned
      */
     protected $deleted_at;
 
@@ -67,9 +61,15 @@ abstract class AbstractEntity extends Core implements EntityInterface
     protected $expands;
 
     /**
+     * @var null|array
+     *
+     * @ORM\Column(type="json_array",nullable=true,options={"jsonb"=true})
+     */
+    protected $expandb;
+
+    /**
      * @var string
      *
-     * @Gedmo\Blameable(on="create")
      * @ORM\Column(type="string", nullable=true)
      */
     protected $created_by;
@@ -77,7 +77,6 @@ abstract class AbstractEntity extends Core implements EntityInterface
     /**
      * @var string
      *
-     * @Gedmo\Blameable(on="update")
      * @ORM\Column(type="string", nullable=true)
      */
     protected $updated_by;
@@ -223,12 +222,22 @@ abstract class AbstractEntity extends Core implements EntityInterface
 
     /**
      * Set expands.
-     *
-     * @param null|array $expands
      */
-    public function setExpands($expands = null)
+    public function setExpands(array $expands = null)
     {
         $this->expands = $expands;
+
+        return $this;
+    }
+
+    /**
+     * Set expandb.
+     *
+     * @param null|array $expandb
+     */
+    public function setExpandb(array $array = null)
+    {
+        $this->expandb = $array;
 
         return $this;
     }
@@ -241,6 +250,16 @@ abstract class AbstractEntity extends Core implements EntityInterface
     public function getExpands()
     {
         return $this->expands;
+    }
+
+    /**
+     * Get Jsonb expands.
+     *
+     * @return null|array
+     */
+    public function getExpandb()
+    {
+        return $this->expandb;
     }
 
     public function addExpand($key, $value)
